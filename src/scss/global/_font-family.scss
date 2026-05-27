@@ -1,6 +1,6 @@
 // 文字フォントの種類
-$base-font: "Noto Serif JP", serif;
-$second-font: "Noto Sans JP", sans-serif;
+$base-font: "Noto Sans JP", sans-serif;     // 本文・見出し
+$second-font: "Inter", sans-serif;          // 数字・アクセント
 
 // 文字の太さ
 $regular: 400;

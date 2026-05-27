@@ -7,38 +7,24 @@ const autoprefixer = require("gulp-autoprefixer");
 const gcmq = require("gulp-group-css-media-queries");
 const sassGlob = require('gulp-sass-glob-use-forward');
 const webp = require('gulp-webp');
-const fileInclude = require('gulp-file-include');
+
+// WordPress テーマモード: テーマルートに style.css / front-page.php / parts/ を置き、
+// アセットは ./assets/ に出力する。BrowserSync は Local の URL をプロキシする。
+const siteUrl = '260528-test-otomi.local';
 
 const srcBase = './src';
-const distBase = './public_html';
+const distBase = '.';
 
 const srcPath = {
-  // parts/ は @@include で読み込まれるだけなので直接コンパイル対象から除外
-  html: [srcBase + '/html/**/*.html', '!' + srcBase + '/html/parts/**/*.html'],
-  parts: srcBase + '/html/parts/**/*.html',
   scss: srcBase + '/scss/**/*.scss',
   js:   srcBase + '/js/**/*.js',
   img:  srcBase + '/img/**/*.*',
 };
 
 const distPath = {
-  html: distBase + '/',
-  css:  distBase + '/assets/css/',
-  js:   distBase + '/assets/js/',
-  img:  distBase + '/assets/img/',
-};
-
-// HTML（@@include でパーツを展開）
-const buildHtml = () => {
-  return gulp
-    .src(srcPath.html)
-    .pipe(plumber({ errorHandler: notify.onError('Error:<%= error.message %>') }))
-    .pipe(fileInclude({
-      prefix: '@@',
-      basepath: '@file',  // @@include のパスをソースファイル基準で解決
-    }))
-    .pipe(gulp.dest(distPath.html))
-    .pipe(browserSync.stream());
+  css: distBase + '/assets/css/',
+  js:  distBase + '/assets/js/',
+  img: distBase + '/assets/img/',
 };
 
 // SCSS
@@ -75,11 +61,10 @@ const imageWebp = () => {
     .pipe(gulp.dest(distPath.img));
 };
 
-// BrowserSync（静的サーバーモード）
+// BrowserSync（WordPress プロキシモード）
 const browserSyncFunc = () => {
   browserSync.init({
-    server: { baseDir: distBase },
-    port: 3005,
+    proxy: siteUrl,
     open: true,
     ghostMode: false,
   });
@@ -95,11 +80,11 @@ const watchFiles = () => {
   gulp.watch(srcPath.scss, gulp.series(cssSass, copyScss));
   gulp.watch(srcPath.js, gulp.series(jsCopy, browserSyncReload));
   gulp.watch(srcPath.img, gulp.series(imageWebp, browserSyncReload));
-  // HTML本体 or パーツが変わったら全HTML再ビルド
-  gulp.watch([srcPath.html[0], srcPath.parts], gulp.series(buildHtml));
+  // PHP の更新もリロード対象に
+  gulp.watch(['./**/*.php', '!./node_modules/**'], gulp.series(browserSyncReload));
 };
 
 exports.default = gulp.series(
-  gulp.parallel(buildHtml, cssSass, copyScss, jsCopy, imageWebp),
+  gulp.parallel(cssSass, copyScss, jsCopy, imageWebp),
   gulp.parallel(watchFiles, browserSyncFunc),
 );
