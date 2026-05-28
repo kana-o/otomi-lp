@@ -36,8 +36,8 @@
   @media (min-width: 769px) {
     grid-template-columns: 1fr auto;
     grid-template-areas:
-      "top   ctas"
       "logo  ctas"
+      "top   ctas"
       "copy  copy";
     align-items: start;
     column-gap: rem(60);
@@ -48,8 +48,8 @@
 @media (min-width: 769px) {
   .footer__top { grid-area: top; }
   .footer__logo { grid-area: logo; }
-  .footer__ctas { grid-area: ctas; align-self: center; margin: 0; }
-  .footer__copy { grid-area: copy; text-align: left; }
+  .footer__ctas { grid-area: ctas; align-self: center; margin: 0; flex-direction: row; gap: rem(16); }
+  .footer__copy { grid-area: copy; }
 }
 
 .footer__top {
@@ -107,7 +107,8 @@
 .footer__ctas {
   display: flex;
   flex-direction: column;
-  gap: rem(8);
+  align-items: center;
+  gap: rem(12);
 }
 
 .footer__cta {
@@ -115,9 +116,8 @@
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: rem(10);
-  width: rem(222);
+  width: rem(260);
   height: rem(50);
-  margin-inline: auto;
   padding: rem(10) rem(16) rem(10) rem(28);
   border-radius: rem(100);
   font-family: $base-font;

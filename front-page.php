@@ -75,7 +75,7 @@
         そんな仲間を募集しています。
       </p>
       <figure class="safety__photo">
-        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/safety-photo.png" alt="森を抜ける曲がりくねった一本道（俯瞰）" width="350" height="174" loading="lazy">
+        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/safety-photo.png" alt="森を抜ける曲がりくねった一本道（俯瞰）" width="1280" height="380" loading="lazy">
       </figure>
     </div>
   </section>
@@ -659,10 +659,10 @@
           ['q' => '資格取得支援制度はありますか？', 'a' => '大型自動車運転免許など、資格取得を会社がサポートします。'],
           ['q' => '健康面のサポートはありますか？', 'a' => '健康経営優良法人として、定期健康診断や健康管理を徹底しています。'],
         ];
-        foreach ($faqs as $f) :
+        foreach ($faqs as $i => $f) :
         ?>
         <li class="faq__item">
-          <details>
+          <details<?php echo $i === 0 ? ' open' : ''; ?>>
             <summary class="faq__q">
               <span class="faq__mark" aria-hidden="true">Q.</span>
               <span class="faq__q-text"><?php echo esc_html($f['q']); ?></span>
@@ -768,7 +768,7 @@
     </a>
     <div class="footer__ctas">
       <a href="#" class="footer__cta footer__cta--white">
-        <span>採用情報を見る</span>
+        <span>会社サイトを見る</span>
         <span class="footer__cta-arrow" aria-hidden="true">
           <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/cta-arrow.svg" alt="" width="30" height="30">
         </span>
