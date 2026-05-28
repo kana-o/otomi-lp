@@ -147,8 +147,8 @@ Skillに書かれていない細部が必要な場合のみ `.coding-md/` を参
 - `$bg-light`: #F6F9FD（カード背景の薄水色）
 
 ### フォント（global/_font-family.scss）
-- `$base-font`: "Noto Sans JP"（本文・見出し）
-- `$second-font`: "Inter"（数字・アクセント）
+- `$base-font`: "Zen Kaku Gothic New"（本文・見出し / Figma基準）
+- `$second-font`: "Montserrat"（英語・数字 / Figma基準）
 - `$regular`: 400
 - `$medium`: 500
 - `$semi-bold`: 600

@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(claude mcp:*)"
+      "Bash(claude mcp:*)",
+      "Bash(curl *)",
+      "Bash(ls assets/css/)",
+      "Bash(stat -c '%y' assets/css/style.css)",
+      "Bash(stat assets/css/style.css)",
+      "Bash(grep -oE '<\\(text|frame\\) id=\\\\\\\\\"[0-9]+:[0-9]+\\\\\\\\\"[^/]*name=\\\\\\\\\"[^\"\\\\\\\\]*\\(\\\\xe3\\\\x81\\\\x9f\\\\xe3\\\\x81\\\\xa0\\\\xe9\\\\x81\\\\x8b|\\\\xe7\\\\x9b\\\\xb8\\\\xe6\\\\x89\\\\x8b|\\\\xe6\\\\x8e\\\\xa1\\\\xe7\\\\x94\\\\xa8|\\\\xe3\\\\x82\\\\xa8\\\\xe3\\\\x83\\\\xb3\\\\xe3\\\\x83\\\\x88\\\\xe3\\\\x83\\\\xaa|\\\\xe4\\\\xbc\\\\x9a\\\\xe7\\\\xa4\\\\xbe\\\\xe3\\\\x82\\\\xb5\\\\xe3\\\\x82\\\\xa4\\\\xe3\\\\x83\\\\x88|\\\\xe3\\\\x81\\\\x8a\\\\xe5\\\\x95\\\\x8f\\\\xe3\\\\x81\\\\x84\\\\xe5\\\\x90\\\\x88\\\\xe3\\\\x82\\\\x8f\\\\xe3\\\\x81\\\\x9b|Recruit\\)[^\"\\\\\\\\]*\\\\\\\\\"[^/]*' 'C:/Users/ikana/.claude/projects/C--Users-ikana-Local-Sites-260528-test-otomi-app-public-wp-content-themes-otomi-lp/9f1c375e-1f76-4c52-a61f-1b45cbc367a8/tool-results/mcp-figma-get_metadata-1779952522496.txt')",
+      "Bash(grep -oE '<\\(text|frame|rounded-rectangle|ellipse\\) id=\\\\\\\\\"[0-9]+:[0-9]+\\\\\\\\\" name=\\\\\\\\\"[^\"\\\\\\\\]*\\\\\\\\\"[^>]*' 'C:/Users/ikana/.claude/projects/C--Users-ikana-Local-Sites-260528-test-otomi-app-public-wp-content-themes-otomi-lp/9f1c375e-1f76-4c52-a61f-1b45cbc367a8/tool-results/mcp-figma-get_metadata-1779952522496.txt')",
+      "Bash(grep -oE '<\\(text|frame|rounded-rectangle|ellipse\\) id=\\\\\\\\\"[0-9]+:[0-9]+\\\\\\\\\" name=\\\\\\\\\"[^\"\\\\\\\\]*\\\\\\\\\"[^>]*' 'C:/Users/ikana/.claude/projects/C--Users-ikana-Local-Sites-260528-test-otomi-app-public-wp-content-themes-otomi-lp/9f1c375e-1f76-4c52-a61f-1b45cbc367a8/tool-results/mcp-figma-get_metadata-1779952501354.txt')"
     ]
   }
 }

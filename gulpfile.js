@@ -61,6 +61,13 @@ const imageWebp = () => {
     .pipe(gulp.dest(distPath.img));
 };
 
+// 画像（svg/png/jpg/gif）をそのままコピー（SVGや元画像の参照を有効にする）
+const imageCopy = () => {
+  return gulp
+    .src(srcBase + '/img/**/*.+(jpg|jpeg|png|gif|svg)', { encoding: false })
+    .pipe(gulp.dest(distPath.img));
+};
+
 // BrowserSync（WordPress プロキシモード）
 const browserSyncFunc = () => {
   browserSync.init({
@@ -79,12 +86,12 @@ const browserSyncReload = (done) => {
 const watchFiles = () => {
   gulp.watch(srcPath.scss, gulp.series(cssSass, copyScss));
   gulp.watch(srcPath.js, gulp.series(jsCopy, browserSyncReload));
-  gulp.watch(srcPath.img, gulp.series(imageWebp, browserSyncReload));
+  gulp.watch(srcPath.img, gulp.series(gulp.parallel(imageWebp, imageCopy), browserSyncReload));
   // PHP の更新もリロード対象に
   gulp.watch(['./**/*.php', '!./node_modules/**'], gulp.series(browserSyncReload));
 };
 
 exports.default = gulp.series(
-  gulp.parallel(cssSass, copyScss, jsCopy, imageWebp),
+  gulp.parallel(cssSass, copyScss, jsCopy, imageWebp, imageCopy),
   gulp.parallel(watchFiles, browserSyncFunc),
 );

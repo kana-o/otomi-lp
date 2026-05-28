@@ -1,0 +1,3066 @@
+@charset "UTF-8";
+
+body {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  color: #1B1B1B;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a[href^="tel:"] {
+  pointer-events: none;
+}
+
+a {
+  transition: opacity 0.3s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+
+ul,
+ol {
+  padding: 0;
+}
+
+/* Remove default margin */
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core root defaults */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+
+img {
+  max-width: 100%;
+  display: block;
+  width: 100%;
+}
+
+/* Natural flow and rhythm in articles by default */
+
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Blur images when they have no alt attribute */
+
+img:not([alt]) {
+  filter: blur(10px);
+}
+
+/* フォームリセット */
+
+input,
+button,
+select,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  display: none;
+}
+
+input[type=submit],
+input[type=button],
+label,
+button,
+select {
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-width: 17.5rem;
+  padding: 1.25rem 2.5rem;
+  background-color: #008CD6;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 62.4375rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+/* 共通パーツ */
+
+.inner {
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 5rem;
+  margin-inline: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.tab-show {
+  display: none;
+}
+
+.sp-show {
+  display: none;
+}
+
+/* ヘッダーは FV 内に絶対配置（透過オーバーレイ） */
+
+.header {
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-block: 2.4375rem;
+  padding-inline: 5rem;
+}
+
+.header__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.header__logo {
+  display: inline-block;
+}
+
+.header__logo img {
+  display: block;
+  width: 8.75rem;
+  height: auto;
+}
+
+.header__tag {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.header__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header__nav-link {
+  display: inline-grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.625rem;
+  min-width: 7.75rem;
+  padding: 0.25rem 0.5rem 0.25rem 1.0625rem;
+  background-color: #FFFFFF;
+  border-radius: 6.25rem;
+  color: #1B1B1B;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.header__nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.0625rem;
+  height: 1.0625rem;
+}
+
+.header__nav-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.footer {
+  position: relative;
+  background-color: #008CD6;
+  color: #FFFFFF;
+  border-radius: 0.9375rem 0.9375rem 0 0;
+  padding-block: 4.375rem 2.5rem;
+  overflow: hidden;
+}
+
+.footer__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.footer__bg img {
+  position: absolute;
+  top: -1.625rem;
+  left: -11.875rem;
+  width: 55.125rem;
+  height: auto;
+  display: block;
+  transform: rotate(175.56deg) scaleY(-1);
+  opacity: 0.6;
+}
+
+.footer__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer__company-name {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+  -webkit-margin-after: 1.25rem;
+          margin-block-end: 1.25rem;
+}
+
+.footer__company-addr,
+.footer__company-tel {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.footer__company-tel {
+  -webkit-margin-before: 0.25rem;
+          margin-block-start: 0.25rem;
+}
+
+.footer__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+}
+
+.footer__social img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.footer__logo {
+  display: inline-block;
+  -webkit-margin-start: -0.625rem;
+          margin-inline-start: -0.625rem;
+}
+
+.footer__logo img {
+  width: 13.9375rem;
+  height: auto;
+  display: block;
+}
+
+.footer__ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__cta {
+  display: inline-grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.625rem;
+  width: 13.875rem;
+  height: 3.125rem;
+  margin-inline: auto;
+  padding: 0.625rem 1rem 0.625rem 1.75rem;
+  border-radius: 6.25rem;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.footer__cta--white {
+  background-color: #FFFFFF;
+  color: #1B1B1B;
+}
+
+.footer__cta--blue {
+  background-color: #008CD6;
+  color: #FFFFFF;
+  border: 0.0625rem solid #FFFFFF;
+}
+
+.footer__cta--blue .footer__cta-arrow img {
+  filter: brightness(0) invert(1);
+}
+
+.footer__cta-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.875rem;
+  height: 1.875rem;
+}
+
+.footer__cta-arrow img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.footer__copy {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
+}
+
+/* =========================================================
+   共通の見出しパターン (eyebrow + section title)
+   各セクションが BEM の block として独立しているため、
+   見た目の繰り返し部分は section ごとに記述する。
+   ========================================================= */
+
+/* =========================================================
+   FV (KV)
+   Figma準拠: SP=391x807相当 / PC=1440x807
+   ========================================================= */
+
+.fv {
+  position: relative;
+  width: 100%;
+  min-height: 50.4375rem;
+  overflow: hidden;
+  color: #FFFFFF;
+}
+
+.fv__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* 青ベース（マスクで隠れた部分に見える色） */
+
+.fv__bg-blue {
+  position: absolute;
+  inset: 0;
+  background-color: #008CD6;
+}
+
+/* PC: トラック写真 + ブルーリボン合成画像 */
+
+.fv__bg-photo--pc {
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/pc/fv_pc.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* SP: トラック写真をフルブリードで表示 */
+
+.fv__bg-photo--sp {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/sp/fv_sp.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+/* SP用: 下半分にブルーグラデーション（コーディングで実装） */
+
+.fv__bg-gradient {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 140, 214, 0) 36.96%, rgba(0, 140, 214, 0.63) 100%);
+}
+
+.fv__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 50.4375rem;
+  padding-inline: 5rem;
+  padding-block: 2.4375rem 4.1875rem;
+  display: grid;
+}
+
+.fv__copy {
+  align-self: end;
+  max-width: 56.25rem;
+}
+
+.fv__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  text-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem;
+}
+
+.fv__lead {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
+  -webkit-margin-after: 1.5625rem;
+          margin-block-end: 1.5625rem;
+}
+
+.fv__cta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.fv__cta-btn {
+  display: inline-grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2.125rem;
+  width: 16.25rem;
+  padding: 1.6875rem 0.75rem 1.6875rem 3.625rem;
+  border-radius: 6.25rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.fv__cta-btn--white {
+  background-color: #FFFFFF;
+  color: #1B1B1B;
+}
+
+.fv__cta-btn--blue {
+  background-color: #008CD6;
+  color: #FFFFFF;
+}
+
+.fv__cta-btn--blue .fv__cta-icon img {
+  filter: brightness(0) invert(1);
+}
+
+.fv__cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.875rem;
+  height: 1.875rem;
+}
+
+.fv__cta-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================================================
+   Safety 安全に / SP node-id 574:76
+   ========================================================= */
+
+.safety {
+  padding-block: 7.5rem 5rem;
+  background-color: #FFFFFF;
+}
+
+.safety__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.safety__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #1B1B1B;
+}
+
+.safety__text {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: #1B1B1B;
+}
+
+.safety__photo {
+  margin: 0;
+  width: 100%;
+  max-width: 21.875rem;
+  border-radius: 0.3125rem;
+  overflow: hidden;
+}
+
+.safety__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 350/174;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* =========================================================
+   Placeholder（未実装セクション用の暫定スタイル）
+   各セクション実装時に該当ブロックを削除し、本実装に置き換え
+   ========================================================= */
+
+.placeholder {
+  padding-block: 3.75rem;
+  background-color: #F6F9FD;
+  border-block: 0.0625rem dashed #BABABA;
+}
+
+.placeholder__label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #BABABA;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+/* =========================================================
+   Future 思い描く未来 / SP node-id 574:122
+   ========================================================= */
+
+.future {
+  padding-block: 5rem 3.75rem;
+  background-color: #FFFFFF;
+}
+
+.future__inner {
+  display: grid;
+  gap: 2rem;
+}
+
+.future__head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.future__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.future__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1B1B1B;
+}
+
+.future__lead {
+  width: 11rem;
+  max-width: 100%;
+}
+
+.future__lead img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.future__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.future__item {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.78);
+  border-radius: 0.3125rem;
+  -webkit-padding-after: 1.25rem;
+          padding-block-end: 1.25rem;
+  overflow: hidden;
+  display: grid;
+  gap: 0.5rem;
+  border: 0.0625rem solid rgba(0, 140, 214, 0.15);
+}
+
+.future__item-img {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 350/233;
+  overflow: hidden;
+}
+
+.future__item-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.future__item-no {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #008CD6;
+  padding-inline: 1.25rem;
+  -webkit-padding-before: 0.375rem;
+          padding-block-start: 0.375rem;
+}
+
+.future__item-title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1B1B1B;
+  padding-inline: 1.25rem;
+}
+
+.future__item-text {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #1B1B1B;
+  padding-inline: 1.25rem;
+}
+
+/* =========================================================
+   Five Principles 五か条 / SP node-id 574:123
+   ========================================================= */
+
+.five {
+  padding-block: 3.75rem 5rem;
+  background-color: #FFFFFF;
+}
+
+.five__inner {
+  position: relative;
+  background-color: #ebf1fa;
+  border-radius: 0.625rem;
+  padding: 2.5rem 1.25rem;
+  overflow: hidden;
+}
+
+.five__bg {
+  position: absolute;
+  top: -1.5625rem;
+  left: -7.8125rem;
+  width: 45.125rem;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.five__bg img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: rotate(180deg);
+}
+
+.five__head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  -webkit-margin-after: 2rem;
+          margin-block-end: 2rem;
+  -webkit-padding-start: 0.4375rem;
+          padding-inline-start: 0.4375rem;
+}
+
+.five__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.five__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1B1B1B;
+}
+
+.five__list {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.five__item {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  grid-template-areas: "icon title" "text text";
+  gap: 0.625rem 0.75rem;
+  padding: 1.125rem;
+  background-color: #f7f7f7;
+  border-radius: 0.5rem;
+  align-items: start;
+}
+
+.five__item-icon {
+  grid-area: icon;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  -webkit-margin-start: 0.875rem;
+          margin-inline-start: 0.875rem;
+}
+
+.five__item-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.five__item-title {
+  grid-area: title;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1B1B1B;
+  align-self: center;
+}
+
+.five__item-text {
+  grid-area: text;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #1B1B1B;
+}
+
+/* =========================================================
+   Message メッセージ / SP node-id 574:224
+   ========================================================= */
+
+.message {
+  padding-block: 3.75rem;
+  background-color: #FFFFFF;
+}
+
+.message__inner {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.message__head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.message__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.message__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1B1B1B;
+}
+
+.message__photo {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 350/233;
+  border-radius: 0.3125rem;
+  overflow: hidden;
+}
+
+.message__photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.message__lead {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1B1B1B;
+}
+
+.message__body {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #1B1B1B;
+}
+
+.message__signature {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1B1B1B;
+}
+
+/* =========================================================
+   Voice 働く人の声 / SP node-id 574:225
+   ========================================================= */
+
+.voice {
+  padding-block: 3.75rem;
+  background-color: #FFFFFF;
+}
+
+.voice__inner {
+  position: relative;
+  border: 0.0625rem solid #008CD6;
+  border-radius: 0.625rem;
+  padding: 2.5rem 1.25rem 3.75rem;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+.voice__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.voice__bg-ribbon {
+  position: absolute;
+  opacity: 0.4;
+}
+
+.voice__bg-ribbon--1 {
+  top: -4.5rem;
+  left: -9.6875rem;
+  width: 53.375rem;
+  transform: rotate(-3.23deg);
+}
+
+.voice__bg-ribbon--2 {
+  top: 1.8125rem;
+  left: -30.625rem;
+  width: 63.5625rem;
+  transform: rotate(-9.69deg);
+}
+
+.voice__head {
+  position: relative;
+  text-align: left;
+  -webkit-margin-after: 2rem;
+          margin-block-end: 2rem;
+  -webkit-padding-start: 1.25rem;
+          padding-inline-start: 1.25rem;
+}
+
+.voice__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+  text-align: center;
+  -webkit-margin-after: 0.5rem;
+          margin-block-end: 0.5rem;
+}
+
+.voice__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1B1B1B;
+}
+
+.voice__slider {
+  position: relative;
+}
+
+.voice__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.voice__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #FFFFFF;
+  border-radius: 0.25rem;
+}
+
+.voice__item-photo {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 243/184;
+  border-radius: 0.1875rem;
+  overflow: hidden;
+}
+
+.voice__item-photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.voice__item-lead {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+  line-height: 1.5;
+}
+
+.voice__item-name {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #1B1B1B;
+  line-height: 1.5;
+}
+
+.voice__item-role {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #1B1B1B;
+  line-height: 1.5;
+}
+
+.voice__controls {
+  display: none;
+}
+
+.voice__nav {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  width: 2.8125rem;
+  height: 2.8125rem;
+}
+
+.voice__nav img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =========================================================
+   Culture カルチャー / SP node-id 574:344
+   ========================================================= */
+
+.culture {
+  padding-block: 3.75rem;
+  background-color: #FFFFFF;
+}
+
+.culture__inner {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.culture__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.culture__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.culture__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1B1B1B;
+}
+
+.culture__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.culture__item {
+  position: relative;
+  background-color: #ebf1fa;
+  border-radius: 0.625rem;
+  padding: 2.5rem 1.25rem;
+  overflow: hidden;
+  min-height: 14.6875rem;
+}
+
+.culture__item-ribbon {
+  position: absolute;
+  width: 45rem;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.culture__item:nth-child(1) .culture__item-ribbon {
+  top: -1.6875rem;
+  left: -3rem;
+  transform: rotate(-3.23deg);
+}
+
+.culture__item:nth-child(2) .culture__item-ribbon {
+  top: -16.3125rem;
+  left: -12.9375rem;
+  width: 47.25rem;
+  transform: rotate(116.96deg);
+}
+
+.culture__item:nth-child(3) .culture__item-ribbon {
+  top: 3.5625rem;
+  left: -26.25rem;
+  width: 44.625rem;
+  transform: rotate(-9.69deg);
+}
+
+.culture__item-title {
+  position: relative;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1B1B1B;
+  -webkit-margin-after: 1.5rem;
+          margin-block-end: 1.5rem;
+}
+
+.culture__item-text {
+  position: relative;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #1B1B1B;
+}
+
+.culture__team {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 4096/2731;
+  border-radius: 0.625rem;
+  overflow: hidden;
+}
+
+.culture__team img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+/* =========================================================
+   Daily 社員の一日 / SP node-id 577:466
+   ========================================================= */
+
+.daily {
+  padding-block: 3.75rem;
+  background-color: #FFFFFF;
+}
+
+.daily__inner {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.daily__head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.daily__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.daily__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1B1B1B;
+}
+
+.daily__tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.daily__tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  padding-inline: 1.5rem;
+  background-color: #FFFFFF;
+  border: 0.0625rem solid #008CD6;
+  border-radius: 2.5rem;
+  color: #008CD6;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.daily__tab.is-active {
+  background-color: #008CD6;
+  color: #FFFFFF;
+}
+
+.daily__panel[hidden] {
+  display: none;
+}
+
+.daily__timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.daily__timeline-item {
+  display: grid;
+  grid-template-columns: 1.25rem 4.375rem 1fr;
+  gap: 0rem 1.25rem;
+  background-color: #f3f7fe;
+  border-radius: 0.375rem;
+  padding: 1.25rem 1.25rem 1.25rem 0.875rem;
+  position: relative;
+  align-items: start;
+}
+
+.daily__timeline-dot {
+  grid-column: 1;
+  grid-row: 1/span 2;
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: #008CD6;
+  border-radius: 50%;
+  align-self: start;
+  -webkit-margin-before: 0.3125rem;
+          margin-block-start: 0.3125rem;
+}
+
+.daily__timeline-time {
+  grid-column: 2;
+  grid-row: 1;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1B1B1B;
+}
+
+.daily__timeline-body {
+  grid-column: 2/span 2;
+  grid-row: 2;
+  -webkit-margin-before: 0.5rem;
+          margin-block-start: 0.5rem;
+}
+
+.daily__timeline-title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1B1B1B;
+  line-height: 1.3;
+  -webkit-margin-after: 0.5rem;
+          margin-block-end: 0.5rem;
+}
+
+.daily__timeline-text {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #1B1B1B;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   Career キャリアパス（評価制度）/ SP node-id 577:680
+   ========================================================= */
+
+.career {
+  padding-block: 3.75rem;
+  background-color: #FFFFFF;
+}
+
+.career__inner {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.career__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.career__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.career__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1B1B1B;
+}
+
+.career__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  padding: 0.375rem 1.5rem;
+  background-color: #008CD6;
+  color: #FFFFFF;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 0.1875rem;
+  line-height: 1.2;
+}
+
+.career__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.career__item {
+  position: relative;
+  background-color: #ebf1fa;
+  border-radius: 0.3125rem;
+  padding: 1rem;
+  filter: drop-shadow(5px 5px 7.5px rgba(0, 0, 0, 0.1));
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.5rem 0.875rem;
+  align-items: start;
+}
+
+.career__item-num {
+  grid-column: 1;
+  grid-row: 1/span 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.career__item-num img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.career__item-title {
+  grid-column: 2;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #121212;
+  line-height: 1.5;
+}
+
+.career__item-text {
+  grid-column: 2;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #121212;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   Stats 数字で見る大富運輸 / SP node-id 589:416
+   ========================================================= */
+
+.stats {
+  padding-block: 3.75rem;
+  background-color: #FFFFFF;
+}
+
+.stats__inner {
+  background-color: #ebf1fa;
+  border-radius: 0.9375rem;
+  padding: 2.5rem 1.125rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.stats__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stats__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.stats__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1B1B1B;
+}
+
+.stats__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.stats__item {
+  position: relative;
+  background-color: #f7f7f7;
+  border-radius: 0.3125rem;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 4rem 1.25rem 1.75rem;
+  display: grid;
+  grid-template-columns: 4.125rem 1fr;
+  grid-template-areas: "icon value" "icon desc";
+  gap: 0.5rem 1.25rem;
+  align-items: center;
+}
+
+.stats__item-label {
+  grid-area: label;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #008CD6;
+  color: #FFFFFF;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 0.375rem 1.5rem;
+  border-radius: 0 0 0.1875rem 0.1875rem;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.stats__item-icon {
+  grid-area: icon;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.125rem;
+  height: 4.125rem;
+}
+
+.stats__item-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.stats__item-value {
+  grid-area: value;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1B1B1B;
+  text-align: center;
+}
+
+.stats__item-desc {
+  grid-area: desc;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1B1B1B;
+  text-align: center;
+}
+
+/* =========================================================
+   Environment 働く環境 / SP node-id 577:733
+   ========================================================= */
+
+.environment {
+  padding-block: 3.75rem;
+  background-color: #FFFFFF;
+}
+
+.environment__inner {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.environment__head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.environment__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.environment__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1B1B1B;
+}
+
+.environment__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.environment__item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.environment__item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8125rem;
+  height: 1.8125rem;
+  flex-shrink: 0;
+}
+
+.environment__item-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.environment__item-text {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1B1B1B;
+}
+
+.environment__photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem;
+}
+
+.environment__photo {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 173/311;
+  border-radius: 0.125rem;
+  overflow: hidden;
+}
+
+.environment__photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+/* =========================================================
+   Benefits 福利厚生 / SP node-id 589:415
+   ========================================================= */
+
+.benefits {
+  padding-block: 3.75rem;
+  background-color: #FFFFFF;
+}
+
+.benefits__inner {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.benefits__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.benefits__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.benefits__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1B1B1B;
+}
+
+.benefits__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.benefits__item {
+  background-color: #f7f7f7;
+  border-radius: 0.1875rem;
+  padding: 1rem 1.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.benefits__item-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8125rem;
+}
+
+.benefits__item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.benefits__item-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.benefits__item-title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1B1B1B;
+}
+
+.benefits__item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+}
+
+.benefits__item-li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9375rem;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1B1B1B;
+  line-height: 1.4;
+}
+
+.benefits__item-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 1.25rem;
+  height: 1.375rem;
+  flex-shrink: 0;
+  -webkit-margin-before: 0.125rem;
+          margin-block-start: 0.125rem;
+}
+
+.benefits__item-check img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =========================================================
+   System 研修制度 / SP node-id 577:1377
+   ========================================================= */
+
+.system {
+  position: relative;
+  padding-block: 3.75rem;
+  background-color: #FFFFFF;
+}
+
+.system__inner {
+  position: relative;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.system__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.system__bg img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.system__head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 1;
+}
+
+.system__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.system__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1B1B1B;
+}
+
+.system__steps {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1;
+}
+
+.system__step {
+  background-color: #f7f7f7;
+  border-radius: 0.3125rem;
+  padding: 1rem 1.25rem;
+  box-shadow: 5px 5px 7.5px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.system__step-step {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.system__step-arrows {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.system__step-arrows img {
+  display: block;
+  width: 1.4375rem;
+  height: 1rem;
+}
+
+.system__step-title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1B1B1B;
+}
+
+.system__step-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.system__step-items li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1B1B1B;
+}
+
+.system__badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  padding: 0.375rem 1.5rem;
+  background-color: #008CD6;
+  color: #FFFFFF;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 0.1875rem;
+  line-height: 1.2;
+}
+
+.system__cards {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.system__card {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.system__card-img {
+  margin: 0;
+  aspect-ratio: 169/104;
+  border-radius: 0.1875rem;
+  overflow: hidden;
+}
+
+.system__card-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.system__card-title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1B1B1B;
+}
+
+.system__card-text {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1B1B1B;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   Satisfaction 仕事のやりがい / SP node-id 578:1514
+   スクロール出現アニメ + 4枚カード
+   ========================================================= */
+
+.satisfaction {
+  padding-block: 3.75rem;
+  background-color: #FFFFFF;
+}
+
+.satisfaction__inner {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.satisfaction__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.satisfaction__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.satisfaction__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1B1B1B;
+}
+
+.satisfaction__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.satisfaction__card {
+  position: relative;
+  border-radius: 0.3125rem;
+  padding: 1rem 1.25rem;
+  filter: drop-shadow(3px 3px 7.5px rgba(0, 0, 0, 0.1));
+  display: grid;
+  gap: 1.5rem;
+  opacity: 0;
+  transform: translateY(2.5rem);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.satisfaction__card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.satisfaction__card--lvl-1 {
+  background-color: #f6fafd;
+}
+
+.satisfaction__card--lvl-2 {
+  background-color: #ebf1fa;
+}
+
+.satisfaction__card--lvl-3 {
+  background-color: #c9dced;
+}
+
+.satisfaction__card--lvl-4 {
+  background-color: #aed4ec;
+}
+
+.satisfaction__card-no {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.1875rem 1.125rem;
+  background-color: #008CD6;
+  color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.1875rem;
+  line-height: 1.2;
+}
+
+.satisfaction__card-title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1B1B1B;
+}
+
+.satisfaction__card-text {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1B1B1B;
+  line-height: 1.5;
+}
+
+.satisfaction__card-img {
+  margin: 0;
+  aspect-ratio: 310/118;
+  border-radius: 0.3125rem;
+  overflow: hidden;
+}
+
+.satisfaction__card-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+/* =========================================================
+   Recruitment 募集要項 / SP node-id 578:1664
+   ========================================================= */
+
+.recruitment {
+  padding-block: 3.75rem;
+  background-color: #FFFFFF;
+}
+
+.recruitment__inner {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.recruitment__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.recruitment__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.recruitment__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1B1B1B;
+}
+
+.recruitment__cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.recruitment__card {
+  position: relative;
+  background-color: #f7f7f7;
+  border-radius: 0.3125rem;
+  padding: 1.5rem 1.125rem 2.5rem;
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+}
+
+.recruitment__card-photo {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 314/198;
+  border-radius: 0.3125rem;
+  overflow: hidden;
+}
+
+.recruitment__card-photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.recruitment__card-badge {
+  -webkit-margin-before: -1.9375rem;
+          margin-block-start: -1.9375rem;
+  background-color: #008CD6;
+  color: #FFFFFF;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 0.1875rem 1.125rem;
+  border-radius: 0.1875rem;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.recruitment__card-dl {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 0;
+  -webkit-padding-before: 0.5rem;
+          padding-block-start: 0.5rem;
+  width: 100%;
+}
+
+.recruitment__card-row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 1rem;
+  -webkit-padding-after: 1.5rem;
+          padding-block-end: 1.5rem;
+  -webkit-border-after: 0.0625rem solid rgba(0, 140, 214, 0.2);
+          border-block-end: 0.0625rem solid rgba(0, 140, 214, 0.2);
+  align-items: start;
+}
+
+.recruitment__card-row:last-child {
+  -webkit-border-after: 0;
+          border-block-end: 0;
+  -webkit-padding-after: 0;
+          padding-block-end: 0;
+}
+
+.recruitment__card-row dt {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.recruitment__card-row dd {
+  margin: 0;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1B1B1B;
+  line-height: 1.5;
+}
+
+.recruitment__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  padding: 0.375rem 1.5rem;
+  background-color: #008CD6;
+  color: #FFFFFF;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 0.1875rem;
+  line-height: 1.2;
+}
+
+.recruitment__flow {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8125rem;
+}
+
+.recruitment__flow-item {
+  position: relative;
+  border-radius: 0.3125rem;
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "step ." "title icon";
+  gap: 0.5rem 1.25rem;
+  align-items: center;
+  min-height: 10.625rem;
+}
+
+.recruitment__flow-item--flow-bg-1 {
+  background-color: #f6fafd;
+}
+
+.recruitment__flow-item--flow-bg-2 {
+  background-color: #ebf4fa;
+}
+
+.recruitment__flow-item--flow-bg-3 {
+  background-color: #c9dced;
+}
+
+.recruitment__flow-item--flow-bg-4 {
+  background-color: #aed4ec;
+}
+
+.recruitment__flow-step {
+  grid-area: step;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.recruitment__flow-title {
+  grid-area: title;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.recruitment__flow-icon {
+  grid-area: icon;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+}
+
+.recruitment__flow-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =========================================================
+   FAQ / SP node-id 578:1843
+   ========================================================= */
+
+.faq {
+  padding-block: 3.75rem;
+  background-color: #FFFFFF;
+}
+
+.faq__inner {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.faq__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.faq__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.faq__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1B1B1B;
+}
+
+.faq__note {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1B1B1B;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.faq__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.faq__item {
+  background-color: #ebf1fa;
+  border-radius: 0.3125rem;
+  overflow: hidden;
+}
+
+.faq__item details summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq__q {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr 1.875rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9375rem 0.9375rem 0.9375rem 0.9375rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1B1B1B;
+}
+
+.faq__mark {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #1B1B1B;
+  line-height: 1;
+}
+
+.faq__q-text {
+  font-size: 1rem;
+}
+
+.faq__arrow {
+  display: inline-block;
+  width: 1.25rem;
+  height: 0.125rem;
+  background-color: #008CD6;
+  transition: transform 0.3s;
+  justify-self: end;
+}
+
+.faq__item details[open] .faq__arrow {
+  transform: rotate(180deg);
+}
+
+.faq__a {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1rem;
+  padding: 0.9375rem 0.9375rem 1.25rem;
+  background-color: #FFFFFF;
+}
+
+.faq__a-text {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1B1B1B;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   Entry エントリー / SP node-id 578:1926
+   ========================================================= */
+
+.entry {
+  padding-block: 3.75rem;
+  background-color: #FFFFFF;
+}
+
+.entry__inner {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.entry__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.entry__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.5625rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1B1B1B;
+}
+
+.entry__title-en {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: 2.125rem;
+  font-weight: 600;
+}
+
+.entry__eyebrow-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6875rem;
+}
+
+.entry__eyebrow-line {
+  display: inline-block;
+  width: 8.25rem;
+  height: 0.0625rem;
+  background-color: #008CD6;
+}
+
+.entry__eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #008CD6;
+}
+
+.entry__lead {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1B1B1B;
+  line-height: 1.5;
+}
+
+.entry__line-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-inline: auto;
+  padding: 0 1.25rem;
+  background-color: #06c755;
+  color: #FFFFFF;
+  border-radius: 0.625rem;
+  height: 2.875rem;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.entry__line-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.875rem;
+  height: 2.875rem;
+}
+
+.entry__line-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 0.625rem;
+}
+
+.entry__form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.entry__form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.entry__form-label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1B1B1B;
+}
+
+.entry__form-required {
+  font-family: "Zen Old Mincho", serif;
+  font-size: 0.75rem;
+  color: #911111;
+}
+
+.entry__form-input {
+  width: 100%;
+  padding: 0.6875rem 0.875rem;
+  height: 2.875rem;
+  background-color: #f7f7f7;
+  border: 0;
+  border-radius: 0.3125rem;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1B1B1B;
+}
+
+.entry__form-input::-moz-placeholder {
+  color: #BABABA;
+}
+
+.entry__form-input::placeholder {
+  color: #BABABA;
+}
+
+.entry__form-input:focus {
+  outline: 0.125rem solid #008CD6;
+  outline-offset: 0.125rem;
+}
+
+.entry__form-textarea {
+  height: 16.25rem;
+  resize: vertical;
+  padding-block: 0.6875rem;
+}
+
+.entry__form-select {
+  position: relative;
+}
+
+.entry__form-select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  width: 0.8125rem;
+  height: 0.8125rem;
+  background: url("../img/common/select-arrow.svg") no-repeat center/contain;
+  transform: translateY(-50%) rotate(180deg);
+  pointer-events: none;
+}
+
+.entry__form-select .entry__form-input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-padding-end: 2.5rem;
+          padding-inline-end: 2.5rem;
+}
+
+.entry__form-submit {
+  display: inline-grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.625rem;
+  width: 13.875rem;
+  height: 3.125rem;
+  margin-inline: auto;
+  padding: 0.625rem 1rem 0.625rem 1.75rem;
+  background-color: #008CD6;
+  color: #FFFFFF;
+  border: 0;
+  border-radius: 6.25rem;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.entry__form-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.875rem;
+  height: 1.875rem;
+}
+
+.entry__form-arrow img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+/* =========================================================
+   PC 共通サイズ・微調整（768px超）
+   ========================================================= */
+
+@media (min-width: 769px) {
+  .footer__inner {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "top   ctas" "logo  ctas" "copy  copy";
+    align-items: start;
+    -moz-column-gap: 3.75rem;
+         column-gap: 3.75rem;
+    row-gap: 2rem;
+  }
+
+  .footer__top {
+    grid-area: top;
+  }
+
+  .footer__logo {
+    grid-area: logo;
+  }
+
+  .footer__ctas {
+    grid-area: ctas;
+    align-self: center;
+    margin: 0;
+  }
+
+  .footer__copy {
+    grid-area: copy;
+    text-align: left;
+  }
+
+  .safety__inner {
+    display: grid;
+    grid-template-columns: 1fr 30rem;
+    grid-template-areas: "title photo" "text photo";
+    -moz-column-gap: 3.75rem;
+         column-gap: 3.75rem;
+    row-gap: 1.5rem;
+    align-items: start;
+  }
+
+  .safety__title {
+    grid-area: title;
+  }
+
+  .safety__text {
+    grid-area: text;
+  }
+
+  .safety__photo {
+    grid-area: photo;
+    max-width: none;
+    align-self: center;
+  }
+
+  .future__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .five__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .message__inner {
+    max-width: 56.25rem;
+    margin-inline: auto;
+  }
+
+  .voice__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .culture__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .daily__inner {
+    max-width: 56.25rem;
+    margin-inline: auto;
+  }
+
+  .daily__tabs {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .career__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .stats__list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .environment__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    -moz-column-gap: 2.5rem;
+         column-gap: 2.5rem;
+    row-gap: 1rem;
+  }
+
+  .environment__photos {
+    gap: 1rem;
+    max-width: 30rem;
+    margin-inline: auto;
+  }
+
+  .benefits__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .system__steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .system__cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .satisfaction__card {
+    grid-template-columns: 1fr 27.5rem;
+    grid-template-areas: "no img" "title img" "text img";
+    align-items: center;
+    -moz-column-gap: 3rem;
+         column-gap: 3rem;
+    row-gap: 1rem;
+    padding: 3rem 3.75rem;
+    border-radius: 1.875rem;
+  }
+
+  .satisfaction__card-no {
+    grid-area: no;
+  }
+
+  .satisfaction__card-title {
+    grid-area: title;
+  }
+
+  .satisfaction__card-text {
+    grid-area: text;
+  }
+
+  .satisfaction__card-img {
+    grid-area: img;
+    align-self: stretch;
+  }
+
+  .recruitment__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .recruitment__flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  .faq__inner {
+    max-width: 56.25rem;
+    margin-inline: auto;
+  }
+
+  .entry__inner {
+    max-width: 45rem;
+    margin-inline: auto;
+  }
+
+  /* 各セクションのタイトル size up（PCはZen Kaku Gothic New Bold 40px） */
+
+  .future__title,
+  .five__title,
+  .message__title,
+  .voice__title,
+  .culture__title,
+  .daily__title,
+  .career__title,
+  .stats__title,
+  .environment__title,
+  .benefits__title,
+  .system__title,
+  .satisfaction__title,
+  .recruitment__title,
+  .faq__title {
+    font-size: 2.5rem;
+  }
+
+  /* eyebrow（Inter Bold）も少し大きく */
+
+  .future__eyebrow,
+  .five__eyebrow,
+  .message__eyebrow,
+  .voice__eyebrow,
+  .culture__eyebrow,
+  .daily__eyebrow,
+  .career__eyebrow,
+  .stats__eyebrow,
+  .environment__eyebrow,
+  .benefits__eyebrow,
+  .system__eyebrow,
+  .satisfaction__eyebrow,
+  .recruitment__eyebrow,
+  .faq__eyebrow {
+    font-size: 1.125rem;
+  }
+
+  /* セクション縦余白を広げる */
+
+  .safety,
+  .future,
+  .five,
+  .message,
+  .voice,
+  .culture,
+  .daily,
+  .career,
+  .stats,
+  .environment,
+  .benefits,
+  .system,
+  .satisfaction,
+  .recruitment,
+  .faq,
+  .entry {
+    padding-block: 7.5rem;
+  }
+
+  /* FV: タイトルが2行に綺麗に収まる幅 + リード位置を下に */
+
+  .fv__copy {
+    max-width: 56.25rem;
+  }
+
+  /* メッセージ: 写真のアスペクト比を解除（写真本来の比率で表示） */
+
+  .message__photo {
+    aspect-ratio: auto;
+    max-width: 45rem;
+    margin-inline: auto;
+  }
+
+  .message__photo img {
+    aspect-ratio: auto;
+    height: auto;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+
+  /* メッセージ本文: body サイズ少し大きく */
+
+  .message__lead {
+    font-size: 1.75rem;
+  }
+
+  .message__body {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+
+  /* 安全に: 本文サイズも大きく、タイトルも */
+
+  .safety__title {
+    font-size: 3rem;
+  }
+
+  .safety__text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+
+  /* CTAバッジ系のサイズアップ */
+
+  .career__badge,
+  .system__badge,
+  .recruitment__badge {
+    font-size: 1.75rem;
+    padding: 0.625rem 2.25rem;
+  }
+
+  /* 中央寄せ系の見出しブロック中央化 */
+
+  .stats__head,
+  .career__head,
+  .benefits__head,
+  .satisfaction__head,
+  .recruitment__head,
+  .culture__head,
+  .faq__head {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .tab-none {
+    display: none;
+  }
+
+  .tab-show {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  a[href^="tel:"] {
+    pointer-events: auto;
+  }
+
+  .btn {
+    min-width: 0;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 0.9375rem;
+  }
+
+  .inner {
+    padding-inline: 1.25rem;
+  }
+
+  .sp-none {
+    display: none;
+  }
+
+  .sp-show {
+    display: block;
+  }
+
+  .header {
+    padding-block: 1.1875rem;
+    padding-inline: 1.25rem;
+  }
+
+  .header__logo img {
+    width: 7.6875rem;
+  }
+
+  .header__tag {
+    font-size: 0.875rem;
+  }
+
+  .header__nav-list {
+    gap: 0.75rem;
+  }
+
+  .header__nav-link {
+    min-width: 6.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .fv {
+    min-height: 38.125rem;
+  }
+
+  .fv__bg-photo--pc {
+    display: none;
+  }
+
+  .fv__bg-photo--sp {
+    display: block;
+  }
+
+  .fv__bg-gradient {
+    display: block;
+  }
+
+  .fv__inner {
+    min-height: 38.125rem;
+    padding-inline: 1.25rem;
+    padding-block: 1.1875rem 2rem;
+  }
+
+  .fv__copy {
+    max-width: none;
+  }
+
+  .fv__title {
+    font-size: 2.5rem;
+    -webkit-margin-after: 0.5rem;
+            margin-block-end: 0.5rem;
+  }
+
+  .fv__lead {
+    font-size: 1rem;
+    -webkit-margin-after: 1.25rem;
+            margin-block-end: 1.25rem;
+  }
+
+  .fv__cta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .fv__cta-btn {
+    width: 13.875rem;
+    padding: 0.875rem 0.625rem 0.875rem 2.4375rem;
+    gap: 1.0625rem;
+  }
+
+  .safety {
+    padding-block: 3.75rem 2.5rem;
+  }
+
+  .safety__inner {
+    gap: 1.5rem;
+  }
+
+  .safety__title {
+    font-size: 1.5rem;
+  }
+
+  .safety__text {
+    font-size: 1rem;
+  }
+
+  .future__title {
+    font-size: 1.5rem;
+  }
+
+  .daily__timeline-title {
+    font-size: 1.125rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .benefits__item-list {
+    grid-template-columns: 1fr;
+  }
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,2441 @@
+@use "global" as *;
+
+/* =========================================================
+   共通の見出しパターン (eyebrow + section title)
+   各セクションが BEM の block として独立しているため、
+   見た目の繰り返し部分は section ごとに記述する。
+   ========================================================= */
+
+/* =========================================================
+   FV (KV)
+   Figma準拠: SP=391x807相当 / PC=1440x807
+   ========================================================= */
+.fv {
+  position: relative;
+  width: 100%;
+  min-height: rem(807);
+  overflow: hidden;
+  color: $white;
+
+  @include mq("sp") {
+    min-height: rem(610);
+  }
+}
+
+.fv__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* 青ベース（マスクで隠れた部分に見える色） */
+.fv__bg-blue {
+  position: absolute;
+  inset: 0;
+  background-color: $blue;
+}
+
+/* PC: トラック写真 + ブルーリボン合成画像 */
+.fv__bg-photo--pc {
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/pc/fv_pc.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @include mq("sp") {
+    display: none;
+  }
+}
+
+/* SP: トラック写真をフルブリードで表示 */
+.fv__bg-photo--sp {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/sp/fv_sp.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+
+  @include mq("sp") {
+    display: block;
+  }
+}
+
+/* SP用: 下半分にブルーグラデーション（コーディングで実装） */
+.fv__bg-gradient {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 140, 214, 0) 36.96%, rgba(0, 140, 214, 0.63) 100%);
+
+  @include mq("sp") {
+    display: block;
+  }
+}
+
+.fv__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  min-height: rem(807);
+  padding-inline: rem(80);
+  padding-block: rem(39) rem(67);
+  display: grid;
+
+  @include mq("sp") {
+    min-height: rem(610);
+    padding-inline: rem(20);
+    padding-block: rem(19) rem(32);
+  }
+}
+
+.fv__copy {
+  align-self: end;
+  max-width: rem(900);
+
+  @include mq("sp") {
+    max-width: none;
+  }
+}
+
+.fv__title {
+  font-family: $base-font;
+  font-size: rem(80);
+  font-weight: $bold;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: $white;
+  text-shadow: 0 0 rem(16) rgba(0, 0, 0, 0.5);
+  margin-block-end: rem(16);
+
+  @include mq("sp") {
+    font-size: rem(40);
+    margin-block-end: rem(8);
+  }
+}
+
+.fv__lead {
+  font-size: rem(20);
+  font-weight: $bold;
+  color: $white;
+  text-shadow: 0 0 rem(10) rgba(0, 0, 0, 0.5);
+  margin-block-end: rem(25);
+
+  @include mq("sp") {
+    font-size: rem(16);
+    margin-block-end: rem(20);
+  }
+}
+
+.fv__cta {
+  display: flex;
+  gap: rem(24);
+  flex-wrap: wrap;
+
+  @include mq("sp") {
+    flex-direction: column;
+    gap: rem(8);
+  }
+}
+
+.fv__cta-btn {
+  display: inline-grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: rem(34);
+  width: rem(260);
+  padding: rem(27) rem(12) rem(27) rem(58);
+  border-radius: rem(100);
+  font-size: rem(18);
+  font-weight: $bold;
+  text-decoration: none;
+  line-height: 1.2;
+
+  @include mq("sp") {
+    width: rem(222);
+    padding: rem(14) rem(10) rem(14) rem(39);
+    gap: rem(17);
+  }
+}
+
+.fv__cta-btn--white {
+  background-color: $white;
+  color: $base-color;
+}
+
+.fv__cta-btn--blue {
+  background-color: $blue;
+  color: $white;
+}
+
+.fv__cta-btn--blue .fv__cta-icon img {
+  filter: brightness(0) invert(1);
+}
+
+.fv__cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(30);
+  height: rem(30);
+}
+
+.fv__cta-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================================================
+   Safety 安全に / SP node-id 574:76
+   ========================================================= */
+.safety {
+  padding-block: rem(120) rem(80);
+  background-color: $white;
+
+  @include mq("sp") {
+    padding-block: rem(60) rem(40);
+  }
+}
+
+.safety__inner {
+  display: flex;
+  flex-direction: column;
+  gap: rem(40);
+  align-items: flex-start;
+
+  @media (min-width: 769px) {
+    display: grid;
+    grid-template-columns: 1fr rem(480);
+    grid-template-areas:
+      "title photo"
+      "text photo";
+    column-gap: rem(60);
+    row-gap: rem(24);
+    align-items: start;
+  }
+
+  @include mq("sp") {
+    gap: rem(24);
+  }
+}
+
+@media (min-width: 769px) {
+  .safety__title { grid-area: title; }
+  .safety__text { grid-area: text; }
+  .safety__photo { grid-area: photo; max-width: none; align-self: center; }
+}
+
+.safety__title {
+  font-family: $base-font;
+  font-size: rem(40);
+  font-weight: $bold;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: $base-color;
+
+  @include mq("sp") {
+    font-size: rem(24);
+  }
+}
+
+.safety__text {
+  font-size: rem(18);
+  line-height: 1.5;
+  color: $base-color;
+
+  @include mq("sp") {
+    font-size: rem(16);
+  }
+}
+
+.safety__photo {
+  margin: 0;
+  width: 100%;
+  max-width: rem(350);
+  border-radius: rem(5);
+  overflow: hidden;
+}
+
+.safety__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 350 / 174;
+  object-fit: cover;
+}
+
+/* =========================================================
+   Placeholder（未実装セクション用の暫定スタイル）
+   各セクション実装時に該当ブロックを削除し、本実装に置き換え
+   ========================================================= */
+.placeholder {
+  padding-block: rem(60);
+  background-color: $bg-light;
+  border-block: rem(1) dashed $gray;
+}
+
+.placeholder__label {
+  font-family: $second-font;
+  font-size: rem(14);
+  font-weight: $semi-bold;
+  color: $gray;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+/* =========================================================
+   Future 思い描く未来 / SP node-id 574:122
+   ========================================================= */
+.future {
+  padding-block: rem(80) rem(60);
+  background-color: $white;
+}
+
+.future__inner {
+  display: grid;
+  gap: rem(32);
+}
+
+.future__head {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+}
+
+.future__eyebrow {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.future__title {
+  font-family: $base-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  line-height: 1.2;
+  color: $base-color;
+
+  @include mq("sp") {
+    font-size: rem(24);
+  }
+}
+
+.future__lead {
+  width: rem(176);
+  max-width: 100%;
+}
+
+.future__lead img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.future__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: rem(24);
+
+  @media (min-width: 769px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.future__item {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.78);
+  border-radius: rem(5);
+  padding-block-end: rem(20);
+  overflow: hidden;
+  display: grid;
+  gap: rem(8);
+  border: rem(1) solid rgba(0, 140, 214, 0.15);
+}
+
+.future__item-img {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 350 / 233;
+  overflow: hidden;
+}
+
+.future__item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.future__item-no {
+  font-family: $second-font;
+  font-size: rem(14);
+  font-weight: $bold;
+  color: $blue;
+  padding-inline: rem(20);
+  padding-block-start: rem(6);
+}
+
+.future__item-title {
+  font-family: $base-font;
+  font-size: rem(20);
+  font-weight: $bold;
+  line-height: 1.5;
+  color: $base-color;
+  padding-inline: rem(20);
+}
+
+.future__item-text {
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  line-height: 1.5;
+  color: $base-color;
+  padding-inline: rem(20);
+}
+
+/* =========================================================
+   Five Principles 五か条 / SP node-id 574:123
+   ========================================================= */
+.five {
+  padding-block: rem(60) rem(80);
+  background-color: $white;
+}
+
+.five__inner {
+  position: relative;
+  background-color: #ebf1fa;
+  border-radius: rem(10);
+  padding: rem(40) rem(20);
+  overflow: hidden;
+}
+
+.five__bg {
+  position: absolute;
+  top: rem(-25);
+  left: rem(-125);
+  width: rem(722);
+  pointer-events: none;
+  opacity: 1;
+}
+
+.five__bg img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: rotate(180deg);
+}
+
+.five__head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+  margin-block-end: rem(32);
+  padding-inline-start: rem(7);
+}
+
+.five__eyebrow {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.five__title {
+  font-family: $base-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  line-height: 1.2;
+  color: $base-color;
+}
+
+.five__list {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: rem(8);
+
+  @media (min-width: 769px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.five__item {
+  display: grid;
+  grid-template-columns: rem(80) 1fr;
+  grid-template-areas:
+    "icon title"
+    "text text";
+  gap: rem(10) rem(12);
+  padding: rem(18);
+  background-color: #f7f7f7;
+  border-radius: rem(8);
+  align-items: start;
+}
+
+.five__item-icon {
+  grid-area: icon;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(52);
+  height: rem(52);
+  margin-inline-start: rem(14);
+}
+
+.five__item-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.five__item-title {
+  grid-area: title;
+  font-family: $base-font;
+  font-size: rem(20);
+  font-weight: $bold;
+  line-height: 1.5;
+  color: $base-color;
+  align-self: center;
+}
+
+.five__item-text {
+  grid-area: text;
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  line-height: 1.5;
+  color: $base-color;
+}
+
+/* =========================================================
+   Message メッセージ / SP node-id 574:224
+   ========================================================= */
+.message {
+  padding-block: rem(60);
+  background-color: $white;
+}
+
+.message__inner {
+  display: grid;
+  gap: rem(24);
+
+  @media (min-width: 769px) {
+    max-width: rem(900);
+    margin-inline: auto;
+  }
+}
+
+.message__head {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+}
+
+.message__eyebrow {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.message__title {
+  font-family: $base-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  line-height: 1.2;
+  color: $base-color;
+}
+
+.message__photo {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 350 / 233;
+  border-radius: rem(5);
+  overflow: hidden;
+}
+
+.message__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.message__lead {
+  font-family: $base-font;
+  font-size: rem(20);
+  font-weight: $bold;
+  line-height: 1.5;
+  color: $base-color;
+}
+
+.message__body {
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  line-height: 1.5;
+  color: $base-color;
+}
+
+.message__signature {
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  line-height: 1.5;
+  color: $base-color;
+}
+
+/* =========================================================
+   Voice 働く人の声 / SP node-id 574:225
+   ========================================================= */
+.voice {
+  padding-block: rem(60);
+  background-color: $white;
+}
+
+.voice__inner {
+  position: relative;
+  border: rem(1) solid $blue;
+  border-radius: rem(10);
+  padding: rem(40) rem(20) rem(60);
+  background-color: $white;
+  overflow: hidden;
+}
+
+.voice__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.voice__bg-ribbon {
+  position: absolute;
+  opacity: 0.4;
+}
+
+.voice__bg-ribbon--1 {
+  top: rem(-72);
+  left: rem(-155);
+  width: rem(854);
+  transform: rotate(-3.23deg);
+}
+
+.voice__bg-ribbon--2 {
+  top: rem(29);
+  left: rem(-490);
+  width: rem(1017);
+  transform: rotate(-9.69deg);
+}
+
+.voice__head {
+  position: relative;
+  text-align: left;
+  margin-block-end: rem(32);
+  padding-inline-start: rem(20);
+}
+
+.voice__eyebrow {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+  text-align: center;
+  margin-block-end: rem(8);
+}
+
+.voice__title {
+  font-family: $base-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  line-height: 1.2;
+  color: $base-color;
+}
+
+.voice__slider {
+  position: relative;
+}
+
+.voice__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+
+  @media (min-width: 769px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(24);
+  }
+}
+
+.voice__item {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+  padding: rem(16);
+  background-color: $white;
+  border-radius: rem(4);
+}
+
+.voice__item-photo {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 243 / 184;
+  border-radius: rem(3);
+  overflow: hidden;
+}
+
+.voice__item-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.voice__item-lead {
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+  line-height: 1.5;
+}
+
+.voice__item-name {
+  font-family: $base-font;
+  font-size: rem(14);
+  font-weight: $regular;
+  color: $base-color;
+  line-height: 1.5;
+}
+
+.voice__item-role {
+  font-family: $base-font;
+  font-size: rem(14);
+  font-weight: $regular;
+  color: $base-color;
+  line-height: 1.5;
+}
+
+.voice__controls {
+  display: none;
+}
+
+.voice__nav {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  width: rem(45);
+  height: rem(45);
+}
+
+.voice__nav img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =========================================================
+   Culture カルチャー / SP node-id 574:344
+   ========================================================= */
+.culture {
+  padding-block: rem(60);
+  background-color: $white;
+}
+
+.culture__inner {
+  display: grid;
+  gap: rem(24);
+}
+
+.culture__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+}
+
+.culture__eyebrow {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.culture__title {
+  font-family: $base-font;
+  font-size: rem(26);
+  font-weight: $bold;
+  line-height: 1.2;
+  color: $base-color;
+}
+
+.culture__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: rem(24);
+
+  @media (min-width: 769px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.culture__item {
+  position: relative;
+  background-color: #ebf1fa;
+  border-radius: rem(10);
+  padding: rem(40) rem(20);
+  overflow: hidden;
+  min-height: rem(235);
+}
+
+.culture__item-ribbon {
+  position: absolute;
+  width: rem(720);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.culture__item:nth-child(1) .culture__item-ribbon {
+  top: rem(-27);
+  left: rem(-48);
+  transform: rotate(-3.23deg);
+}
+
+.culture__item:nth-child(2) .culture__item-ribbon {
+  top: rem(-261);
+  left: rem(-207);
+  width: rem(756);
+  transform: rotate(116.96deg);
+}
+
+.culture__item:nth-child(3) .culture__item-ribbon {
+  top: rem(57);
+  left: rem(-420);
+  width: rem(714);
+  transform: rotate(-9.69deg);
+}
+
+.culture__item-title {
+  position: relative;
+  font-family: $base-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  line-height: 1.2;
+  color: $black;
+  margin-block-end: rem(24);
+}
+
+.culture__item-text {
+  position: relative;
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  line-height: 1.5;
+  color: $base-color;
+}
+
+.culture__team {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 4096 / 2731;
+  border-radius: rem(10);
+  overflow: hidden;
+}
+
+.culture__team img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================================
+   Daily 社員の一日 / SP node-id 577:466
+   ========================================================= */
+.daily {
+  padding-block: rem(60);
+  background-color: $white;
+}
+
+.daily__inner {
+  display: grid;
+  gap: rem(24);
+
+  @media (min-width: 769px) {
+    max-width: rem(900);
+    margin-inline: auto;
+  }
+}
+
+.daily__head {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+}
+
+.daily__eyebrow {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.daily__title {
+  font-family: $base-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  line-height: 1.2;
+  color: $base-color;
+}
+
+.daily__tabs {
+  display: flex;
+  flex-direction: column;
+  gap: rem(20);
+
+  @media (min-width: 769px) {
+    flex-direction: row;
+    justify-content: center;
+    gap: rem(16);
+  }
+}
+
+.daily__tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: rem(48);
+  padding-inline: rem(24);
+  background-color: $white;
+  border: rem(1) solid $blue;
+  border-radius: rem(40);
+  color: $blue;
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.daily__tab.is-active {
+  background-color: $blue;
+  color: $white;
+}
+
+.daily__panel[hidden] {
+  display: none;
+}
+
+.daily__timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(20);
+}
+
+.daily__timeline-item {
+  display: grid;
+  grid-template-columns: rem(20) rem(70) 1fr;
+  gap: rem(0) rem(20);
+  background-color: #f3f7fe;
+  border-radius: rem(6);
+  padding: rem(20) rem(20) rem(20) rem(14);
+  position: relative;
+  align-items: start;
+}
+
+.daily__timeline-dot {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  display: inline-block;
+  width: rem(20);
+  height: rem(20);
+  background-color: $blue;
+  border-radius: 50%;
+  align-self: start;
+  margin-block-start: rem(5);
+}
+
+.daily__timeline-time {
+  grid-column: 2;
+  grid-row: 1;
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $base-color;
+}
+
+.daily__timeline-body {
+  grid-column: 2 / span 2;
+  grid-row: 2;
+  margin-block-start: rem(8);
+}
+
+.daily__timeline-title {
+  font-family: $base-font;
+  font-size: rem(20);
+  font-weight: $bold;
+  color: $base-color;
+  line-height: 1.3;
+  margin-block-end: rem(8);
+
+  @include mq("sp") {
+    font-size: rem(18);
+  }
+}
+
+.daily__timeline-text {
+  font-family: $base-font;
+  font-size: rem(15);
+  font-weight: $regular;
+  color: $base-color;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   Career キャリアパス（評価制度）/ SP node-id 577:680
+   ========================================================= */
+.career {
+  padding-block: rem(60);
+  background-color: $white;
+}
+
+.career__inner {
+  display: grid;
+  gap: rem(24);
+}
+
+.career__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+}
+
+.career__eyebrow {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.career__title {
+  font-family: $base-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  line-height: 1.2;
+  color: $base-color;
+}
+
+.career__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  padding: rem(6) rem(24);
+  background-color: $blue;
+  color: $white;
+  font-family: $base-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  border-radius: rem(3);
+  line-height: 1.2;
+}
+
+.career__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+
+  @media (min-width: 769px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(20);
+    align-items: start;
+  }
+}
+
+.career__item {
+  position: relative;
+  background-color: #ebf1fa;
+  border-radius: rem(5);
+  padding: rem(16);
+  filter: drop-shadow(5px 5px 7.5px rgba(0, 0, 0, 0.1));
+  display: grid;
+  grid-template-columns: rem(40) 1fr;
+  gap: rem(8) rem(14);
+  align-items: start;
+}
+
+.career__item-num {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(40);
+  height: rem(40);
+}
+
+.career__item-num img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.career__item-title {
+  grid-column: 2;
+  font-family: $base-font;
+  font-size: rem(20);
+  font-weight: $bold;
+  color: #121212;
+  line-height: 1.5;
+}
+
+.career__item-text {
+  grid-column: 2;
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $medium;
+  color: #121212;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   Stats 数字で見る大富運輸 / SP node-id 589:416
+   ========================================================= */
+.stats {
+  padding-block: rem(60);
+  background-color: $white;
+}
+
+.stats__inner {
+  background-color: #ebf1fa;
+  border-radius: rem(15);
+  padding: rem(40) rem(18);
+  display: grid;
+  gap: rem(24);
+}
+
+.stats__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+}
+
+.stats__eyebrow {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.stats__title {
+  font-family: $base-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $base-color;
+}
+
+.stats__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: rem(20);
+
+  @media (min-width: 769px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(24);
+  }
+}
+
+.stats__item {
+  position: relative;
+  background-color: #f7f7f7;
+  border-radius: rem(5);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  padding: rem(64) rem(20) rem(28);
+  display: grid;
+  grid-template-columns: rem(66) 1fr;
+  grid-template-areas:
+    "icon value"
+    "icon desc";
+  gap: rem(8) rem(20);
+  align-items: center;
+}
+
+.stats__item-label {
+  grid-area: label;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $blue;
+  color: $white;
+  font-family: $base-font;
+  font-size: rem(20);
+  font-weight: $bold;
+  padding: rem(6) rem(24);
+  border-radius: 0 0 rem(3) rem(3);
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.stats__item-icon {
+  grid-area: icon;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(66);
+  height: rem(66);
+}
+
+.stats__item-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.stats__item-value {
+  grid-area: value;
+  font-family: $second-font;
+  font-size: rem(32);
+  font-weight: $bold;
+  color: $base-color;
+  text-align: center;
+}
+
+.stats__item-desc {
+  grid-area: desc;
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $base-color;
+  text-align: center;
+}
+
+/* =========================================================
+   Environment 働く環境 / SP node-id 577:733
+   ========================================================= */
+.environment {
+  padding-block: rem(60);
+  background-color: $white;
+}
+
+.environment__inner {
+  display: grid;
+  gap: rem(24);
+}
+
+.environment__head {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+}
+
+.environment__eyebrow {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.environment__title {
+  font-family: $base-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $base-color;
+}
+
+.environment__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(14);
+
+  @media (min-width: 769px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: rem(40);
+    row-gap: rem(16);
+  }
+}
+
+.environment__item {
+  display: flex;
+  align-items: center;
+  gap: rem(10);
+}
+
+.environment__item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(29);
+  height: rem(29);
+  flex-shrink: 0;
+}
+
+.environment__item-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.environment__item-text {
+  font-family: $base-font;
+  font-size: rem(18);
+  font-weight: $bold;
+  color: $base-color;
+}
+
+.environment__photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: rem(4);
+
+  @media (min-width: 769px) {
+    gap: rem(16);
+    max-width: rem(480);
+    margin-inline: auto;
+  }
+}
+
+.environment__photo {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 173 / 311;
+  border-radius: rem(2);
+  overflow: hidden;
+}
+
+.environment__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================================
+   Benefits 福利厚生 / SP node-id 589:415
+   ========================================================= */
+.benefits {
+  padding-block: rem(60);
+  background-color: $white;
+}
+
+.benefits__inner {
+  display: grid;
+  gap: rem(24);
+}
+
+.benefits__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+}
+
+.benefits__eyebrow {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.benefits__title {
+  font-family: $base-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $base-color;
+}
+
+.benefits__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(16);
+
+  @media (min-width: 769px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(24);
+    align-items: start;
+  }
+}
+
+.benefits__item {
+  background-color: #f7f7f7;
+  border-radius: rem(3);
+  padding: rem(16) rem(24);
+  display: grid;
+  gap: rem(20);
+}
+
+.benefits__item-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(13);
+}
+
+.benefits__item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(56);
+  height: rem(56);
+}
+
+.benefits__item-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.benefits__item-title {
+  font-family: $base-font;
+  font-size: rem(20);
+  font-weight: $bold;
+  color: $black;
+}
+
+.benefits__item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: rem(8) rem(16);
+
+  @include mq("sp2") {
+    grid-template-columns: 1fr;
+  }
+}
+
+.benefits__item-li {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(15);
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $black;
+  line-height: 1.4;
+}
+
+.benefits__item-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: rem(20);
+  height: rem(22);
+  flex-shrink: 0;
+  margin-block-start: rem(2);
+}
+
+.benefits__item-check img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =========================================================
+   System 研修制度 / SP node-id 577:1377
+   ========================================================= */
+.system {
+  position: relative;
+  padding-block: rem(60);
+  background-color: $white;
+}
+
+.system__inner {
+  position: relative;
+  display: grid;
+  gap: rem(24);
+}
+
+.system__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.system__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.system__head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+  z-index: 1;
+}
+
+.system__eyebrow {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.system__title {
+  font-family: $base-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $base-color;
+}
+
+.system__steps {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(16);
+  z-index: 1;
+
+  @media (min-width: 769px) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: rem(20);
+    align-items: start;
+  }
+}
+
+.system__step {
+  background-color: #f7f7f7;
+  border-radius: rem(5);
+  padding: rem(16) rem(20);
+  box-shadow: 5px 5px 7.5px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: rem(12);
+}
+
+.system__step-step {
+  display: flex;
+  align-items: center;
+  gap: rem(10);
+  font-family: $second-font;
+  font-size: rem(20);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.system__step-arrows {
+  display: inline-flex;
+  align-items: center;
+  gap: rem(6);
+}
+
+.system__step-arrows img {
+  display: block;
+  width: rem(23);
+  height: rem(16);
+}
+
+.system__step-title {
+  font-family: $base-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $base-color;
+}
+
+.system__step-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(6);
+}
+
+.system__step-items li {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(8);
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $black;
+}
+
+.system__badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  padding: rem(6) rem(24);
+  background-color: $blue;
+  color: $white;
+  font-family: $base-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  border-radius: rem(3);
+  line-height: 1.2;
+}
+
+.system__cards {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: rem(20);
+
+  @media (min-width: 769px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.system__card {
+  display: grid;
+  gap: rem(8);
+}
+
+.system__card-img {
+  margin: 0;
+  aspect-ratio: 169 / 104;
+  border-radius: rem(3);
+  overflow: hidden;
+}
+
+.system__card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.system__card-title {
+  font-family: $base-font;
+  font-size: rem(20);
+  font-weight: $bold;
+  color: $base-color;
+}
+
+.system__card-text {
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $base-color;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   Satisfaction 仕事のやりがい / SP node-id 578:1514
+   スクロール出現アニメ + 4枚カード
+   ========================================================= */
+.satisfaction {
+  padding-block: rem(60);
+  background-color: $white;
+}
+
+.satisfaction__inner {
+  display: grid;
+  gap: rem(24);
+}
+
+.satisfaction__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+}
+
+.satisfaction__eyebrow {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.satisfaction__title {
+  font-family: $base-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $base-color;
+}
+
+.satisfaction__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+}
+
+.satisfaction__card {
+  position: relative;
+  border-radius: rem(5);
+  padding: rem(16) rem(20);
+  filter: drop-shadow(3px 3px 7.5px rgba(0, 0, 0, 0.1));
+  display: grid;
+  gap: rem(24);
+  opacity: 0;
+  transform: translateY(rem(40));
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+  @media (min-width: 769px) {
+    grid-template-columns: 1fr rem(440);
+    grid-template-areas:
+      "no img"
+      "title img"
+      "text img";
+    align-items: center;
+    column-gap: rem(48);
+    row-gap: rem(16);
+    padding: rem(48) rem(60);
+    border-radius: rem(30);
+  }
+}
+
+@media (min-width: 769px) {
+  .satisfaction__card-no { grid-area: no; }
+  .satisfaction__card-title { grid-area: title; }
+  .satisfaction__card-text { grid-area: text; }
+  .satisfaction__card-img { grid-area: img; align-self: stretch; }
+}
+
+.satisfaction__card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.satisfaction__card--lvl-1 { background-color: #f6fafd; }
+.satisfaction__card--lvl-2 { background-color: #ebf1fa; }
+.satisfaction__card--lvl-3 { background-color: #c9dced; }
+.satisfaction__card--lvl-4 { background-color: #aed4ec; }
+
+.satisfaction__card-no {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  width: fit-content;
+  padding: rem(3) rem(18);
+  background-color: $blue;
+  color: $white;
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $semi-bold;
+  border-radius: rem(3);
+  line-height: 1.2;
+}
+
+.satisfaction__card-title {
+  font-family: $base-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $base-color;
+}
+
+.satisfaction__card-text {
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $base-color;
+  line-height: 1.5;
+}
+
+.satisfaction__card-img {
+  margin: 0;
+  aspect-ratio: 310 / 118;
+  border-radius: rem(5);
+  overflow: hidden;
+}
+
+.satisfaction__card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================================
+   Recruitment 募集要項 / SP node-id 578:1664
+   ========================================================= */
+.recruitment {
+  padding-block: rem(60);
+  background-color: $white;
+}
+
+.recruitment__inner {
+  display: grid;
+  gap: rem(24);
+}
+
+.recruitment__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+}
+
+.recruitment__eyebrow {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.recruitment__title {
+  font-family: $base-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $base-color;
+}
+
+.recruitment__cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+
+  @media (min-width: 769px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(32);
+    align-items: start;
+  }
+}
+
+.recruitment__card {
+  position: relative;
+  background-color: #f7f7f7;
+  border-radius: rem(5);
+  padding: rem(24) rem(18) rem(40);
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: rem(16);
+  justify-items: center;
+}
+
+.recruitment__card-photo {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 314 / 198;
+  border-radius: rem(5);
+  overflow: hidden;
+}
+
+.recruitment__card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.recruitment__card-badge {
+  margin-block-start: rem(-31);
+  background-color: $blue;
+  color: $white;
+  font-family: $base-font;
+  font-size: rem(20);
+  font-weight: $bold;
+  padding: rem(3) rem(18);
+  border-radius: rem(3);
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.recruitment__card-dl {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+  margin: 0;
+  padding-block-start: rem(8);
+  width: 100%;
+}
+
+.recruitment__card-row {
+  display: grid;
+  grid-template-columns: rem(88) 1fr;
+  gap: rem(16);
+  padding-block-end: rem(24);
+  border-block-end: rem(1) solid #008cd633;
+  align-items: start;
+}
+
+.recruitment__card-row:last-child {
+  border-block-end: 0;
+  padding-block-end: 0;
+}
+
+.recruitment__card-row dt {
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.recruitment__card-row dd {
+  margin: 0;
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $base-color;
+  line-height: 1.5;
+}
+
+.recruitment__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  padding: rem(6) rem(24);
+  background-color: $blue;
+  color: $white;
+  font-family: $base-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  border-radius: rem(3);
+  line-height: 1.2;
+}
+
+.recruitment__flow {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(13);
+
+  @media (min-width: 769px) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: rem(20);
+  }
+}
+
+.recruitment__flow-item {
+  position: relative;
+  border-radius: rem(5);
+  padding: rem(20);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "step ."
+    "title icon";
+  gap: rem(8) rem(20);
+  align-items: center;
+  min-height: rem(170);
+}
+
+.recruitment__flow-item--flow-bg-1 { background-color: #f6fafd; }
+.recruitment__flow-item--flow-bg-2 { background-color: #ebf4fa; }
+.recruitment__flow-item--flow-bg-3 { background-color: #c9dced; }
+.recruitment__flow-item--flow-bg-4 { background-color: #aed4ec; }
+
+.recruitment__flow-step {
+  grid-area: step;
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.recruitment__flow-title {
+  grid-area: title;
+  font-family: $base-font;
+  font-size: rem(20);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.recruitment__flow-icon {
+  grid-area: icon;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(64);
+  height: rem(64);
+}
+
+.recruitment__flow-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =========================================================
+   FAQ / SP node-id 578:1843
+   ========================================================= */
+.faq {
+  padding-block: rem(60);
+  background-color: $white;
+}
+
+.faq__inner {
+  display: grid;
+  gap: rem(24);
+
+  @media (min-width: 769px) {
+    max-width: rem(900);
+    margin-inline: auto;
+  }
+}
+
+.faq__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+}
+
+.faq__eyebrow {
+  font-family: $second-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.faq__title {
+  font-family: $base-font;
+  font-size: rem(28);
+  font-weight: $bold;
+  color: $base-color;
+}
+
+.faq__note {
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $base-color;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.faq__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+}
+
+.faq__item {
+  background-color: #ebf1fa;
+  border-radius: rem(5);
+  overflow: hidden;
+}
+
+.faq__item details summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq__q {
+  position: relative;
+  display: grid;
+  grid-template-columns: rem(40) 1fr rem(30);
+  align-items: center;
+  gap: rem(16);
+  padding: rem(15) rem(15) rem(15) rem(15);
+  cursor: pointer;
+  list-style: none;
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $base-color;
+}
+
+.faq__mark {
+  font-family: $second-font;
+  font-size: rem(32);
+  font-weight: $regular;
+  color: $base-color;
+  line-height: 1;
+}
+
+.faq__q-text {
+  font-size: rem(16);
+}
+
+.faq__arrow {
+  display: inline-block;
+  width: rem(20);
+  height: rem(2);
+  background-color: $blue;
+  transition: transform 0.3s;
+  justify-self: end;
+}
+
+.faq__item details[open] .faq__arrow {
+  transform: rotate(180deg);
+}
+
+.faq__a {
+  display: grid;
+  grid-template-columns: rem(40) 1fr;
+  gap: rem(16);
+  padding: rem(15) rem(15) rem(20);
+  background-color: $white;
+}
+
+.faq__a-text {
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $base-color;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   Entry エントリー / SP node-id 578:1926
+   ========================================================= */
+.entry {
+  padding-block: rem(60);
+  background-color: $white;
+}
+
+.entry__inner {
+  display: grid;
+  gap: rem(40);
+
+  @media (min-width: 769px) {
+    max-width: rem(720);
+    margin-inline: auto;
+  }
+}
+
+.entry__head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: rem(16);
+}
+
+.entry__title {
+  font-family: $base-font;
+  font-size: rem(25);
+  font-weight: $bold;
+  line-height: 1.2;
+  color: $base-color;
+}
+
+.entry__title-en {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: rem(34);
+  font-weight: $semi-bold;
+}
+
+.entry__eyebrow-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(11);
+}
+
+.entry__eyebrow-line {
+  display: inline-block;
+  width: rem(132);
+  height: rem(1);
+  background-color: $blue;
+}
+
+.entry__eyebrow {
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $blue;
+}
+
+.entry__lead {
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $base-color;
+  line-height: 1.5;
+}
+
+.entry__line-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(16);
+  margin-inline: auto;
+  padding: 0 rem(20);
+  background-color: #06c755;
+  color: $white;
+  border-radius: rem(10);
+  height: rem(46);
+  font-family: $base-font;
+  font-size: rem(20);
+  font-weight: $bold;
+  text-decoration: none;
+}
+
+.entry__line-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(46);
+  height: rem(46);
+}
+
+.entry__line-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: rem(10);
+}
+
+.entry__form {
+  display: flex;
+  flex-direction: column;
+  gap: rem(32);
+}
+
+.entry__form-row {
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+}
+
+.entry__form-label {
+  display: flex;
+  align-items: baseline;
+  gap: rem(8);
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $bold;
+  color: $base-color;
+}
+
+.entry__form-required {
+  font-family: "Zen Old Mincho", serif;
+  font-size: rem(12);
+  color: $red;
+}
+
+.entry__form-input {
+  width: 100%;
+  padding: rem(11) rem(14);
+  height: rem(46);
+  background-color: #f7f7f7;
+  border: 0;
+  border-radius: rem(5);
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $base-color;
+}
+
+.entry__form-input::placeholder {
+  color: $gray;
+}
+
+.entry__form-input:focus {
+  outline: rem(2) solid $blue;
+  outline-offset: rem(2);
+}
+
+.entry__form-textarea {
+  height: rem(260);
+  resize: vertical;
+  padding-block: rem(11);
+}
+
+.entry__form-select {
+  position: relative;
+}
+
+.entry__form-select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: rem(16);
+  width: rem(13);
+  height: rem(13);
+  background: url("../img/common/select-arrow.svg") no-repeat center / contain;
+  transform: translateY(-50%) rotate(180deg);
+  pointer-events: none;
+}
+
+.entry__form-select .entry__form-input {
+  appearance: none;
+  padding-inline-end: rem(40);
+}
+
+.entry__form-submit {
+  display: inline-grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: rem(10);
+  width: rem(222);
+  height: rem(50);
+  margin-inline: auto;
+  padding: rem(10) rem(16) rem(10) rem(28);
+  background-color: $blue;
+  color: $white;
+  border: 0;
+  border-radius: rem(100);
+  font-family: $base-font;
+  font-size: rem(18);
+  font-weight: $bold;
+  cursor: pointer;
+}
+
+.entry__form-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(30);
+  height: rem(30);
+}
+
+.entry__form-arrow img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+/* =========================================================
+   PC 共通サイズ・微調整（768px超）
+   ========================================================= */
+@media (min-width: 769px) {
+  /* 各セクションのタイトル size up（PCはZen Kaku Gothic New Bold 40px） */
+  .future__title,
+  .five__title,
+  .message__title,
+  .voice__title,
+  .culture__title,
+  .daily__title,
+  .career__title,
+  .stats__title,
+  .environment__title,
+  .benefits__title,
+  .system__title,
+  .satisfaction__title,
+  .recruitment__title,
+  .faq__title {
+    font-size: rem(40);
+  }
+
+  /* eyebrow（Inter Bold）も少し大きく */
+  .future__eyebrow,
+  .five__eyebrow,
+  .message__eyebrow,
+  .voice__eyebrow,
+  .culture__eyebrow,
+  .daily__eyebrow,
+  .career__eyebrow,
+  .stats__eyebrow,
+  .environment__eyebrow,
+  .benefits__eyebrow,
+  .system__eyebrow,
+  .satisfaction__eyebrow,
+  .recruitment__eyebrow,
+  .faq__eyebrow {
+    font-size: rem(18);
+  }
+
+  /* セクション縦余白を広げる */
+  .safety,
+  .future,
+  .five,
+  .message,
+  .voice,
+  .culture,
+  .daily,
+  .career,
+  .stats,
+  .environment,
+  .benefits,
+  .system,
+  .satisfaction,
+  .recruitment,
+  .faq,
+  .entry {
+    padding-block: rem(120);
+  }
+
+  /* FV: タイトルが2行に綺麗に収まる幅 + リード位置を下に */
+  .fv__copy {
+    max-width: rem(900);
+  }
+
+  /* メッセージ: 写真のアスペクト比を解除（写真本来の比率で表示） */
+  .message__photo {
+    aspect-ratio: auto;
+    max-width: rem(720);
+    margin-inline: auto;
+  }
+  .message__photo img {
+    aspect-ratio: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* メッセージ本文: body サイズ少し大きく */
+  .message__lead { font-size: rem(28); }
+  .message__body { font-size: rem(17); line-height: 1.8; }
+
+  /* 安全に: 本文サイズも大きく、タイトルも */
+  .safety__title { font-size: rem(48); }
+  .safety__text { font-size: rem(18); line-height: 1.8; }
+
+  /* CTAバッジ系のサイズアップ */
+  .career__badge,
+  .system__badge,
+  .recruitment__badge {
+    font-size: rem(28);
+    padding: rem(10) rem(36);
+  }
+
+  /* 中央寄せ系の見出しブロック中央化 */
+  .stats__head,
+  .career__head,
+  .benefits__head,
+  .satisfaction__head,
+  .recruitment__head,
+  .culture__head,
+  .faq__head {
+    text-align: center;
+  }
+}

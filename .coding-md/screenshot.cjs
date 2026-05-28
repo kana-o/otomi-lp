@@ -256,9 +256,30 @@ async function captureFullPage(page, outputPath) {
       await page.setViewportSize(vp)
 
       await page.goto(url, {
-        waitUntil: 'networkidle',
-        timeout: 30000
+        waitUntil: 'load',
+        timeout: 60000
       })
+      // フォント・画像の読み込みを待つ（networkidleはBrowserSync/WebFont常駐で来ないため固定待機）
+      try { await page.evaluate(() => document.fonts.ready) } catch (e) {}
+      await page.waitForTimeout(2500)
+      // 遅延読み込み画像を確実に表示させるため最下部までスクロール
+      await page.evaluate(async () => {
+        await new Promise((resolve) => {
+          let y = 0
+          const step = () => {
+            window.scrollBy(0, window.innerHeight)
+            y += window.innerHeight
+            if (y < document.body.scrollHeight) { setTimeout(step, 80) }
+            else { window.scrollTo(0, 0); setTimeout(resolve, 300) }
+          }
+          step()
+        })
+      })
+      // スクロール出現アニメ等で opacity:0 のままの要素を強制表示（差分比較用）
+      await page.evaluate(() => {
+        document.querySelectorAll('.js-satisfaction-card').forEach((el) => el.classList.add('is-visible'))
+      })
+      await page.waitForTimeout(500)
 
       // セレクタ指定がある場合
       if (options.selector) {
