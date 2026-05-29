@@ -85,6 +85,12 @@
   justify-content: center;
   width: rem(48);
   height: rem(48);
+
+  @media (min-width: 769px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }
 
 .footer__social img {
@@ -138,9 +144,6 @@
   border: rem(1) solid $white;
 }
 
-.footer__cta--blue .footer__cta-arrow img {
-  filter: brightness(0) invert(1);
-}
 
 .footer__cta-arrow {
   display: inline-flex;

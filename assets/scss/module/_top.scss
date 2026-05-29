@@ -172,9 +172,6 @@
   color: $white;
 }
 
-.fv__cta-btn--blue .fv__cta-icon img {
-  filter: brightness(0) invert(1);
-}
 
 .fv__cta-icon {
   display: inline-flex;
@@ -824,6 +821,10 @@
   display: block;
 }
 
+.voice__nav--prev img {
+  transform: rotate(180deg);
+}
+
 /* =========================================================
    Culture カルチャー / SP node-id 574:344
    ========================================================= */
@@ -837,13 +838,8 @@
   gap: rem(24);
 
   @media (min-width: 769px) {
-    grid-template-columns: rem(480) 1fr;
-    grid-template-areas:
-      "head head"
-      "team list";
-    column-gap: rem(80);
+    position: relative;
     row-gap: rem(40);
-    align-items: stretch;
   }
 }
 
@@ -852,10 +848,6 @@
   display: flex;
   flex-direction: column;
   gap: rem(8);
-
-  @media (min-width: 769px) {
-    grid-area: head;
-  }
 }
 
 .culture__eyebrow {
@@ -881,11 +873,9 @@
   gap: rem(24);
 
   @media (min-width: 769px) {
-    grid-area: list;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    gap: rem(40);
+    gap: rem(20);
   }
 }
 
@@ -898,10 +888,11 @@
   min-height: rem(235);
 
   @media (min-width: 769px) {
-    background-color: transparent;
-    border-radius: 0;
-    padding: 0;
-    min-height: 0;
+    padding: rem(40) rem(60) rem(40) rem(510);
+    min-height: rem(240);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     overflow: visible;
   }
 }
@@ -964,9 +955,13 @@
   overflow: hidden;
 
   @media (min-width: 769px) {
-    grid-area: team;
+    position: absolute;
+    left: 0;
+    top: rem(140);
+    bottom: 0;
+    width: rem(460);
     aspect-ratio: auto;
-    height: 100%;
+    z-index: 1;
   }
 }
 
@@ -1037,9 +1032,10 @@
 }
 
 .daily__tab {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  justify-content: center;
+  gap: rem(8);
   height: rem(48);
   padding-inline: rem(24);
   background-color: $white;
@@ -1056,6 +1052,35 @@
 .daily__tab.is-active {
   background-color: $blue;
   color: $white;
+}
+
+.daily__tab-label {
+  text-align: center;
+}
+
+.daily__tab-icon {
+  position: relative;
+  width: rem(24);
+  height: rem(24);
+  flex-shrink: 0;
+}
+
+.daily__tab-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.daily__tab-icon--w {
+  display: none;
+}
+
+.daily__tab.is-active .daily__tab-icon--b {
+  display: none;
+}
+
+.daily__tab.is-active .daily__tab-icon--w {
+  display: block;
 }
 
 .daily__panel[hidden] {
@@ -1085,10 +1110,12 @@
   left: rem(30);
   width: rem(2);
   background-color: #cfe0f1;
+  z-index: 1;
 }
 
 .daily__timeline-item {
   position: relative;
+  z-index: 0;
   display: grid;
   grid-template-columns: rem(20) rem(70) 1fr;
   column-gap: rem(20);
@@ -1102,7 +1129,7 @@
 
 .daily__timeline-dot {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   grid-column: 1;
   grid-row: 1;
   display: inline-block;
@@ -1332,13 +1359,11 @@
   border-radius: rem(5);
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   padding: rem(64) rem(20) rem(28);
-  display: grid;
-  grid-template-columns: rem(66) 1fr;
-  grid-template-areas:
-    "icon value"
-    "icon desc";
-  gap: rem(8) rem(20);
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  gap: rem(12);
 }
 
 .stats__item-label {
@@ -1359,7 +1384,6 @@
 }
 
 .stats__item-icon {
-  grid-area: icon;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1374,16 +1398,18 @@
 }
 
 .stats__item-value {
-  grid-area: value;
   font-family: $second-font;
-  font-size: rem(32);
+  font-size: rem(48);
   font-weight: $bold;
   color: $base-color;
   text-align: center;
+
+  @include mq("sp") {
+    font-size: rem(32);
+  }
 }
 
 .stats__item-desc {
-  grid-area: desc;
   font-family: $base-font;
   font-size: rem(16);
   font-weight: $regular;
@@ -1448,10 +1474,9 @@
 
   @media (min-width: 769px) {
     grid-area: list;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: rem(40);
-    row-gap: rem(16);
+    display: flex;
+    flex-direction: column;
+    gap: rem(16);
   }
 }
 
@@ -1599,13 +1624,9 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: rem(8) rem(16);
-
-  @include mq("sp2") {
-    grid-template-columns: 1fr;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
 }
 
 .benefits__item-li {
@@ -2036,7 +2057,7 @@
 }
 
 .recruitment__card-badge {
-  margin-block-start: rem(-31);
+  margin-block-start: 0;
   background-color: $blue;
   color: $white;
   font-family: $base-font;
@@ -2062,7 +2083,7 @@
   grid-template-columns: rem(88) 1fr;
   gap: rem(16);
   padding-block-end: rem(24);
-  border-block-end: rem(1) solid #008cd633;
+  border-block-end: rem(1) solid #e5e5e5;
   align-items: start;
 }
 
@@ -2195,6 +2216,7 @@
 
   @media (min-width: 769px) {
     text-align: left;
+    align-items: flex-start;
   }
 }
 
@@ -2256,7 +2278,7 @@
 }
 
 .faq__mark {
-  font-family: $second-font;
+  font-family: "Inter", sans-serif;
   font-size: rem(32);
   font-weight: $regular;
   color: $base-color;
@@ -2346,16 +2368,25 @@
 
 .entry__title {
   font-family: $base-font;
-  font-size: rem(25);
+  font-size: rem(80);
   font-weight: $bold;
   line-height: 1.2;
   color: $base-color;
+  white-space: nowrap;
+
+  @include mq("sp") {
+    font-size: rem(38);
+  }
 }
 
 .entry__title-en {
   font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
-  font-size: rem(34);
+  font-size: rem(110);
   font-weight: $semi-bold;
+
+  @include mq("sp") {
+    font-size: rem(52);
+  }
 }
 
 .entry__eyebrow-wrap {
@@ -2426,9 +2457,23 @@
 }
 
 .entry__form-row {
-  display: flex;
-  flex-direction: column;
-  gap: rem(8);
+  display: grid;
+  grid-template-columns: rem(160) 1fr;
+  gap: rem(24);
+  align-items: start;
+
+  @include mq("sp") {
+    grid-template-columns: 1fr;
+    gap: rem(8);
+  }
+}
+
+.entry__form-label {
+  padding-block-start: rem(12);
+
+  @include mq("sp") {
+    padding-block-start: 0;
+  }
 }
 
 .entry__form-label {

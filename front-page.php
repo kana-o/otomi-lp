@@ -57,7 +57,7 @@
           <a href="#" class="fv__cta-btn fv__cta-btn--blue">
             <span>エントリーする</span>
             <span class="fv__cta-icon" aria-hidden="true">
-              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/cta-arrow.svg" alt="" width="30" height="30">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/cta-arrow-blue.svg" alt="" width="30" height="30">
             </span>
           </a>
         </div>
@@ -249,9 +249,9 @@
         <h2 class="daily__title">社員の一日</h2>
       </div>
       <div class="daily__tabs" role="tablist" aria-label="運行パターン">
-        <button type="button" class="daily__tab is-active" role="tab" data-tab="1" aria-selected="true" aria-controls="daily-panel-1">運行①</button>
-        <button type="button" class="daily__tab" role="tab" data-tab="2" aria-selected="false" aria-controls="daily-panel-2">運行②</button>
-        <button type="button" class="daily__tab" role="tab" data-tab="3" aria-selected="false" aria-controls="daily-panel-3">運行③</button>
+        <button type="button" class="daily__tab is-active" role="tab" data-tab="1" aria-selected="true" aria-controls="daily-panel-1"><span class="daily__tab-label">運行①</span><span class="daily__tab-icon" aria-hidden="true"><img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/daily-tab-arrow-b.svg" alt="" width="24" height="24"><img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/daily-tab-arrow-w.svg" alt="" width="24" height="24"></span></button>
+        <button type="button" class="daily__tab" role="tab" data-tab="2" aria-selected="false" aria-controls="daily-panel-2"><span class="daily__tab-label">運行②</span><span class="daily__tab-icon" aria-hidden="true"><img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/daily-tab-arrow-b.svg" alt="" width="24" height="24"><img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/daily-tab-arrow-w.svg" alt="" width="24" height="24"></span></button>
+        <button type="button" class="daily__tab" role="tab" data-tab="3" aria-selected="false" aria-controls="daily-panel-3"><span class="daily__tab-label">運行③</span><span class="daily__tab-icon" aria-hidden="true"><img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/daily-tab-arrow-b.svg" alt="" width="24" height="24"><img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/daily-tab-arrow-w.svg" alt="" width="24" height="24"></span></button>
       </div>
 
       <?php
@@ -737,7 +737,7 @@
         <button type="submit" class="entry__form-submit">
           <span>エントリーする</span>
           <span class="entry__form-arrow" aria-hidden="true">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/cta-arrow.svg" alt="" width="30" height="30">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/cta-arrow-blue.svg" alt="" width="30" height="30">
           </span>
         </button>
       </form>
@@ -776,7 +776,7 @@
       <a href="#entry" class="footer__cta footer__cta--blue">
         <span>エントリーする</span>
         <span class="footer__cta-arrow" aria-hidden="true">
-          <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/cta-arrow.svg" alt="" width="30" height="30">
+          <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/cta-arrow-blue.svg" alt="" width="30" height="30">
         </span>
       </a>
     </div>

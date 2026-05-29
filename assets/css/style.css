@@ -230,8 +230,8 @@ img {
 
 .header__nav-list {
   display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  flex-direction: row;
+  gap: 0.75rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -390,10 +390,6 @@ img {
   border: 0.0625rem solid #FFFFFF;
 }
 
-.footer__cta--blue .footer__cta-arrow img {
-  filter: brightness(0) invert(1);
-}
-
 .footer__cta-arrow {
   display: inline-flex;
   align-items: center;
@@ -548,10 +544,6 @@ img {
 .fv__cta-btn--blue {
   background-color: #008CD6;
   color: #FFFFFF;
-}
-
-.fv__cta-btn--blue .fv__cta-icon img {
-  filter: brightness(0) invert(1);
 }
 
 .fv__cta-icon {
@@ -1091,6 +1083,10 @@ img {
   display: block;
 }
 
+.voice__nav--prev img {
+  transform: rotate(180deg);
+}
+
 /* =========================================================
    Culture カルチャー / SP node-id 574:344
    ========================================================= */
@@ -1249,9 +1245,10 @@ img {
 }
 
 .daily__tab {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  justify-content: center;
+  gap: 0.5rem;
   height: 3rem;
   padding-inline: 1.5rem;
   background-color: #FFFFFF;
@@ -1268,6 +1265,35 @@ img {
 .daily__tab.is-active {
   background-color: #008CD6;
   color: #FFFFFF;
+}
+
+.daily__tab-label {
+  text-align: center;
+}
+
+.daily__tab-icon {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.daily__tab-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.daily__tab-icon--w {
+  display: none;
+}
+
+.daily__tab.is-active .daily__tab-icon--b {
+  display: none;
+}
+
+.daily__tab.is-active .daily__tab-icon--w {
+  display: block;
 }
 
 .daily__panel[hidden] {
@@ -1291,10 +1317,12 @@ img {
   left: 1.875rem;
   width: 0.125rem;
   background-color: #cfe0f1;
+  z-index: 1;
 }
 
 .daily__timeline-item {
   position: relative;
+  z-index: 0;
   display: grid;
   grid-template-columns: 1.25rem 4.375rem 1fr;
   -moz-column-gap: 1.25rem;
@@ -1309,7 +1337,7 @@ img {
 
 .daily__timeline-dot {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   grid-column: 1;
   grid-row: 1;
   display: inline-block;
@@ -1511,11 +1539,11 @@ img {
   border-radius: 0.3125rem;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   padding: 4rem 1.25rem 1.75rem;
-  display: grid;
-  grid-template-columns: 4.125rem 1fr;
-  grid-template-areas: "icon value" "icon desc";
-  gap: 0.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  gap: 0.75rem;
 }
 
 .stats__item-label {
@@ -1536,7 +1564,6 @@ img {
 }
 
 .stats__item-icon {
-  grid-area: icon;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1551,16 +1578,14 @@ img {
 }
 
 .stats__item-value {
-  grid-area: value;
   font-family: "Montserrat", sans-serif;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #1B1B1B;
   text-align: center;
 }
 
 .stats__item-desc {
-  grid-area: desc;
   font-family: "Zen Kaku Gothic New", sans-serif;
   font-size: 1rem;
   font-weight: 400;
@@ -1745,9 +1770,9 @@ img {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .benefits__item-li {
@@ -2160,8 +2185,8 @@ img {
 }
 
 .recruitment__card-badge {
-  -webkit-margin-before: -1.9375rem;
-          margin-block-start: -1.9375rem;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
   background-color: #008CD6;
   color: #FFFFFF;
   font-family: "Zen Kaku Gothic New", sans-serif;
@@ -2189,8 +2214,8 @@ img {
   gap: 1rem;
   -webkit-padding-after: 1.5rem;
           padding-block-end: 1.5rem;
-  -webkit-border-after: 0.0625rem solid rgba(0, 140, 214, 0.2);
-          border-block-end: 0.0625rem solid rgba(0, 140, 214, 0.2);
+  -webkit-border-after: 0.0625rem solid #e5e5e5;
+          border-block-end: 0.0625rem solid #e5e5e5;
   align-items: start;
 }
 
@@ -2380,7 +2405,7 @@ img {
 }
 
 .faq__mark {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 2rem;
   font-weight: 400;
   color: #1B1B1B;
@@ -2466,15 +2491,16 @@ img {
 
 .entry__title {
   font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 1.5625rem;
+  font-size: 5rem;
   font-weight: 700;
   line-height: 1.2;
   color: #1B1B1B;
+  white-space: nowrap;
 }
 
 .entry__title-en {
   font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
-  font-size: 2.125rem;
+  font-size: 6.875rem;
   font-weight: 600;
 }
 
@@ -2546,9 +2572,15 @@ img {
 }
 
 .entry__form-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.entry__form-label {
+  -webkit-padding-before: 0.75rem;
+          padding-block-start: 0.75rem;
 }
 
 .entry__form-label {
@@ -2691,6 +2723,12 @@ img {
     grid-area: copy;
   }
 
+  .footer__social {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
   .future__inner {
     grid-template-columns: 24.3125rem 31.5625rem 24.3125rem;
     justify-content: center;
@@ -2790,31 +2828,22 @@ img {
   }
 
   .culture__inner {
-    grid-template-columns: 30rem 1fr;
-    grid-template-areas: "head head" "team list";
-    -moz-column-gap: 5rem;
-         column-gap: 5rem;
+    position: relative;
     row-gap: 2.5rem;
-    align-items: stretch;
-  }
-
-  .culture__head {
-    grid-area: head;
   }
 
   .culture__list {
-    grid-area: list;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    gap: 2.5rem;
+    gap: 1.25rem;
   }
 
   .culture__item {
-    background-color: transparent;
-    border-radius: 0;
-    padding: 0;
-    min-height: 0;
+    padding: 2.5rem 3.75rem 2.5rem 31.875rem;
+    min-height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     overflow: visible;
   }
 
@@ -2823,9 +2852,13 @@ img {
   }
 
   .culture__team {
-    grid-area: team;
+    position: absolute;
+    left: 0;
+    top: 8.75rem;
+    bottom: 0;
+    width: 28.75rem;
     aspect-ratio: auto;
-    height: 100%;
+    z-index: 1;
   }
 
   .daily__inner {
@@ -2889,11 +2922,9 @@ img {
 
   .environment__list {
     grid-area: list;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    -moz-column-gap: 2.5rem;
-         column-gap: 2.5rem;
-    row-gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .environment__photos {
@@ -2969,6 +3000,7 @@ img {
 
   .faq__head {
     text-align: left;
+    align-items: flex-start;
   }
 
   .entry__inner {
@@ -3148,6 +3180,7 @@ img {
   }
 
   .header__nav-list {
+    flex-direction: column;
     gap: 0.75rem;
   }
 
@@ -3230,11 +3263,27 @@ img {
   .daily__timeline-title {
     font-size: 1.125rem;
   }
-}
 
-@media screen and (max-width: 375px) {
-  .benefits__item-list {
+  .stats__item-value {
+    font-size: 2rem;
+  }
+
+  .entry__title {
+    font-size: 2.375rem;
+  }
+
+  .entry__title-en {
+    font-size: 3.25rem;
+  }
+
+  .entry__form-row {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .entry__form-label {
+    -webkit-padding-before: 0;
+            padding-block-start: 0;
   }
 }
 /*# sourceMappingURL=style.css.map */

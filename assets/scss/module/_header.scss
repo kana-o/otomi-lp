@@ -53,13 +53,14 @@
 
 .header__nav-list {
   display: flex;
-  flex-direction: column;
-  gap: rem(20);
+  flex-direction: row;
+  gap: rem(12);
   list-style: none;
   padding: 0;
   margin: 0;
 
   @include mq("sp") {
+    flex-direction: column;
     gap: rem(12);
   }
 }
