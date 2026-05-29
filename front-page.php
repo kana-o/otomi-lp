@@ -84,8 +84,8 @@
   <section class="future">
     <div class="future__inner inner">
       <div class="future__head">
-        <p class="future__eyebrow">Philosophy</p>
-        <h2 class="future__title">私たちが<br>思い描く未来</h2>
+        <p class="future__eyebrow">Culture</p>
+        <h2 class="future__title">私たちが大切にする<br>3つの文化</h2>
       </div>
       <div class="future__lead">
         <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/philosophy-lead.png" alt="" width="176" height="279" loading="lazy">

@@ -284,7 +284,7 @@
   @media (min-width: 769px) {
     grid-template-columns: rem(389) rem(505) rem(389);
     justify-content: center;
-    column-gap: rem(28);
+    column-gap: 0;
     row-gap: 0;
     align-items: start;
   }
@@ -310,13 +310,13 @@
 
 .future__title {
   font-family: $base-font;
-  font-size: rem(28);
+  font-size: rem(48);
   font-weight: $bold;
   line-height: 1.2;
   color: $base-color;
 
   @include mq("sp") {
-    font-size: rem(24);
+    font-size: rem(28);
   }
 }
 

@@ -659,7 +659,7 @@ img {
 
 .future__title {
   font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 1.75rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
   color: #1B1B1B;
@@ -2732,8 +2732,8 @@ img {
   .future__inner {
     grid-template-columns: 24.3125rem 31.5625rem 24.3125rem;
     justify-content: center;
-    -moz-column-gap: 1.75rem;
-         column-gap: 1.75rem;
+    -moz-column-gap: 0;
+         column-gap: 0;
     row-gap: 0;
     align-items: start;
   }
@@ -3257,7 +3257,7 @@ img {
   }
 
   .future__title {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 
   .daily__timeline-title {
