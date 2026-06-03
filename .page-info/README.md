@@ -57,9 +57,10 @@
 
 ---
 
-## TOP（トップページ / front-page）
-- **テンプレート**: `front-page.php`
-- **SCSS**: `src/scss/module/_top.scss`
+## 採用LP（/recruit）
+- **テンプレート**: `page-recruit.php`（固定ページ slug=`recruit` / URL: `/recruit/`）
+- **SCSS**: `src/scss/module/_recruit.scss`
+- **備考**: コーポレートサイトの下層に設置するLP。サイトトップ（/）は別途実装予定で `index.php` は最小プレースホルダ。
 - **PC**: https://www.figma.com/design/mDp0GGIsRceDcJ7HX7T2nL/FIX-%E5%A4%A7%E5%AF%8C%E9%81%8B%E8%BC%B8%E6%A7%98--%E3%82%B3%E3%83%94%E3%83%BC-?node-id=133-341&m=dev (node-id: 133:341)
 - **SP**: https://www.figma.com/design/mDp0GGIsRceDcJ7HX7T2nL/FIX-%E5%A4%A7%E5%AF%8C%E9%81%8B%E8%BC%B8%E6%A7%98--%E3%82%B3%E3%83%94%E3%83%BC-?node-id=574-4&m=dev (node-id: 574:4)
 - **状態**: 🟡 構造実装完了（画像配置・WP設定待ち）

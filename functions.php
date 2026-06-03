@@ -54,7 +54,7 @@ add_action('wp_enqueue_scripts', function () {
 
 /**
  * カスタム投稿タイプ「募集要項（job）」
- * 詳細ページは作らず、front-page の一覧表示のみで使用する。
+ * 詳細ページは作らず、採用LP（page-recruit）の一覧表示のみで使用する。
  * - public => false（フロントに単体ページURLを生やさない）
  * - show_ui => true（管理画面の編集UIは出す）
  * - page-attributes（menu_order）でドラッグ並べ替えに対応
