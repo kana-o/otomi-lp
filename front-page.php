@@ -17,7 +17,7 @@
       <header class="header">
         <div class="header__brand">
           <a href="<?php echo esc_url(home_url('/')); ?>" class="header__logo" aria-label="大富運輸 採用サイト">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/logo.svg" alt="otomi" width="140" height="42" loading="eager">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/logo.svg" alt="otomi" width="140" height="42" loading="eager">
           </a>
           <p class="header__tag">Recruit site</p>
         </div>
@@ -27,7 +27,7 @@
               <a href="#" class="header__nav-link">
                 <span>会社サイト</span>
                 <span class="header__nav-icon" aria-hidden="true">
-                  <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/arrow-circle-dark.svg" alt="" width="17" height="17">
+                  <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/arrow-circle-dark.svg" alt="" width="17" height="17">
                 </span>
               </a>
             </li>
@@ -35,7 +35,7 @@
               <a href="#" class="header__nav-link">
                 <span>お問い合わせ</span>
                 <span class="header__nav-icon" aria-hidden="true">
-                  <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/arrow-circle-dark.svg" alt="" width="17" height="17">
+                  <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/arrow-circle-dark.svg" alt="" width="17" height="17">
                 </span>
               </a>
             </li>
@@ -51,13 +51,13 @@
           <a href="#" class="fv__cta-btn fv__cta-btn--white">
             <span>採用情報を見る</span>
             <span class="fv__cta-icon" aria-hidden="true">
-              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/cta-arrow.svg" alt="" width="30" height="30">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/cta-arrow.svg" alt="" width="30" height="30">
             </span>
           </a>
           <a href="#" class="fv__cta-btn fv__cta-btn--blue">
             <span>エントリーする</span>
             <span class="fv__cta-icon" aria-hidden="true">
-              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/cta-arrow-blue.svg" alt="" width="30" height="30">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/cta-arrow-blue.svg" alt="" width="30" height="30">
             </span>
           </a>
         </div>
@@ -75,7 +75,7 @@
         そんな仲間を募集しています。
       </p>
       <figure class="safety__photo">
-        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/safety-photo.png" alt="森を抜ける曲がりくねった一本道（俯瞰）" width="1280" height="380" loading="lazy">
+        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/safety-photo.png" alt="森を抜ける曲がりくねった一本道（俯瞰）" width="1280" height="380" loading="lazy">
       </figure>
     </div>
   </section>
@@ -88,7 +88,7 @@
         <h2 class="future__title">私たちが大切にする<br>3つの文化</h2>
       </div>
       <div class="future__lead">
-        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/philosophy-lead.png" alt="" width="176" height="279" loading="lazy">
+        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-lead.png" alt="" width="176" height="279" loading="lazy">
       </div>
       <ul class="future__list">
         <?php
@@ -101,7 +101,7 @@
         ?>
         <li class="future__item">
           <figure class="future__item-img">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/<?php echo esc_attr($card['img']); ?>" alt="" width="350" height="233" loading="lazy">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/<?php echo esc_attr($card['img']); ?>" alt="" width="350" height="233" loading="lazy">
           </figure>
           <p class="future__item-no"><?php echo esc_html($card['no']); ?></p>
           <h3 class="future__item-title"><?php echo esc_html($card['title']); ?></h3>
@@ -116,7 +116,7 @@
   <section class="five">
     <div class="five__inner inner">
       <div class="five__bg" aria-hidden="true">
-        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/ribbon-vertical.svg" alt="" width="710" height="845">
+        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/ribbon-vertical.svg" alt="" width="710" height="845">
       </div>
       <div class="five__head">
         <p class="five__eyebrow">Behavioral guidelines</p>
@@ -135,7 +135,7 @@
         ?>
         <li class="five__item">
           <span class="five__item-icon" aria-hidden="true">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/<?php echo esc_attr($item['icon']); ?>" alt="" width="52" height="52">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/<?php echo esc_attr($item['icon']); ?>" alt="" width="52" height="52">
           </span>
           <h3 class="five__item-title"><?php echo nl2br(esc_html($item['title'])); ?></h3>
           <p class="five__item-text"><?php echo esc_html($item['text']); ?></p>
@@ -153,7 +153,7 @@
         <h2 class="message__title">社長メッセージ</h2>
       </div>
       <figure class="message__photo">
-        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/message-photo.png" alt="代表取締役 尾﨑俊介" width="350" height="233" loading="lazy">
+        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/message-photo.png" alt="代表取締役 尾﨑俊介" width="350" height="233" loading="lazy">
       </figure>
       <h3 class="message__lead">事に仕え、社会を静かに支える</h3>
       <p class="message__body">
@@ -173,8 +173,8 @@
   <section class="voice">
     <div class="voice__inner inner">
       <div class="voice__bg" aria-hidden="true">
-        <img class="voice__bg-ribbon voice__bg-ribbon--1" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/voice-ribbon-1.svg" alt="">
-        <img class="voice__bg-ribbon voice__bg-ribbon--2" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/voice-ribbon-2.svg" alt="">
+        <img class="voice__bg-ribbon voice__bg-ribbon--1" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-ribbon-1.svg" alt="">
+        <img class="voice__bg-ribbon voice__bg-ribbon--2" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-ribbon-2.svg" alt="">
       </div>
       <div class="voice__head">
         <p class="voice__eyebrow">Voice</p>
@@ -192,7 +192,7 @@
           ?>
           <li class="voice__item js-voice-item<?php echo $i === 0 ? ' is-active' : ''; ?>" data-index="<?php echo $i; ?>">
             <figure class="voice__item-photo">
-              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/<?php echo esc_attr($v['photo']); ?>" alt="" width="227" height="184" loading="lazy">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/<?php echo esc_attr($v['photo']); ?>" alt="" width="227" height="184" loading="lazy">
             </figure>
             <p class="voice__item-lead"><?php echo esc_html($v['lead']); ?></p>
             <p class="voice__item-name"><?php echo esc_html($v['name']); ?></p>
@@ -202,10 +202,10 @@
         </ul>
         <div class="voice__controls">
           <button type="button" class="voice__nav voice__nav--prev js-voice-prev" aria-label="前のインタビュー">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/voice-arrow-prev.svg" alt="" width="45" height="45">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-arrow-prev.svg" alt="" width="45" height="45">
           </button>
           <button type="button" class="voice__nav voice__nav--next js-voice-next" aria-label="次のインタビュー">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/voice-arrow-next.svg" alt="" width="45" height="45">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-arrow-next.svg" alt="" width="45" height="45">
           </button>
         </div>
       </div>
@@ -229,14 +229,14 @@
         foreach ($cultures as $c) :
         ?>
         <li class="culture__item">
-          <img class="culture__item-ribbon" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/<?php echo esc_attr($c['ribbon']); ?>" alt="" aria-hidden="true">
+          <img class="culture__item-ribbon" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/<?php echo esc_attr($c['ribbon']); ?>" alt="" aria-hidden="true">
           <h3 class="culture__item-title"><?php echo esc_html($c['title']); ?></h3>
           <p class="culture__item-text"><?php echo nl2br(esc_html($c['text'])); ?></p>
         </li>
         <?php endforeach; ?>
       </ul>
       <figure class="culture__team">
-        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/culture-team-photo.png" alt="大富運輸のチーム" width="350" height="234" loading="lazy">
+        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/culture-team-photo.png" alt="大富運輸のチーム" width="350" height="234" loading="lazy">
       </figure>
     </div>
   </section>
@@ -249,9 +249,9 @@
         <h2 class="daily__title">社員の一日</h2>
       </div>
       <div class="daily__tabs" role="tablist" aria-label="運行パターン">
-        <button type="button" class="daily__tab is-active" role="tab" data-tab="1" aria-selected="true" aria-controls="daily-panel-1"><span class="daily__tab-label">運行①</span><span class="daily__tab-icon" aria-hidden="true"><img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/daily-tab-arrow-b.svg" alt="" width="24" height="24"><img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/daily-tab-arrow-w.svg" alt="" width="24" height="24"></span></button>
-        <button type="button" class="daily__tab" role="tab" data-tab="2" aria-selected="false" aria-controls="daily-panel-2"><span class="daily__tab-label">運行②</span><span class="daily__tab-icon" aria-hidden="true"><img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/daily-tab-arrow-b.svg" alt="" width="24" height="24"><img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/daily-tab-arrow-w.svg" alt="" width="24" height="24"></span></button>
-        <button type="button" class="daily__tab" role="tab" data-tab="3" aria-selected="false" aria-controls="daily-panel-3"><span class="daily__tab-label">運行③</span><span class="daily__tab-icon" aria-hidden="true"><img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/daily-tab-arrow-b.svg" alt="" width="24" height="24"><img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/daily-tab-arrow-w.svg" alt="" width="24" height="24"></span></button>
+        <button type="button" class="daily__tab is-active" role="tab" data-tab="1" aria-selected="true" aria-controls="daily-panel-1"><span class="daily__tab-label">運行①</span><span class="daily__tab-icon" aria-hidden="true"><img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-b.svg" alt="" width="24" height="24"><img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-w.svg" alt="" width="24" height="24"></span></button>
+        <button type="button" class="daily__tab" role="tab" data-tab="2" aria-selected="false" aria-controls="daily-panel-2"><span class="daily__tab-label">運行②</span><span class="daily__tab-icon" aria-hidden="true"><img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-b.svg" alt="" width="24" height="24"><img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-w.svg" alt="" width="24" height="24"></span></button>
+        <button type="button" class="daily__tab" role="tab" data-tab="3" aria-selected="false" aria-controls="daily-panel-3"><span class="daily__tab-label">運行③</span><span class="daily__tab-icon" aria-hidden="true"><img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-b.svg" alt="" width="24" height="24"><img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-w.svg" alt="" width="24" height="24"></span></button>
       </div>
 
       <?php
@@ -328,7 +328,7 @@
         ?>
         <li class="career__item">
           <span class="career__item-num" aria-hidden="true">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/career-icon.svg" alt="" width="40" height="40">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/career-icon.svg" alt="" width="40" height="40">
           </span>
           <h3 class="career__item-title"><?php echo esc_html($item['title']); ?></h3>
           <p class="career__item-text"><?php echo esc_html($item['text']); ?></p>
@@ -360,7 +360,7 @@
         <li class="stats__item">
           <span class="stats__item-label"><?php echo esc_html($s['label']); ?></span>
           <span class="stats__item-icon" aria-hidden="true">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/<?php echo esc_attr($s['icon']); ?>" alt="" width="66" height="66">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/<?php echo esc_attr($s['icon']); ?>" alt="" width="66" height="66">
           </span>
           <p class="stats__item-value"><?php echo esc_html($s['value']); ?></p>
           <p class="stats__item-desc"><?php echo esc_html($s['desc']); ?></p>
@@ -396,15 +396,15 @@
         ?>
         <li class="environment__item">
           <span class="environment__item-icon" aria-hidden="true">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/env-check.svg" alt="" width="29" height="29">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/env-check.svg" alt="" width="29" height="29">
           </span>
           <span class="environment__item-text"><?php echo esc_html($env); ?></span>
         </li>
         <?php endforeach; ?>
       </ul>
       <div class="environment__photos">
-        <figure class="environment__photo"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/env-photo-1.png" alt="" width="173" height="311" loading="lazy"></figure>
-        <figure class="environment__photo"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/env-photo-2.png" alt="" width="173" height="311" loading="lazy"></figure>
+        <figure class="environment__photo"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/env-photo-1.png" alt="" width="173" height="311" loading="lazy"></figure>
+        <figure class="environment__photo"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/env-photo-2.png" alt="" width="173" height="311" loading="lazy"></figure>
       </div>
     </div>
   </section>
@@ -431,7 +431,7 @@
         <li class="benefits__item">
           <div class="benefits__item-head">
             <span class="benefits__item-icon" aria-hidden="true">
-              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/<?php echo esc_attr($g['icon']); ?>" alt="" width="56" height="56">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/<?php echo esc_attr($g['icon']); ?>" alt="" width="56" height="56">
             </span>
             <h3 class="benefits__item-title"><?php echo esc_html($g['title']); ?></h3>
           </div>
@@ -439,7 +439,7 @@
             <?php foreach ($g['items'] as $sub) : ?>
             <li class="benefits__item-li">
               <span class="benefits__item-check" aria-hidden="true">
-                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/icon-check.svg" alt="" width="20" height="22">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/icon-check.svg" alt="" width="20" height="22">
               </span>
               <span><?php echo esc_html($sub); ?></span>
             </li>
@@ -455,7 +455,7 @@
   <section class="system">
     <div class="system__inner inner">
       <div class="system__bg" aria-hidden="true">
-        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/system-bg.svg" alt="">
+        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-bg.svg" alt="">
       </div>
       <div class="system__head">
         <p class="system__eyebrow">Training</p>
@@ -476,7 +476,7 @@
             <span class="system__step-label"><?php echo esc_html($t['step']); ?></span>
             <span class="system__step-arrows" aria-hidden="true">
               <?php for ($i = 0; $i < $t['arrows']; $i++) : ?>
-                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/system-arrow.svg" alt="" width="23" height="16">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-arrow.svg" alt="" width="23" height="16">
               <?php endfor; ?>
             </span>
           </p>
@@ -485,7 +485,7 @@
             <?php foreach ($t['items'] as $item) : ?>
             <li>
               <span class="benefits__item-check" aria-hidden="true">
-                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/icon-check.svg" alt="" width="20" height="22">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/icon-check.svg" alt="" width="20" height="22">
               </span>
               <span><?php echo esc_html($item); ?></span>
             </li>
@@ -506,7 +506,7 @@
         foreach ($training_cards as $c) :
         ?>
         <li class="system__card">
-          <figure class="system__card-img"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/<?php echo esc_attr($c['img']); ?>" alt="" width="169" height="104" loading="lazy"></figure>
+          <figure class="system__card-img"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/<?php echo esc_attr($c['img']); ?>" alt="" width="169" height="104" loading="lazy"></figure>
           <h4 class="system__card-title"><?php echo esc_html($c['title']); ?></h4>
           <p class="system__card-text"><?php echo esc_html($c['text']); ?></p>
         </li>
@@ -537,7 +537,7 @@
           <h3 class="satisfaction__card-title"><?php echo esc_html($card['title']); ?></h3>
           <p class="satisfaction__card-text"><?php echo nl2br(esc_html($card['text'])); ?></p>
           <figure class="satisfaction__card-img">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/<?php echo esc_attr($card['img']); ?>" alt="" width="310" height="118" loading="lazy">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/<?php echo esc_attr($card['img']); ?>" alt="" width="310" height="118" loading="lazy">
           </figure>
         </li>
         <?php endforeach; ?>
@@ -632,7 +632,7 @@
         ?>
         <li class="recruitment__flow-item recruitment__flow-item--<?php echo esc_attr($f['bg']); ?>">
           <span class="recruitment__flow-icon" aria-hidden="true">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/<?php echo esc_attr($f['icon']); ?>" alt="" width="64" height="64">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/<?php echo esc_attr($f['icon']); ?>" alt="" width="64" height="64">
           </span>
           <p class="recruitment__flow-step"><?php echo esc_html($f['step']); ?></p>
           <p class="recruitment__flow-title"><?php echo esc_html($f['title']); ?></p>
@@ -694,7 +694,7 @@
         <p class="entry__lead">あなたの意志と行動が、物流を動かす。<br>まず話を聞くだけでも構いません。</p>
         <a href="#" class="entry__line-btn">
           <span class="entry__line-icon" aria-hidden="true">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/line-icon.png" alt="" width="46" height="46">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/line-icon.png" alt="" width="46" height="46">
           </span>
           <span>お友だち追加</span>
         </a>
@@ -739,7 +739,7 @@
         <button type="submit" class="entry__form-submit">
           <span>エントリーする</span>
           <span class="entry__form-arrow" aria-hidden="true">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/cta-arrow-blue.svg" alt="" width="30" height="30">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/cta-arrow-blue.svg" alt="" width="30" height="30">
           </span>
         </button>
       </form>
@@ -752,7 +752,7 @@
 <?php /* フッター / SP node-id: 578:1927 */ ?>
 <footer class="footer">
   <div class="footer__bg" aria-hidden="true">
-    <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/footer-ribbon.svg" alt="">
+    <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/footer-ribbon.svg" alt="">
   </div>
   <div class="footer__inner inner">
     <div class="footer__top">
@@ -762,23 +762,23 @@
         <p class="footer__company-tel">04-2936-2882</p>
       </div>
       <a class="footer__social" href="#" aria-label="会社サイト">
-        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/footer-social.svg" alt="" width="48" height="48">
+        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/footer-social.svg" alt="" width="48" height="48">
       </a>
     </div>
     <a class="footer__logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="otomi">
-      <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/footer-logo.svg" alt="otomi">
+      <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/footer-logo.svg" alt="otomi">
     </a>
     <div class="footer__ctas">
       <a href="#" class="footer__cta footer__cta--white">
         <span>会社サイトを見る</span>
         <span class="footer__cta-arrow" aria-hidden="true">
-          <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/cta-arrow.svg" alt="" width="30" height="30">
+          <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/cta-arrow.svg" alt="" width="30" height="30">
         </span>
       </a>
       <a href="#entry" class="footer__cta footer__cta--blue">
         <span>エントリーする</span>
         <span class="footer__cta-arrow" aria-hidden="true">
-          <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/cta-arrow-blue.svg" alt="" width="30" height="30">
+          <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/cta-arrow-blue.svg" alt="" width="30" height="30">
         </span>
       </a>
     </div>

@@ -19,7 +19,7 @@ FV (KV)
 .fv__bg-photo--pc {
   position: absolute;
   inset: 0;
-  background-image: url("../img/pc/fv_pc.png");
+  background-image: url("../img/lp/fv_pc.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -32,7 +32,7 @@ FV (KV)
   display: none;
   position: absolute;
   inset: 0;
-  background-image: url("../img/sp/fv_sp.jpg");
+  background-image: url("../img/lp/fv_sp.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
@@ -2541,7 +2541,7 @@ FV (KV)
   right: rem(16);
   width: rem(13);
   height: rem(13);
-  background: url("../img/common/select-arrow.svg") no-repeat center / contain;
+  background: url("../img/lp/select-arrow.svg") no-repeat center / contain;
   transform: translateY(-50%) rotate(180deg);
   pointer-events: none;
 }
