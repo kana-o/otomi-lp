@@ -415,15 +415,8 @@ img {
 }
 
 /* =========================================================
-   共通の見出しパターン (eyebrow + section title)
-   各セクションが BEM の block として独立しているため、
-   見た目の繰り返し部分は section ごとに記述する。
-   ========================================================= */
-
-/* =========================================================
-   FV (KV)
-   Figma準拠: SP=391x807相当 / PC=1440x807
-   ========================================================= */
+FV (KV)
+ ========================================================= */
 
 .fv {
   position: relative;
@@ -433,22 +426,6 @@ img {
   color: #FFFFFF;
 }
 
-.fv__bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-/* 青ベース（マスクで隠れた部分に見える色） */
-
-.fv__bg-blue {
-  position: absolute;
-  inset: 0;
-  background-color: #008CD6;
-}
-
-/* PC: トラック写真 + ブルーリボン合成画像 */
-
 .fv__bg-photo--pc {
   position: absolute;
   inset: 0;
@@ -457,8 +434,6 @@ img {
   background-size: cover;
   background-position: center;
 }
-
-/* SP: トラック写真をフルブリードで表示 */
 
 .fv__bg-photo--sp {
   display: none;
@@ -2980,9 +2955,49 @@ img {
 
   .recruitment__cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 2rem;
     align-items: start;
+  }
+
+  .recruitment__cards--count-1 .recruitment__card {
+    grid-column: 3/span 2;
+  }
+
+  .recruitment__cards--count-2 .recruitment__card:nth-child(1) {
+    grid-column: 2/span 2;
+  }
+
+  .recruitment__cards--count-2 .recruitment__card:nth-child(2) {
+    grid-column: 4/span 2;
+  }
+
+  .recruitment__cards--count-4 .recruitment__card:nth-child(1) {
+    grid-column: 2/span 2;
+  }
+
+  .recruitment__cards--count-4 .recruitment__card:nth-child(2) {
+    grid-column: 4/span 2;
+  }
+
+  .recruitment__cards--count-4 .recruitment__card:nth-child(3) {
+    grid-column: 2/span 2;
+  }
+
+  .recruitment__cards--count-4 .recruitment__card:nth-child(4) {
+    grid-column: 4/span 2;
+  }
+
+  .recruitment__cards--count-5 .recruitment__card:nth-child(4) {
+    grid-column: 2/span 2;
+  }
+
+  .recruitment__cards--count-5 .recruitment__card:nth-child(5) {
+    grid-column: 4/span 2;
+  }
+
+  .recruitment__card {
+    grid-column: span 2;
   }
 
   .recruitment__flow {

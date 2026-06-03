@@ -1,15 +1,9 @@
 @use "global" as *;
 
-/* =========================================================
-   共通の見出しパターン (eyebrow + section title)
-   各セクションが BEM の block として独立しているため、
-   見た目の繰り返し部分は section ごとに記述する。
-   ========================================================= */
 
 /* =========================================================
-   FV (KV)
-   Figma準拠: SP=391x807相当 / PC=1440x807
-   ========================================================= */
+FV (KV)
+ ========================================================= */
 .fv {
   position: relative;
   width: 100%;
@@ -22,20 +16,6 @@
   }
 }
 
-.fv__bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-/* 青ベース（マスクで隠れた部分に見える色） */
-.fv__bg-blue {
-  position: absolute;
-  inset: 0;
-  background-color: $blue;
-}
-
-/* PC: トラック写真 + ブルーリボン合成画像 */
 .fv__bg-photo--pc {
   position: absolute;
   inset: 0;
@@ -48,8 +28,6 @@
     display: none;
   }
 }
-
-/* SP: トラック写真をフルブリードで表示 */
 .fv__bg-photo--sp {
   display: none;
   position: absolute;
@@ -2022,12 +2000,40 @@
   flex-direction: column;
   gap: rem(24);
 
+  // PCは6列グリッド + span 2（=3列幅と数式的に一致）。枚数別に下の modifier で中央寄せ。
   @media (min-width: 769px) {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: rem(32);
     align-items: start;
   }
+}
+
+// 1種類: 1枚を中央
+@media (min-width: 769px) {
+  .recruitment__cards--count-1 .recruitment__card { grid-column: 3 / span 2; }
+}
+
+// 2種類: 2枚を中央
+@media (min-width: 769px) {
+  .recruitment__cards--count-2 .recruitment__card:nth-child(1) { grid-column: 2 / span 2; }
+  .recruitment__cards--count-2 .recruitment__card:nth-child(2) { grid-column: 4 / span 2; }
+}
+
+// 3種類: 現状デザイン（span 2 の自動配置で 1/3/5 列に並ぶ）— 上書き不要
+
+// 4種類: 2+2（上段2枚・下段2枚 中央）
+@media (min-width: 769px) {
+  .recruitment__cards--count-4 .recruitment__card:nth-child(1) { grid-column: 2 / span 2; }
+  .recruitment__cards--count-4 .recruitment__card:nth-child(2) { grid-column: 4 / span 2; }
+  .recruitment__cards--count-4 .recruitment__card:nth-child(3) { grid-column: 2 / span 2; }
+  .recruitment__cards--count-4 .recruitment__card:nth-child(4) { grid-column: 4 / span 2; }
+}
+
+// 5種類: 1段目3枚（現状）・2段目2枚 中央
+@media (min-width: 769px) {
+  .recruitment__cards--count-5 .recruitment__card:nth-child(4) { grid-column: 2 / span 2; }
+  .recruitment__cards--count-5 .recruitment__card:nth-child(5) { grid-column: 4 / span 2; }
 }
 
 .recruitment__card {
@@ -2039,6 +2045,10 @@
   display: grid;
   gap: rem(16);
   justify-items: center;
+
+  @media (min-width: 769px) {
+    grid-column: span 2;
+  }
 }
 
 .recruitment__card-photo {
@@ -2278,7 +2288,7 @@
 }
 
 .faq__mark {
-  font-family: $second-font;
+  font-family: "Inter", sans-serif;
   font-size: rem(32);
   font-weight: $regular;
   color: $base-color;

@@ -563,59 +563,58 @@
         <p class="recruitment__eyebrow">Recruitment</p>
         <h2 class="recruitment__title">募集要項</h2>
       </div>
-      <ul class="recruitment__cards">
-        <?php
-        $jobs = [
-          [
-            'photo' => 'recruit-photo-1.png',
-            'badge' => 'ドライバー',
-            'rows' => [
-              ['label' => '仕事内容', 'value' => '一般貨物の配送業務（主に関東圏内）'],
-              ['label' => '応募資格', 'value' => '中型免許以上（大型免許あれば尚可） 未経験者歓迎'],
-              ['label' => '給与', 'value' => "月給 〇〇万円〜〇〇万円\n※経験・スキルによる"],
-              ['label' => '勤務時間', 'value' => '6:00〜20:00の間でシフト制'],
-              ['label' => '休日', 'value' => '週休2日制（シフト制） 年間休日〇〇日'],
-            ],
-          ],
-          [
-            'photo' => 'recruit-photo-2.png',
-            'badge' => '管理スタッフ',
-            'rows' => [
-              ['label' => '仕事内容', 'value' => '配車計画、ルート最適化、ドライバー管理'],
-              ['label' => '応募資格', 'value' => '物流業界経験者優遇 未経験でもOK'],
-              ['label' => '給与', 'value' => "月給 〇〇万円〜〇〇万円\n※経験・スキルによる"],
-              ['label' => '勤務時間', 'value' => '8:30〜17:30（休憩1時間）'],
-              ['label' => '休日', 'value' => '土日祝（会社カレンダーによる） 年間休日〇〇日'],
-            ],
-          ],
-          [
-            'photo' => 'recruit-photo-3.png',
-            'badge' => '事務スタッフ',
-            'rows' => [
-              ['label' => '仕事内容', 'value' => '受発注業務、顧客対応、データ入力、書類作成'],
-              ['label' => '応募資格', 'value' => 'PC基本操作ができる方 未経験者歓迎'],
-              ['label' => '給与', 'value' => "月給 〇〇万円〜〇〇万円\n※経験・スキルによる"],
-              ['label' => '勤務時間', 'value' => '9:00〜18:00（休憩1時間）'],
-              ['label' => '休日', 'value' => '土日祝（会社カレンダーによる） 年間休日〇〇日'],
-            ],
-          ],
-        ];
-        foreach ($jobs as $job) :
-        ?>
+      <?php
+      // 募集要項（カスタム投稿 job）を menu_order 順で取得。
+      // 並べ替えは「Intuitive Custom Post Order」プラグインでドラッグ操作。
+      $jobs_query = new WP_Query([
+        'post_type'      => 'job',
+        'posts_per_page' => -1,
+        'orderby'        => 'menu_order',
+        'order'          => 'ASC',
+        'no_found_rows'  => false,
+      ]);
+
+      // ラベル固定：表示順とACFフィールド名の対応
+      $job_rows = [
+        '仕事内容' => 'job_content',
+        '応募資格' => 'job_qualification',
+        '給与'     => 'job_salary',
+        '勤務時間' => 'job_hours',
+        '休日'     => 'job_holiday',
+      ];
+
+      if ($jobs_query->have_posts()) :
+        $job_count = (int) $jobs_query->post_count;
+      ?>
+      <ul class="recruitment__cards recruitment__cards--count-<?php echo esc_attr($job_count); ?>">
+        <?php while ($jobs_query->have_posts()) : $jobs_query->the_post(); ?>
         <li class="recruitment__card">
-          <figure class="recruitment__card-photo"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/common/<?php echo esc_attr($job['photo']); ?>" alt="" width="314" height="198" loading="lazy"></figure>
-          <p class="recruitment__card-badge"><?php echo esc_html($job['badge']); ?></p>
+          <figure class="recruitment__card-photo">
+            <?php if (has_post_thumbnail()) : ?>
+              <?php the_post_thumbnail('medium_large', ['alt' => '', 'width' => 314, 'height' => 198, 'loading' => 'lazy']); ?>
+            <?php endif; ?>
+          </figure>
+          <p class="recruitment__card-badge"><?php the_title(); ?></p>
           <dl class="recruitment__card-dl">
-            <?php foreach ($job['rows'] as $row) : ?>
+            <?php foreach ($job_rows as $label => $field_name) :
+              $value = function_exists('get_field') ? (string) get_field($field_name) : '';
+              if ($value === '') {
+                continue;
+              }
+            ?>
             <div class="recruitment__card-row">
-              <dt><?php echo esc_html($row['label']); ?></dt>
-              <dd><?php echo nl2br(esc_html($row['value'])); ?></dd>
+              <dt><?php echo esc_html($label); ?></dt>
+              <dd><?php echo nl2br(esc_html($value)); ?></dd>
             </div>
             <?php endforeach; ?>
           </dl>
         </li>
-        <?php endforeach; ?>
+        <?php endwhile; ?>
       </ul>
+      <?php
+        wp_reset_postdata();
+      endif;
+      ?>
 
       <p class="recruitment__badge">応募の流れ</p>
       <ul class="recruitment__flow">
