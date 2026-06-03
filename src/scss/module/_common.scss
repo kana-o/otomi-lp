@@ -18,6 +18,14 @@ img {
   height: auto;
 }
 
+/* 各セクション共通の見出し。PC（768px超）は Zen Kaku Gothic New Bold 40px。
+   SP時のサイズは各セクションの __title 側で個別指定する。 */
+.section-title {
+  @media (min-width: 769px) {
+    font-size: rem(40);
+  }
+}
+
 .tab-none {
   @include mq("tab") {
     display: none;

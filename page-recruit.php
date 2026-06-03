@@ -89,7 +89,7 @@
     <div class="future__inner inner">
       <div class="future__head">
         <p class="future__eyebrow">Culture</p>
-        <h2 class="future__title">私たちが大切にする<br>3つの文化</h2>
+        <h2 class="section-title future__title">私たちが大切にする<br>3つの文化</h2>
       </div>
       <div class="future__lead">
         <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-lead.png" alt="" width="176" height="279" loading="lazy">
@@ -131,7 +131,7 @@
       </div>
       <div class="five__head">
         <p class="five__eyebrow">Behavioral guidelines</p>
-        <h2 class="five__title">行動指針5箇条</h2>
+        <h2 class="section-title five__title">行動指針5箇条</h2>
       </div>
       <ul class="five__list">
         <li class="five__item">
@@ -178,7 +178,7 @@
     <div class="message__inner inner">
       <div class="message__head">
         <p class="message__eyebrow">Message</p>
-        <h2 class="message__title">社長メッセージ</h2>
+        <h2 class="section-title message__title">社長メッセージ</h2>
       </div>
       <figure class="message__photo">
         <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/message-photo.png" alt="代表取締役 尾﨑俊介" width="350" height="233" loading="lazy">
@@ -206,7 +206,7 @@
       </div>
       <div class="voice__head">
         <p class="voice__eyebrow">Voice</p>
-        <h2 class="voice__title">働く人の声</h2>
+        <h2 class="section-title voice__title">働く人の声</h2>
       </div>
       <div class="voice__slider js-voice-slider">
         <ul class="voice__list">
@@ -252,7 +252,7 @@
     <div class="culture__inner inner">
       <div class="culture__head">
         <p class="culture__eyebrow">Culture</p>
-        <h2 class="culture__title">私たちが大切にする3つの文化</h2>
+        <h2 class="section-title culture__title">私たちが大切にする3つの文化</h2>
       </div>
       <ul class="culture__list">
         <li class="culture__item">
@@ -282,7 +282,7 @@
     <div class="daily__inner inner">
       <div class="daily__head">
         <p class="daily__eyebrow">Day</p>
-        <h2 class="daily__title">社員の一日</h2>
+        <h2 class="section-title daily__title">社員の一日</h2>
       </div>
       <div class="daily__tabs" role="tablist" aria-label="運行パターン">
         <button type="button" class="daily__tab is-active" role="tab" data-tab="1" aria-selected="true" aria-controls="daily-panel-1"><span class="daily__tab-label">運行①</span><span class="daily__tab-icon" aria-hidden="true"><img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-b.svg" alt="" width="24" height="24"><img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-w.svg" alt="" width="24" height="24"></span></button>
@@ -502,7 +502,7 @@
     <div class="career__inner inner">
       <div class="career__head">
         <p class="career__eyebrow">Evaluation</p>
-        <h2 class="career__title">評価制度</h2>
+        <h2 class="section-title career__title">評価制度</h2>
       </div>
       <p class="career__badge">評価制度</p>
       <ul class="career__list">
@@ -550,7 +550,7 @@
     <div class="stats__inner inner">
       <div class="stats__head">
         <p class="stats__eyebrow">Numbers</p>
-        <h2 class="stats__title">数字で見る大富運輸</h2>
+        <h2 class="section-title stats__title">数字で見る大富運輸</h2>
       </div>
       <ul class="stats__list">
         <li class="stats__item">
@@ -610,7 +610,7 @@
     <div class="environment__inner inner">
       <div class="environment__head">
         <p class="environment__eyebrow">Environment</p>
-        <h2 class="environment__title">働く環境・働き方</h2>
+        <h2 class="section-title environment__title">働く環境・働き方</h2>
       </div>
       <ul class="environment__list">
         <li class="environment__item">
@@ -692,7 +692,7 @@
     <div class="benefits__inner inner">
       <div class="benefits__head">
         <p class="benefits__eyebrow">Environment</p>
-        <h2 class="benefits__title">福利厚生</h2>
+        <h2 class="section-title benefits__title">福利厚生</h2>
       </div>
       <ul class="benefits__list">
         <li class="benefits__item">
@@ -905,7 +905,7 @@
       </div>
       <div class="system__head">
         <p class="system__eyebrow">Training</p>
-        <h2 class="system__title">研修制度・社内制度</h2>
+        <h2 class="section-title system__title">研修制度・社内制度</h2>
       </div>
       <ul class="system__steps">
         <li class="system__step">
@@ -1062,7 +1062,7 @@
     <div class="satisfaction__inner inner">
       <div class="satisfaction__head">
         <p class="satisfaction__eyebrow">Satisfaction</p>
-        <h2 class="satisfaction__title">仕事のやりがい</h2>
+        <h2 class="section-title satisfaction__title">仕事のやりがい</h2>
       </div>
       <ul class="satisfaction__list js-satisfaction-cards">
         <li class="satisfaction__card js-satisfaction-card satisfaction__card--lvl-1">
@@ -1117,7 +1117,7 @@
     <div class="recruitment__inner inner">
       <div class="recruitment__head">
         <p class="recruitment__eyebrow">Recruitment</p>
-        <h2 class="recruitment__title">募集要項</h2>
+        <h2 class="section-title recruitment__title">募集要項</h2>
       </div>
       <?php
       // 募集要項（カスタム投稿 job）を menu_order 順で取得。
@@ -1214,7 +1214,7 @@
     <div class="faq__inner inner">
       <div class="faq__head">
         <p class="faq__eyebrow">FAQ</p>
-        <h2 class="faq__title">よくある質問</h2>
+        <h2 class="section-title faq__title">よくある質問</h2>
         <p class="faq__note">その他、ご質問があればお気軽にご連絡ください。</p>
       </div>
       <ul class="faq__list">
