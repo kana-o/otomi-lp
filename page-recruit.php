@@ -2,7 +2,6 @@
 
 <main class="main">
 
-  <?php /* FV (KV) */ ?>
   <section class="fv">
     <?php /* 背景: PC=トラック写真+青リボン / SP=トラック写真+下半分ブルーグラデーション */ ?>
     <div class="fv__bg" aria-hidden="true">
@@ -31,7 +30,7 @@
               <a href="#" class="header__nav-link">
                 <span>会社サイト</span>
                 <span class="header__nav-icon" aria-hidden="true">
-                  <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/arrow-circle-dark.svg" alt="" width="17" height="17">
+                  <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/arrow-circle.svg" alt="" width="17" height="17">
                 </span>
               </a>
             </li>
@@ -39,7 +38,7 @@
               <a href="#" class="header__nav-link">
                 <span>お問い合わせ</span>
                 <span class="header__nav-icon" aria-hidden="true">
-                  <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/arrow-circle-dark.svg" alt="" width="17" height="17">
+                  <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/arrow-circle.svg" alt="" width="17" height="17">
                 </span>
               </a>
             </li>
@@ -70,7 +69,7 @@
   </section>
 
   <?php /* 安全に / SP node-id: 574:76 */ ?>
-  <section class="safety">
+  <section class="section safety">
     <div class="safety__inner inner">
       <h2 class="safety__title">安全に、真面目に、でも楽しく。<br>そんな仲間を募集しています。</h2>
       <p class="safety__text">
@@ -85,10 +84,10 @@
   </section>
 
   <?php /* 思い描く未来 / SP node-id: 574:122 */ ?>
-  <section class="future">
+  <section class="section future">
     <div class="future__inner inner">
       <div class="future__head">
-        <p class="future__eyebrow">Culture</p>
+        <p class="section-eyebrow future__eyebrow">Culture</p>
         <h2 class="section-title future__title">私たちが大切にする<br>3つの文化</h2>
       </div>
       <div class="future__lead">
@@ -124,13 +123,13 @@
   </section>
 
   <?php /* 五か条 / SP node-id: 574:123 */ ?>
-  <section class="five">
+  <section class="section five">
     <div class="five__inner inner">
       <div class="five__bg" aria-hidden="true">
         <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/ribbon-vertical.svg" alt="" width="710" height="845">
       </div>
       <div class="five__head">
-        <p class="five__eyebrow">Behavioral guidelines</p>
+        <p class="section-eyebrow five__eyebrow">Behavioral guidelines</p>
         <h2 class="section-title five__title">行動指針5箇条</h2>
       </div>
       <ul class="five__list">
@@ -174,10 +173,10 @@
   </section>
 
   <?php /* メッセージ / SP node-id: 574:224 */ ?>
-  <section class="message">
+  <section class="section message">
     <div class="message__inner inner">
       <div class="message__head">
-        <p class="message__eyebrow">Message</p>
+        <p class="section-eyebrow message__eyebrow">Message</p>
         <h2 class="section-title message__title">社長メッセージ</h2>
       </div>
       <figure class="message__photo">
@@ -198,14 +197,14 @@
   </section>
 
   <?php /* 声（ドライバーインタビュー）/ SP node-id: 574:225 — スライダー */ ?>
-  <section class="voice">
+  <section class="section voice">
     <div class="voice__inner inner">
       <div class="voice__bg" aria-hidden="true">
         <img class="voice__bg-ribbon voice__bg-ribbon--1" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-ribbon-1.svg" alt="">
         <img class="voice__bg-ribbon voice__bg-ribbon--2" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-ribbon-2.svg" alt="">
       </div>
       <div class="voice__head">
-        <p class="voice__eyebrow">Voice</p>
+        <p class="section-eyebrow voice__eyebrow">Voice</p>
         <h2 class="section-title voice__title">働く人の声</h2>
       </div>
       <div class="voice__slider js-voice-slider">
@@ -248,10 +247,10 @@
   </section>
 
   <?php /* カルチャー / SP node-id: 574:344 */ ?>
-  <section class="culture">
+  <section class="section culture">
     <div class="culture__inner inner">
-      <div class="culture__head">
-        <p class="culture__eyebrow">Culture</p>
+      <div class="section-head-center culture__head">
+        <p class="section-eyebrow culture__eyebrow">Culture</p>
         <h2 class="section-title culture__title">私たちが大切にする3つの文化</h2>
       </div>
       <ul class="culture__list">
@@ -278,10 +277,10 @@
   </section>
 
   <?php /* 社員の一日 / SP node-id: 577:466 */ ?>
-  <section class="daily">
+  <section class="section daily">
     <div class="daily__inner inner">
       <div class="daily__head">
-        <p class="daily__eyebrow">Day</p>
+        <p class="section-eyebrow daily__eyebrow">Day</p>
         <h2 class="section-title daily__title">社員の一日</h2>
       </div>
       <div class="daily__tabs" role="tablist" aria-label="運行パターン">
@@ -498,13 +497,13 @@
   </section>
 
   <?php /* キャリアパス / SP node-id: 577:680 */ ?>
-  <section class="career">
+  <section class="section career">
     <div class="career__inner inner">
-      <div class="career__head">
-        <p class="career__eyebrow">Evaluation</p>
+      <div class="section-head-center career__head">
+        <p class="section-eyebrow career__eyebrow">Evaluation</p>
         <h2 class="section-title career__title">評価制度</h2>
       </div>
-      <p class="career__badge">評価制度</p>
+      <p class="section-badge career__badge">評価制度</p>
       <ul class="career__list">
         <li class="career__item">
           <span class="career__item-num" aria-hidden="true">
@@ -546,10 +545,10 @@
   </section>
 
   <?php /* 数字 / SP node-id: 589:416 */ ?>
-  <section class="stats">
+  <section class="section stats">
     <div class="stats__inner inner">
-      <div class="stats__head">
-        <p class="stats__eyebrow">Numbers</p>
+      <div class="section-head-center stats__head">
+        <p class="section-eyebrow stats__eyebrow">Numbers</p>
         <h2 class="section-title stats__title">数字で見る大富運輸</h2>
       </div>
       <ul class="stats__list">
@@ -606,10 +605,10 @@
   </section>
 
   <?php /* 環境 / SP node-id: 577:733 */ ?>
-  <section class="environment">
+  <section class="section environment">
     <div class="environment__inner inner">
       <div class="environment__head">
-        <p class="environment__eyebrow">Environment</p>
+        <p class="section-eyebrow environment__eyebrow">Environment</p>
         <h2 class="section-title environment__title">働く環境・働き方</h2>
       </div>
       <ul class="environment__list">
@@ -688,10 +687,10 @@
   </section>
 
   <?php /* 福利厚生 / SP node-id: 589:415 */ ?>
-  <section class="benefits">
+  <section class="section benefits">
     <div class="benefits__inner inner">
-      <div class="benefits__head">
-        <p class="benefits__eyebrow">Environment</p>
+      <div class="section-head-center benefits__head">
+        <p class="section-eyebrow benefits__eyebrow">Environment</p>
         <h2 class="section-title benefits__title">福利厚生</h2>
       </div>
       <ul class="benefits__list">
@@ -898,13 +897,13 @@
   </section>
 
   <?php /* 制度 / SP node-id: 577:1377 */ ?>
-  <section class="system">
+  <section class="section system">
     <div class="system__inner inner">
       <div class="system__bg" aria-hidden="true">
         <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-bg.svg" alt="">
       </div>
       <div class="system__head">
-        <p class="system__eyebrow">Training</p>
+        <p class="section-eyebrow system__eyebrow">Training</p>
         <h2 class="section-title system__title">研修制度・社内制度</h2>
       </div>
       <ul class="system__steps">
@@ -1031,7 +1030,7 @@
           </ul>
         </li>
       </ul>
-      <p class="system__badge">継続的な学び</p>
+      <p class="section-badge system__badge">継続的な学び</p>
       <ul class="system__cards">
         <li class="system__card">
           <figure class="system__card-img"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-1.png" alt="" width="169" height="104" loading="lazy"></figure>
@@ -1058,10 +1057,10 @@
   </section>
 
   <?php /* 仕事のやりがい / SP node-id: 578:1514 — スクロール出現アニメ */ ?>
-  <section class="satisfaction">
+  <section class="section satisfaction">
     <div class="satisfaction__inner inner">
-      <div class="satisfaction__head">
-        <p class="satisfaction__eyebrow">Satisfaction</p>
+      <div class="section-head-center satisfaction__head">
+        <p class="section-eyebrow satisfaction__eyebrow">Satisfaction</p>
         <h2 class="section-title satisfaction__title">仕事のやりがい</h2>
       </div>
       <ul class="satisfaction__list js-satisfaction-cards">
@@ -1113,10 +1112,10 @@
   </section>
 
   <?php /* 募集要項 / SP node-id: 578:1664 */ ?>
-  <section class="recruitment" id="recruitment">
+  <section class="section recruitment" id="recruitment">
     <div class="recruitment__inner inner">
-      <div class="recruitment__head">
-        <p class="recruitment__eyebrow">Recruitment</p>
+      <div class="section-head-center recruitment__head">
+        <p class="section-eyebrow recruitment__eyebrow">Recruitment</p>
         <h2 class="section-title recruitment__title">募集要項</h2>
       </div>
       <?php
@@ -1175,7 +1174,7 @@
       endif;
       ?>
 
-      <p class="recruitment__badge">応募の流れ</p>
+      <p class="section-badge recruitment__badge">応募の流れ</p>
       <ul class="recruitment__flow">
         <li class="recruitment__flow-item recruitment__flow-item--flow-bg-1">
           <span class="recruitment__flow-icon" aria-hidden="true">
@@ -1210,10 +1209,10 @@
   </section>
 
   <?php /* FAQ / SP node-id: 578:1843 */ ?>
-  <section class="faq">
+  <section class="section faq">
     <div class="faq__inner inner">
       <div class="faq__head">
-        <p class="faq__eyebrow">FAQ</p>
+        <p class="section-eyebrow faq__eyebrow">FAQ</p>
         <h2 class="section-title faq__title">よくある質問</h2>
         <p class="faq__note">その他、ご質問があればお気軽にご連絡ください。</p>
       </div>
@@ -1314,7 +1313,7 @@
   </section>
 
   <?php /* エントリー（CTA+フォーム）/ SP node-id: 578:1926 */ ?>
-  <section class="entry" id="entry">
+  <section class="section entry" id="entry">
     <div class="entry__inner inner">
       <div class="entry__head">
         <h2 class="entry__title"><span class="entry__title-jp">コトに、向き合える</span><span class="entry__title-en">"人"</span><span class="entry__title-jp">へ。</span></h2>
