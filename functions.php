@@ -85,78 +85,14 @@ add_action('init', function () {
         'publicly_queryable'  => false,
         'exclude_from_search' => true,
         'rewrite'             => false,
-        'supports'            => ['title', 'thumbnail', 'page-attributes'],
+        'supports'            => ['title', 'page-attributes'],
     ]);
 });
 
 /**
- * ACF フィールドグループ（募集要項）
- * コード定義（ローカルフィールド）なので DB 不要・バージョン管理可。
- * ACF（無料）有効化後に自動でフィールドが表示される。
- * ラベルは固定（仕事内容／応募資格／給与／勤務時間／休日）。
+ * ACF フィールドグループ（募集要項）は ACF Local JSON で管理。
+ * 定義は acf-json/group_job_detail.json（GUIで編集すると自動でJSONに保存され、
+ * Gitに乗るので環境間で同期できる）。
+ * フィールド: 仕事内容／応募資格／給与／勤務時間／休日（ラベル固定）。
+ * ACFは get_stylesheet_directory()/acf-json を既定で読み込むため追加設定は不要。
  */
-add_action('acf/init', function () {
-    if (!function_exists('acf_add_local_field_group')) {
-        return;
-    }
-
-    acf_add_local_field_group([
-        'key'    => 'group_job_detail',
-        'title'  => '募集要項の内容',
-        'fields' => [
-            [
-                'key'          => 'field_job_content',
-                'label'        => '仕事内容',
-                'name'         => 'job_content',
-                'type'         => 'textarea',
-                'new_lines'    => '', // 改行はテンプレート側で nl2br 処理
-                'instructions' => 'カードの「仕事内容」に表示されます。',
-            ],
-            [
-                'key'          => 'field_job_qualification',
-                'label'        => '応募資格',
-                'name'         => 'job_qualification',
-                'type'         => 'textarea',
-                'new_lines'    => '',
-                'instructions' => 'カードの「応募資格」に表示されます。',
-            ],
-            [
-                'key'          => 'field_job_salary',
-                'label'        => '給与',
-                'name'         => 'job_salary',
-                'type'         => 'textarea',
-                'new_lines'    => '',
-                'instructions' => 'カードの「給与」に表示されます。改行可。',
-            ],
-            [
-                'key'          => 'field_job_hours',
-                'label'        => '勤務時間',
-                'name'         => 'job_hours',
-                'type'         => 'textarea',
-                'new_lines'    => '',
-                'instructions' => 'カードの「勤務時間」に表示されます。',
-            ],
-            [
-                'key'          => 'field_job_holiday',
-                'label'        => '休日',
-                'name'         => 'job_holiday',
-                'type'         => 'textarea',
-                'new_lines'    => '',
-                'instructions' => 'カードの「休日」に表示されます。',
-            ],
-        ],
-        'location' => [
-            [
-                [
-                    'param'    => 'post_type',
-                    'operator' => '==',
-                    'value'    => 'job',
-                ],
-            ],
-        ],
-        'menu_order'      => 0,
-        'position'        => 'normal',
-        'style'           => 'default',
-        'label_placement' => 'top',
-    ]);
-});

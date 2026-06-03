@@ -590,9 +590,12 @@
         <?php while ($jobs_query->have_posts()) : $jobs_query->the_post(); ?>
         <li class="recruitment__card">
           <figure class="recruitment__card-photo">
-            <?php if (has_post_thumbnail()) : ?>
-              <?php the_post_thumbnail('medium_large', ['alt' => '', 'width' => 314, 'height' => 198, 'loading' => 'lazy']); ?>
-            <?php endif; ?>
+            <?php
+            $photo_id = function_exists('get_field') ? (int) get_field('job_photo') : 0;
+            if ($photo_id) :
+              echo wp_get_attachment_image($photo_id, 'medium_large', false, ['alt' => '', 'loading' => 'lazy']);
+            endif;
+            ?>
           </figure>
           <p class="recruitment__card-badge"><?php the_title(); ?></p>
           <dl class="recruitment__card-dl">
