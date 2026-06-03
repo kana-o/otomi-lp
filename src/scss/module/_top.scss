@@ -16,29 +16,20 @@ FV (KV)
   }
 }
 
-.fv__bg-photo--pc {
+.fv__bg-photo {
   position: absolute;
   inset: 0;
-  background-image: url("../img/lp/fv_pc.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
-  @include mq("sp") {
-    display: none;
-  }
+  display: block;
 }
-.fv__bg-photo--sp {
-  display: none;
-  position: absolute;
-  inset: 0;
-  background-image: url("../img/lp/fv_sp.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center top;
+
+.fv__bg-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 
   @include mq("sp") {
-    display: block;
+    object-position: center top;
   }
 }
 

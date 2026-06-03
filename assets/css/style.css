@@ -426,23 +426,19 @@ FV (KV)
   color: #FFFFFF;
 }
 
-.fv__bg-photo--pc {
+.fv__bg-photo {
   position: absolute;
   inset: 0;
-  background-image: url("../img/lp/fv_pc.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  display: block;
 }
 
-.fv__bg-photo--sp {
-  display: none;
-  position: absolute;
-  inset: 0;
-  background-image: url("../img/lp/fv_sp.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center top;
+.fv__bg-photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 /* SP用: 下半分にブルーグラデーション（コーディングで実装） */
@@ -3208,12 +3204,9 @@ FV (KV)
     min-height: 38.125rem;
   }
 
-  .fv__bg-photo--pc {
-    display: none;
-  }
-
-  .fv__bg-photo--sp {
-    display: block;
+  .fv__bg-photo img {
+    -o-object-position: center top;
+       object-position: center top;
   }
 
   .fv__bg-gradient {
