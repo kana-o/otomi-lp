@@ -34,10 +34,14 @@ add_action('wp_enqueue_scripts', function () {
         wp_enqueue_style(
             'otomi-style',
             $theme_dir . '/assets/css/style.css',
-            ['otomi-theme', 'otomi-google-fonts'],
+            ['otomi-theme', 'otomi-google-fonts', 'swiper'],
             filemtime($css_file)
         );
     }
+
+    // Swiper（CDN）
+    wp_enqueue_style('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', [], '11');
+    wp_enqueue_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', [], '11', true);
 
     // メインJS
     $js_file = $theme_path . '/assets/js/main.js';
@@ -45,7 +49,7 @@ add_action('wp_enqueue_scripts', function () {
         wp_enqueue_script(
             'otomi-main',
             $theme_dir . '/assets/js/main.js',
-            [],
+            ['swiper'],
             filemtime($js_file),
             true
         );

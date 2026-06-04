@@ -196,6 +196,20 @@ img {
   color: #008CD6;
 }
 
+.section-badge {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-inline: auto;
+  font-size: 1.5rem;
+  padding: 0.625rem 2.25rem;
+  background-color: #008CD6;
+  color: #FFFFFF;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  border-radius: 0.1875rem;
+  line-height: 1.2;
+}
+
 .tab-show {
   display: none;
 }
@@ -554,30 +568,6 @@ FV
 }
 
 /* =========================================================
-青リボン背景
-========================================================= */
-
-.ribbon__bg01 {
-  position: relative;
-  isolation: isolate;
-  z-index: -1;
-}
-
-.ribbon__bg01::before {
-  content: "";
-  position: absolute;
-  top: -24.6875rem;
-  width: 100vw;
-  aspect-ratio: 1440/2255;
-  z-index: -1;
-  background-image: url("../img/lp/safety_bg-pc.svg");
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100% auto;
-  pointer-events: none;
-}
-
-/* =========================================================
 Safety
 ========================================================= */
 
@@ -908,8 +898,7 @@ Voice / 働く人の声
   position: relative;
   border-radius: 1.875rem;
   border: 1px solid #008CD6;
-  padding: 5rem 1.25rem 3.75rem;
-  max-width: 80rem;
+  padding-block: 5rem;
   overflow: hidden;
 }
 
@@ -942,37 +931,33 @@ Voice / 働く人の声
 .voice__slider {
   position: relative;
   overflow: hidden;
-  margin-top: 2.5rem;
+  margin-top: 3rem;
 }
 
 .voice__list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  gap: 2.5rem;
-  transition: transform 0.4s ease;
-  will-change: transform;
 }
 
 .voice__item {
   flex-shrink: 0;
-  width: min(35rem, 78%);
+  width: min(38.75rem, 43.0556vw);
+  height: auto;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  transform: scale(0.92);
 }
 
 .voice__item-photo {
   position: relative;
   margin: 0;
   width: 100%;
-  aspect-ratio: 243/184;
+  aspect-ratio: 620/413;
   overflow: hidden;
   background-color: #FFFFFF;
-  padding: 16px;
-  border-radius: 1.25rem;
+  padding: 20px;
+  border-radius: 0.625rem;
 }
 
 .voice__item-photo img {
@@ -986,16 +971,16 @@ Voice / 働く人の声
 .voice__item-photo-text {
   position: absolute;
   inset-inline: 0;
-  bottom: 0;
-  padding: 1rem;
+  bottom: 0.4375rem;
+  padding: 0.6875rem 0.6875rem 0.6875rem 1.375rem;
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.5;
   color: #008CD6;
   background-color: #FFFFFF;
   border-radius: 0 10px 0 0;
-  width: 61.7%;
+  width: 63%;
 }
 
 .voice__item-lead {
@@ -1004,25 +989,21 @@ Voice / 働く人の声
   font-weight: 400;
   color: #000;
   line-height: 1.5;
+  margin-top: 0.9375rem;
+  padding-inline: 1.375rem;
 }
 
-.voice__item-meta {
+.voice__item-texts {
   display: flex;
   align-items: baseline;
-  gap: 1rem;
+  gap: 2.5rem;
+  margin-top: 0.625rem;
+  padding-inline: 22px;
 }
 
-.voice__item-name {
+.voice__item-text {
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: #000;
-  line-height: 1.5;
-}
-
-.voice__item-role {
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #000;
   line-height: 1.5;
@@ -1031,7 +1012,7 @@ Voice / 働く人の声
 .voice__controls {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 7.5rem;
   margin-top: 2.5rem;
 }
 
@@ -1043,8 +1024,8 @@ Voice / 働く人の声
   border: 0;
   padding: 0;
   cursor: pointer;
-  width: 2.8125rem;
-  height: 2.8125rem;
+  width: 3.9375rem;
+  height: 3.9375rem;
 }
 
 .voice__nav img {
@@ -1058,19 +1039,15 @@ Voice / 働く人の声
 }
 
 /* =========================================================
-Culture
+Culture / 私たちが大切にする3つの文化
 ========================================================= */
 
 .culture {
   padding-block: 3.75rem;
-  background-color: #FFFFFF;
 }
 
-.culture__inner {
-  display: grid;
+.culture__container {
   position: relative;
-  gap: 1.5rem;
-  row-gap: 2.5rem;
 }
 
 .culture__head {
@@ -1086,47 +1063,37 @@ Culture
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 2.3125rem;
+  margin-top: 3.5rem;
 }
 
 .culture__item {
   position: relative;
   background-color: #ebf1fa;
   border-radius: 0.625rem;
-  padding: 2.5rem 3.75rem 2.5rem 31.875rem;
-  min-height: 15rem;
+  padding-left: 49.9%;
+  min-height: 18.75rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
   overflow: visible;
 }
 
 .culture__item-ribbon {
   position: absolute;
-  width: 45rem;
+  inset: 0;
   pointer-events: none;
-  opacity: 0.7;
-  display: none;
+  border-radius: 0.625rem;
+  overflow: hidden;
 }
 
-.culture__item:nth-child(1) .culture__item-ribbon {
-  top: -1.6875rem;
-  left: -3rem;
-  transform: rotate(-3.23deg);
-}
-
-.culture__item:nth-child(2) .culture__item-ribbon {
-  top: -16.3125rem;
-  left: -12.9375rem;
-  width: 47.25rem;
-  transform: rotate(116.96deg);
-}
-
-.culture__item:nth-child(3) .culture__item-ribbon {
-  top: 3.5625rem;
-  left: -26.25rem;
-  width: 44.625rem;
-  transform: rotate(-9.69deg);
+.culture__item-ribbon img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  display: block;
 }
 
 .culture__item-title {
@@ -1149,41 +1116,30 @@ Culture
 }
 
 .culture__team {
-  margin: 0;
-  border-radius: 0.625rem;
-  overflow: hidden;
   position: absolute;
-  left: 0;
-  top: 8.75rem;
-  bottom: 0;
-  width: 28.75rem;
+  left: -1.875rem;
+  top: 11.875rem;
+  width: 39.8125rem;
+  aspect-ratio: 637/906;
+  height: auto;
   z-index: 1;
 }
 
-.culture__team img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  display: block;
-}
-
 /* =========================================================
-Daily
+Day / 社員の一日
 ========================================================= */
 
 .daily {
   padding-block: 3.75rem;
-  background-color: #FFFFFF;
 }
 
-.daily__inner {
+.daily__container {
   display: grid;
-  grid-template-columns: 13.75rem 1fr;
+  grid-template-columns: 14.5625rem 1fr;
   grid-template-areas: "head head" "tabs timeline";
-  -moz-column-gap: 3.75rem;
-       column-gap: 3.75rem;
-  row-gap: 2.5rem;
+  -moz-column-gap: 8.125rem;
+       column-gap: 8.125rem;
+  row-gap: 3.875rem;
   align-items: start;
 }
 
@@ -1197,7 +1153,7 @@ Daily
 .daily__tabs {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.1875rem;
   grid-area: tabs;
 }
 
@@ -1206,8 +1162,8 @@ Daily
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: 0.5rem;
-  height: 3rem;
-  padding-inline: 1.5rem;
+  min-height: 3rem;
+  padding: 0.75rem 0.75rem 0.75rem 2.75rem;
   background-color: #FFFFFF;
   border: 0.0625rem solid #008CD6;
   border-radius: 2.5rem;
@@ -1230,14 +1186,17 @@ Daily
 
 .daily__tab-icon {
   position: relative;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.875rem;
+  height: 1.875rem;
   flex-shrink: 0;
 }
 
 .daily__tab-icon img {
   width: 100%;
   height: 100%;
+}
+
+.daily__tab-icon--b {
   display: block;
 }
 
@@ -1273,27 +1232,30 @@ Daily
 .daily__timeline::before {
   content: "";
   position: absolute;
-  top: 1rem;
-  bottom: 1rem;
-  left: 1.875rem;
-  width: 0.125rem;
-  background-color: #cfe0f1;
+  top: 2.5rem;
+  bottom: 3.75rem;
+  left: 2.1875rem;
+  width: 0.0625rem;
+  background-color: #1B1B1B;
   z-index: 1;
 }
 
 .daily__timeline-item {
   position: relative;
-  z-index: 0;
   display: grid;
   grid-template-columns: 1.25rem 4.375rem 1fr;
   -moz-column-gap: 1.25rem;
        column-gap: 1.25rem;
   align-items: start;
-  padding: 1rem 1.25rem;
+  padding: 1rem 1.25rem 1rem 1.625rem;
 }
 
 .daily__timeline-item:nth-child(odd) {
   background-color: #f3f7fe;
+}
+
+.daily__timeline-item:nth-child(even) {
+  padding-block: 1.3125rem 1.375rem;
 }
 
 .daily__timeline-dot {
@@ -1306,7 +1268,7 @@ Daily
   height: 1.25rem;
   background-color: #008CD6;
   border-radius: 50%;
-  margin-top: 0.25rem;
+  margin-top: 1.25rem;
 }
 
 .daily__timeline-time {
@@ -1316,6 +1278,7 @@ Daily
   font-size: 1.5rem;
   font-weight: 700;
   color: #1B1B1B;
+  margin-top: 0.75rem;
 }
 
 .daily__timeline-body {
@@ -1325,33 +1288,27 @@ Daily
 
 .daily__timeline-title {
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 1.25rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #1B1B1B;
-  line-height: 1.3;
+  margin-left: 0.3125rem;
 }
 
 .daily__timeline-text {
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 400;
-  margin-top: 0.5rem;
+  margin-top: 0.1875rem;
+  margin-left: 0.3125rem;
   color: #1B1B1B;
-  line-height: 1.5;
 }
 
 /* =========================================================
-Career
+Evaluation  / 評価制度
 ========================================================= */
 
 .career {
-  padding-block: 3.75rem;
-  background-color: #FFFFFF;
-}
-
-.career__inner {
-  display: grid;
-  gap: 1.5rem;
+  padding-block: 2.25rem 3.75rem;
 }
 
 .career__head {
@@ -1362,41 +1319,32 @@ Career
 }
 
 .career__badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-inline: auto;
+  margin-top: 3.3125rem;
   padding: 0.375rem 1.5rem;
-  background-color: #008CD6;
-  color: #FFFFFF;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  border-radius: 0.1875rem;
-  line-height: 1.2;
 }
 
 .career__list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 1.25rem;
-  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.125rem;
+  margin-top: 2.0625rem;
+  align-items: stretch;
 }
 
 .career__item {
   position: relative;
   background-color: #ebf1fa;
   border-radius: 0.3125rem;
-  padding: 1rem;
+  width: 32.3%;
+  padding: 1.5625rem 1.5625rem 1.5625rem 2rem;
   filter: drop-shadow(5px 5px 7.5px rgba(0, 0, 0, 0.1));
-  display: grid;
+  display: flex;
   grid-template-columns: 2.5rem 1fr;
   gap: 0.5rem 0.875rem;
-  align-items: start;
-  grid-column: span 2;
 }
 
 .career__item:nth-child(4) {
@@ -1408,12 +1356,8 @@ Career
 }
 
 .career__item-num {
-  grid-column: 1;
-  grid-row: 1/span 2;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
+  margin-top: 0.4375rem;
+  min-width: 2.5rem;
   height: 2.5rem;
 }
 
@@ -1424,7 +1368,6 @@ Career
 }
 
 .career__item-title {
-  grid-column: 2;
   font-family: "Noto Sans JP", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
@@ -1433,7 +1376,7 @@ Career
 }
 
 .career__item-text {
-  grid-column: 2;
+  margin-top: 0.25rem;
   font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 500;
@@ -1442,20 +1385,17 @@ Career
 }
 
 /* =========================================================
-Stats
+Numbers / 数字で見る大富運輸
 ========================================================= */
 
 .stats {
   padding-block: 3.75rem;
-  background-color: #FFFFFF;
 }
 
-.stats__inner {
+.stats__container {
   background-color: #ebf1fa;
-  border-radius: 0.9375rem;
-  padding: 2.5rem 1.125rem;
-  display: grid;
-  gap: 1.5rem;
+  border-radius: 1.875rem;
+  padding: 4.375rem 2.5rem 6.4375rem;
 }
 
 .stats__head {
@@ -1466,12 +1406,10 @@ Stats
 }
 
 .stats__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  margin-top: 2.5rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 2.375rem 1.5rem;
 }
 
 .stats__item {
@@ -1479,12 +1417,11 @@ Stats
   background-color: #f7f7f7;
   border-radius: 0.3125rem;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-  padding: 4rem 1.25rem 1.75rem;
+  padding: 3.75rem 1.25rem 1.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.75rem;
 }
 
 .stats__item-label {
@@ -1496,7 +1433,7 @@ Stats
   background-color: #008CD6;
   color: #FFFFFF;
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   padding: 0.375rem 1.5rem;
   border-radius: 0 0 0.1875rem 0.1875rem;
@@ -1512,6 +1449,12 @@ Stats
   height: 4.125rem;
 }
 
+.stats__item-icon.--small {
+  width: 3.375rem;
+  height: 3.375rem;
+  margin-bottom: 0.5625rem;
+}
+
 .stats__item-icon img {
   width: 100%;
   height: 100%;
@@ -1520,10 +1463,11 @@ Stats
 
 .stats__item-value {
   font-family: "Inter", sans-serif;
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
   color: #1B1B1B;
   text-align: center;
+  line-height: 1.3;
 }
 
 .stats__item-desc {
@@ -1535,7 +1479,7 @@ Stats
 }
 
 /* =========================================================
-Environment
+Environment / 働く環境・働き方
 ========================================================= */
 
 .environment {
@@ -1543,13 +1487,12 @@ Environment
   background-color: #FFFFFF;
 }
 
-.environment__inner {
+.environment__container {
   display: grid;
-  grid-template-columns: 30rem 1fr;
+  grid-template-columns: 1fr 41%;
   grid-template-areas: "photos head" "photos list";
-  -moz-column-gap: 3.75rem;
-       column-gap: 3.75rem;
-  row-gap: 1.5rem;
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
   align-items: start;
 }
 
@@ -1566,13 +1509,12 @@ Environment
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.875rem;
   grid-area: list;
 }
 
 .environment__item {
   display: flex;
-  align-items: center;
   gap: 0.625rem;
 }
 
@@ -1601,7 +1543,7 @@ Environment
 .environment__photos {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 0.5rem;
   grid-area: photos;
 }
 
@@ -1630,11 +1572,6 @@ Benefits
   background-color: #FFFFFF;
 }
 
-.benefits__inner {
-  display: grid;
-  gap: 1.5rem;
-}
-
 .benefits__head {
   text-align: center;
   display: flex;
@@ -1643,58 +1580,45 @@ Benefits
 }
 
 .benefits__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  align-items: start;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2.5rem 3.3125rem;
 }
 
 .benefits__item {
+  width: 30.4%;
   background-color: #f7f7f7;
-  border-radius: 0.1875rem;
-  padding: 1rem 1.5rem;
-  display: grid;
-  gap: 1.25rem;
+  border-radius: 0.3125rem;
+  padding: 1.875rem 2.5rem 1rem 2.25rem;
+  min-height: 30rem;
 }
 
 .benefits__item-head {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8125rem;
+  gap: 1rem;
 }
 
 .benefits__item-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 3.5rem;
-  height: 3.5rem;
-}
-
-.benefits__item-icon img {
-  width: 100%;
-  height: 100%;
-  display: block;
+  width: 8.25rem;
+  height: 8.25rem;
 }
 
 .benefits__item-title {
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #1B1B1B;
 }
 
 .benefits__item-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.8125rem;
+  margin-top: 1.875rem;
 }
 
 .benefits__item-li {
@@ -1708,20 +1632,36 @@ Benefits
   line-height: 1.4;
 }
 
+.benefits__item-li.--wrap {
+  white-space: nowrap;
+}
+
 .benefits__item-check {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  width: 1.25rem;
-  height: 1.375rem;
+  width: 1.6875rem;
+  height: 1.6875rem;
   flex-shrink: 0;
   margin-top: 0.125rem;
 }
 
-.benefits__item-check img {
-  width: 100%;
-  height: 100%;
-  display: block;
+.benefits__item-clothing p {
+  position: relative;
+  margin-top: 0.25rem;
+  padding-left: 1em;
+}
+
+.benefits__item-clothing p::before {
+  content: "・";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1em;
+}
+
+.benefits__item-clothing p + p {
+  padding-top: 0.375rem;
 }
 
 /* =========================================================
@@ -2657,14 +2597,59 @@ Placeholder
   font-family: "Zen Kaku Gothic New", sans-serif;
 }
 
-@media (min-width: 769px) {
-  .section-badge {
-    font-size: 1.75rem;
-    padding: 0.625rem 2.25rem;
-  }
+/* =========================================================
+青リボン背景
+========================================================= */
 
+.ribbon__bg01 {
+  position: relative;
+  isolation: isolate;
+  z-index: -1;
+}
+
+.ribbon__bg01::before {
+  content: "";
+  position: absolute;
+  top: -24.6875rem;
+  width: 100vw;
+  aspect-ratio: 1440/2255;
+  z-index: -1;
+  background-image: url("../img/lp/safety_bg-pc.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  pointer-events: none;
+}
+
+.ribbon__bg02 {
+  position: relative;
+  isolation: isolate;
+  z-index: -1;
+}
+
+.ribbon__bg02::before {
+  content: "";
+  position: absolute;
+  top: -38.75rem;
+  width: 100vw;
+  aspect-ratio: 1440/1813;
+  z-index: -1;
+  background-image: url("../img/lp/evaluation_bg-pc.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  pointer-events: none;
+}
+
+@media (min-width: 769px) {
   .section-head-center {
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .benefits__item-li.--wrap {
+    white-space: unset;
   }
 }
 
@@ -2780,11 +2765,6 @@ Placeholder
     gap: 1.0625rem;
   }
 
-  .ribbon__bg01::before {
-    background-image: url("../img/lp/safety_bg-sp.svg");
-    aspect-ratio: 390/876;
-  }
-
   .safety {
     padding-block: 3.75rem 2.5rem;
   }
@@ -2857,13 +2837,10 @@ Placeholder
        object-fit: cover;
   }
 
-  .culture__inner {
-    row-gap: 1.5rem;
-  }
-
   .culture__list {
     display: grid;
     gap: 1.5rem;
+    margin-top: 1.6875rem;
   }
 
   .culture__item {
@@ -2873,17 +2850,13 @@ Placeholder
     overflow: hidden;
   }
 
-  .culture__item-ribbon {
-    display: block;
-  }
-
   .culture__team {
     position: static;
     width: 100%;
     aspect-ratio: 4096/2731;
   }
 
-  .daily__inner {
+  .daily__container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -2894,11 +2867,10 @@ Placeholder
   }
 
   .daily__timeline-title {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
   }
 
   .career__list {
-    display: flex;
     flex-direction: column;
     gap: 0.625rem;
   }
@@ -2915,6 +2887,10 @@ Placeholder
     grid-column: auto;
   }
 
+  .career__item-title {
+    min-height: 0;
+  }
+
   .stats__list {
     grid-template-columns: none;
     gap: 1.25rem;
@@ -2924,7 +2900,7 @@ Placeholder
     font-size: 2rem;
   }
 
-  .environment__inner {
+  .environment__container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -2942,6 +2918,15 @@ Placeholder
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+
+  .benefits__item-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .benefits__item-title {
+    font-size: 1.25rem;
   }
 
   .system__steps {
@@ -3003,6 +2988,17 @@ Placeholder
 
   .entry__form-label {
     padding-top: 0;
+  }
+
+  .ribbon__bg01::before {
+    background-image: url("../img/lp/safety_bg-sp.svg");
+    aspect-ratio: 390/876;
+  }
+
+  .ribbon__bg02::before {
+    top: -21.1875rem;
+    background-image: url("../img/lp/evaluation_bg-sp.svg");
+    aspect-ratio: 390/876;
   }
 }
 /*# sourceMappingURL=style.css.map */

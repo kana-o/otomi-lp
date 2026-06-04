@@ -197,20 +197,56 @@
 
   <!-- Voice / 働く人の声 -->
   <section class="section voice">
-    <div class="voice__container inner">
-      <div class="voice__bg" aria-hidden="true">
-        <picture>
-          <source media="(max-width: 768px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice_bg-sp.svg">
-          <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice_bg-pc.svg" alt="" width="1280" height="971">
-        </picture>
+    <div class="inner">
+      <div class="voice__container">
+        <div class="voice__bg" aria-hidden="true">
+          <picture>
+            <source media="(max-width: 768px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice_bg-sp.svg">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice_bg-pc.svg" alt="" width="1280" height="971">
+          </picture>
+        </div>
+        <div class="voice__head">
+          <p class="section-title--en">Voice</p>
+          <h2 class="section-title">働く人の声</h2>
       </div>
-      <div class="voice__head">
-        <p class="section-title--en">Voice</p>
-        <h2 class="section-title">働く人の声</h2>
-      </div>
-      <div class="voice__slider js-voice-slider">
-        <ul class="voice__list">
-          <li class="voice__item js-voice-item is-active" data-index="0">
+      <div class="voice__slider">
+        <div class="swiper js-voice-swiper">
+          <!-- 無限ループにするため 各スライド×2に複製 -->
+          <ul class="voice__list swiper-wrapper">
+          <li class="voice__item swiper-slide">
+            <figure class="voice__item-photo">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.png" alt="" width="227" height="184" loading="lazy">
+              <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            </figure>
+            <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            <div class="voice__item-texts">
+              <p class="voice__item-text">山田 太郎</p>
+              <p class="voice__item-text">ドライバー｜入社3年目</p>
+            </div>
+          </li>
+          <li class="voice__item swiper-slide">
+            <figure class="voice__item-photo">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.png" alt="" width="227" height="184" loading="lazy">
+              <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            </figure>
+            <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            <div class="voice__item-texts">
+              <p class="voice__item-text">山田 太郎</p>
+              <p class="voice__item-text">ドライバー｜入社3年目</p>
+            </div>
+          </li>
+          <li class="voice__item swiper-slide">
+            <figure class="voice__item-photo">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.png" alt="" width="227" height="184" loading="lazy">
+              <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            </figure>
+            <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            <div class="voice__item-texts">
+              <p class="voice__item-text">山田 太郎</p>
+              <p class="voice__item-text">ドライバー｜入社3年目</p>
+            </div>
+          </li>
+          <li class="voice__item swiper-slide">
             <figure class="voice__item-photo">
               <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.png" alt="" width="227" height="184" loading="lazy">
               <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
@@ -221,7 +257,7 @@
               <p class="voice__item-role">ドライバー｜入社3年目</p>
             </div>
           </li>
-          <li class="voice__item js-voice-item" data-index="1">
+          <li class="voice__item swiper-slide">
             <figure class="voice__item-photo">
               <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.png" alt="" width="227" height="184" loading="lazy">
               <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
@@ -232,7 +268,7 @@
               <p class="voice__item-role">ドライバー｜入社3年目</p>
             </div>
           </li>
-          <li class="voice__item js-voice-item" data-index="2">
+          <li class="voice__item swiper-slide">
             <figure class="voice__item-photo">
               <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.png" alt="" width="227" height="184" loading="lazy">
               <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
@@ -244,40 +280,57 @@
             </div>
           </li>
         </ul>
-        <div class="voice__controls">
-          <button type="button" class="voice__nav voice__nav--prev js-voice-prev" aria-label="前のインタビュー">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-arrow-prev.svg" alt="" width="45" height="45">
-          </button>
+      </div>
+      <div class="voice__controls">
+        <button type="button" class="voice__nav voice__nav--prev js-voice-prev" aria-label="前のインタビュー">
+          <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-arrow-prev.svg" alt="" width="45" height="45">
+        </button>
           <button type="button" class="voice__nav voice__nav--next js-voice-next" aria-label="次のインタビュー">
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-arrow-next.svg" alt="" width="45" height="45">
           </button>
         </div>
       </div>
     </div>
+  </div>
   </section>
 
-  <?php /* カルチャー / SP node-id: 574:344 */ ?>
+  <!-- Culture / 私たちが大切にする3つの文化 -->
   <section class="section culture">
-    <div class="culture__inner inner">
+    <div class="culture__container inner">
       <div class="section-head-center culture__head">
         <p class="section-title--en">Culture</p>
         <h2 class="section-title">私たちが大切にする3つの文化</h2>
       </div>
       <ul class="culture__list">
         <li class="culture__item">
-          <img class="culture__item-ribbon" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/culture-ribbon-1.svg" alt="" aria-hidden="true">
-          <h3 class="culture__item-title">本質を考える文化</h3>
-          <p class="culture__item-text">ただ作業をこなすのではなく、「なぜこの仕事が必要なのか」を考える。<br><br>目の前の業務の先にある、現場・社会・人の動きを理解しながら働く。</p>
+          <picture class="culture__item-ribbon">
+            <source media="(max-width: 768px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/culture_bg01-sp.svg">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/culture_bg01-pc.svg" alt="" aria-hidden="true">
+          </picture>
+          <div class="culture__texts">
+            <h3 class="culture__item-title">本質を考える文化</h3>
+            <p class="culture__item-text">ただ作業をこなすのではなく、「なぜこの仕事が必要なのか」を考える。<br>目の前の業務の先にある、現場・社会・人の動きを理解しながら働く。</p>
+          </div>
         </li>
         <li class="culture__item">
-          <img class="culture__item-ribbon" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/culture-ribbon-2.svg" alt="" aria-hidden="true">
-          <h3 class="culture__item-title">丁寧に積み重ねる文化</h3>
-          <p class="culture__item-text">安全、確認、準備、報連相。<br>一つひとつを丁寧に積み重ねる。<br>派手さよりも、揺らがない仕事を大切にする。</p>
+          <picture class="culture__item-ribbon">
+            <source media="(max-width: 768px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/culture_bg02-sp.svg">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/culture_bg02-pc.svg" alt="" aria-hidden="true">
+          </picture>
+          <div class="culture__texts">
+            <h3 class="culture__item-title">丁寧に積み重ねる文化</h3>
+            <p class="culture__item-text">安全、確認、準備、報連相。<br>一つひとつを丁寧に積み重ねる。<br>派手さよりも、揺らがない仕事を大切にする。</p>
+          </div>
         </li>
         <li class="culture__item">
-          <img class="culture__item-ribbon" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/culture-ribbon-3.svg" alt="" aria-hidden="true">
-          <h3 class="culture__item-title">感謝を伝え合う文化</h3>
-          <p class="culture__item-text">物流は、一人では成り立たない。<br>仲間、お客様、現場。<br>支えてくれる存在への感謝を、言葉にする。</p>
+          <picture class="culture__item-ribbon">
+            <source media="(max-width: 768px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/culture_bg03-sp.svg">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/culture_bg03-pc.svg" alt="" aria-hidden="true">
+          </picture>
+          <div class="culture__texts">
+            <h3 class="culture__item-title">感謝を伝え合う文化</h3>
+            <p class="culture__item-text">物流は、一人では成り立たない。<br>仲間、お客様、現場。<br>支えてくれる存在への感謝を、言葉にする。</p>
+          </div>
         </li>
       </ul>
       <figure class="culture__team">
@@ -286,17 +339,35 @@
     </div>
   </section>
 
-  <?php /* 社員の一日 / SP node-id: 577:466 */ ?>
+  <!-- Day / 社員の一日 -->
   <section class="section daily">
-    <div class="daily__inner inner">
+    <div class="daily__container inner">
       <div class="daily__head">
         <p class="section-title--en">Day</p>
         <h2 class="section-title">社員の一日</h2>
       </div>
       <div class="daily__tabs" role="tablist" aria-label="運行パターン">
-        <button type="button" class="daily__tab is-active" role="tab" data-tab="1" aria-selected="true" aria-controls="daily-panel-1"><span class="daily__tab-label">運行①</span><span class="daily__tab-icon" aria-hidden="true"><img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-b.svg" alt="" width="24" height="24"><img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-w.svg" alt="" width="24" height="24"></span></button>
-        <button type="button" class="daily__tab" role="tab" data-tab="2" aria-selected="false" aria-controls="daily-panel-2"><span class="daily__tab-label">運行②</span><span class="daily__tab-icon" aria-hidden="true"><img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-b.svg" alt="" width="24" height="24"><img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-w.svg" alt="" width="24" height="24"></span></button>
-        <button type="button" class="daily__tab" role="tab" data-tab="3" aria-selected="false" aria-controls="daily-panel-3"><span class="daily__tab-label">運行③</span><span class="daily__tab-icon" aria-hidden="true"><img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-b.svg" alt="" width="24" height="24"><img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-w.svg" alt="" width="24" height="24"></span></button>
+        <button type="button" class="daily__tab is-active" role="tab" data-tab="1" aria-selected="true" aria-controls="daily-panel-1">
+          <span class="daily__tab-label">運行①</span>
+          <span class="daily__tab-icon" aria-hidden="true">
+            <img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-b.svg" alt="" width="24" height="24">
+            <img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-w.svg" alt="" width="24" height="24">
+          </span>
+        </button>
+        <button type="button" class="daily__tab" role="tab" data-tab="2" aria-selected="false" aria-controls="daily-panel-2">
+          <span class="daily__tab-label">運行②</span>
+          <span class="daily__tab-icon" aria-hidden="true">
+            <img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-b.svg" alt="" width="24" height="24">
+            <img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-w.svg" alt="" width="24" height="24">
+          </span>
+        </button>
+        <button type="button" class="daily__tab" role="tab" data-tab="3" aria-selected="false" aria-controls="daily-panel-3">
+          <span class="daily__tab-label">運行③</span>
+          <span class="daily__tab-icon" aria-hidden="true">
+            <img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-b.svg" alt="" width="24" height="24">
+            <img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-w.svg" alt="" width="24" height="24">
+          </span>
+        </button>
       </div>
 
       <div class="daily__panel is-active" role="tabpanel" id="daily-panel-1" aria-labelledby="daily-tab-1">
@@ -305,7 +376,7 @@
             <span class="daily__timeline-dot" aria-hidden="true"></span>
             <p class="daily__timeline-time">3:15</p>
             <div class="daily__timeline-body">
-              <h3 class="daily__timeline-title">出社<br>（点呼、車両の日常点検）</h3>
+              <h3 class="daily__timeline-title">出社（点呼、車両の日常点検）</h3>
               <p class="daily__timeline-text">朝の点呼で本日のルートを確認。車両の安全チェックを入念に行います。</p>
             </div>
           </li>
@@ -387,57 +458,81 @@
         <ol class="daily__timeline">
           <li class="daily__timeline-item">
             <span class="daily__timeline-dot" aria-hidden="true"></span>
-            <p class="daily__timeline-time">6:00</p>
+            <p class="daily__timeline-time">5:00</p>
             <div class="daily__timeline-body">
-              <h3 class="daily__timeline-title">出社・点呼</h3>
-              <p class="daily__timeline-text">アルコールチェックと健康確認。当日の配送計画を最終確認。</p>
+              <h3 class="daily__timeline-title">出社（点呼、車両の日常点検）</h3>
+              <p class="daily__timeline-text">朝の点呼で本日のルートを確認。車両の安全チェックを入念に行います。</p>
+            </div>
+          </li>
+          <li class="daily__timeline-item">
+            <span class="daily__timeline-dot" aria-hidden="true"></span>
+            <p class="daily__timeline-time">5:15</p>
+            <div class="daily__timeline-body">
+              <h3 class="daily__timeline-title">出庫</h3>
+              <p class="daily__timeline-text">効率的なルートを自分で考え、配送スタート。</p>
             </div>
           </li>
           <li class="daily__timeline-item">
             <span class="daily__timeline-dot" aria-hidden="true"></span>
             <p class="daily__timeline-time">6:30</p>
             <div class="daily__timeline-body">
-              <h3 class="daily__timeline-title">車両点検・出発</h3>
-              <p class="daily__timeline-text">車両の安全チェックを行い、効率的なルートで出発。</p>
+              <h3 class="daily__timeline-title">積込地到着（休憩）</h3>
+              <p class="daily__timeline-text">途中で休憩。</p>
             </div>
           </li>
           <li class="daily__timeline-item">
             <span class="daily__timeline-dot" aria-hidden="true"></span>
-            <p class="daily__timeline-time">9:00</p>
+            <p class="daily__timeline-time">7:00</p>
             <div class="daily__timeline-body">
-              <h3 class="daily__timeline-title">積込・配送</h3>
-              <p class="daily__timeline-text">積込地で荷物をピックアップし、配送先へ向かいます。</p>
+              <h3 class="daily__timeline-title">積込開始</h3>
+              <p class="daily__timeline-text">積込作業を開始します。</p>
+            </div>
+          </li>
+          <li class="daily__timeline-item">
+            <span class="daily__timeline-dot" aria-hidden="true"></span>
+            <p class="daily__timeline-time">8:00</p>
+            <div class="daily__timeline-body">
+              <h3 class="daily__timeline-title">積込完了（出発）</h3>
+              <p class="daily__timeline-text">積込完了後、出発します。</p>
+            </div>
+          </li>
+          <li class="daily__timeline-item">
+            <span class="daily__timeline-dot" aria-hidden="true"></span>
+            <p class="daily__timeline-time">10:45</p>
+            <div class="daily__timeline-body">
+              <h3 class="daily__timeline-title">荷卸地到着（荷卸開始）</h3>
+              <p class="daily__timeline-text">荷卸地到着後、荷卸を開始します。</p>
             </div>
           </li>
           <li class="daily__timeline-item">
             <span class="daily__timeline-dot" aria-hidden="true"></span>
             <p class="daily__timeline-time">12:00</p>
             <div class="daily__timeline-body">
-              <h3 class="daily__timeline-title">休憩・昼食</h3>
-              <p class="daily__timeline-text">安全な場所で休憩。次の運行に備えます。</p>
+              <h3 class="daily__timeline-title">荷卸完了（出発）</h3>
+              <p class="daily__timeline-text">荷卸完了後、出発します。</p>
             </div>
           </li>
           <li class="daily__timeline-item">
             <span class="daily__timeline-dot" aria-hidden="true"></span>
-            <p class="daily__timeline-time">14:00</p>
+            <p class="daily__timeline-time">12:30</p>
             <div class="daily__timeline-body">
-              <h3 class="daily__timeline-title">配送・荷卸</h3>
-              <p class="daily__timeline-text">配送先で荷卸作業。お客様への丁寧な対応を心がけます。</p>
+              <h3 class="daily__timeline-title">休憩（30分）</h3>
+              <p class="daily__timeline-text">途中で休憩。</p>
             </div>
           </li>
           <li class="daily__timeline-item">
             <span class="daily__timeline-dot" aria-hidden="true"></span>
-            <p class="daily__timeline-time">16:30</p>
+            <p class="daily__timeline-time">15:00</p>
             <div class="daily__timeline-body">
-              <h3 class="daily__timeline-title">帰庫・点検</h3>
-              <p class="daily__timeline-text">車両の日常点検を行い、報告事項をまとめます。</p>
+              <h3 class="daily__timeline-title">帰庫（車両の点検、点呼）</h3>
+              <p class="daily__timeline-text">無事に1日の運行完了です。</p>
             </div>
           </li>
           <li class="daily__timeline-item">
             <span class="daily__timeline-dot" aria-hidden="true"></span>
-            <p class="daily__timeline-time">17:30</p>
+            <p class="daily__timeline-time">15:15</p>
             <div class="daily__timeline-body">
-              <h3 class="daily__timeline-title">退社</h3>
+              <h3 class="daily__timeline-title">帰社</h3>
               <p class="daily__timeline-text">1日の業務終了です。</p>
             </div>
           </li>
@@ -447,57 +542,65 @@
         <ol class="daily__timeline">
           <li class="daily__timeline-item">
             <span class="daily__timeline-dot" aria-hidden="true"></span>
-            <p class="daily__timeline-time">8:00</p>
+            <p class="daily__timeline-time">3:15</p>
             <div class="daily__timeline-body">
-              <h3 class="daily__timeline-title">出社・朝礼</h3>
-              <p class="daily__timeline-text">チームで情報共有。当日のタスクを確認します。</p>
+              <h3 class="daily__timeline-title">出社（点呼、車両の日常点検）</h3>
+              <p class="daily__timeline-text">朝の点呼で本日のルートを確認。車両の安全チェックを入念に行います。</p>
             </div>
           </li>
           <li class="daily__timeline-item">
             <span class="daily__timeline-dot" aria-hidden="true"></span>
-            <p class="daily__timeline-time">8:30</p>
+            <p class="daily__timeline-time">3:30</p>
             <div class="daily__timeline-body">
-              <h3 class="daily__timeline-title">配車計画</h3>
-              <p class="daily__timeline-text">当日の配送計画を最適化。ドライバーへの指示出し。</p>
+              <h3 class="daily__timeline-title">出庫</h3>
+              <p class="daily__timeline-text">効率的なルートを自分で考え、配送スタート。</p>
+            </div>
+          </li>
+          <li class="daily__timeline-item">
+            <span class="daily__timeline-dot" aria-hidden="true"></span>
+            <p class="daily__timeline-time">6:30</p>
+            <div class="daily__timeline-body">
+              <h3 class="daily__timeline-title">荷降地到着（休憩）</h3>
+              <p class="daily__timeline-text">途中で休憩。</p>
+            </div>
+          </li>
+          <li class="daily__timeline-item">
+            <span class="daily__timeline-dot" aria-hidden="true"></span>
+            <p class="daily__timeline-time">7:00</p>
+            <div class="daily__timeline-body">
+              <h3 class="daily__timeline-title">荷卸開始</h3>
+              <p class="daily__timeline-text">荷卸作業を開始します。</p>
+            </div>
+          </li>
+          <li class="daily__timeline-item">
+            <span class="daily__timeline-dot" aria-hidden="true"></span>
+            <p class="daily__timeline-time">8:00</p>
+            <div class="daily__timeline-body">
+              <h3 class="daily__timeline-title">荷卸完了</h3>
+              <p class="daily__timeline-text">荷卸完了後、出発します。</p>
             </div>
           </li>
           <li class="daily__timeline-item">
             <span class="daily__timeline-dot" aria-hidden="true"></span>
             <p class="daily__timeline-time">10:00</p>
             <div class="daily__timeline-body">
-              <h3 class="daily__timeline-title">顧客対応</h3>
-              <p class="daily__timeline-text">お客様からの問い合わせに対応。受発注業務を進めます。</p>
-            </div>
-          </li>
-          <li class="daily__timeline-item">
-            <span class="daily__timeline-dot" aria-hidden="true"></span>
-            <p class="daily__timeline-time">12:00</p>
-            <div class="daily__timeline-body">
-              <h3 class="daily__timeline-title">昼休憩</h3>
-              <p class="daily__timeline-text">リフレッシュタイム。</p>
+              <h3 class="daily__timeline-title">休憩（60分）</h3>
+              <p class="daily__timeline-text">途中で休憩。</p>
             </div>
           </li>
           <li class="daily__timeline-item">
             <span class="daily__timeline-dot" aria-hidden="true"></span>
             <p class="daily__timeline-time">13:00</p>
             <div class="daily__timeline-body">
-              <h3 class="daily__timeline-title">データ入力・書類作成</h3>
-              <p class="daily__timeline-text">配送実績のデータ入力、各種書類の作成。</p>
+              <h3 class="daily__timeline-title">帰庫（車両の点検、点呼）</h3>
+              <p class="daily__timeline-text">無事に1日の運行完了です。</p>
             </div>
           </li>
           <li class="daily__timeline-item">
             <span class="daily__timeline-dot" aria-hidden="true"></span>
-            <p class="daily__timeline-time">15:00</p>
+            <p class="daily__timeline-time">13:15</p>
             <div class="daily__timeline-body">
-              <h3 class="daily__timeline-title">ドライバー対応</h3>
-              <p class="daily__timeline-text">帰庫したドライバーからの報告を受け、翌日の準備。</p>
-            </div>
-          </li>
-          <li class="daily__timeline-item">
-            <span class="daily__timeline-dot" aria-hidden="true"></span>
-            <p class="daily__timeline-time">17:30</p>
-            <div class="daily__timeline-body">
-              <h3 class="daily__timeline-title">退社</h3>
+              <h3 class="daily__timeline-title">帰社</h3>
               <p class="daily__timeline-text">1日の業務終了です。</p>
             </div>
           </li>
@@ -506,9 +609,12 @@
     </div>
   </section>
 
-  <?php /* キャリアパス / SP node-id: 577:680 */ ?>
+  <!-- 青リボン背景 -->
+  <div class="ribbon__bg02"></div>
+
+  <!-- Evaluation  / 評価制度 -->
   <section class="section career">
-    <div class="career__inner inner">
+    <div class="inner">
       <div class="section-head-center career__head">
         <p class="section-title--en">Evaluation</p>
         <h2 class="section-title">評価制度</h2>
@@ -516,47 +622,58 @@
       <p class="section-badge career__badge">評価制度</p>
       <ul class="career__list">
         <li class="career__item">
-          <span class="career__item-num" aria-hidden="true">
+          <div class="career__item-num" aria-hidden="true">
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/career-icon.svg" alt="" width="40" height="40">
-          </span>
-          <h3 class="career__item-title">プロセス重視</h3>
-          <p class="career__item-text">結果だけでなく、そこに至るプロセスと思考を評価</p>
+          </div>
+          <div class="career__item-texts">
+            <h3 class="career__item-title">プロセス重視</h3>
+            <p class="career__item-text">結果だけでなく、そこに至るプロセスと思考を評価</p>
+          </div>
         </li>
         <li class="career__item">
-          <span class="career__item-num" aria-hidden="true">
+          <div class="career__item-num" aria-hidden="true">
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/career-icon.svg" alt="" width="40" height="40">
-          </span>
-          <h3 class="career__item-title">自律性の評価</h3>
-          <p class="career__item-text">自ら考え、行動した姿勢を高く評価</p>
+          </div>
+          <div class="career__item-texts">
+            <h3 class="career__item-title">自律性の評価</h3>
+            <p class="career__item-text">自ら考え、行動した姿勢を高く評価</p>
+          </div>
         </li>
         <li class="career__item">
-          <span class="career__item-num" aria-hidden="true">
+          <div class="career__item-num" aria-hidden="true">
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/career-icon.svg" alt="" width="40" height="40">
-          </span>
-          <h3 class="career__item-title">チーム貢献</h3>
-          <p class="career__item-text">個人の成果だけでなく、チームへの貢献を重視</p>
+          </div>
+          <div class="career__item-texts">
+            <h3 class="career__item-title">チーム貢献</h3>
+            <p class="career__item-text">個人の成果だけでなく、チームへの貢献を重視</p>
+          </div>
         </li>
         <li class="career__item">
-          <span class="career__item-num" aria-hidden="true">
+          <div class="career__item-num" aria-hidden="true">
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/career-icon.svg" alt="" width="40" height="40">
-          </span>
-          <h3 class="career__item-title">改善提案力</h3>
-          <p class="career__item-text">現状に疑問を持ち、改善を提案する力を評価</p>
+          </div>
+          <div class="career__item-texts">
+            <h3 class="career__item-title">改善提案力</h3>
+            <p class="career__item-text">現状に疑問を持ち、改善を提案する力を評価</p>
+          </div>
         </li>
         <li class="career__item">
-          <span class="career__item-num" aria-hidden="true">
+          <div class="career__item-num" aria-hidden="true">
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/career-icon.svg" alt="" width="40" height="40">
-          </span>
-          <h3 class="career__item-title">成長意欲</h3>
-          <p class="career__item-text">学び続ける姿勢と、挑戦する勇気を評価</p>
+          </div>
+          <div class="career__item-texts">
+            <h3 class="career__item-title">成長意欲</h3>
+            <p class="career__item-text">学び続ける姿勢と、挑戦する勇気を評価</p>
+          </div>
         </li>
       </ul>
     </div>
   </section>
 
-  <?php /* 数字 / SP node-id: 589:416 */ ?>
+    <!-- Numbers / 数字で見る大富運輸 -->
   <section class="section stats">
-    <div class="stats__inner inner">
+    <div class="inner">
+    <div class="stats__container">
       <div class="section-head-center stats__head">
         <p class="section-title--en">Numbers</p>
         <h2 class="section-title">数字で見る大富運輸</h2>
@@ -604,7 +721,7 @@
         </li>
         <li class="stats__item">
           <span class="stats__item-label">平均有給取得率</span>
-          <span class="stats__item-icon" aria-hidden="true">
+          <span class="stats__item-icon --small" aria-hidden="true">
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/icon-house.svg" alt="" width="66" height="66">
           </span>
           <p class="stats__item-value">50%以上</p>
@@ -612,11 +729,12 @@
         </li>
       </ul>
     </div>
+    </div>
   </section>
 
-  <?php /* 環境 / SP node-id: 577:733 */ ?>
+  <!-- Environment / 働く環境・働き方 -->
   <section class="section environment">
-    <div class="environment__inner inner">
+    <div class="environment__container inner">
       <div class="environment__head">
         <p class="section-title--en">Environment</p>
         <h2 class="section-title">働く環境・働き方</h2>
@@ -656,7 +774,7 @@
           <span class="environment__item-icon" aria-hidden="true">
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/env-check.svg" alt="" width="29" height="29">
           </span>
-          <span class="environment__item-text">高い有給取得率（％）</span>
+          <span class="environment__item-text">高い有給取得率（50%）</span>
         </li>
         <li class="environment__item">
           <span class="environment__item-icon" aria-hidden="true">
@@ -690,15 +808,15 @@
         </li>
       </ul>
       <div class="environment__photos">
-        <figure class="environment__photo"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/env-photo-1.png" alt="" width="173" height="311" loading="lazy"></figure>
-        <figure class="environment__photo"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/env-photo-2.png" alt="" width="173" height="311" loading="lazy"></figure>
+        <figure class="environment__photo"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/env01.jpg" alt="" width="173" height="311" loading="lazy"></figure>
+        <figure class="environment__photo"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/env02.jpg" alt="" width="173" height="311" loading="lazy"></figure>
       </div>
     </div>
   </section>
 
-  <?php /* 福利厚生 / SP node-id: 589:415 */ ?>
+    <!-- Environment / 働く環境・働き方 -->
   <section class="section benefits">
-    <div class="benefits__inner inner">
+    <div class="inner">
       <div class="section-head-center benefits__head">
         <p class="section-title--en">Environment</p>
         <h2 class="section-title">福利厚生</h2>
@@ -808,7 +926,7 @@
             <h3 class="benefits__item-title">支援制度</h3>
           </div>
           <ul class="benefits__item-list">
-            <li class="benefits__item-li">
+            <li class="benefits__item-li --wrap">
               <span class="benefits__item-check" aria-hidden="true">
                 <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/icon-check.svg" alt="" width="20" height="22">
               </span>
@@ -880,25 +998,12 @@
               <span class="benefits__item-check" aria-hidden="true">
                 <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/icon-check.svg" alt="" width="20" height="22">
               </span>
-              <span>服装・髪型は自由（清潔感は必要）</span>
-            </li>
-            <li class="benefits__item-li">
-              <span class="benefits__item-check" aria-hidden="true">
-                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/icon-check.svg" alt="" width="20" height="22">
-              </span>
-              <span>トップス・ボトムス・靴は「黒・白・ベージュ・グレー・ネイビー・ブラウン」が基本</span>
-            </li>
-            <li class="benefits__item-li">
-              <span class="benefits__item-check" aria-hidden="true">
-                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/icon-check.svg" alt="" width="20" height="22">
-              </span>
-              <span>デニムも可（ただし清潔感が前提）</span>
-            </li>
-            <li class="benefits__item-li">
-              <span class="benefits__item-check" aria-hidden="true">
-                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/icon-check.svg" alt="" width="20" height="22">
-              </span>
-              <span>髪色・髪型（髪色は自由、金髪・ピンク・青・緑などもOK、編み込みなども許容）</span>
+              <div class="benefits__item-clothing">
+                <span>服装・髪型は自由（清潔感は必要）</span>
+                <p>トップス・ボトムス・靴は「黒・白・ベージュ・グレー・ネイビー・ブラウン」が基本</p>
+                <p>デニムも可（ただし清潔感が前提）</p>
+                <p>髪色・髪型（髪色は自由、金髪・ピンク・青・緑などもOK、編み込みなども許容）</p>
+              </div>
             </li>
           </ul>
         </li>

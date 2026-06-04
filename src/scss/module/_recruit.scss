@@ -151,34 +151,6 @@ FV
 }
 
 /* =========================================================
-青リボン背景
-========================================================= */
-
-.ribbon__bg01 {
-  position: relative;
-  isolation: isolate;
-  z-index: -1;
-}
-.ribbon__bg01::before {
-  content: "";
-  position: absolute;
-  top: rem(-395);
-  width: 100vw;
-  aspect-ratio: 1440 / 2255;
-  z-index: -1;
-  background-image: url("../img/lp/safety_bg-pc.svg");
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100% auto;
-  pointer-events: none;
-
-  @include mq("sp") {
-    background-image: url("../img/lp/safety_bg-sp.svg");
-    aspect-ratio: 390 / 876;
-  }
-}
-
-/* =========================================================
 Safety
 ========================================================= */
 .safety {
@@ -575,8 +547,7 @@ Voice / 働く人の声
   position: relative;
   border-radius: rem(30);
   border: 1px solid $blue;
-  padding: rem(80) rem(20) rem(60);
-  max-width: rem(1280);
+  padding-block: rem(80);
   overflow: hidden;
 }
 
@@ -608,37 +579,34 @@ Voice / 働く人の声
 .voice__slider {
   position: relative;
   overflow: hidden;
-  margin-top: rem(40);
+  margin-top: rem(48);
 }
 
 .voice__list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  gap: rem(40);
-  transition: transform 0.4s ease;
-  will-change: transform;
 }
 
 .voice__item {
   flex-shrink: 0;
-  width: min(rem(560), 78%);
+  // 画面幅1440px以上=620px固定 / 未満=620/1440比でフルード
+  width: min(rem(620), 43.0556vw);
+  height: auto;
   display: flex;
   flex-direction: column;
   gap: rem(8);
-  transform: scale(0.92);
 }
 
 .voice__item-photo {
   position: relative;
   margin: 0;
   width: 100%;
-  aspect-ratio: 243 / 184;
+  aspect-ratio: 620 / 413;
   overflow: hidden;
   background-color: $white;
-  padding: 16px;
-  border-radius: rem(20);
+  padding: 20px;
+  border-radius: rem(10);
 }
 
 .voice__item-photo img {
@@ -651,16 +619,16 @@ Voice / 働く人の声
 .voice__item-photo-text {
   position: absolute;
   inset-inline: 0;
-  bottom: 0;
-  padding: rem(16);
+  bottom: rem(7);
+  padding: rem(11) rem(11) rem(11) rem(22);
   font-family: $base-font;
-  font-size: rem(16);
+  font-size: rem(18);
   font-weight: $bold;
   line-height: 1.5;
   color: $blue;
   background-color: $white;
   border-radius: 0 10px 0 0;
-  width: 61.7%;
+  width: 63%;
 }
 
 .voice__item-lead {
@@ -669,25 +637,21 @@ Voice / 働く人の声
   font-weight: $regular;
   color: $black02;
   line-height: 1.5;
+  margin-top: rem(15);
+  padding-inline: rem(22);
 }
 
-.voice__item-meta {
+.voice__item-texts {
   display: flex;
   align-items: baseline;
-  gap: rem(16);
+  gap: rem(40);
+  margin-top: rem(10);
+  padding-inline: 22px;
 }
 
-.voice__item-name {
+.voice__item-text {
   font-family: $base-font;
-  font-size: rem(14);
-  font-weight: $regular;
-  color: $black02;
-  line-height: 1.5;
-}
-
-.voice__item-role {
-  font-family: $base-font;
-  font-size: rem(14);
+  font-size: rem(16);
   font-weight: $regular;
   color: $black02;
   line-height: 1.5;
@@ -696,7 +660,7 @@ Voice / 働く人の声
 .voice__controls {
   display: flex;
   justify-content: center;
-  gap: rem(24);
+  gap: rem(120);
   margin-top: rem(40);
 }
 
@@ -708,8 +672,8 @@ Voice / 働く人の声
   border: 0;
   padding: 0;
   cursor: pointer;
-  width: rem(45);
-  height: rem(45);
+  width: rem(63);
+  height: rem(63);
 }
 
 .voice__nav img {
@@ -723,22 +687,14 @@ Voice / 働く人の声
 }
 
 /* =========================================================
-Culture
+Culture / 私たちが大切にする3つの文化
 ========================================================= */
 .culture {
   padding-block: rem(60);
-  background-color: $white;
 }
 
-.culture__inner {
-  display: grid;
+.culture__container {
   position: relative;
-  gap: rem(24);
-  row-gap: rem(40);
-
-  @include mq("sp") {
-    row-gap: rem(24);
-  }
 }
 
 .culture__head {
@@ -754,11 +710,13 @@ Culture
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: rem(20);
+  gap: rem(37);
+  margin-top: rem(56);
 
   @include mq("sp") {
     display: grid;
     gap: rem(24);
+    margin-top: rem(27);
   }
 }
 
@@ -766,11 +724,10 @@ Culture
   position: relative;
   background-color: #ebf1fa;
   border-radius: rem(10);
-  padding: rem(40) rem(60) rem(40) rem(510);
-  min-height: rem(240);
+  padding-left: 49.9%;
+  min-height: rem(300);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
   overflow: visible;
 
   @include mq("sp") {
@@ -783,34 +740,18 @@ Culture
 
 .culture__item-ribbon {
   position: absolute;
-  width: rem(720);
+  inset: 0;
   pointer-events: none;
-  opacity: 0.7;
-  display: none;
-
-  @include mq("sp") {
-    display: block;
-  }
+  border-radius: rem(10);
+  overflow: hidden;
 }
 
-.culture__item:nth-child(1) .culture__item-ribbon {
-  top: rem(-27);
-  left: rem(-48);
-  transform: rotate(-3.23deg);
-}
-
-.culture__item:nth-child(2) .culture__item-ribbon {
-  top: rem(-261);
-  left: rem(-207);
-  width: rem(756);
-  transform: rotate(116.96deg);
-}
-
-.culture__item:nth-child(3) .culture__item-ribbon {
-  top: rem(57);
-  left: rem(-420);
-  width: rem(714);
-  transform: rotate(-9.69deg);
+.culture__item-ribbon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .culture__item-title {
@@ -833,14 +774,12 @@ Culture
 }
 
 .culture__team {
-  margin: 0;
-  border-radius: rem(10);
-  overflow: hidden;
   position: absolute;
-  left: 0;
-  top: rem(140);
-  bottom: 0;
-  width: rem(460);
+  left: rem(-30);
+  top: rem(190);
+  width: rem(637);
+  aspect-ratio: 637 / 906;
+  height: auto;
   z-index: 1;
 
   @include mq("sp") {
@@ -850,29 +789,21 @@ Culture
   }
 }
 
-.culture__team img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
 /* =========================================================
-Daily
+Day / 社員の一日
 ========================================================= */
 .daily {
   padding-block: rem(60);
-  background-color: $white;
 }
 
-.daily__inner {
+.daily__container {
   display: grid;
-  grid-template-columns: rem(220) 1fr;
+  grid-template-columns: rem(233) 1fr;
   grid-template-areas:
     "head head"
     "tabs timeline";
-  column-gap: rem(60);
-  row-gap: rem(40);
+  column-gap: rem(130);
+  row-gap: rem(62);
   align-items: start;
 
   @include mq("sp") {
@@ -892,7 +823,7 @@ Daily
 .daily__tabs {
   display: flex;
   flex-direction: column;
-  gap: rem(16);
+  gap: rem(19);
   grid-area: tabs;
 
   @include mq("sp") {
@@ -905,8 +836,8 @@ Daily
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: rem(8);
-  height: rem(48);
-  padding-inline: rem(24);
+  min-height: rem(48);
+  padding: rem(12) rem(12) rem(12) rem(44);
   background-color: $white;
   border: rem(1) solid $blue;
   border-radius: rem(40);
@@ -929,14 +860,17 @@ Daily
 
 .daily__tab-icon {
   position: relative;
-  width: rem(24);
-  height: rem(24);
+  width: rem(30);
+  height: rem(30);
   flex-shrink: 0;
 }
 
 .daily__tab-icon img {
   width: 100%;
   height: 100%;
+}
+
+.daily__tab-icon--b {
   display: block;
 }
 
@@ -972,26 +906,29 @@ Daily
 .daily__timeline::before {
   content: "";
   position: absolute;
-  top: rem(16);
-  bottom: rem(16);
-  left: rem(30);
-  width: rem(2);
-  background-color: #cfe0f1;
+  top: rem(40);
+  bottom: rem(60);
+  left: rem(35);
+  width: rem(1);
+  background-color: $black;
   z-index: 1;
 }
 
 .daily__timeline-item {
   position: relative;
-  z-index: 0;
   display: grid;
   grid-template-columns: rem(20) rem(70) 1fr;
   column-gap: rem(20);
   align-items: start;
-  padding: rem(16) rem(20);
+  padding: rem(16) rem(20) rem(16) rem(26);
 }
 
 .daily__timeline-item:nth-child(odd) {
   background-color: #f3f7fe;
+}
+
+.daily__timeline-item:nth-child(even) {
+  padding-block: rem(21) rem(22);
 }
 
 .daily__timeline-dot {
@@ -1004,7 +941,7 @@ Daily
   height: rem(20);
   background-color: $blue;
   border-radius: 50%;
-  margin-top: rem(4);
+  margin-top: rem(20);
 }
 
 .daily__timeline-time {
@@ -1014,6 +951,7 @@ Daily
   font-size: rem(24);
   font-weight: $bold;
   color: $base-color;
+  margin-top: rem(12);
 }
 
 .daily__timeline-body {
@@ -1023,36 +961,30 @@ Daily
 
 .daily__timeline-title {
   font-family: $base-font;
-  font-size: rem(20);
+  font-size: rem(32);
   font-weight: $bold;
   color: $base-color;
-  line-height: 1.3;
+  margin-left: rem(5);
 
   @include mq("sp") {
-    font-size: rem(18);
+    font-size: rem(24);
   }
 }
 
 .daily__timeline-text {
   font-family: $base-font;
-  font-size: rem(15);
+  font-size: rem(16);
   font-weight: $regular;
-  margin-top: rem(8);
+  margin-top: rem(3);
+  margin-left: rem(5);
   color: $base-color;
-  line-height: 1.5;
 }
 
 /* =========================================================
-Career
+Evaluation  / 評価制度
 ========================================================= */
 .career {
-  padding-block: rem(60);
-  background-color: $white;
-}
-
-.career__inner {
-  display: grid;
-  gap: rem(24);
+  padding-block: rem(36) rem(60);
 }
 
 .career__head {
@@ -1063,31 +995,22 @@ Career
 }
 
 .career__badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-inline: auto;
+  margin-top: rem(53);
   padding: rem(6) rem(24);
-  background-color: $blue;
-  color: $white;
-  font-family: $base-font;
-  font-size: rem(24);
-  font-weight: $bold;
-  border-radius: rem(3);
-  line-height: 1.2;
 }
 
 .career__list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: rem(20);
-  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: rem(18);
+  margin-top: rem(33);
+  align-items: stretch;
 
   @include mq("sp") {
-    display: flex;
     flex-direction: column;
     gap: rem(10);
   }
@@ -1097,13 +1020,12 @@ Career
   position: relative;
   background-color: #ebf1fa;
   border-radius: rem(5);
-  padding: rem(16);
+  width: 32.3%;
+  padding: rem(25) rem(25) rem(25) rem(32);
   filter: drop-shadow(5px 5px 7.5px rgba(0, 0, 0, 0.1));
-  display: grid;
+  display: flex;
   grid-template-columns: rem(40) 1fr;
   gap: rem(8) rem(14);
-  align-items: start;
-  grid-column: span 2;
 
   @include mq("sp") {
     grid-column: auto;
@@ -1127,12 +1049,8 @@ Career
 }
 
 .career__item-num {
-  grid-column: 1;
-  grid-row: 1 / span 2;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: rem(40);
+  margin-top: rem(7);
+  min-width: rem(40);
   height: rem(40);
 }
 
@@ -1143,16 +1061,19 @@ Career
 }
 
 .career__item-title {
-  grid-column: 2;
   font-family: $base-font;
   font-size: rem(20);
   font-weight: $bold;
   color: #121212;
   line-height: 1.5;
+
+  @include mq("sp") {
+    min-height: 0;
+  }
 }
 
 .career__item-text {
-  grid-column: 2;
+  margin-top: rem(4);
   font-family: $base-font;
   font-size: rem(16);
   font-weight: $medium;
@@ -1161,19 +1082,16 @@ Career
 }
 
 /* =========================================================
-Stats
+Numbers / 数字で見る大富運輸
 ========================================================= */
 .stats {
   padding-block: rem(60);
-  background-color: $white;
 }
 
-.stats__inner {
+.stats__container {
   background-color: #ebf1fa;
-  border-radius: rem(15);
-  padding: rem(40) rem(18);
-  display: grid;
-  gap: rem(24);
+  border-radius: rem(30);
+  padding: rem(70) rem(40) rem(103);
 }
 
 .stats__head {
@@ -1184,12 +1102,10 @@ Stats
 }
 
 .stats__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  margin-top: rem(40);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: rem(24);
+  gap: rem(38) rem(24);
 
   @include mq("sp") {
     grid-template-columns: none;
@@ -1202,12 +1118,11 @@ Stats
   background-color: #f7f7f7;
   border-radius: rem(5);
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-  padding: rem(64) rem(20) rem(28);
+  padding: rem(60) rem(20) rem(28);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: rem(12);
 }
 
 .stats__item-label {
@@ -1219,7 +1134,7 @@ Stats
   background-color: $blue;
   color: $white;
   font-family: $base-font;
-  font-size: rem(20);
+  font-size: rem(24);
   font-weight: $bold;
   padding: rem(6) rem(24);
   border-radius: 0 0 rem(3) rem(3);
@@ -1235,6 +1150,12 @@ Stats
   height: rem(66);
 }
 
+.stats__item-icon.--small {
+  width: rem(54);
+  height: rem(54);
+  margin-bottom: rem(9);
+}
+
 .stats__item-icon img {
   width: 100%;
   height: 100%;
@@ -1243,10 +1164,11 @@ Stats
 
 .stats__item-value {
   font-family: $second-font;
-  font-size: rem(48);
+  font-size: rem(56);
   font-weight: $bold;
   color: $base-color;
   text-align: center;
+  line-height: 1.3;
 
   @include mq("sp") {
     font-size: rem(32);
@@ -1262,21 +1184,20 @@ Stats
 }
 
 /* =========================================================
-Environment
+Environment / 働く環境・働き方
 ========================================================= */
 .environment {
   padding-block: rem(60);
   background-color: $white;
 }
 
-.environment__inner {
+.environment__container {
   display: grid;
-  grid-template-columns: rem(480) 1fr;
+  grid-template-columns: 1fr 41%;
   grid-template-areas:
     "photos head"
     "photos list";
-  column-gap: rem(60);
-  row-gap: rem(24);
+  column-gap: rem(48);
   align-items: start;
 
   @include mq("sp") {
@@ -1299,7 +1220,7 @@ Environment
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: rem(16);
+  gap: rem(14);
   grid-area: list;
 
   @include mq("sp") {
@@ -1309,7 +1230,6 @@ Environment
 
 .environment__item {
   display: flex;
-  align-items: center;
   gap: rem(10);
 }
 
@@ -1338,7 +1258,7 @@ Environment
 .environment__photos {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: rem(16);
+  gap: rem(8);
   grid-area: photos;
 
   @include mq("sp") {
@@ -1369,11 +1289,6 @@ Benefits
   background-color: $white;
 }
 
-.benefits__inner {
-  display: grid;
-  gap: rem(24);
-}
-
 .benefits__head {
   text-align: center;
   display: flex;
@@ -1382,13 +1297,11 @@ Benefits
 }
 
 .benefits__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: rem(24);
-  align-items: start;
+  margin-top: rem(48);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: rem(40) rem(53);
 
   @include mq("sp") {
     display: flex;
@@ -1398,48 +1311,46 @@ Benefits
 }
 
 .benefits__item {
+  width: 30.4%;
   background-color: #f7f7f7;
-  border-radius: rem(3);
-  padding: rem(16) rem(24);
-  display: grid;
-  gap: rem(20);
+  border-radius: rem(5);
+  padding: rem(30) rem(40) rem(16) rem(36);
+  min-height: rem(480);
 }
 
 .benefits__item-head {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: rem(13);
+  gap: rem(16);
 }
 
 .benefits__item-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: rem(56);
-  height: rem(56);
-}
+  width: rem(132);
+  height: rem(132);
 
-.benefits__item-icon img {
-  width: 100%;
-  height: 100%;
-  display: block;
+  @include mq("sp"){
+    width: rem(56);
+    height: rem(56);
+  }
 }
 
 .benefits__item-title {
   font-family: $base-font;
-  font-size: rem(20);
+  font-size: rem(24);
   font-weight: $bold;
   color: $black;
+
+  @include mq("sp"){
+  font-size: rem(20);
+  }
 }
 
 .benefits__item-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: rem(8);
+  gap: rem(13);
+  margin-top: rem(30);
 }
 
 .benefits__item-li {
@@ -1453,22 +1364,41 @@ Benefits
   line-height: 1.4;
 }
 
+.benefits__item-li.--wrap {
+  white-space: nowrap;
+
+  @media screen and (max-width: 1280px) {
+  white-space: unset;
+  }
+}
+
 .benefits__item-check {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  width: rem(20);
-  height: rem(22);
+  width: rem(27);
+  height: rem(27);
   flex-shrink: 0;
   margin-top: rem(2);
 }
 
-.benefits__item-check img {
-  width: 100%;
-  height: 100%;
-  display: block;
+.benefits__item-clothing p {
+  position: relative;
+  margin-top: rem(4);
+  padding-left: 1em;
 }
 
+.benefits__item-clothing p::before {
+  content: "・";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1em;
+}
+
+.benefits__item-clothing p + p {
+  padding-top: rem(6);
+}
 /* =========================================================
 System
 ========================================================= */
@@ -2392,4 +2322,58 @@ Placeholder
 .entry__line-btn,
 .header__nav-link {
   font-family: $heading-font;
+}
+
+
+/* =========================================================
+青リボン背景
+========================================================= */
+
+.ribbon__bg01 {
+  position: relative;
+  isolation: isolate;
+  z-index: -1;
+}
+.ribbon__bg01::before {
+  content: "";
+  position: absolute;
+  top: rem(-395);
+  width: 100vw;
+  aspect-ratio: 1440 / 2255;
+  z-index: -1;
+  background-image: url("../img/lp/safety_bg-pc.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  pointer-events: none;
+
+  @include mq("sp") {
+    background-image: url("../img/lp/safety_bg-sp.svg");
+    aspect-ratio: 390 / 876;
+  }
+}
+
+.ribbon__bg02 {
+  position: relative;
+  isolation: isolate;
+  z-index: -1;
+}
+.ribbon__bg02::before {
+  content: "";
+  position: absolute;
+  top: rem(-620);
+  width: 100vw;
+  aspect-ratio: 1440 / 1813;
+  z-index: -1;
+  background-image: url("../img/lp/evaluation_bg-pc.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  pointer-events: none;
+
+  @include mq("sp") {
+    top: rem(-339);
+    background-image: url("../img/lp/evaluation_bg-sp.svg");
+    aspect-ratio: 390 / 876;
+  }
 }

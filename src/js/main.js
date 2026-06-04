@@ -62,38 +62,22 @@
   };
 
   /* ============================================================
-   * 働く人の声 カルーセル
+   * 働く人の声 スライダー
    * ============================================================ */
-  const initVoiceSlider = () => {
-    const slider = document.querySelector('.js-voice-slider');
-    if (!slider) return;
-    const list = slider.querySelector('.voice__list');
-    const items = Array.from(slider.querySelectorAll('.voice__item'));
-    const prev = slider.querySelector('.js-voice-prev');
-    const next = slider.querySelector('.js-voice-next');
-    if (!list || !items.length) return;
+  const initVoiceSwiper = () => {
+    const el = document.querySelector('.js-voice-swiper');
+    if (!el || typeof Swiper === 'undefined') return;
 
-    let index = Math.floor(items.length / 2);
-
-    const update = () => {
-      items.forEach((it, i) => it.classList.toggle('is-active', i === index));
-      const active = items[index];
-      const offset =
-        active.offsetLeft + active.offsetWidth / 2 - slider.clientWidth / 2;
-      list.style.transform = `translateX(${-offset}px)`;
-    };
-
-    prev?.addEventListener('click', () => {
-      index = (index - 1 + items.length) % items.length;
-      update();
+    new Swiper(el, {
+      loop: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      spaceBetween: 32,
+      navigation: {
+        prevEl: '.js-voice-prev',
+        nextEl: '.js-voice-next',
+      },
     });
-    next?.addEventListener('click', () => {
-      index = (index + 1) % items.length;
-      update();
-    });
-    window.addEventListener('resize', update);
-
-    update();
   };
 
   /* ============================================================
@@ -102,7 +86,7 @@
   const init = () => {
     initDailyTabs();
     initSatisfactionScroll();
-    initVoiceSlider();
+    initVoiceSwiper();
   };
 
   if (document.readyState === 'loading') {
