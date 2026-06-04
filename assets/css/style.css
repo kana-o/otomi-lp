@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   color: #1B1B1B;
   font-weight: 400;
   line-height: 1.6;
@@ -182,7 +182,7 @@ img {
 }
 
 .section-title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
@@ -326,7 +326,7 @@ img {
 }
 
 .footer__company-name {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.25rem;
   font-weight: 500;
   line-height: 1.5;
@@ -334,7 +334,7 @@ img {
 
 .footer__company-addr,
 .footer__company-tel {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
@@ -399,7 +399,7 @@ img {
   height: 3.125rem;
   padding: 0.625rem 1rem 0.625rem 1.75rem;
   border-radius: 6.25rem;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   text-decoration: none;
@@ -432,7 +432,7 @@ img {
 }
 
 .footer__copy {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 500;
   text-align: center;
@@ -491,7 +491,7 @@ FV
 }
 
 .fv__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 6.25rem;
   font-weight: 700;
   line-height: 1.1;
@@ -586,7 +586,7 @@ Safety
 }
 
 .safety__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
@@ -666,8 +666,8 @@ Philosophy / 私たちが思い描く未来
 
 .philosophy__item {
   display: grid;
-  gap: 0.25rem;
   align-content: start;
+  border-radius: 5px;
 }
 
 .philosophy__item:nth-child(1) {
@@ -695,7 +695,6 @@ Philosophy / 私たちが思い描く未来
   max-width: 24.3125rem;
   aspect-ratio: 389/259;
   overflow: hidden;
-  border-radius: 0.3125rem;
 }
 
 .philosophy__item-img img {
@@ -706,31 +705,36 @@ Philosophy / 私たちが思い描く未来
   display: block;
 }
 
+.philosophy__texts {
+  background: rgba(255, 255, 255, 0.78);
+}
+
 .philosophy__item-no {
   font-family: "Inter", sans-serif;
   font-size: 0.875rem;
   font-weight: 700;
   color: #008CD6;
-  padding-top: 0.25rem;
+  padding-top: 0.625rem;
   padding-inline: 0.875rem;
 }
 
 .philosophy__item-title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.5;
   color: #1B1B1B;
+  padding-top: 0.1875rem;
   padding-inline: 0.875rem;
 }
 
 .philosophy__item-text {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: #1B1B1B;
-  padding-top: 0.375rem;
+  padding-top: 0.625rem;
   padding-inline: 0.875rem;
 }
 
@@ -811,7 +815,7 @@ Behavioral guidelines / 行動指針5箇条
 }
 
 .five__item-title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.5;
@@ -820,7 +824,7 @@ Behavioral guidelines / 行動指針5箇条
 }
 
 .five__item-text {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -863,7 +867,7 @@ Message / 社長メッセージ
 }
 
 .message__lead {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.5;
@@ -873,7 +877,7 @@ Message / 社長メッセージ
 }
 
 .message__body {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -883,7 +887,7 @@ Message / 社長メッセージ
 }
 
 .message__signature {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.5;
@@ -911,7 +915,7 @@ Voice / 働く人の声
 
 .voice__bg {
   position: absolute;
-  inset: 0;
+  top: 0;
   pointer-events: none;
   overflow: hidden;
 }
@@ -957,17 +961,7 @@ Voice / 働く人の声
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 1rem;
-  background-color: #FFFFFF;
-  border-radius: 0.25rem;
-  opacity: 0.45;
   transform: scale(0.92);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.voice__item.is-active {
-  opacity: 1;
-  transform: scale(1);
 }
 
 .voice__item-photo {
@@ -975,8 +969,10 @@ Voice / 働く人の声
   margin: 0;
   width: 100%;
   aspect-ratio: 243/184;
-  border-radius: 0.1875rem;
   overflow: hidden;
+  background-color: #FFFFFF;
+  padding: 16px;
+  border-radius: 1.25rem;
 }
 
 .voice__item-photo img {
@@ -992,34 +988,43 @@ Voice / 働く人の声
   inset-inline: 0;
   bottom: 0;
   padding: 1rem;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.5;
   color: #008CD6;
+  background-color: #FFFFFF;
+  border-radius: 0 10px 0 0;
+  width: 61.7%;
 }
 
 .voice__item-lead {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 400;
-  color: #1B1B1B;
+  color: #000;
   line-height: 1.5;
 }
 
+.voice__item-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
 .voice__item-name {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
-  color: #1B1B1B;
+  color: #000;
   line-height: 1.5;
 }
 
 .voice__item-role {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
-  color: #1B1B1B;
+  color: #000;
   line-height: 1.5;
 }
 
@@ -1126,7 +1131,7 @@ Culture
 
 .culture__item-title {
   position: relative;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.2;
@@ -1135,7 +1140,7 @@ Culture
 
 .culture__item-text {
   position: relative;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -1207,7 +1212,7 @@ Daily
   border: 0.0625rem solid #008CD6;
   border-radius: 2.5rem;
   color: #008CD6;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
@@ -1319,7 +1324,7 @@ Daily
 }
 
 .daily__timeline-title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: #1B1B1B;
@@ -1327,7 +1332,7 @@ Daily
 }
 
 .daily__timeline-text {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 0.9375rem;
   font-weight: 400;
   margin-top: 0.5rem;
@@ -1364,7 +1369,7 @@ Career
   padding: 0.375rem 1.5rem;
   background-color: #008CD6;
   color: #FFFFFF;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   border-radius: 0.1875rem;
@@ -1420,7 +1425,7 @@ Career
 
 .career__item-title {
   grid-column: 2;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: #121212;
@@ -1429,7 +1434,7 @@ Career
 
 .career__item-text {
   grid-column: 2;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 500;
   color: #121212;
@@ -1490,7 +1495,7 @@ Stats
   transform: translateX(-50%);
   background-color: #008CD6;
   color: #FFFFFF;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   padding: 0.375rem 1.5rem;
@@ -1522,7 +1527,7 @@ Stats
 }
 
 .stats__item-desc {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #1B1B1B;
@@ -1587,7 +1592,7 @@ Environment
 }
 
 .environment__item-text {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   color: #1B1B1B;
@@ -1677,7 +1682,7 @@ Benefits
 }
 
 .benefits__item-title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: #1B1B1B;
@@ -1696,7 +1701,7 @@ Benefits
   display: flex;
   align-items: flex-start;
   gap: 0.9375rem;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #1B1B1B;
@@ -1803,7 +1808,7 @@ System
 }
 
 .system__step-title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: #1B1B1B;
@@ -1822,7 +1827,7 @@ System
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #1B1B1B;
@@ -1838,7 +1843,7 @@ System
   padding: 0.375rem 1.5rem;
   background-color: #008CD6;
   color: #FFFFFF;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   border-radius: 0.1875rem;
@@ -1877,14 +1882,14 @@ System
 }
 
 .system__card-title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: #1B1B1B;
 }
 
 .system__card-text {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #1B1B1B;
@@ -1994,14 +1999,14 @@ Satisfaction 仕事のやりがい
 }
 
 .satisfaction__card-title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: #1B1B1B;
 }
 
 .satisfaction__card-text {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #1B1B1B;
@@ -2122,7 +2127,7 @@ Recruitment 募集要項
   margin-top: 0;
   background-color: #008CD6;
   color: #FFFFFF;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   padding: 0.1875rem 1.125rem;
@@ -2155,7 +2160,7 @@ Recruitment 募集要項
 }
 
 .recruitment__card-row dt {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   color: #008CD6;
@@ -2163,7 +2168,7 @@ Recruitment 募集要項
 
 .recruitment__card-row dd {
   margin: 0;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #1B1B1B;
@@ -2178,7 +2183,7 @@ Recruitment 募集要項
   padding: 0.375rem 1.5rem;
   background-color: #008CD6;
   color: #FFFFFF;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   border-radius: 0.1875rem;
@@ -2232,7 +2237,7 @@ Recruitment 募集要項
 
 .recruitment__flow-title {
   grid-area: title;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: #008CD6;
@@ -2281,7 +2286,7 @@ FAQ
 }
 
 .faq__note {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #1B1B1B;
@@ -2317,7 +2322,7 @@ FAQ
   padding: 0.9375rem 0.9375rem 0.9375rem 0.9375rem;
   cursor: pointer;
   list-style: none;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   color: #1B1B1B;
@@ -2380,7 +2385,7 @@ FAQ
 }
 
 .faq__a-text {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #1B1B1B;
@@ -2411,7 +2416,7 @@ Entry エントリー
 }
 
 .entry__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 5rem;
   font-weight: 700;
   line-height: 1.2;
@@ -2447,7 +2452,7 @@ Entry エントリー
 }
 
 .entry__lead {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #1B1B1B;
@@ -2465,7 +2470,7 @@ Entry エントリー
   color: #FFFFFF;
   border-radius: 0.625rem;
   height: 2.875rem;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   text-decoration: none;
@@ -2507,7 +2512,7 @@ Entry エントリー
   display: flex;
   align-items: baseline;
   gap: 0.5rem;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   color: #1B1B1B;
@@ -2526,7 +2531,7 @@ Entry エントリー
   background-color: #f7f7f7;
   border: 0;
   border-radius: 0.3125rem;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #1B1B1B;
@@ -2588,7 +2593,7 @@ Entry エントリー
   color: #FFFFFF;
   border: 0;
   border-radius: 6.25rem;
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   cursor: pointer;
@@ -2626,6 +2631,30 @@ Placeholder
   color: #BABABA;
   text-align: center;
   letter-spacing: 0.05em;
+}
+
+/* =========================================================
+   見出し系フォント（Zen Kaku Gothic New）
+   セクションh2・FV・Safety・CTA・バッジ・ヘッダーnav は見出しフォント。
+   本文(既定)は Noto Sans JP、英数字は Inter（各要素側で指定）。
+   ※ソース順で最後に置き、各要素の font-family 指定を上書きする。
+   ========================================================= */
+
+.section-title,
+.fv__title,
+.fv__lead,
+.fv__cta-btn,
+.safety__title,
+.safety__text,
+.career__badge,
+.system__badge,
+.recruitment__badge,
+.footer__cta,
+.entry__title,
+.entry__form-submit,
+.entry__line-btn,
+.header__nav-link {
+  font-family: "Zen Kaku Gothic New", sans-serif;
 }
 
 @media (min-width: 769px) {

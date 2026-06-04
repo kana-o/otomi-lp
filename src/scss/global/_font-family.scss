@@ -1,6 +1,7 @@
-// 文字フォントの種類
-$base-font: "Zen Kaku Gothic New", sans-serif;  // 本文・見出し
-$second-font: "Inter", sans-serif;               // 英語・数字（Figma基準）
+// 文字フォントの種類（Figma基準）
+$base-font: "Noto Sans JP", sans-serif;          // 本文（既定・多数派）
+$heading-font: "Zen Kaku Gothic New", sans-serif; // 見出し・FV・Safety・CTA・バッジ・nav
+$second-font: "Inter", sans-serif;               // 英語・数字
 
 // 文字の太さ
 $regular: 400;

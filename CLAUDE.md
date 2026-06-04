@@ -146,9 +146,11 @@ Skillに書かれていない細部が必要な場合のみ `.coding-md/` を参
 - `$red`: #911111
 - `$bg-light`: #F6F9FD（カード背景の薄水色）
 
-### フォント（global/_font-family.scss）
-- `$base-font`: "Zen Kaku Gothic New"（本文・見出し / Figma基準）
-- `$second-font`: "Montserrat"（英語・数字 / Figma基準）
+### フォント（global/_font-family.scss）※Figmaを正確に反映
+- `$base-font`: "Noto Sans JP"（本文・既定。多数派 / カード本文・小見出し・名前・フォーム・タブ・FAQ等）
+- `$heading-font`: "Zen Kaku Gothic New"（見出し / セクションh2(.section-title)・FV・Safety・CTAボタン・バッジ・ヘッダーnav）
+- `$second-font`: "Inter"（英語eyebrow(.section-title--en)・数字01・数値50年以上・時刻3:15・Step）
+- 見出し系の上書きは `module/_recruit.scss` 末尾の一括ブロックで `$heading-font` を適用（ソース順で最後）
 - `$regular`: 400
 - `$medium`: 500
 - `$semi-bold`: 600

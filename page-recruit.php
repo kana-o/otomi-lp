@@ -93,25 +93,31 @@
           <figure class="philosophy__item-img">
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-01.png" alt="" width="350" height="233" loading="lazy">
           </figure>
-          <p class="philosophy__item-no">01</p>
-          <h3 class="philosophy__item-title">丁寧に積み重ねること</h3>
-          <p class="philosophy__item-text">大きな成果は、日々の小さな積み重ねから生まれる。<br>安全、確認、思いやり。<br>一つひとつを丁寧に続けることを大切にしてほしい。</p>
+          <div class="philosophy__texts">
+            <p class="philosophy__item-no">01</p>
+            <h3 class="philosophy__item-title">丁寧に積み重ねること</h3>
+            <p class="philosophy__item-text">大きな成果は、日々の小さな積み重ねから生まれる。<br>安全、確認、思いやり。<br>一つひとつを丁寧に続けることを大切にしてほしい。</p>
+          </div>
         </li>
         <li class="philosophy__item">
           <figure class="philosophy__item-img">
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-02.png" alt="" width="350" height="233" loading="lazy">
           </figure>
-          <p class="philosophy__item-no">02</p>
-          <h3 class="philosophy__item-title">本質を考えること</h3>
-          <p class="philosophy__item-text">私たちは物流を通じて、社会を支える仕事をしています。<br>自分の仕事が、誰かや社会を支えていることを大切にしてほしい。</p>
+          <div class="philosophy__texts">
+            <p class="philosophy__item-no">02</p>
+            <h3 class="philosophy__item-title">本質を考えること</h3>
+            <p class="philosophy__item-text">私たちは物流を通じて、社会を支える仕事をしています。<br>自分の仕事が、誰かや社会を支えていることを大切にしてほしい。</p>
+          </div>
         </li>
         <li class="philosophy__item">
           <figure class="philosophy__item-img">
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-03.png" alt="" width="350" height="233" loading="lazy">
           </figure>
-          <p class="philosophy__item-no">03</p>
-          <h3 class="philosophy__item-title">楽しく働くには仲間に感謝すること。</h3>
-          <p class="philosophy__item-text">仕事は、一人ではできない。<br>仲間、お客様、支えてくれる人たち。<br>当たり前ではない日々への感謝を、忘れないでいてほしい。</p>
+          <div class="philosophy__texts">
+            <p class="philosophy__item-no">03</p>
+            <h3 class="philosophy__item-title">楽しく働くには仲間に感謝すること。</h3>
+            <p class="philosophy__item-text">仕事は、一人ではできない。<br>仲間、お客様、支えてくれる人たち。<br>当たり前ではない日々への感謝を、忘れないでいてほしい。</p>
+          </div>
         </li>
       </ul>
     </div>
@@ -209,27 +215,33 @@
               <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.png" alt="" width="227" height="184" loading="lazy">
               <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             </figure>
-            <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-            <p class="voice__item-name">山田 太郎</p>
-            <p class="voice__item-role">ドライバー｜入社3年目</p>
+            <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            <div class="voice__item-meta">
+              <p class="voice__item-name">山田 太郎</p>
+              <p class="voice__item-role">ドライバー｜入社3年目</p>
+            </div>
           </li>
           <li class="voice__item js-voice-item" data-index="1">
             <figure class="voice__item-photo">
               <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.png" alt="" width="227" height="184" loading="lazy">
               <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             </figure>
-            <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-            <p class="voice__item-name">山田 太郎</p>
-            <p class="voice__item-role">ドライバー｜入社3年目</p>
+            <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            <div class="voice__item-meta">
+              <p class="voice__item-name">山田 太郎</p>
+              <p class="voice__item-role">ドライバー｜入社3年目</p>
+            </div>
           </li>
           <li class="voice__item js-voice-item" data-index="2">
             <figure class="voice__item-photo">
               <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.png" alt="" width="227" height="184" loading="lazy">
               <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             </figure>
-            <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-            <p class="voice__item-name">山田 太郎</p>
-            <p class="voice__item-role">ドライバー｜入社3年目</p>
+            <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            <div class="voice__item-meta">
+              <p class="voice__item-name">山田 太郎</p>
+              <p class="voice__item-role">ドライバー｜入社3年目</p>
+            </div>
           </li>
         </ul>
         <div class="voice__controls">

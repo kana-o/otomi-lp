@@ -300,8 +300,8 @@ Philosophy / 私たちが思い描く未来
 
 .philosophy__item {
   display: grid;
-  gap: rem(4);
   align-content: start;
+  border-radius: 5px;
 }
 
 .philosophy__item:nth-child(1) {
@@ -341,7 +341,6 @@ Philosophy / 私たちが思い描く未来
   max-width: rem(389);
   aspect-ratio: 389 / 259;
   overflow: hidden;
-  border-radius: rem(5);
 }
 
 .philosophy__item-img img {
@@ -351,12 +350,16 @@ Philosophy / 私たちが思い描く未来
   display: block;
 }
 
+.philosophy__texts {
+  background: rgba(255, 255, 255, 0.78);
+}
+
 .philosophy__item-no {
   font-family: $second-font;
   font-size: rem(14);
   font-weight: $bold;
   color: $blue;
-  padding-top: rem(4);
+  padding-top: rem(10);
   padding-inline: rem(14);
 }
 
@@ -366,6 +369,7 @@ Philosophy / 私たちが思い描く未来
   font-weight: $bold;
   line-height: 1.5;
   color: $base-color;
+  padding-top: rem(3);
   padding-inline: rem(14);
 }
 
@@ -375,7 +379,7 @@ Philosophy / 私たちが思い描く未来
   font-weight: $regular;
   line-height: 1.5;
   color: $base-color;
-  padding-top: rem(6);
+  padding-top: rem(10);
   padding-inline: rem(14);
 }
 
@@ -578,7 +582,7 @@ Voice / 働く人の声
 
 .voice__bg {
   position: absolute;
-  inset: 0;
+  top: 0;
   pointer-events: none;
   overflow: hidden;
 }
@@ -623,17 +627,7 @@ Voice / 働く人の声
   display: flex;
   flex-direction: column;
   gap: rem(8);
-  padding: rem(16);
-  background-color: $white;
-  border-radius: rem(4);
-  opacity: 0.45;
   transform: scale(0.92);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.voice__item.is-active {
-  opacity: 1;
-  transform: scale(1);
 }
 
 .voice__item-photo {
@@ -641,8 +635,10 @@ Voice / 働く人の声
   margin: 0;
   width: 100%;
   aspect-ratio: 243 / 184;
-  border-radius: rem(3);
   overflow: hidden;
+  background-color: $white;
+  padding: 16px;
+  border-radius: rem(20);
 }
 
 .voice__item-photo img {
@@ -662,21 +658,30 @@ Voice / 働く人の声
   font-weight: $bold;
   line-height: 1.5;
   color: $blue;
+  background-color: $white;
+  border-radius: 0 10px 0 0;
+  width: 61.7%;
 }
 
 .voice__item-lead {
   font-family: $base-font;
   font-size: rem(16);
   font-weight: $regular;
-  color: $base-color;
+  color: $black02;
   line-height: 1.5;
+}
+
+.voice__item-meta {
+  display: flex;
+  align-items: baseline;
+  gap: rem(16);
 }
 
 .voice__item-name {
   font-family: $base-font;
   font-size: rem(14);
   font-weight: $regular;
-  color: $base-color;
+  color: $black02;
   line-height: 1.5;
 }
 
@@ -684,7 +689,7 @@ Voice / 働く人の声
   font-family: $base-font;
   font-size: rem(14);
   font-weight: $regular;
-  color: $base-color;
+  color: $black02;
   line-height: 1.5;
 }
 
@@ -2364,4 +2369,27 @@ Placeholder
   color: $gray;
   text-align: center;
   letter-spacing: 0.05em;
+}
+
+/* =========================================================
+   見出し系フォント（Zen Kaku Gothic New）
+   セクションh2・FV・Safety・CTA・バッジ・ヘッダーnav は見出しフォント。
+   本文(既定)は Noto Sans JP、英数字は Inter（各要素側で指定）。
+   ※ソース順で最後に置き、各要素の font-family 指定を上書きする。
+   ========================================================= */
+.section-title,
+.fv__title,
+.fv__lead,
+.fv__cta-btn,
+.safety__title,
+.safety__text,
+.career__badge,
+.system__badge,
+.recruitment__badge,
+.footer__cta,
+.entry__title,
+.entry__form-submit,
+.entry__line-btn,
+.header__nav-link {
+  font-family: $heading-font;
 }

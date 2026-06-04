@@ -23,7 +23,7 @@ add_action('wp_enqueue_scripts', function () {
     // Google Fonts
     wp_enqueue_style(
         'otomi-google-fonts',
-        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@400;500;600&display=swap',
+        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@400;500;600&display=swap',
         [],
         null
     );
