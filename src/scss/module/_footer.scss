@@ -31,26 +31,25 @@
   position: relative;
   z-index: 1;
   display: grid;
-  gap: rem(24);
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "logo  ctas"
+    "top   ctas"
+    "copy  copy";
+  align-items: start;
+  column-gap: rem(60);
+  row-gap: rem(32);
 
-  @media (min-width: 769px) {
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      "logo  ctas"
-      "top   ctas"
-      "copy  copy";
-    align-items: start;
-    column-gap: rem(60);
-    row-gap: rem(32);
+  @include mq("sp") {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
   }
 }
 
-@media (min-width: 769px) {
-  .footer__top { grid-area: top; }
-  .footer__logo { grid-area: logo; }
-  .footer__ctas { grid-area: ctas; align-self: center; margin: 0; flex-direction: row; gap: rem(16); }
-  .footer__copy { grid-area: copy; }
-}
+.footer__top { grid-area: top; }
+.footer__logo { grid-area: logo; }
+.footer__copy { grid-area: copy; }
 
 .footer__top {
   display: flex;
@@ -63,7 +62,6 @@
   font-size: rem(20);
   font-weight: $medium;
   line-height: 1.5;
-  margin-block-end: rem(20);
 }
 
 .footer__company-addr,
@@ -73,6 +71,10 @@
   font-weight: $medium;
   line-height: 1.5;
   margin: 0;
+}
+
+.footer__company-addr {
+  margin-block-start: rem(20);
 }
 
 .footer__company-tel {
@@ -85,11 +87,12 @@
   justify-content: center;
   width: rem(48);
   height: rem(48);
+  position: absolute;
+  top: 0;
+  right: 0;
 
-  @media (min-width: 769px) {
-    position: absolute;
-    top: 0;
-    right: 0;
+  @include mq("sp") {
+    position: static;
   }
 }
 
@@ -112,9 +115,17 @@
 
 .footer__ctas {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: rem(12);
+  gap: rem(16);
+  grid-area: ctas;
+  align-self: center;
+  margin: 0;
+
+  @include mq("sp") {
+    flex-direction: column;
+    gap: rem(12);
+  }
 }
 
 .footer__cta {

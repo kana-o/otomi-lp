@@ -7,8 +7,9 @@ FV
 .fv {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: auto;
+  aspect-ratio: 1440 / 860;
+  min-height: rem(857);
   overflow: hidden;
   color: $white;
 
@@ -24,9 +25,9 @@ FV
 }
 
 .fv__bg-photo img {
-  width: auto;
-  height: 100dvh;
-  aspect-ratio: 1440 / 860;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   object-position: center;
 
   @include mq("sp") {
@@ -49,10 +50,8 @@ FV
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 100%;
-  min-height: rem(807);
-  padding-inline: rem(80);
-  padding-block: rem(39) rem(67);
+  height: 100%; 
+  padding-block: rem(39) rem(120);
   display: grid;
 
   @include mq("sp") {
@@ -64,39 +63,31 @@ FV
 
 .fv__copy {
   align-self: end;
-  max-width: rem(900);
-
-  @include mq("sp") {
-    max-width: none;
-  }
 }
 
 .fv__title {
   font-family: $base-font;
-  font-size: rem(80);
+  font-size: rem(100);
   font-weight: $bold;
   line-height: 1.1;
-  letter-spacing: 0.02em;
   color: $white;
   text-shadow: 0 0 rem(16) rgba(0, 0, 0, 0.5);
-  margin-block-end: rem(16);
 
   @include mq("sp") {
     font-size: rem(40);
-    margin-block-end: rem(8);
   }
 }
 
 .fv__lead {
-  font-size: rem(20);
+  font-size: rem(24);
   font-weight: $bold;
   color: $white;
   text-shadow: 0 0 rem(10) rgba(0, 0, 0, 0.5);
-  margin-block-end: rem(25);
+  margin-top: rem(16);
 
   @include mq("sp") {
     font-size: rem(16);
-    margin-block-end: rem(20);
+    margin-top: rem(8);
   }
 }
 
@@ -104,10 +95,12 @@ FV
   display: flex;
   gap: rem(24);
   flex-wrap: wrap;
+  margin-top: rem(25);
 
   @include mq("sp") {
     flex-direction: column;
     gap: rem(8);
+    margin-top: rem(20);
   }
 }
 
@@ -117,7 +110,7 @@ FV
   align-items: center;
   gap: rem(34);
   min-width: rem(260);
-  padding: rem(27) rem(12) rem(27) rem(58);
+  padding: rem(22) rem(12) rem(22) rem(58);
   border-radius: rem(100);
   font-size: rem(18);
   font-weight: $bold;
@@ -158,38 +151,53 @@ FV
 }
 
 /* =========================================================
+青リボン背景
+========================================================= */
+
+.ribbon__bg01 {
+  position: relative;
+  isolation: isolate;
+  z-index: -1;
+}
+.ribbon__bg01::before {
+  content: "";
+  position: absolute;
+  top: rem(-395);
+  width: 100vw;
+  aspect-ratio: 1440 / 2255;
+  z-index: -1;
+  background-image: url("../img/lp/safety_bg-pc.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  pointer-events: none;
+
+  @include mq("sp") {
+    background-image: url("../img/lp/safety_bg-sp.svg");
+    aspect-ratio: 390 / 876;
+  }
+}
+
+/* =========================================================
 Safety
 ========================================================= */
 .safety {
-  padding-block: rem(120) rem(80);
-  background-color: $white;
+  padding-block: rem(35) rem(80);
 
   @include mq("sp") {
     padding-block: rem(60) rem(40);
   }
 }
 
-.safety__inner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
 .safety__title {
   font-family: $base-font;
-  font-size: rem(40);
+  font-size: rem(48);
   font-weight: $bold;
   line-height: 1.2;
-  letter-spacing: -0.03em;
   color: $base-color;
-  margin-block-end: rem(24);
 
   @include mq("sp") {
     font-size: rem(24);
-  }
-
-  @media (min-width: 769px) {
-    font-size: rem(48);
   }
 }
 
@@ -197,23 +205,21 @@ Safety
   font-size: rem(18);
   line-height: 1.5;
   color: $base-color;
-  margin-block-end: rem(40);
+  font-weight: $bold;
+  margin-top: rem(24);
 
   @include mq("sp") {
     font-size: rem(16);
-    margin-block-end: rem(24);
-  }
-
-  @media (min-width: 769px) {
-    line-height: 1.8;
   }
 }
 
 .safety__photo {
-  margin: 0;
-  width: 100%;
   border-radius: rem(5);
-  overflow: hidden;
+  margin-top: rem(40);
+
+  @include mq("sp") {
+    margin-top: rem(24);
+  }
 }
 
 .safety__photo img {
@@ -229,207 +235,175 @@ Safety
 }
 
 /* =========================================================
-Placeholder
+Philosophy / 私たちが思い描く未来
 ========================================================= */
-.placeholder {
-  padding-block: rem(60);
-  background-color: $bg-light;
-  border-block: rem(1) dashed $gray;
+.philosophy {
+  padding-block: rem(36) rem(90);
 }
 
-.placeholder__label {
-  font-family: $second-font;
-  font-size: rem(14);
-  font-weight: $semi-bold;
-  color: $gray;
-  text-align: center;
-  letter-spacing: 0.05em;
-}
-
-/* =========================================================
-Future
-========================================================= */
-.future {
-  padding-block: rem(80) rem(60);
-  background-color: $white;
-}
-
-.future__inner {
+.philosophy__container {
   display: grid;
-  gap: rem(32);
+  grid-template-columns: rem(389) rem(505) rem(389);
+  justify-content: center;
+  column-gap: 0;
+  row-gap: 0;
+  align-items: start;
 
-  @media (min-width: 769px) {
-    grid-template-columns: rem(389) rem(505) rem(389);
-    justify-content: center;
-    column-gap: 0;
-    row-gap: 0;
-    align-items: start;
+  @include mq("sp") {
+    display: flex;
+    flex-direction: column;
+    gap: rem(32);
   }
 }
 
-.future__head {
+.philosophy__head {
   display: flex;
   flex-direction: column;
   gap: rem(8);
+  grid-column: 1;
+  grid-row: 1;
+}
 
-  @media (min-width: 769px) {
-    grid-column: 1;
-    grid-row: 1;
+.philosophy__img {
+  width: rem(505);
+  aspect-ratio: 505 / 801;
+  margin-top: rem(15);
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  justify-self: center;
+  align-self: start;
+
+  @include mq("sp"){
+    width: rem(176);
+    max-width: 100%;
   }
 }
 
-.future__eyebrow {
-  font-family: $second-font;
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $blue;
-}
-
-.future__title {
-  font-family: $base-font;
-  font-size: rem(48);
-  font-weight: $bold;
-  line-height: 1.2;
-  color: $base-color;
-
-  @include mq("sp") {
-    font-size: rem(28);
-  }
-}
-
-.future__lead {
-  width: rem(176);
-  max-width: 100%;
-
-  @media (min-width: 769px) {
-    width: rem(505);
-    grid-column: 2;
-    grid-row: 1 / span 3;
-    justify-self: center;
-    align-self: start;
-  }
-}
-
-.future__lead img {
+.philosophy__lead img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.future__list {
+.philosophy__list {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: contents;
+
+  @include mq("sp") {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+  }
+}
+
+.philosophy__item {
   display: grid;
-  gap: rem(24);
+  gap: rem(4);
+  align-content: start;
+}
 
-  @media (min-width: 769px) {
-    display: contents;
+.philosophy__item:nth-child(1) {
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: rem(70);
+
+  @include mq("sp") {
+    margin-top: 0;
   }
 }
 
-.future__item {
-  display: grid;
-  gap: rem(8);
+.philosophy__item:nth-child(2) {
+  grid-column: 2;
+  grid-row: 3;
+  margin-top: rem(-125);
+  max-width: rem(389);
+  margin-inline: auto;
 
-  @media (min-width: 769px) {
-    align-content: start;
+  @include mq("sp") {
+    margin-top: 0;
   }
 }
 
-.future__item:nth-child(1) {
-  @media (min-width: 769px) {
-    grid-column: 1;
-    grid-row: 2;
-    margin-block-start: rem(40);
+.philosophy__item:nth-child(3) {
+  grid-column: 3;
+  grid-row: 2 / span 2;
+  margin-top: rem(170);
+
+  @include mq("sp") {
+    margin-top: 0;
   }
 }
 
-.future__item:nth-child(2) {
-  @media (min-width: 769px) {
-    grid-column: 2;
-    grid-row: 3;
-    margin-block-start: rem(40);
-  }
-}
-
-.future__item:nth-child(3) {
-  @media (min-width: 769px) {
-    grid-column: 3;
-    grid-row: 2 / span 2;
-    margin-block-start: rem(140);
-  }
-}
-
-.future__item-img {
-  margin: 0;
+.philosophy__item-img {
   width: 100%;
+  max-width: rem(389);
   aspect-ratio: 389 / 259;
   overflow: hidden;
   border-radius: rem(5);
 }
 
-.future__item-img img {
+.philosophy__item-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.future__item-no {
+.philosophy__item-no {
   font-family: $second-font;
   font-size: rem(14);
   font-weight: $bold;
   color: $blue;
-  padding-block-start: rem(6);
+  padding-top: rem(4);
+  padding-inline: rem(14);
 }
 
-.future__item-title {
+.philosophy__item-title {
   font-family: $base-font;
   font-size: rem(20);
   font-weight: $bold;
   line-height: 1.5;
   color: $base-color;
+  padding-inline: rem(14);
 }
 
-.future__item-text {
+.philosophy__item-text {
   font-family: $base-font;
   font-size: rem(16);
   font-weight: $regular;
   line-height: 1.5;
   color: $base-color;
+  padding-top: rem(6);
+  padding-inline: rem(14);
 }
 
 /* =========================================================
-Five Principles
+Behavioral guidelines / 行動指針5箇条
 ========================================================= */
 .five {
-  padding-block: rem(60) rem(80);
+  padding-block: rem(10) rem(80);
   background-color: $white;
 }
 
-.five__inner {
+.five__container {
+  max-width: rem(1280);
   position: relative;
   background-color: #ebf1fa;
-  border-radius: rem(10);
-  padding: rem(40) rem(20);
+  border-radius: rem(30);
+  padding: rem(68) rem(20) rem(80);
   overflow: hidden;
 }
 
 .five__bg {
   position: absolute;
-  top: rem(-25);
-  left: rem(-125);
-  width: rem(722);
-  pointer-events: none;
-  opacity: 1;
-}
-
-.five__bg img {
+  top: 0;
+  left: 0;
+  aspect-ratio: 1280 / 920;
   width: 100%;
   height: auto;
-  display: block;
-  transform: rotate(180deg);
+  pointer-events: none;
 }
 
 .five__head {
@@ -439,35 +413,22 @@ Five Principles
   align-items: center;
   text-align: center;
   gap: rem(8);
-  margin-block-end: rem(40);
-}
-
-.five__eyebrow {
-  font-family: $second-font;
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $blue;
-}
-
-.five__title {
-  font-family: $base-font;
-  font-size: rem(28);
-  font-weight: $bold;
-  line-height: 1.2;
-  color: $base-color;
 }
 
 .five__list {
   position: relative;
   list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: rem(16);
+  margin-top: rem(65);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: rem(40) rem(53);
+  max-width: rem(1160);
+  margin-inline: auto;
 
-  @media (min-width: 769px) {
-    grid-template-columns: repeat(6, 1fr);
-    gap: rem(24);
+  @include mq("sp") {
+    flex-direction: column;
+    gap: rem(16);
   }
 }
 
@@ -476,35 +437,20 @@ Five Principles
   flex-direction: column;
   align-items: center;
   text-align: center;
+  width: 30.2%;
   gap: rem(12);
-  padding: rem(32) rem(24);
+  padding: rem(32) rem(22) rem(12);
   background-color: $white;
   border-radius: rem(10);
   box-shadow: 0 rem(4) rem(20) rgba(0, 0, 0, 0.04);
-
-  @media (min-width: 769px) {
-    grid-column: span 2;
-  }
-}
-
-.five__item:nth-child(4) {
-  @media (min-width: 769px) {
-    grid-column: 2 / span 2;
-  }
-}
-
-.five__item:nth-child(5) {
-  @media (min-width: 769px) {
-    grid-column: 4 / span 2;
-  }
 }
 
 .five__item-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: rem(52);
-  height: rem(52);
+  width: rem(106);
+  height: rem(106);
 }
 
 .five__item-icon img {
@@ -519,6 +465,7 @@ Five Principles
   font-weight: $bold;
   line-height: 1.5;
   color: $base-color;
+  padding-top: rem(6);
 }
 
 .five__item-text {
@@ -527,84 +474,59 @@ Five Principles
   font-weight: $regular;
   line-height: 1.5;
   color: $base-color;
+  text-align: left;
 }
 
 /* =========================================================
-Message
+Message / 社長メッセージ
 ========================================================= */
 .message {
-  padding-block: rem(60);
-  background-color: $white;
+  padding-block: rem(36) rem(60);
 }
 
-.message__inner {
+.message__container {
   display: grid;
-  gap: rem(24);
+  grid-template-columns: 1fr rem(543);
+  grid-template-areas:
+    "head  photo"
+    "lead  photo"
+    "body  photo"
+    "sign  photo";
+  gap: 0 rem(30);
+  align-items: start;
 
-  @media (min-width: 769px) {
-    grid-template-columns: 1fr rem(505);
-    grid-template-areas:
-      "head  photo"
-      "lead  photo"
-      "body  photo"
-      "sign  photo";
-    column-gap: rem(60);
-    row-gap: rem(20);
-    align-items: start;
+  @include mq("sp") {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
   }
-}
-
-.message__head {
-  display: flex;
-  flex-direction: column;
-  gap: rem(8);
-
-  @media (min-width: 769px) {
-    grid-area: head;
-  }
-}
-
-.message__eyebrow {
-  font-family: $second-font;
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $blue;
-}
-
-.message__title {
-  font-family: $base-font;
-  font-size: rem(28);
-  font-weight: $bold;
-  line-height: 1.2;
-  color: $base-color;
 }
 
 .message__photo {
-  margin: 0;
   width: 100%;
-  aspect-ratio: 350 / 233;
   border-radius: rem(5);
-  overflow: hidden;
+  grid-area: photo;
+  align-self: center;
+  margin-top: rem(-10);
+  margin-inline: auto;
 
-  @media (min-width: 769px) {
-    grid-area: photo;
-    align-self: center;
-    aspect-ratio: auto;
-    max-width: rem(720);
-    margin-inline: auto;
+  @include mq("sp") {
+    aspect-ratio: 350 / 233;
+    max-width: none;
+    margin-inline: 0;
   }
 }
 
 .message__photo img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
+  aspect-ratio: auto;
   display: block;
 
-  @media (min-width: 769px) {
-    aspect-ratio: auto;
-    height: auto;
-    object-fit: contain;
+  @include mq("sp") {
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -614,11 +536,8 @@ Message
   font-weight: $bold;
   line-height: 1.5;
   color: $base-color;
-
-  @media (min-width: 769px) {
-    grid-area: lead;
-    font-size: rem(28);
-  }
+  grid-area: lead;
+  margin-top: rem(24);
 }
 
 .message__body {
@@ -627,12 +546,8 @@ Message
   font-weight: $regular;
   line-height: 1.5;
   color: $base-color;
-
-  @media (min-width: 769px) {
-    grid-area: body;
-    font-size: rem(17);
-    line-height: 1.8;
-  }
+  grid-area: body;
+  margin-top: rem(16);
 }
 
 .message__signature {
@@ -641,25 +556,23 @@ Message
   font-weight: $bold;
   line-height: 1.5;
   color: $base-color;
-
-  @media (min-width: 769px) {
-    grid-area: sign;
-  }
+  grid-area: sign;
+  margin-top: rem(40);
 }
 
 /* =========================================================
-Voice
+Voice / 働く人の声
 ========================================================= */
 .voice {
   padding-block: rem(60);
-  background-color: $white;
 }
 
-.voice__inner {
+.voice__container {
   position: relative;
-  border-radius: rem(10);
-  padding: rem(40) rem(20) rem(60);
-  background-color: $white;
+  border-radius: rem(30);
+  border: 1px solid $blue;
+  padding: rem(80) rem(20) rem(60);
+  max-width: rem(1280);
   overflow: hidden;
 }
 
@@ -670,51 +583,28 @@ Voice
   overflow: hidden;
 }
 
-.voice__bg-ribbon {
-  position: absolute;
-  opacity: 0.4;
+.voice__bg picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-.voice__bg-ribbon--1 {
-  top: rem(-72);
-  left: rem(-155);
-  width: rem(854);
-  transform: rotate(-3.23deg);
-}
-
-.voice__bg-ribbon--2 {
-  top: rem(29);
-  left: rem(-490);
-  width: rem(1017);
-  transform: rotate(-9.69deg);
+.voice__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .voice__head {
   position: relative;
   text-align: center;
-  margin-block-end: rem(40);
-}
-
-.voice__eyebrow {
-  font-family: $second-font;
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $blue;
-  text-align: center;
-  margin-block-end: rem(8);
-}
-
-.voice__title {
-  font-family: $base-font;
-  font-size: rem(28);
-  font-weight: $bold;
-  line-height: 1.2;
-  color: $base-color;
 }
 
 .voice__slider {
   position: relative;
   overflow: hidden;
+  margin-top: rem(40);
 }
 
 .voice__list {
@@ -747,6 +637,7 @@ Voice
 }
 
 .voice__item-photo {
+  position: relative;
   margin: 0;
   width: 100%;
   aspect-ratio: 243 / 184;
@@ -761,11 +652,23 @@ Voice
   display: block;
 }
 
-.voice__item-lead {
+.voice__item-photo-text {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: rem(16);
   font-family: $base-font;
   font-size: rem(16);
   font-weight: $bold;
+  line-height: 1.5;
   color: $blue;
+}
+
+.voice__item-lead {
+  font-family: $base-font;
+  font-size: rem(16);
+  font-weight: $regular;
+  color: $base-color;
   line-height: 1.5;
 }
 
@@ -789,7 +692,7 @@ Voice
   display: flex;
   justify-content: center;
   gap: rem(24);
-  margin-block-start: rem(40);
+  margin-top: rem(40);
 }
 
 .voice__nav {
@@ -824,11 +727,12 @@ Culture
 
 .culture__inner {
   display: grid;
+  position: relative;
   gap: rem(24);
+  row-gap: rem(40);
 
-  @media (min-width: 769px) {
-    position: relative;
-    row-gap: rem(40);
+  @include mq("sp") {
+    row-gap: rem(24);
   }
 }
 
@@ -839,32 +743,17 @@ Culture
   gap: rem(8);
 }
 
-.culture__eyebrow {
-  font-family: $second-font;
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $blue;
-}
-
-.culture__title {
-  font-family: $base-font;
-  font-size: rem(26);
-  font-weight: $bold;
-  line-height: 1.2;
-  color: $base-color;
-}
-
 .culture__list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  gap: rem(24);
+  display: flex;
+  flex-direction: column;
+  gap: rem(20);
 
-  @media (min-width: 769px) {
-    display: flex;
-    flex-direction: column;
-    gap: rem(20);
+  @include mq("sp") {
+    display: grid;
+    gap: rem(24);
   }
 }
 
@@ -872,17 +761,18 @@ Culture
   position: relative;
   background-color: #ebf1fa;
   border-radius: rem(10);
-  padding: rem(40) rem(20);
-  overflow: hidden;
-  min-height: rem(235);
+  padding: rem(40) rem(60) rem(40) rem(510);
+  min-height: rem(240);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: visible;
 
-  @media (min-width: 769px) {
-    padding: rem(40) rem(60) rem(40) rem(510);
-    min-height: rem(240);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: visible;
+  @include mq("sp") {
+    padding: rem(40) rem(20);
+    min-height: rem(235);
+    display: block;
+    overflow: hidden;
   }
 }
 
@@ -891,9 +781,10 @@ Culture
   width: rem(720);
   pointer-events: none;
   opacity: 0.7;
+  display: none;
 
-  @media (min-width: 769px) {
-    display: none;
+  @include mq("sp") {
+    display: block;
   }
 }
 
@@ -924,7 +815,6 @@ Culture
   font-weight: $bold;
   line-height: 1.2;
   color: $black;
-  margin-block-end: rem(24);
 }
 
 .culture__item-text {
@@ -934,23 +824,24 @@ Culture
   font-weight: $regular;
   line-height: 1.5;
   color: $base-color;
+  margin-top: rem(24);
 }
 
 .culture__team {
   margin: 0;
-  width: 100%;
-  aspect-ratio: 4096 / 2731;
   border-radius: rem(10);
   overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: rem(140);
+  bottom: 0;
+  width: rem(460);
+  z-index: 1;
 
-  @media (min-width: 769px) {
-    position: absolute;
-    left: 0;
-    top: rem(140);
-    bottom: 0;
-    width: rem(460);
-    aspect-ratio: auto;
-    z-index: 1;
+  @include mq("sp") {
+    position: static;
+    width: 100%;
+    aspect-ratio: 4096 / 2731;
   }
 }
 
@@ -971,16 +862,18 @@ Daily
 
 .daily__inner {
   display: grid;
-  gap: rem(24);
+  grid-template-columns: rem(220) 1fr;
+  grid-template-areas:
+    "head head"
+    "tabs timeline";
+  column-gap: rem(60);
+  row-gap: rem(40);
+  align-items: start;
 
-  @media (min-width: 769px) {
-    grid-template-columns: rem(220) 1fr;
-    grid-template-areas:
-      "head head"
-      "tabs timeline";
-    column-gap: rem(60);
-    row-gap: rem(40);
-    align-items: start;
+  @include mq("sp") {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
   }
 }
 
@@ -988,35 +881,17 @@ Daily
   display: flex;
   flex-direction: column;
   gap: rem(8);
-
-  @media (min-width: 769px) {
-    grid-area: head;
-  }
-}
-
-.daily__eyebrow {
-  font-family: $second-font;
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $blue;
-}
-
-.daily__title {
-  font-family: $base-font;
-  font-size: rem(28);
-  font-weight: $bold;
-  line-height: 1.2;
-  color: $base-color;
+  grid-area: head;
 }
 
 .daily__tabs {
   display: flex;
   flex-direction: column;
-  gap: rem(20);
+  gap: rem(16);
+  grid-area: tabs;
 
-  @media (min-width: 769px) {
-    grid-area: tabs;
-    gap: rem(16);
+  @include mq("sp") {
+    gap: rem(20);
   }
 }
 
@@ -1077,9 +952,7 @@ Daily
 }
 
 .daily__panel {
-  @media (min-width: 769px) {
-    grid-area: timeline;
-  }
+  grid-area: timeline;
 }
 
 .daily__timeline {
@@ -1126,7 +999,7 @@ Daily
   height: rem(20);
   background-color: $blue;
   border-radius: 50%;
-  margin-block-start: rem(4);
+  margin-top: rem(4);
 }
 
 .daily__timeline-time {
@@ -1149,7 +1022,6 @@ Daily
   font-weight: $bold;
   color: $base-color;
   line-height: 1.3;
-  margin-block-end: rem(8);
 
   @include mq("sp") {
     font-size: rem(18);
@@ -1160,6 +1032,7 @@ Daily
   font-family: $base-font;
   font-size: rem(15);
   font-weight: $regular;
+  margin-top: rem(8);
   color: $base-color;
   line-height: 1.5;
 }
@@ -1184,21 +1057,6 @@ Career
   gap: rem(8);
 }
 
-.career__eyebrow {
-  font-family: $second-font;
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $blue;
-}
-
-.career__title {
-  font-family: $base-font;
-  font-size: rem(28);
-  font-weight: $bold;
-  line-height: 1.2;
-  color: $base-color;
-}
-
 .career__badge {
   display: inline-flex;
   align-items: center;
@@ -1218,15 +1076,15 @@ Career
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: rem(10);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: rem(20);
+  align-items: start;
 
-  @media (min-width: 769px) {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: rem(20);
-    align-items: start;
+  @include mq("sp") {
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
   }
 }
 
@@ -1240,21 +1098,26 @@ Career
   grid-template-columns: rem(40) 1fr;
   gap: rem(8) rem(14);
   align-items: start;
+  grid-column: span 2;
 
-  @media (min-width: 769px) {
-    grid-column: span 2;
+  @include mq("sp") {
+    grid-column: auto;
   }
 }
 
 .career__item:nth-child(4) {
-  @media (min-width: 769px) {
-    grid-column: 2 / span 2;
+  grid-column: 2 / span 2;
+
+  @include mq("sp") {
+    grid-column: auto;
   }
 }
 
 .career__item:nth-child(5) {
-  @media (min-width: 769px) {
-    grid-column: 4 / span 2;
+  grid-column: 4 / span 2;
+
+  @include mq("sp") {
+    grid-column: auto;
   }
 }
 
@@ -1315,30 +1178,17 @@ Stats
   gap: rem(8);
 }
 
-.stats__eyebrow {
-  font-family: $second-font;
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $blue;
-}
-
-.stats__title {
-  font-family: $base-font;
-  font-size: rem(28);
-  font-weight: $bold;
-  color: $base-color;
-}
-
 .stats__list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
-  gap: rem(20);
+  grid-template-columns: repeat(3, 1fr);
+  gap: rem(24);
 
-  @media (min-width: 769px) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: rem(24);
+  @include mq("sp") {
+    grid-template-columns: none;
+    gap: rem(20);
   }
 }
 
@@ -1416,16 +1266,18 @@ Environment
 
 .environment__inner {
   display: grid;
-  gap: rem(24);
+  grid-template-columns: rem(480) 1fr;
+  grid-template-areas:
+    "photos head"
+    "photos list";
+  column-gap: rem(60);
+  row-gap: rem(24);
+  align-items: start;
 
-  @media (min-width: 769px) {
-    grid-template-columns: rem(480) 1fr;
-    grid-template-areas:
-      "photos head"
-      "photos list";
-    column-gap: rem(60);
-    row-gap: rem(24);
-    align-items: start;
+  @include mq("sp") {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
   }
 }
 
@@ -1433,24 +1285,7 @@ Environment
   display: flex;
   flex-direction: column;
   gap: rem(8);
-
-  @media (min-width: 769px) {
-    grid-area: head;
-  }
-}
-
-.environment__eyebrow {
-  font-family: $second-font;
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $blue;
-}
-
-.environment__title {
-  font-family: $base-font;
-  font-size: rem(28);
-  font-weight: $bold;
-  color: $base-color;
+  grid-area: head;
 }
 
 .environment__list {
@@ -1459,13 +1294,11 @@ Environment
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: rem(14);
+  gap: rem(16);
+  grid-area: list;
 
-  @media (min-width: 769px) {
-    grid-area: list;
-    display: flex;
-    flex-direction: column;
-    gap: rem(16);
+  @include mq("sp") {
+    gap: rem(14);
   }
 }
 
@@ -1500,11 +1333,11 @@ Environment
 .environment__photos {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: rem(4);
+  gap: rem(16);
+  grid-area: photos;
 
-  @media (min-width: 769px) {
-    grid-area: photos;
-    gap: rem(16);
+  @include mq("sp") {
+    gap: rem(4);
   }
 }
 
@@ -1543,33 +1376,19 @@ Benefits
   gap: rem(8);
 }
 
-.benefits__eyebrow {
-  font-family: $second-font;
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $blue;
-}
-
-.benefits__title {
-  font-family: $base-font;
-  font-size: rem(28);
-  font-weight: $bold;
-  color: $base-color;
-}
-
 .benefits__list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: rem(16);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: rem(24);
+  align-items: start;
 
-  @media (min-width: 769px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: rem(24);
-    align-items: start;
+  @include mq("sp") {
+    display: flex;
+    flex-direction: column;
+    gap: rem(16);
   }
 }
 
@@ -1636,7 +1455,7 @@ Benefits
   width: rem(20);
   height: rem(22);
   flex-shrink: 0;
-  margin-block-start: rem(2);
+  margin-top: rem(2);
 }
 
 .benefits__item-check img {
@@ -1683,35 +1502,21 @@ System
   z-index: 1;
 }
 
-.system__eyebrow {
-  font-family: $second-font;
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $blue;
-}
-
-.system__title {
-  font-family: $base-font;
-  font-size: rem(28);
-  font-weight: $bold;
-  color: $base-color;
-}
-
 .system__steps {
   position: relative;
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: rem(16);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: rem(20);
+  align-items: start;
   z-index: 1;
 
-  @media (min-width: 769px) {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: rem(20);
-    align-items: start;
+  @include mq("sp") {
+    display: flex;
+    flex-direction: column;
+    gap: rem(16);
   }
 }
 
@@ -1796,11 +1601,11 @@ System
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: rem(20);
 
-  @media (min-width: 769px) {
-    grid-template-columns: repeat(4, 1fr);
+  @include mq("sp") {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -1858,20 +1663,6 @@ Satisfaction 仕事のやりがい
   gap: rem(8);
 }
 
-.satisfaction__eyebrow {
-  font-family: $second-font;
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $blue;
-}
-
-.satisfaction__title {
-  font-family: $base-font;
-  font-size: rem(28);
-  font-weight: $bold;
-  color: $base-color;
-}
-
 .satisfaction__list {
   list-style: none;
   padding: 0;
@@ -1883,35 +1674,35 @@ Satisfaction 仕事のやりがい
 
 .satisfaction__card {
   position: relative;
-  border-radius: rem(5);
-  padding: rem(16) rem(20);
+  border-radius: rem(30);
+  padding: rem(48) rem(60);
   filter: drop-shadow(3px 3px 7.5px rgba(0, 0, 0, 0.1));
   display: grid;
-  gap: rem(24);
+  grid-template-columns: 1fr rem(440);
+  grid-template-areas:
+    "no img"
+    "title img"
+    "text img";
+  align-items: center;
+  column-gap: rem(48);
+  row-gap: rem(16);
   opacity: 0;
   transform: translateY(rem(40));
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 
-  @media (min-width: 769px) {
-    grid-template-columns: 1fr rem(440);
-    grid-template-areas:
-      "no img"
-      "title img"
-      "text img";
-    align-items: center;
-    column-gap: rem(48);
-    row-gap: rem(16);
-    padding: rem(48) rem(60);
-    border-radius: rem(30);
+  @include mq("sp") {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+    padding: rem(16) rem(20);
+    border-radius: rem(5);
   }
 }
 
-@media (min-width: 769px) {
-  .satisfaction__card-no { grid-area: no; }
-  .satisfaction__card-title { grid-area: title; }
-  .satisfaction__card-text { grid-area: text; }
-  .satisfaction__card-img { grid-area: img; align-self: stretch; }
-}
+.satisfaction__card-no { grid-area: no; }
+.satisfaction__card-title { grid-area: title; }
+.satisfaction__card-text { grid-area: text; }
+.satisfaction__card-img { grid-area: img; align-self: stretch; }
 
 .satisfaction__card.is-visible {
   opacity: 1;
@@ -1988,60 +1779,38 @@ Recruitment 募集要項
   gap: rem(8);
 }
 
-.recruitment__eyebrow {
-  font-family: $second-font;
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $blue;
-}
-
-.recruitment__title {
-  font-family: $base-font;
-  font-size: rem(28);
-  font-weight: $bold;
-  color: $base-color;
-}
-
 .recruitment__cards {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: rem(24);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: rem(32);
+  align-items: start;
 
-  @media (min-width: 769px) {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: rem(32);
-    align-items: start;
+  @include mq("sp") {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
   }
 }
 
 // 1種類: 1枚を中央
-@media (min-width: 769px) {
-  .recruitment__cards--count-1 .recruitment__card { grid-column: 3 / span 2; }
-}
+.recruitment__cards--count-1 .recruitment__card { grid-column: 3 / span 2; }
 
 // 2種類: 2枚を中央
-@media (min-width: 769px) {
-  .recruitment__cards--count-2 .recruitment__card:nth-child(1) { grid-column: 2 / span 2; }
-  .recruitment__cards--count-2 .recruitment__card:nth-child(2) { grid-column: 4 / span 2; }
-}
+.recruitment__cards--count-2 .recruitment__card:nth-child(1) { grid-column: 2 / span 2; }
+.recruitment__cards--count-2 .recruitment__card:nth-child(2) { grid-column: 4 / span 2; }
 
 // 4種類: 2+2（上段2枚・下段2枚 中央）
-@media (min-width: 769px) {
-  .recruitment__cards--count-4 .recruitment__card:nth-child(1) { grid-column: 2 / span 2; }
-  .recruitment__cards--count-4 .recruitment__card:nth-child(2) { grid-column: 4 / span 2; }
-  .recruitment__cards--count-4 .recruitment__card:nth-child(3) { grid-column: 2 / span 2; }
-  .recruitment__cards--count-4 .recruitment__card:nth-child(4) { grid-column: 4 / span 2; }
-}
+.recruitment__cards--count-4 .recruitment__card:nth-child(1) { grid-column: 2 / span 2; }
+.recruitment__cards--count-4 .recruitment__card:nth-child(2) { grid-column: 4 / span 2; }
+.recruitment__cards--count-4 .recruitment__card:nth-child(3) { grid-column: 2 / span 2; }
+.recruitment__cards--count-4 .recruitment__card:nth-child(4) { grid-column: 4 / span 2; }
 
 // 5種類: 1段目3枚（現状）・2段目2枚 中央
-@media (min-width: 769px) {
-  .recruitment__cards--count-5 .recruitment__card:nth-child(4) { grid-column: 2 / span 2; }
-  .recruitment__cards--count-5 .recruitment__card:nth-child(5) { grid-column: 4 / span 2; }
-}
+.recruitment__cards--count-5 .recruitment__card:nth-child(4) { grid-column: 2 / span 2; }
+.recruitment__cards--count-5 .recruitment__card:nth-child(5) { grid-column: 4 / span 2; }
 
 .recruitment__card {
   position: relative;
@@ -2052,10 +1821,7 @@ Recruitment 募集要項
   display: grid;
   gap: rem(16);
   justify-items: center;
-
-  @media (min-width: 769px) {
-    grid-column: span 2;
-  }
+  grid-column: span 2;
 }
 
 .recruitment__card-photo {
@@ -2074,7 +1840,7 @@ Recruitment 募集要項
 }
 
 .recruitment__card-badge {
-  margin-block-start: 0;
+  margin-top: 0;
   background-color: $blue;
   color: $white;
   font-family: $base-font;
@@ -2091,7 +1857,7 @@ Recruitment 募集要項
   flex-direction: column;
   gap: rem(24);
   margin: 0;
-  padding-block-start: rem(8);
+  padding-top: rem(8);
   width: 100%;
 }
 
@@ -2099,14 +1865,14 @@ Recruitment 募集要項
   display: grid;
   grid-template-columns: rem(88) 1fr;
   gap: rem(16);
-  padding-block-end: rem(24);
-  border-block-end: rem(1) solid #e5e5e5;
+  padding-bottom: rem(24);
+  border-bottom: rem(1) solid #e5e5e5;
   align-items: start;
 }
 
 .recruitment__card-row:last-child {
-  border-block-end: 0;
-  padding-block-end: 0;
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 
 .recruitment__card-row dt {
@@ -2144,14 +1910,14 @@ Recruitment 募集要項
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: rem(13);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: rem(20);
 
-  @media (min-width: 769px) {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: rem(20);
+  @include mq("sp") {
+    display: flex;
+    flex-direction: column;
+    gap: rem(13);
   }
 }
 
@@ -2216,39 +1982,27 @@ FAQ
 
 .faq__inner {
   display: grid;
+  grid-template-columns: rem(340) 1fr;
   gap: rem(24);
+  column-gap: rem(60);
+  align-items: start;
 
-  @media (min-width: 769px) {
-    grid-template-columns: rem(340) 1fr;
-    column-gap: rem(60);
-    align-items: start;
+  @include mq("sp") {
+    grid-template-columns: none;
   }
 }
 
 .faq__head {
-  text-align: center;
+  text-align: left;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: rem(8);
 
-  @media (min-width: 769px) {
-    text-align: left;
-    align-items: flex-start;
+  @include mq("sp") {
+    text-align: center;
+    align-items: normal;
   }
-}
-
-.faq__eyebrow {
-  font-family: $second-font;
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $blue;
-}
-
-.faq__title {
-  font-family: $base-font;
-  font-size: rem(28);
-  font-weight: $bold;
-  color: $base-color;
 }
 
 .faq__note {
@@ -2369,10 +2123,12 @@ Entry エントリー
 .entry__inner {
   display: grid;
   gap: rem(40);
+  max-width: rem(720);
+  margin-inline: auto;
 
-  @media (min-width: 769px) {
-    max-width: rem(720);
-    margin-inline: auto;
+  @include mq("sp") {
+    max-width: none;
+    margin-inline: 0;
   }
 }
 
@@ -2486,10 +2242,10 @@ Entry エントリー
 }
 
 .entry__form-label {
-  padding-block-start: rem(12);
+  padding-top: rem(12);
 
   @include mq("sp") {
-    padding-block-start: 0;
+    padding-top: 0;
   }
 }
 
@@ -2592,6 +2348,20 @@ Entry エントリー
   filter: brightness(0) invert(1);
 }
 
-/* PC共通サイズ・微調整（768px超）は共通クラス（module/_common.scss の
-   .section-title / .section-eyebrow / .section / .section-badge / .section-head-center）と
-   各セクションの個別ブロックへ移動済み。 */
+/* =========================================================
+Placeholder
+========================================================= */
+.placeholder {
+  padding-block: rem(60);
+  background-color: $bg-light;
+  border-block: rem(1) dashed $gray;
+}
+
+.placeholder__label {
+  font-family: $second-font;
+  font-size: rem(14);
+  font-weight: $semi-bold;
+  color: $gray;
+  text-align: center;
+  letter-spacing: 0.05em;
+}

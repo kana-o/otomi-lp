@@ -1,6 +1,5 @@
 @use "global" as *;
 
-/* ヘッダーは FV 内に絶対配置（透過オーバーレイ） */
 .header {
   position: absolute;
   top: 0;
@@ -9,8 +8,8 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding-block: rem(39);
-  padding-inline: rem(80);
+  padding-block: rem(41);
+  padding-inline: rem(80) rem(55);
 
   @include mq("sp") {
     padding-block: rem(19);
@@ -20,8 +19,6 @@
 
 .header__brand {
   display: flex;
-  flex-direction: column;
-  gap: rem(8);
 }
 
 .header__logo {
@@ -30,7 +27,7 @@
 
 .header__logo img {
   display: block;
-  width: rem(140);
+  width: rem(252);
   height: auto;
 
   @include mq("sp") {
@@ -38,23 +35,10 @@
   }
 }
 
-.header__tag {
-  font-family: $second-font;
-  font-size: rem(16);
-  font-weight: $bold;
-  color: $white;
-  letter-spacing: 0.05em;
-  line-height: 1.2;
-
-  @include mq("sp") {
-    font-size: rem(14);
-  }
-}
-
 .header__nav-list {
   display: flex;
   flex-direction: row;
-  gap: rem(12);
+  gap: rem(30);
   list-style: none;
   padding: 0;
   margin: 0;
@@ -69,9 +53,8 @@
   display: inline-grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: rem(10);
-  min-width: rem(124);
-  padding: rem(4) rem(8) rem(4) rem(17);
+  gap: rem(2);
+  padding: rem(2) rem(8) rem(4) rem(18);
   background-color: $white;
   border-radius: rem(100);
   color: $base-color;
@@ -90,8 +73,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: rem(17);
-  height: rem(17);
+  width: rem(16);
+  height: rem(16);
 }
 
 .header__nav-icon img {

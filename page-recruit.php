@@ -3,9 +3,7 @@
 <main class="main">
 
   <section class="fv">
-    <?php /* 背景: PC=トラック写真+青リボン / SP=トラック写真+下半分ブルーグラデーション */ ?>
     <div class="fv__bg" aria-hidden="true">
-      <div class="fv__bg-blue"></div>
       <picture class="fv__bg-photo">
         <source media="(max-width: 768px)" type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/fv_sp.webp">
         <source media="(max-width: 768px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/fv_sp.jpg">
@@ -14,39 +12,38 @@
       </picture>
       <div class="fv__bg-gradient"></div>
     </div>
+    <header class="header">
+      <div class="header__brand">
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="header__logo" aria-label="大富運輸 採用サイト">
+          <picture>
+            <source media="(max-width: 768px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/header_logo-sp.svg">
+            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/header_logo-pc.svg" alt="" width="252" height="43" loading="eager">
+          </picture>
+        </a>
+      </div>
+      <nav class="header__nav" aria-label="ヘッダーナビゲーション">
+        <ul class="header__nav-list">
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">
+              <span>会社サイト</span>
+              <span class="header__nav-icon" aria-hidden="true">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/arrow-circle.svg" alt="" width="17" height="17">
+              </span>
+            </a>
+          </li>
+          <li class="header__nav-item">
+            <a href="#" class="header__nav-link">
+              <span>お問い合わせ</span>
+              <span class="header__nav-icon" aria-hidden="true">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/arrow-circle.svg" alt="" width="17" height="17">
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-    <div class="fv__inner">
-      <?php /* ヘッダー（FV内の固定ヘッダー扱い） */ ?>
-      <header class="header">
-        <div class="header__brand">
-          <a href="<?php echo esc_url(home_url('/')); ?>" class="header__logo" aria-label="大富運輸 採用サイト">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/logo.svg" alt="otomi" width="140" height="42" loading="eager">
-          </a>
-          <p class="header__tag">Recruit site</p>
-        </div>
-        <nav class="header__nav" aria-label="ヘッダーナビゲーション">
-          <ul class="header__nav-list">
-            <li class="header__nav-item">
-              <a href="#" class="header__nav-link">
-                <span>会社サイト</span>
-                <span class="header__nav-icon" aria-hidden="true">
-                  <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/arrow-circle.svg" alt="" width="17" height="17">
-                </span>
-              </a>
-            </li>
-            <li class="header__nav-item">
-              <a href="#" class="header__nav-link">
-                <span>お問い合わせ</span>
-                <span class="header__nav-icon" aria-hidden="true">
-                  <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/arrow-circle.svg" alt="" width="17" height="17">
-                </span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
-      <?php /* FVキャッチコピー＋CTA */ ?>
+    <div class="inner fv__inner">
       <div class="fv__copy">
         <h1 class="fv__title">ただ運ぶだけじゃ、<br>終わらない。</h1>
         <p class="fv__lead">相手の"本当に求めていること"まで考える仕事</p>
@@ -68,69 +65,70 @@
     </div>
   </section>
 
-  <?php /* 安全に / SP node-id: 574:76 */ ?>
-  <section class="section safety">
-    <div class="safety__inner inner">
+  <!-- 青リボン背景 -->
+  <div class="ribbon__bg01"></div>
+
+  <!-- 安全に、真面目に、でも楽しく。そんな仲間を募集しています。 -->
+    <section class="safety inner">
       <h2 class="safety__title">安全に、真面目に、でも楽しく。<br>そんな仲間を募集しています。</h2>
       <p class="safety__text">
-        社会を支える仕事だからこそ、安全に、真面目に。<br>
-        そして、一緒に働くなら楽しく。<br>
-        そんな仲間を募集しています。
-      </p>
+        社会を支える仕事だからこそ、安全に、真面目に。<br>そして、一緒に働くなら楽しく<br>そんな仲間を募集しています。</p>
       <figure class="safety__photo">
         <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/safety-photo.png" alt="森を抜ける曲がりくねった一本道（俯瞰）" width="1280" height="380" loading="lazy">
       </figure>
-    </div>
-  </section>
+    </section>
 
-  <?php /* 思い描く未来 / SP node-id: 574:122 */ ?>
-  <section class="section future">
-    <div class="future__inner inner">
-      <div class="future__head">
-        <p class="section-eyebrow future__eyebrow">Culture</p>
-        <h2 class="section-title future__title">私たちが大切にする<br>3つの文化</h2>
+  <!-- Philosophy / 私たちが思い描く未来 -->
+  <section class="philosophy inner">
+    <div class="philosophy__container">
+      <div class="philosophy__head">
+        <p class="section-title--en">Philosophy</p>
+        <h2 class="section-title">私たちが<br>思い描く未来</h2>
       </div>
-      <div class="future__lead">
+      <div class="philosophy__img">
         <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-lead.png" alt="" width="176" height="279" loading="lazy">
       </div>
-      <ul class="future__list">
-        <li class="future__item">
-          <figure class="future__item-img">
+      <ul class="philosophy__list">
+        <li class="philosophy__item">
+          <figure class="philosophy__item-img">
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-01.png" alt="" width="350" height="233" loading="lazy">
           </figure>
-          <p class="future__item-no">01</p>
-          <h3 class="future__item-title">丁寧に積み重ねること</h3>
-          <p class="future__item-text">大きな成果は、日々の小さな積み重ねから生まれる。<br>安全、確認、思いやり。<br>一つひとつを丁寧に続けることを大切にしてほしい。</p>
+          <p class="philosophy__item-no">01</p>
+          <h3 class="philosophy__item-title">丁寧に積み重ねること</h3>
+          <p class="philosophy__item-text">大きな成果は、日々の小さな積み重ねから生まれる。<br>安全、確認、思いやり。<br>一つひとつを丁寧に続けることを大切にしてほしい。</p>
         </li>
-        <li class="future__item">
-          <figure class="future__item-img">
+        <li class="philosophy__item">
+          <figure class="philosophy__item-img">
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-02.png" alt="" width="350" height="233" loading="lazy">
           </figure>
-          <p class="future__item-no">02</p>
-          <h3 class="future__item-title">本質を考えること</h3>
-          <p class="future__item-text">私たちは物流を通じて、社会を支える仕事をしています。<br>自分の仕事が、誰かや社会を支えていることを大切にしてほしい。</p>
+          <p class="philosophy__item-no">02</p>
+          <h3 class="philosophy__item-title">本質を考えること</h3>
+          <p class="philosophy__item-text">私たちは物流を通じて、社会を支える仕事をしています。<br>自分の仕事が、誰かや社会を支えていることを大切にしてほしい。</p>
         </li>
-        <li class="future__item">
-          <figure class="future__item-img">
+        <li class="philosophy__item">
+          <figure class="philosophy__item-img">
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-03.png" alt="" width="350" height="233" loading="lazy">
           </figure>
-          <p class="future__item-no">03</p>
-          <h3 class="future__item-title">楽しく働くには仲間に感謝すること。</h3>
-          <p class="future__item-text">仕事は、一人ではできない。<br>仲間、お客様、支えてくれる人たち。<br>当たり前ではない日々への感謝を、忘れないでいてほしい。</p>
+          <p class="philosophy__item-no">03</p>
+          <h3 class="philosophy__item-title">楽しく働くには仲間に感謝すること。</h3>
+          <p class="philosophy__item-text">仕事は、一人ではできない。<br>仲間、お客様、支えてくれる人たち。<br>当たり前ではない日々への感謝を、忘れないでいてほしい。</p>
         </li>
       </ul>
     </div>
   </section>
 
-  <?php /* 五か条 / SP node-id: 574:123 */ ?>
+  <!-- Behavioral guidelines / 行動指針5箇条 -->
   <section class="section five">
-    <div class="five__inner inner">
+    <div class="five__container inner">
       <div class="five__bg" aria-hidden="true">
-        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/ribbon-vertical.svg" alt="" width="710" height="845">
+        <picture>
+          <source media="(max-width: 768px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/behavioral_bg-sp.svg">
+          <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/behavioral_bg-pc.svg" alt="" width="1280" height="920">
+        </picture>
       </div>
       <div class="five__head">
-        <p class="section-eyebrow five__eyebrow">Behavioral guidelines</p>
-        <h2 class="section-title five__title">行動指針5箇条</h2>
+        <p class="section-title--en">Behavioral guidelines</p>
+        <h2 class="section-title">行動指針5箇条</h2>
       </div>
       <ul class="five__list">
         <li class="five__item">
@@ -144,7 +142,7 @@
           <span class="five__item-icon" aria-hidden="true">
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/icon-guideline-2.svg" alt="" width="52" height="52">
           </span>
-          <h3 class="five__item-title">プロセスを<br>誠実に積み重ねる</h3>
+          <h3 class="five__item-title">プロセスを<br class="sp-show" >誠実に積み重ねる</h3>
           <p class="five__item-text">結果だけを追わない。安全・確認・準備・対話。日々の積み重ねが、信頼をつくる。</p>
         </li>
         <li class="five__item">
@@ -152,7 +150,7 @@
             <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/icon-guideline-3.svg" alt="" width="52" height="52">
           </span>
           <h3 class="five__item-title">感謝を言葉にする</h3>
-          <p class="five__item-text">物流は、一人では成り立たない。支えてくれる仲間、お客様、社会への感謝を忘れない。</p>
+          <p class="five__item-text">物流は、一人では成り立たない。<br>支えてくれる仲間、お客様、社会への感謝を忘れない。</p>
         </li>
         <li class="five__item">
           <span class="five__item-icon" aria-hidden="true">
@@ -172,46 +170,44 @@
     </div>
   </section>
 
-  <?php /* メッセージ / SP node-id: 574:224 */ ?>
+  <!-- Message / 社長メッセージ -->
   <section class="section message">
-    <div class="message__inner inner">
+    <div class="message__container inner">
       <div class="message__head">
-        <p class="section-eyebrow message__eyebrow">Message</p>
-        <h2 class="section-title message__title">社長メッセージ</h2>
+        <p class="section-title--en">Message</p>
+        <h2 class="section-title">社長メッセージ</h2>
       </div>
       <figure class="message__photo">
-        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/message-photo.png" alt="代表取締役 尾﨑俊介" width="350" height="233" loading="lazy">
+        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/message-photo.jpg" alt="代表取締役 尾﨑俊介" width="350" height="233" loading="lazy">
       </figure>
       <h3 class="message__lead">事に仕え、社会を静かに支える</h3>
       <p class="message__body">
         物流は、ただ物を運ぶ仕事ではありません。<br>
-        工場や現場、そこで働く人々の日常を止めない、社会を支える仕事だと考えています。<br>
-        だからこそ、結果だけではなく、日々の安全や確認、丁寧な仕事の積み重ねを大切にしています。<br>
-        そして、どんな仕事も一人では成り立ちません。<br>
-        仲間やお客様、支えてくださるすべての方への感謝を忘れず、誠実に向き合うことを大事にしています。<br>
-        安全に、真面目に、でも楽しく。<br>
-        そんな仲間と共に、これからも社会を支えていく一員として、一緒に仕事ができればと思います。
+        工場や現場、そこで働く人々の日常を止めない、社会を支える仕事だと考えています。<br>だからこそ、結果だけではなく、日々の安全や確認、丁寧な仕事の積み重ねを大切にしています。<br>そして、どんな仕事も一人では成り立ちません。<br>仲間やお客様、支えてくださるすべての方への感謝を忘れず、誠実に向き合うことを大事にしています。<br>安全に、真面目に、でも楽しく。<br>そんな仲間と共に、これからも社会を支えていく一員として、一緒に仕事ができればと思います。
       </p>
       <p class="message__signature">大富運輸株式会社 代表取締役　尾﨑俊介</p>
     </div>
   </section>
 
-  <?php /* 声（ドライバーインタビュー）/ SP node-id: 574:225 — スライダー */ ?>
+  <!-- Voice / 働く人の声 -->
   <section class="section voice">
-    <div class="voice__inner inner">
+    <div class="voice__container inner">
       <div class="voice__bg" aria-hidden="true">
-        <img class="voice__bg-ribbon voice__bg-ribbon--1" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-ribbon-1.svg" alt="">
-        <img class="voice__bg-ribbon voice__bg-ribbon--2" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-ribbon-2.svg" alt="">
+        <picture>
+          <source media="(max-width: 768px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice_bg-sp.svg">
+          <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice_bg-pc.svg" alt="" width="1280" height="971">
+        </picture>
       </div>
       <div class="voice__head">
-        <p class="section-eyebrow voice__eyebrow">Voice</p>
-        <h2 class="section-title voice__title">働く人の声</h2>
+        <p class="section-title--en">Voice</p>
+        <h2 class="section-title">働く人の声</h2>
       </div>
       <div class="voice__slider js-voice-slider">
         <ul class="voice__list">
           <li class="voice__item js-voice-item is-active" data-index="0">
             <figure class="voice__item-photo">
               <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.png" alt="" width="227" height="184" loading="lazy">
+              <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             </figure>
             <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             <p class="voice__item-name">山田 太郎</p>
@@ -220,6 +216,7 @@
           <li class="voice__item js-voice-item" data-index="1">
             <figure class="voice__item-photo">
               <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.png" alt="" width="227" height="184" loading="lazy">
+              <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             </figure>
             <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             <p class="voice__item-name">山田 太郎</p>
@@ -228,6 +225,7 @@
           <li class="voice__item js-voice-item" data-index="2">
             <figure class="voice__item-photo">
               <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.png" alt="" width="227" height="184" loading="lazy">
+              <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             </figure>
             <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             <p class="voice__item-name">山田 太郎</p>
@@ -250,8 +248,8 @@
   <section class="section culture">
     <div class="culture__inner inner">
       <div class="section-head-center culture__head">
-        <p class="section-eyebrow culture__eyebrow">Culture</p>
-        <h2 class="section-title culture__title">私たちが大切にする3つの文化</h2>
+        <p class="section-title--en">Culture</p>
+        <h2 class="section-title">私たちが大切にする3つの文化</h2>
       </div>
       <ul class="culture__list">
         <li class="culture__item">
@@ -280,8 +278,8 @@
   <section class="section daily">
     <div class="daily__inner inner">
       <div class="daily__head">
-        <p class="section-eyebrow daily__eyebrow">Day</p>
-        <h2 class="section-title daily__title">社員の一日</h2>
+        <p class="section-title--en">Day</p>
+        <h2 class="section-title">社員の一日</h2>
       </div>
       <div class="daily__tabs" role="tablist" aria-label="運行パターン">
         <button type="button" class="daily__tab is-active" role="tab" data-tab="1" aria-selected="true" aria-controls="daily-panel-1"><span class="daily__tab-label">運行①</span><span class="daily__tab-icon" aria-hidden="true"><img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-b.svg" alt="" width="24" height="24"><img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-w.svg" alt="" width="24" height="24"></span></button>
@@ -500,8 +498,8 @@
   <section class="section career">
     <div class="career__inner inner">
       <div class="section-head-center career__head">
-        <p class="section-eyebrow career__eyebrow">Evaluation</p>
-        <h2 class="section-title career__title">評価制度</h2>
+        <p class="section-title--en">Evaluation</p>
+        <h2 class="section-title">評価制度</h2>
       </div>
       <p class="section-badge career__badge">評価制度</p>
       <ul class="career__list">
@@ -548,8 +546,8 @@
   <section class="section stats">
     <div class="stats__inner inner">
       <div class="section-head-center stats__head">
-        <p class="section-eyebrow stats__eyebrow">Numbers</p>
-        <h2 class="section-title stats__title">数字で見る大富運輸</h2>
+        <p class="section-title--en">Numbers</p>
+        <h2 class="section-title">数字で見る大富運輸</h2>
       </div>
       <ul class="stats__list">
         <li class="stats__item">
@@ -608,8 +606,8 @@
   <section class="section environment">
     <div class="environment__inner inner">
       <div class="environment__head">
-        <p class="section-eyebrow environment__eyebrow">Environment</p>
-        <h2 class="section-title environment__title">働く環境・働き方</h2>
+        <p class="section-title--en">Environment</p>
+        <h2 class="section-title">働く環境・働き方</h2>
       </div>
       <ul class="environment__list">
         <li class="environment__item">
@@ -690,8 +688,8 @@
   <section class="section benefits">
     <div class="benefits__inner inner">
       <div class="section-head-center benefits__head">
-        <p class="section-eyebrow benefits__eyebrow">Environment</p>
-        <h2 class="section-title benefits__title">福利厚生</h2>
+        <p class="section-title--en">Environment</p>
+        <h2 class="section-title">福利厚生</h2>
       </div>
       <ul class="benefits__list">
         <li class="benefits__item">
@@ -903,8 +901,8 @@
         <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-bg.svg" alt="">
       </div>
       <div class="system__head">
-        <p class="section-eyebrow system__eyebrow">Training</p>
-        <h2 class="section-title system__title">研修制度・社内制度</h2>
+        <p class="section-title--en">Training</p>
+        <h2 class="section-title">研修制度・社内制度</h2>
       </div>
       <ul class="system__steps">
         <li class="system__step">
@@ -1060,8 +1058,8 @@
   <section class="section satisfaction">
     <div class="satisfaction__inner inner">
       <div class="section-head-center satisfaction__head">
-        <p class="section-eyebrow satisfaction__eyebrow">Satisfaction</p>
-        <h2 class="section-title satisfaction__title">仕事のやりがい</h2>
+        <p class="section-title--en">Satisfaction</p>
+        <h2 class="section-title">仕事のやりがい</h2>
       </div>
       <ul class="satisfaction__list js-satisfaction-cards">
         <li class="satisfaction__card js-satisfaction-card satisfaction__card--lvl-1">
@@ -1115,12 +1113,10 @@
   <section class="section recruitment" id="recruitment">
     <div class="recruitment__inner inner">
       <div class="section-head-center recruitment__head">
-        <p class="section-eyebrow recruitment__eyebrow">Recruitment</p>
-        <h2 class="section-title recruitment__title">募集要項</h2>
+        <p class="section-title--en">Recruitment</p>
+        <h2 class="section-title">募集要項</h2>
       </div>
       <?php
-      // 募集要項（カスタム投稿 job）を menu_order 順で取得。
-      // 並べ替えは「Intuitive Custom Post Order」プラグインでドラッグ操作。
       $jobs_query = new WP_Query([
         'post_type'      => 'job',
         'posts_per_page' => -1,
@@ -1129,7 +1125,6 @@
         'no_found_rows'  => false,
       ]);
 
-      // ラベル固定：表示順とACFフィールド名の対応
       $job_rows = [
         '仕事内容' => 'job_content',
         '応募資格' => 'job_qualification',
@@ -1212,8 +1207,8 @@
   <section class="section faq">
     <div class="faq__inner inner">
       <div class="faq__head">
-        <p class="section-eyebrow faq__eyebrow">FAQ</p>
-        <h2 class="section-title faq__title">よくある質問</h2>
+        <p class="section-title--en">FAQ</p>
+        <h2 class="section-title">よくある質問</h2>
         <p class="faq__note">その他、ご質問があればお気軽にご連絡ください。</p>
       </div>
       <ul class="faq__list">
@@ -1312,7 +1307,7 @@
     </div>
   </section>
 
-  <?php /* エントリー（CTA+フォーム）/ SP node-id: 578:1926 */ ?>
+
   <section class="section entry" id="entry">
     <div class="entry__inner inner">
       <div class="entry__head">

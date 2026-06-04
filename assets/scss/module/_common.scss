@@ -4,13 +4,9 @@
 /* 共通パーツ */
 .inner {
   width: 100%;
-  max-width: rem(1280);
-  padding-inline: rem(80);
+  max-width: rem(1320);
+  padding-inline: rem(20);
   margin-inline: auto;
-
-  @include mq("sp") {
-    padding-inline: rem(20);
-  }
 }
 
 img {
@@ -19,20 +15,25 @@ img {
 }
 
 .section-title {
-  @media (min-width: 769px) {
-    font-size: rem(40);
+  font-family: $base-font;
+  font-size: rem(48);
+  font-weight: $bold;
+  line-height: 1.2;
+  color: $base-color;
+
+  @include mq("sp") {
+    font-size: rem(28);
   }
 }
 
-.section-eyebrow {
-  @media (min-width: 769px) {
-    font-size: rem(18);
-  }
-}
+.section-title--en {
+  font-family: $second-font;
+  font-size: rem(24);
+  font-weight: $bold;
+  color: $blue;
 
-.section {
-  @media (min-width: 769px) {
-    padding-block: rem(120);
+  @include mq("sp"){
+    font-size: rem(16);
   }
 }
 

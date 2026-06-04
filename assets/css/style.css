@@ -171,14 +171,29 @@ select::-ms-expand {
 
 .inner {
   width: 100%;
-  max-width: 80rem;
-  padding-inline: 5rem;
+  max-width: 82.5rem;
+  padding-inline: 1.25rem;
   margin-inline: auto;
 }
 
 img {
   max-width: 100%;
   height: auto;
+}
+
+.section-title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1B1B1B;
+}
+
+.section-title--en {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #008CD6;
 }
 
 .tab-show {
@@ -189,8 +204,6 @@ img {
   display: none;
 }
 
-/* ヘッダーは FV 内に絶対配置（透過オーバーレイ） */
-
 .header {
   position: absolute;
   top: 0;
@@ -199,14 +212,12 @@ img {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding-block: 2.4375rem;
-  padding-inline: 5rem;
+  padding-block: 2.5625rem;
+  padding-inline: 5rem 3.4375rem;
 }
 
 .header__brand {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
 }
 
 .header__logo {
@@ -215,23 +226,14 @@ img {
 
 .header__logo img {
   display: block;
-  width: 8.75rem;
+  width: 15.75rem;
   height: auto;
-}
-
-.header__tag {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #FFFFFF;
-  letter-spacing: 0.05em;
-  line-height: 1.2;
 }
 
 .header__nav-list {
   display: flex;
   flex-direction: row;
-  gap: 0.75rem;
+  gap: 1.875rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -241,9 +243,8 @@ img {
   display: inline-grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 0.625rem;
-  min-width: 7.75rem;
-  padding: 0.25rem 0.5rem 0.25rem 1.0625rem;
+  gap: 0.125rem;
+  padding: 0.125rem 0.5rem 0.25rem 1.125rem;
   background-color: #FFFFFF;
   border-radius: 6.25rem;
   color: #1B1B1B;
@@ -257,8 +258,8 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.0625rem;
-  height: 1.0625rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .header__nav-icon img {
@@ -298,7 +299,24 @@ img {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 1.5rem;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "logo  ctas" "top   ctas" "copy  copy";
+  align-items: start;
+  -moz-column-gap: 3.75rem;
+       column-gap: 3.75rem;
+  row-gap: 2rem;
+}
+
+.footer__top {
+  grid-area: top;
+}
+
+.footer__logo {
+  grid-area: logo;
+}
+
+.footer__copy {
+  grid-area: copy;
 }
 
 .footer__top {
@@ -312,8 +330,6 @@ img {
   font-size: 1.25rem;
   font-weight: 500;
   line-height: 1.5;
-  -webkit-margin-after: 1.25rem;
-          margin-block-end: 1.25rem;
 }
 
 .footer__company-addr,
@@ -323,6 +339,11 @@ img {
   font-weight: 500;
   line-height: 1.5;
   margin: 0;
+}
+
+.footer__company-addr {
+  -webkit-margin-before: 1.25rem;
+          margin-block-start: 1.25rem;
 }
 
 .footer__company-tel {
@@ -336,6 +357,9 @@ img {
   justify-content: center;
   width: 3rem;
   height: 3rem;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .footer__social img {
@@ -358,9 +382,12 @@ img {
 
 .footer__ctas {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
+  grid-area: ctas;
+  align-self: center;
+  margin: 0;
 }
 
 .footer__cta {
@@ -421,8 +448,9 @@ FV
 .fv {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: auto;
+  aspect-ratio: 1440/860;
+  min-height: 53.5625rem;
   overflow: hidden;
   color: #FFFFFF;
 }
@@ -434,9 +462,10 @@ FV
 }
 
 .fv__bg-photo img {
-  width: auto;
-  height: 100dvh;
-  aspect-ratio: 1440/860;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   -o-object-position: center;
      object-position: center;
 }
@@ -453,42 +482,36 @@ FV
   z-index: 1;
   width: 100%;
   height: 100%;
-  min-height: 50.4375rem;
-  padding-inline: 5rem;
-  padding-block: 2.4375rem 4.1875rem;
+  padding-block: 2.4375rem 7.5rem;
   display: grid;
 }
 
 .fv__copy {
   align-self: end;
-  max-width: 56.25rem;
 }
 
 .fv__title {
   font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 5rem;
+  font-size: 6.25rem;
   font-weight: 700;
   line-height: 1.1;
-  letter-spacing: 0.02em;
   color: #FFFFFF;
   text-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
-  -webkit-margin-after: 1rem;
-          margin-block-end: 1rem;
 }
 
 .fv__lead {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #FFFFFF;
   text-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
-  -webkit-margin-after: 1.5625rem;
-          margin-block-end: 1.5625rem;
+  margin-top: 1rem;
 }
 
 .fv__cta {
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
+  margin-top: 1.5625rem;
 }
 
 .fv__cta-btn {
@@ -497,7 +520,7 @@ FV
   align-items: center;
   gap: 2.125rem;
   min-width: 16.25rem;
-  padding: 1.6875rem 0.75rem 1.6875rem 3.625rem;
+  padding: 1.375rem 0.75rem 1.375rem 3.625rem;
   border-radius: 6.25rem;
   font-size: 1.125rem;
   font-weight: 700;
@@ -531,44 +554,56 @@ FV
 }
 
 /* =========================================================
+青リボン背景
+========================================================= */
+
+.ribbon__bg01 {
+  position: relative;
+  isolation: isolate;
+  z-index: -1;
+}
+
+.ribbon__bg01::before {
+  content: "";
+  position: absolute;
+  top: -24.6875rem;
+  width: 100vw;
+  aspect-ratio: 1440/2255;
+  z-index: -1;
+  background-image: url("../img/lp/safety_bg-pc.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  pointer-events: none;
+}
+
+/* =========================================================
 Safety
 ========================================================= */
 
 .safety {
-  padding-block: 7.5rem 5rem;
-  background-color: #FFFFFF;
-}
-
-.safety__inner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  padding-block: 2.1875rem 5rem;
 }
 
 .safety__title {
   font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.03em;
   color: #1B1B1B;
-  -webkit-margin-after: 1.5rem;
-          margin-block-end: 1.5rem;
 }
 
 .safety__text {
   font-size: 1.125rem;
   line-height: 1.5;
   color: #1B1B1B;
-  -webkit-margin-after: 2.5rem;
-          margin-block-end: 2.5rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
 }
 
 .safety__photo {
-  margin: 0;
-  width: 100%;
   border-radius: 0.3125rem;
-  overflow: hidden;
+  margin-top: 2.5rem;
 }
 
 .safety__photo img {
@@ -581,92 +616,89 @@ Safety
 }
 
 /* =========================================================
-Placeholder
+Philosophy / 私たちが思い描く未来
 ========================================================= */
 
-.placeholder {
-  padding-block: 3.75rem;
-  background-color: #F6F9FD;
-  border-block: 0.0625rem dashed #BABABA;
+.philosophy {
+  padding-block: 2.25rem 5.625rem;
 }
 
-.placeholder__label {
-  font-family: "Inter", sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #BABABA;
-  text-align: center;
-  letter-spacing: 0.05em;
-}
-
-/* =========================================================
-Future
-========================================================= */
-
-.future {
-  padding-block: 5rem 3.75rem;
-  background-color: #FFFFFF;
-}
-
-.future__inner {
+.philosophy__container {
   display: grid;
-  gap: 2rem;
+  grid-template-columns: 24.3125rem 31.5625rem 24.3125rem;
+  justify-content: center;
+  -moz-column-gap: 0;
+       column-gap: 0;
+  row-gap: 0;
+  align-items: start;
 }
 
-.future__head {
+.philosophy__head {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  grid-column: 1;
+  grid-row: 1;
 }
 
-.future__eyebrow {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #008CD6;
+.philosophy__img {
+  width: 31.5625rem;
+  aspect-ratio: 505/801;
+  margin-top: 0.9375rem;
+  grid-column: 2;
+  grid-row: 1/span 3;
+  justify-self: center;
+  align-self: start;
 }
 
-.future__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #1B1B1B;
-}
-
-.future__lead {
-  width: 11rem;
-  max-width: 100%;
-}
-
-.future__lead img {
+.philosophy__lead img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.future__list {
+.philosophy__list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  gap: 1.5rem;
+  display: contents;
 }
 
-.future__item {
+.philosophy__item {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.25rem;
+  align-content: start;
 }
 
-.future__item-img {
-  margin: 0;
+.philosophy__item:nth-child(1) {
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: 4.375rem;
+}
+
+.philosophy__item:nth-child(2) {
+  grid-column: 2;
+  grid-row: 3;
+  margin-top: -7.8125rem;
+  max-width: 24.3125rem;
+  margin-inline: auto;
+}
+
+.philosophy__item:nth-child(3) {
+  grid-column: 3;
+  grid-row: 2/span 2;
+  margin-top: 10.625rem;
+}
+
+.philosophy__item-img {
   width: 100%;
+  max-width: 24.3125rem;
   aspect-ratio: 389/259;
   overflow: hidden;
   border-radius: 0.3125rem;
 }
 
-.future__item-img img {
+.philosophy__item-img img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -674,62 +706,60 @@ Future
   display: block;
 }
 
-.future__item-no {
+.philosophy__item-no {
   font-family: "Inter", sans-serif;
   font-size: 0.875rem;
   font-weight: 700;
   color: #008CD6;
-  -webkit-padding-before: 0.375rem;
-          padding-block-start: 0.375rem;
+  padding-top: 0.25rem;
+  padding-inline: 0.875rem;
 }
 
-.future__item-title {
+.philosophy__item-title {
   font-family: "Zen Kaku Gothic New", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.5;
   color: #1B1B1B;
+  padding-inline: 0.875rem;
 }
 
-.future__item-text {
+.philosophy__item-text {
   font-family: "Zen Kaku Gothic New", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: #1B1B1B;
+  padding-top: 0.375rem;
+  padding-inline: 0.875rem;
 }
 
 /* =========================================================
-Five Principles
+Behavioral guidelines / 行動指針5箇条
 ========================================================= */
 
 .five {
-  padding-block: 3.75rem 5rem;
+  padding-block: 0.625rem 5rem;
   background-color: #FFFFFF;
 }
 
-.five__inner {
+.five__container {
+  max-width: 80rem;
   position: relative;
   background-color: #ebf1fa;
-  border-radius: 0.625rem;
-  padding: 2.5rem 1.25rem;
+  border-radius: 1.875rem;
+  padding: 4.25rem 1.25rem 5rem;
   overflow: hidden;
 }
 
 .five__bg {
   position: absolute;
-  top: -1.5625rem;
-  left: -7.8125rem;
-  width: 45.125rem;
-  pointer-events: none;
-  opacity: 1;
-}
-
-.five__bg img {
+  top: 0;
+  left: 0;
+  aspect-ratio: 1280/920;
   width: 100%;
   height: auto;
-  display: block;
-  transform: rotate(180deg);
+  pointer-events: none;
 }
 
 .five__head {
@@ -739,32 +769,18 @@ Five Principles
   align-items: center;
   text-align: center;
   gap: 0.5rem;
-  -webkit-margin-after: 2.5rem;
-          margin-block-end: 2.5rem;
-}
-
-.five__eyebrow {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #008CD6;
-}
-
-.five__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #1B1B1B;
 }
 
 .five__list {
   position: relative;
   list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 1rem;
+  margin-top: 4.0625rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem 3.3125rem;
+  max-width: 72.5rem;
+  margin-inline: auto;
 }
 
 .five__item {
@@ -772,8 +788,9 @@ Five Principles
   flex-direction: column;
   align-items: center;
   text-align: center;
+  width: 30.2%;
   gap: 0.75rem;
-  padding: 2rem 1.5rem;
+  padding: 2rem 1.375rem 0.75rem;
   background-color: #FFFFFF;
   border-radius: 0.625rem;
   box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.04);
@@ -783,8 +800,8 @@ Five Principles
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 6.625rem;
+  height: 6.625rem;
 }
 
 .five__item-icon img {
@@ -799,6 +816,7 @@ Five Principles
   font-weight: 700;
   line-height: 1.5;
   color: #1B1B1B;
+  padding-top: 0.375rem;
 }
 
 .five__item-text {
@@ -807,56 +825,40 @@ Five Principles
   font-weight: 400;
   line-height: 1.5;
   color: #1B1B1B;
+  text-align: left;
 }
 
 /* =========================================================
-Message
+Message / 社長メッセージ
 ========================================================= */
 
 .message {
-  padding-block: 3.75rem;
-  background-color: #FFFFFF;
+  padding-block: 2.25rem 3.75rem;
 }
 
-.message__inner {
+.message__container {
   display: grid;
-  gap: 1.5rem;
-}
-
-.message__head {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.message__eyebrow {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #008CD6;
-}
-
-.message__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #1B1B1B;
+  grid-template-columns: 1fr 33.9375rem;
+  grid-template-areas: "head  photo" "lead  photo" "body  photo" "sign  photo";
+  gap: 0 1.875rem;
+  align-items: start;
 }
 
 .message__photo {
-  margin: 0;
   width: 100%;
-  aspect-ratio: 350/233;
   border-radius: 0.3125rem;
-  overflow: hidden;
+  grid-area: photo;
+  align-self: center;
+  margin-top: -0.625rem;
+  margin-inline: auto;
 }
 
 .message__photo img {
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  aspect-ratio: auto;
   display: block;
 }
 
@@ -866,6 +868,8 @@ Message
   font-weight: 700;
   line-height: 1.5;
   color: #1B1B1B;
+  grid-area: lead;
+  margin-top: 1.5rem;
 }
 
 .message__body {
@@ -874,6 +878,8 @@ Message
   font-weight: 400;
   line-height: 1.5;
   color: #1B1B1B;
+  grid-area: body;
+  margin-top: 1rem;
 }
 
 .message__signature {
@@ -882,22 +888,24 @@ Message
   font-weight: 700;
   line-height: 1.5;
   color: #1B1B1B;
+  grid-area: sign;
+  margin-top: 2.5rem;
 }
 
 /* =========================================================
-Voice
+Voice / 働く人の声
 ========================================================= */
 
 .voice {
   padding-block: 3.75rem;
-  background-color: #FFFFFF;
 }
 
-.voice__inner {
+.voice__container {
   position: relative;
-  border-radius: 0.625rem;
-  padding: 2.5rem 1.25rem 3.75rem;
-  background-color: #FFFFFF;
+  border-radius: 1.875rem;
+  border: 1px solid #008CD6;
+  padding: 5rem 1.25rem 3.75rem;
+  max-width: 80rem;
   overflow: hidden;
 }
 
@@ -908,53 +916,29 @@ Voice
   overflow: hidden;
 }
 
-.voice__bg-ribbon {
-  position: absolute;
-  opacity: 0.4;
+.voice__bg picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-.voice__bg-ribbon--1 {
-  top: -4.5rem;
-  left: -9.6875rem;
-  width: 53.375rem;
-  transform: rotate(-3.23deg);
-}
-
-.voice__bg-ribbon--2 {
-  top: 1.8125rem;
-  left: -30.625rem;
-  width: 63.5625rem;
-  transform: rotate(-9.69deg);
+.voice__bg img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
 }
 
 .voice__head {
   position: relative;
   text-align: center;
-  -webkit-margin-after: 2.5rem;
-          margin-block-end: 2.5rem;
-}
-
-.voice__eyebrow {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #008CD6;
-  text-align: center;
-  -webkit-margin-after: 0.5rem;
-          margin-block-end: 0.5rem;
-}
-
-.voice__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #1B1B1B;
 }
 
 .voice__slider {
   position: relative;
   overflow: hidden;
+  margin-top: 2.5rem;
 }
 
 .voice__list {
@@ -987,6 +971,7 @@ Voice
 }
 
 .voice__item-photo {
+  position: relative;
   margin: 0;
   width: 100%;
   aspect-ratio: 243/184;
@@ -1002,11 +987,23 @@ Voice
   display: block;
 }
 
-.voice__item-lead {
+.voice__item-photo-text {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 1rem;
   font-family: "Zen Kaku Gothic New", sans-serif;
   font-size: 1rem;
   font-weight: 700;
+  line-height: 1.5;
   color: #008CD6;
+}
+
+.voice__item-lead {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #1B1B1B;
   line-height: 1.5;
 }
 
@@ -1030,8 +1027,7 @@ Voice
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  -webkit-margin-before: 2.5rem;
-          margin-block-start: 2.5rem;
+  margin-top: 2.5rem;
 }
 
 .voice__nav {
@@ -1067,7 +1063,9 @@ Culture
 
 .culture__inner {
   display: grid;
+  position: relative;
   gap: 1.5rem;
+  row-gap: 2.5rem;
 }
 
 .culture__head {
@@ -1077,36 +1075,25 @@ Culture
   gap: 0.5rem;
 }
 
-.culture__eyebrow {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #008CD6;
-}
-
-.culture__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 1.625rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #1B1B1B;
-}
-
 .culture__list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .culture__item {
   position: relative;
   background-color: #ebf1fa;
   border-radius: 0.625rem;
-  padding: 2.5rem 1.25rem;
-  overflow: hidden;
-  min-height: 14.6875rem;
+  padding: 2.5rem 3.75rem 2.5rem 31.875rem;
+  min-height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: visible;
 }
 
 .culture__item-ribbon {
@@ -1114,6 +1101,7 @@ Culture
   width: 45rem;
   pointer-events: none;
   opacity: 0.7;
+  display: none;
 }
 
 .culture__item:nth-child(1) .culture__item-ribbon {
@@ -1143,8 +1131,6 @@ Culture
   font-weight: 700;
   line-height: 1.2;
   color: #1B1B1B;
-  -webkit-margin-after: 1.5rem;
-          margin-block-end: 1.5rem;
 }
 
 .culture__item-text {
@@ -1154,14 +1140,19 @@ Culture
   font-weight: 400;
   line-height: 1.5;
   color: #1B1B1B;
+  margin-top: 1.5rem;
 }
 
 .culture__team {
   margin: 0;
-  width: 100%;
-  aspect-ratio: 4096/2731;
   border-radius: 0.625rem;
   overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 8.75rem;
+  bottom: 0;
+  width: 28.75rem;
+  z-index: 1;
 }
 
 .culture__team img {
@@ -1183,34 +1174,26 @@ Daily
 
 .daily__inner {
   display: grid;
-  gap: 1.5rem;
+  grid-template-columns: 13.75rem 1fr;
+  grid-template-areas: "head head" "tabs timeline";
+  -moz-column-gap: 3.75rem;
+       column-gap: 3.75rem;
+  row-gap: 2.5rem;
+  align-items: start;
 }
 
 .daily__head {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-
-.daily__eyebrow {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #008CD6;
-}
-
-.daily__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #1B1B1B;
+  grid-area: head;
 }
 
 .daily__tabs {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
+  grid-area: tabs;
 }
 
 .daily__tab {
@@ -1269,6 +1252,10 @@ Daily
   display: none;
 }
 
+.daily__panel {
+  grid-area: timeline;
+}
+
 .daily__timeline {
   position: relative;
   list-style: none;
@@ -1314,8 +1301,7 @@ Daily
   height: 1.25rem;
   background-color: #008CD6;
   border-radius: 50%;
-  -webkit-margin-before: 0.25rem;
-          margin-block-start: 0.25rem;
+  margin-top: 0.25rem;
 }
 
 .daily__timeline-time {
@@ -1338,14 +1324,13 @@ Daily
   font-weight: 700;
   color: #1B1B1B;
   line-height: 1.3;
-  -webkit-margin-after: 0.5rem;
-          margin-block-end: 0.5rem;
 }
 
 .daily__timeline-text {
   font-family: "Zen Kaku Gothic New", sans-serif;
   font-size: 0.9375rem;
   font-weight: 400;
+  margin-top: 0.5rem;
   color: #1B1B1B;
   line-height: 1.5;
 }
@@ -1371,21 +1356,6 @@ Career
   gap: 0.5rem;
 }
 
-.career__eyebrow {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #008CD6;
-}
-
-.career__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #1B1B1B;
-}
-
 .career__badge {
   display: inline-flex;
   align-items: center;
@@ -1405,9 +1375,10 @@ Career
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.625rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.25rem;
+  align-items: start;
 }
 
 .career__item {
@@ -1420,6 +1391,15 @@ Career
   grid-template-columns: 2.5rem 1fr;
   gap: 0.5rem 0.875rem;
   align-items: start;
+  grid-column: span 2;
+}
+
+.career__item:nth-child(4) {
+  grid-column: 2/span 2;
+}
+
+.career__item:nth-child(5) {
+  grid-column: 4/span 2;
 }
 
 .career__item-num {
@@ -1480,26 +1460,13 @@ Stats
   gap: 0.5rem;
 }
 
-.stats__eyebrow {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #008CD6;
-}
-
-.stats__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #1B1B1B;
-}
-
 .stats__list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
 .stats__item {
@@ -1573,27 +1540,19 @@ Environment
 
 .environment__inner {
   display: grid;
-  gap: 1.5rem;
+  grid-template-columns: 30rem 1fr;
+  grid-template-areas: "photos head" "photos list";
+  -moz-column-gap: 3.75rem;
+       column-gap: 3.75rem;
+  row-gap: 1.5rem;
+  align-items: start;
 }
 
 .environment__head {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-
-.environment__eyebrow {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #008CD6;
-}
-
-.environment__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #1B1B1B;
+  grid-area: head;
 }
 
 .environment__list {
@@ -1602,7 +1561,8 @@ Environment
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.875rem;
+  gap: 1rem;
+  grid-area: list;
 }
 
 .environment__item {
@@ -1636,7 +1596,8 @@ Environment
 .environment__photos {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.25rem;
+  gap: 1rem;
+  grid-area: photos;
 }
 
 .environment__photo {
@@ -1676,27 +1637,14 @@ Benefits
   gap: 0.5rem;
 }
 
-.benefits__eyebrow {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #008CD6;
-}
-
-.benefits__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #1B1B1B;
-}
-
 .benefits__list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  align-items: start;
 }
 
 .benefits__item {
@@ -1762,8 +1710,7 @@ Benefits
   width: 1.25rem;
   height: 1.375rem;
   flex-shrink: 0;
-  -webkit-margin-before: 0.125rem;
-          margin-block-start: 0.125rem;
+  margin-top: 0.125rem;
 }
 
 .benefits__item-check img {
@@ -1812,28 +1759,15 @@ System
   z-index: 1;
 }
 
-.system__eyebrow {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #008CD6;
-}
-
-.system__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #1B1B1B;
-}
-
 .system__steps {
   position: relative;
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  align-items: start;
   z-index: 1;
 }
 
@@ -1918,7 +1852,7 @@ System
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
 }
 
@@ -1978,20 +1912,6 @@ Satisfaction 仕事のやりがい
   gap: 0.5rem;
 }
 
-.satisfaction__eyebrow {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #008CD6;
-}
-
-.satisfaction__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #1B1B1B;
-}
-
 .satisfaction__list {
   list-style: none;
   padding: 0;
@@ -2003,14 +1923,36 @@ Satisfaction 仕事のやりがい
 
 .satisfaction__card {
   position: relative;
-  border-radius: 0.3125rem;
-  padding: 1rem 1.25rem;
+  border-radius: 1.875rem;
+  padding: 3rem 3.75rem;
   filter: drop-shadow(3px 3px 7.5px rgba(0, 0, 0, 0.1));
   display: grid;
-  gap: 1.5rem;
+  grid-template-columns: 1fr 27.5rem;
+  grid-template-areas: "no img" "title img" "text img";
+  align-items: center;
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
+  row-gap: 1rem;
   opacity: 0;
   transform: translateY(2.5rem);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.satisfaction__card-no {
+  grid-area: no;
+}
+
+.satisfaction__card-title {
+  grid-area: title;
+}
+
+.satisfaction__card-text {
+  grid-area: text;
+}
+
+.satisfaction__card-img {
+  grid-area: img;
+  align-self: stretch;
 }
 
 .satisfaction__card.is-visible {
@@ -2102,27 +2044,50 @@ Recruitment 募集要項
   gap: 0.5rem;
 }
 
-.recruitment__eyebrow {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #008CD6;
-}
-
-.recruitment__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #1B1B1B;
-}
-
 .recruitment__cards {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.recruitment__cards--count-1 .recruitment__card {
+  grid-column: 3/span 2;
+}
+
+.recruitment__cards--count-2 .recruitment__card:nth-child(1) {
+  grid-column: 2/span 2;
+}
+
+.recruitment__cards--count-2 .recruitment__card:nth-child(2) {
+  grid-column: 4/span 2;
+}
+
+.recruitment__cards--count-4 .recruitment__card:nth-child(1) {
+  grid-column: 2/span 2;
+}
+
+.recruitment__cards--count-4 .recruitment__card:nth-child(2) {
+  grid-column: 4/span 2;
+}
+
+.recruitment__cards--count-4 .recruitment__card:nth-child(3) {
+  grid-column: 2/span 2;
+}
+
+.recruitment__cards--count-4 .recruitment__card:nth-child(4) {
+  grid-column: 4/span 2;
+}
+
+.recruitment__cards--count-5 .recruitment__card:nth-child(4) {
+  grid-column: 2/span 2;
+}
+
+.recruitment__cards--count-5 .recruitment__card:nth-child(5) {
+  grid-column: 4/span 2;
 }
 
 .recruitment__card {
@@ -2134,6 +2099,7 @@ Recruitment 募集要項
   display: grid;
   gap: 1rem;
   justify-items: center;
+  grid-column: span 2;
 }
 
 .recruitment__card-photo {
@@ -2153,8 +2119,7 @@ Recruitment 募集要項
 }
 
 .recruitment__card-badge {
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  margin-top: 0;
   background-color: #008CD6;
   color: #FFFFFF;
   font-family: "Zen Kaku Gothic New", sans-serif;
@@ -2171,8 +2136,7 @@ Recruitment 募集要項
   flex-direction: column;
   gap: 1.5rem;
   margin: 0;
-  -webkit-padding-before: 0.5rem;
-          padding-block-start: 0.5rem;
+  padding-top: 0.5rem;
   width: 100%;
 }
 
@@ -2180,18 +2144,14 @@ Recruitment 募集要項
   display: grid;
   grid-template-columns: 5.5rem 1fr;
   gap: 1rem;
-  -webkit-padding-after: 1.5rem;
-          padding-block-end: 1.5rem;
-  -webkit-border-after: 0.0625rem solid #e5e5e5;
-          border-block-end: 0.0625rem solid #e5e5e5;
+  padding-bottom: 1.5rem;
+  border-bottom: 0.0625rem solid #e5e5e5;
   align-items: start;
 }
 
 .recruitment__card-row:last-child {
-  -webkit-border-after: 0;
-          border-block-end: 0;
-  -webkit-padding-after: 0;
-          padding-block-end: 0;
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 
 .recruitment__card-row dt {
@@ -2229,9 +2189,9 @@ Recruitment 募集要項
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8125rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
 }
 
 .recruitment__flow-item {
@@ -2305,28 +2265,19 @@ FAQ
 
 .faq__inner {
   display: grid;
+  grid-template-columns: 21.25rem 1fr;
   gap: 1.5rem;
+  -moz-column-gap: 3.75rem;
+       column-gap: 3.75rem;
+  align-items: start;
 }
 
 .faq__head {
-  text-align: center;
+  text-align: left;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.5rem;
-}
-
-.faq__eyebrow {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #008CD6;
-}
-
-.faq__title {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #1B1B1B;
 }
 
 .faq__note {
@@ -2448,6 +2399,8 @@ Entry エントリー
 .entry__inner {
   display: grid;
   gap: 2.5rem;
+  max-width: 45rem;
+  margin-inline: auto;
 }
 
 .entry__head {
@@ -2547,8 +2500,7 @@ Entry エントリー
 }
 
 .entry__form-label {
-  -webkit-padding-before: 0.75rem;
-          padding-block-start: 0.75rem;
+  padding-top: 0.75rem;
 }
 
 .entry__form-label {
@@ -2657,23 +2609,26 @@ Entry エントリー
   filter: brightness(0) invert(1);
 }
 
-/* PC共通サイズ・微調整（768px超）は共通クラス（module/_common.scss の
-   .section-title / .section-eyebrow / .section / .section-badge / .section-head-center）と
-   各セクションの個別ブロックへ移動済み。 */
+/* =========================================================
+Placeholder
+========================================================= */
+
+.placeholder {
+  padding-block: 3.75rem;
+  background-color: #F6F9FD;
+  border-block: 0.0625rem dashed #BABABA;
+}
+
+.placeholder__label {
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #BABABA;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
 
 @media (min-width: 769px) {
-  .section-title {
-    font-size: 2.5rem;
-  }
-
-  .section-eyebrow {
-    font-size: 1.125rem;
-  }
-
-  .section {
-    padding-block: 7.5rem;
-  }
-
   .section-badge {
     font-size: 1.75rem;
     padding: 0.625rem 2.25rem;
@@ -2681,381 +2636,6 @@ Entry エントリー
 
   .section-head-center {
     text-align: center;
-  }
-
-  .footer__inner {
-    grid-template-columns: 1fr auto;
-    grid-template-areas: "logo  ctas" "top   ctas" "copy  copy";
-    align-items: start;
-    -moz-column-gap: 3.75rem;
-         column-gap: 3.75rem;
-    row-gap: 2rem;
-  }
-
-  .footer__top {
-    grid-area: top;
-  }
-
-  .footer__logo {
-    grid-area: logo;
-  }
-
-  .footer__ctas {
-    grid-area: ctas;
-    align-self: center;
-    margin: 0;
-    flex-direction: row;
-    gap: 1rem;
-  }
-
-  .footer__copy {
-    grid-area: copy;
-  }
-
-  .footer__social {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-
-  .safety__title {
-    font-size: 3rem;
-  }
-
-  .safety__text {
-    line-height: 1.8;
-  }
-
-  .future__inner {
-    grid-template-columns: 24.3125rem 31.5625rem 24.3125rem;
-    justify-content: center;
-    -moz-column-gap: 0;
-         column-gap: 0;
-    row-gap: 0;
-    align-items: start;
-  }
-
-  .future__head {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .future__lead {
-    width: 31.5625rem;
-    grid-column: 2;
-    grid-row: 1/span 3;
-    justify-self: center;
-    align-self: start;
-  }
-
-  .future__list {
-    display: contents;
-  }
-
-  .future__item {
-    align-content: start;
-  }
-
-  .future__item:nth-child(1) {
-    grid-column: 1;
-    grid-row: 2;
-    -webkit-margin-before: 2.5rem;
-            margin-block-start: 2.5rem;
-  }
-
-  .future__item:nth-child(2) {
-    grid-column: 2;
-    grid-row: 3;
-    -webkit-margin-before: 2.5rem;
-            margin-block-start: 2.5rem;
-  }
-
-  .future__item:nth-child(3) {
-    grid-column: 3;
-    grid-row: 2/span 2;
-    -webkit-margin-before: 8.75rem;
-            margin-block-start: 8.75rem;
-  }
-
-  .five__list {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.5rem;
-  }
-
-  .five__item {
-    grid-column: span 2;
-  }
-
-  .five__item:nth-child(4) {
-    grid-column: 2/span 2;
-  }
-
-  .five__item:nth-child(5) {
-    grid-column: 4/span 2;
-  }
-
-  .message__inner {
-    grid-template-columns: 1fr 31.5625rem;
-    grid-template-areas: "head  photo" "lead  photo" "body  photo" "sign  photo";
-    -moz-column-gap: 3.75rem;
-         column-gap: 3.75rem;
-    row-gap: 1.25rem;
-    align-items: start;
-  }
-
-  .message__head {
-    grid-area: head;
-  }
-
-  .message__photo {
-    grid-area: photo;
-    align-self: center;
-    aspect-ratio: auto;
-    max-width: 45rem;
-    margin-inline: auto;
-  }
-
-  .message__photo img {
-    aspect-ratio: auto;
-    height: auto;
-    -o-object-fit: contain;
-       object-fit: contain;
-  }
-
-  .message__lead {
-    grid-area: lead;
-    font-size: 1.75rem;
-  }
-
-  .message__body {
-    grid-area: body;
-    font-size: 1.0625rem;
-    line-height: 1.8;
-  }
-
-  .message__signature {
-    grid-area: sign;
-  }
-
-  .culture__inner {
-    position: relative;
-    row-gap: 2.5rem;
-  }
-
-  .culture__list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .culture__item {
-    padding: 2.5rem 3.75rem 2.5rem 31.875rem;
-    min-height: 15rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: visible;
-  }
-
-  .culture__item-ribbon {
-    display: none;
-  }
-
-  .culture__team {
-    position: absolute;
-    left: 0;
-    top: 8.75rem;
-    bottom: 0;
-    width: 28.75rem;
-    aspect-ratio: auto;
-    z-index: 1;
-  }
-
-  .daily__inner {
-    grid-template-columns: 13.75rem 1fr;
-    grid-template-areas: "head head" "tabs timeline";
-    -moz-column-gap: 3.75rem;
-         column-gap: 3.75rem;
-    row-gap: 2.5rem;
-    align-items: start;
-  }
-
-  .daily__head {
-    grid-area: head;
-  }
-
-  .daily__tabs {
-    grid-area: tabs;
-    gap: 1rem;
-  }
-
-  .daily__panel {
-    grid-area: timeline;
-  }
-
-  .career__list {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.25rem;
-    align-items: start;
-  }
-
-  .career__item {
-    grid-column: span 2;
-  }
-
-  .career__item:nth-child(4) {
-    grid-column: 2/span 2;
-  }
-
-  .career__item:nth-child(5) {
-    grid-column: 4/span 2;
-  }
-
-  .stats__list {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .environment__inner {
-    grid-template-columns: 30rem 1fr;
-    grid-template-areas: "photos head" "photos list";
-    -moz-column-gap: 3.75rem;
-         column-gap: 3.75rem;
-    row-gap: 1.5rem;
-    align-items: start;
-  }
-
-  .environment__head {
-    grid-area: head;
-  }
-
-  .environment__list {
-    grid-area: list;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .environment__photos {
-    grid-area: photos;
-    gap: 1rem;
-  }
-
-  .benefits__list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    align-items: start;
-  }
-
-  .system__steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-    align-items: start;
-  }
-
-  .system__cards {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .satisfaction__card {
-    grid-template-columns: 1fr 27.5rem;
-    grid-template-areas: "no img" "title img" "text img";
-    align-items: center;
-    -moz-column-gap: 3rem;
-         column-gap: 3rem;
-    row-gap: 1rem;
-    padding: 3rem 3.75rem;
-    border-radius: 1.875rem;
-  }
-
-  .satisfaction__card-no {
-    grid-area: no;
-  }
-
-  .satisfaction__card-title {
-    grid-area: title;
-  }
-
-  .satisfaction__card-text {
-    grid-area: text;
-  }
-
-  .satisfaction__card-img {
-    grid-area: img;
-    align-self: stretch;
-  }
-
-  .recruitment__cards {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 2rem;
-    align-items: start;
-  }
-
-  .recruitment__cards--count-1 .recruitment__card {
-    grid-column: 3/span 2;
-  }
-
-  .recruitment__cards--count-2 .recruitment__card:nth-child(1) {
-    grid-column: 2/span 2;
-  }
-
-  .recruitment__cards--count-2 .recruitment__card:nth-child(2) {
-    grid-column: 4/span 2;
-  }
-
-  .recruitment__cards--count-4 .recruitment__card:nth-child(1) {
-    grid-column: 2/span 2;
-  }
-
-  .recruitment__cards--count-4 .recruitment__card:nth-child(2) {
-    grid-column: 4/span 2;
-  }
-
-  .recruitment__cards--count-4 .recruitment__card:nth-child(3) {
-    grid-column: 2/span 2;
-  }
-
-  .recruitment__cards--count-4 .recruitment__card:nth-child(4) {
-    grid-column: 4/span 2;
-  }
-
-  .recruitment__cards--count-5 .recruitment__card:nth-child(4) {
-    grid-column: 2/span 2;
-  }
-
-  .recruitment__cards--count-5 .recruitment__card:nth-child(5) {
-    grid-column: 4/span 2;
-  }
-
-  .recruitment__card {
-    grid-column: span 2;
-  }
-
-  .recruitment__flow {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-  }
-
-  .faq__inner {
-    grid-template-columns: 21.25rem 1fr;
-    -moz-column-gap: 3.75rem;
-         column-gap: 3.75rem;
-    align-items: start;
-  }
-
-  .faq__head {
-    text-align: left;
-    align-items: flex-start;
-  }
-
-  .entry__inner {
-    max-width: 45rem;
-    margin-inline: auto;
   }
 }
 
@@ -3081,8 +2661,12 @@ Entry エントリー
     font-size: 0.9375rem;
   }
 
-  .inner {
-    padding-inline: 1.25rem;
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .section-title--en {
+    font-size: 1rem;
   }
 
   .sp-none {
@@ -3102,10 +2686,6 @@ Entry エントリー
     width: 7.6875rem;
   }
 
-  .header__tag {
-    font-size: 0.875rem;
-  }
-
   .header__nav-list {
     flex-direction: column;
     gap: 0.75rem;
@@ -3114,6 +2694,21 @@ Entry エントリー
   .header__nav-link {
     min-width: 6.75rem;
     font-size: 0.8125rem;
+  }
+
+  .footer__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer__social {
+    position: static;
+  }
+
+  .footer__ctas {
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
   .fv {
@@ -3135,31 +2730,30 @@ Entry エントリー
     padding-block: 1.1875rem 2rem;
   }
 
-  .fv__copy {
-    max-width: none;
-  }
-
   .fv__title {
     font-size: 2.5rem;
-    -webkit-margin-after: 0.5rem;
-            margin-block-end: 0.5rem;
   }
 
   .fv__lead {
     font-size: 1rem;
-    -webkit-margin-after: 1.25rem;
-            margin-block-end: 1.25rem;
+    margin-top: 0.5rem;
   }
 
   .fv__cta {
     flex-direction: column;
     gap: 0.5rem;
+    margin-top: 1.25rem;
   }
 
   .fv__cta-btn {
     min-width: 13.875rem;
     padding: 0.875rem 0.625rem 0.875rem 2.4375rem;
     gap: 1.0625rem;
+  }
+
+  .ribbon__bg01::before {
+    background-image: url("../img/lp/safety_bg-sp.svg");
+    aspect-ratio: 390/876;
   }
 
   .safety {
@@ -3172,24 +2766,197 @@ Entry エントリー
 
   .safety__text {
     font-size: 1rem;
-    -webkit-margin-after: 1.5rem;
-            margin-block-end: 1.5rem;
+  }
+
+  .safety__photo {
+    margin-top: 1.5rem;
   }
 
   .safety__photo img {
     aspect-ratio: 350/174;
   }
 
-  .future__title {
-    font-size: 1.75rem;
+  .philosophy__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .philosophy__img {
+    width: 11rem;
+    max-width: 100%;
+  }
+
+  .philosophy__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .philosophy__item:nth-child(1) {
+    margin-top: 0;
+  }
+
+  .philosophy__item:nth-child(2) {
+    margin-top: 0;
+  }
+
+  .philosophy__item:nth-child(3) {
+    margin-top: 0;
+  }
+
+  .five__list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .message__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .message__photo {
+    aspect-ratio: 350/233;
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .message__photo img {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
+  .culture__inner {
+    row-gap: 1.5rem;
+  }
+
+  .culture__list {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .culture__item {
+    padding: 2.5rem 1.25rem;
+    min-height: 14.6875rem;
+    display: block;
+    overflow: hidden;
+  }
+
+  .culture__item-ribbon {
+    display: block;
+  }
+
+  .culture__team {
+    position: static;
+    width: 100%;
+    aspect-ratio: 4096/2731;
+  }
+
+  .daily__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .daily__tabs {
+    gap: 1.25rem;
   }
 
   .daily__timeline-title {
     font-size: 1.125rem;
   }
 
+  .career__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .career__item {
+    grid-column: auto;
+  }
+
+  .career__item:nth-child(4) {
+    grid-column: auto;
+  }
+
+  .career__item:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .stats__list {
+    grid-template-columns: none;
+    gap: 1.25rem;
+  }
+
   .stats__item-value {
     font-size: 2rem;
+  }
+
+  .environment__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .environment__list {
+    gap: 0.875rem;
+  }
+
+  .environment__photos {
+    gap: 0.25rem;
+  }
+
+  .benefits__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .system__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .system__cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .satisfaction__card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-radius: 0.3125rem;
+  }
+
+  .recruitment__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .recruitment__flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8125rem;
+  }
+
+  .faq__inner {
+    grid-template-columns: none;
+  }
+
+  .faq__head {
+    text-align: center;
+    align-items: normal;
+  }
+
+  .entry__inner {
+    max-width: none;
+    margin-inline: 0;
   }
 
   .entry__title {
@@ -3206,8 +2973,7 @@ Entry エントリー
   }
 
   .entry__form-label {
-    -webkit-padding-before: 0;
-            padding-block-start: 0;
+    padding-top: 0;
   }
 }
 /*# sourceMappingURL=style.css.map */
