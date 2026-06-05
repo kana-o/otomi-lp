@@ -33,32 +33,201 @@
   };
 
   /* ============================================================
-   * 仕事のやりがい カードのスクロール出現
+   * 仕事のやりがい カードのスタッキング
    * ============================================================ */
-  const initSatisfactionScroll = () => {
-    const cards = document.querySelectorAll('.js-satisfaction-card');
-    if (!cards.length || !('IntersectionObserver' in window)) {
-      // 非対応環境ではフォールバックですべて可視化
-      cards.forEach((card) => card.classList.add('is-visible'));
+  const initSatisfactionStack = () => {
+    const stage = document.querySelector('.js-satisfaction-stage');
+    if (!stage) return;
+    const sticky = stage.querySelector('.satisfaction__sticky');
+    const cards = Array.from(stage.querySelectorAll('.satisfaction__card'));
+    const N = cards.length;
+    if (!N || !sticky) return;
+
+    const mq = window.matchMedia('(max-width: 768px)');
+    const STEP = 0.6; // 積み上げ: カード1枚あたりのスクロール量（vh倍）※大きいほどゆっくり
+    const STACK_END = 0.9; // 固定区間のうち、この割合で積み上げ完了（残りは保持→自然スクロールへ）
+    const TOP = 50; // 固定位置（画面上端から下げる量px。CSSの top と一致）
+    const OFFSET = 150; // カードのずらし幅(px)
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+    let ticking = false;
+
+    const apply = () => {
+      ticking = false;
+      if (mq.matches) return; // SPは無効
+      const vh = window.innerHeight;
+      const pinRange = stage.offsetHeight - sticky.offsetHeight; // stickyが固定され続けるスクロール距離
+      const stageTop = stage.getBoundingClientRect().top;
+      let p = pinRange > 0 ? (TOP - stageTop) / pinRange : 0;
+      p = Math.max(0, Math.min(1, p));
+
+      // 1枚目は通常位置のまま（ヘッダーと一緒にスクロールインし、stickyで固定）。
+      // 2枚目以降だけ「画面下(vh)」→「最終位置(0)」へ積み上げる。
+      const M = N - 1; // アニメするカード数（2枚目以降）
+      cards.forEach((card, i) => {
+        if (i === 0) {
+          card.style.transform = 'translate3d(0,0,0)';
+          return;
+        }
+        const k = i - 1;
+        const segStart = (k / M) * STACK_END;
+        const segEnd = ((k + 1) / M) * STACK_END;
+        let y;
+        if (p <= segStart) {
+          y = vh; // 画面下で待機
+        } else if (p < segEnd) {
+          y = vh * (1 - easeOut((p - segStart) / (segEnd - segStart))); // 下から最終位置へ
+        } else {
+          y = 0; // 最終位置
+        }
+        card.style.transform = 'translate3d(0,' + Math.round(y) + 'px,0)';
+      });
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(apply);
+      }
+    };
+
+    const setup = () => {
+      if (mq.matches) {
+        stage.classList.remove('is-stack');
+        stage.style.height = '';
+        cards.forEach((c) => {
+          c.style.transform = '';
+          c.style.marginTop = '';
+        });
+      } else {
+        stage.classList.add('is-stack');
+        const vh = window.innerHeight;
+        // カード高さは中間幅で不揃いになるため、各カードのずらし量は「前のカードの高さ」基準にする
+        // （前カード基準にしないと、前カードが低い場合にオフセットが150px未満になりタイトルが隠れる）
+        cards.forEach((c) => (c.style.marginTop = ''));
+        const heights = cards.map((c) => c.offsetHeight);
+        cards.forEach((c, i) => {
+          c.style.marginTop = i === 0 ? '' : -(heights[i - 1] - OFFSET) + 'px';
+        });
+        // ステージ高さ = sticky内容高さ + 固定区間のスクロール量
+        const pinScroll = (N * STEP * vh) / STACK_END;
+        stage.style.height = sticky.offsetHeight + pinScroll + 'px';
+        apply();
+      }
+    };
+
+    setup();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', setup);
+    if (mq.addEventListener) mq.addEventListener('change', setup);
+  };
+
+  /* ============================================================
+   * スクロール出現（スライドイン）
+   * .js-slidein が画面内に入ったら is-inview を付与（出現はCSS側で制御）
+   * ============================================================ */
+  const initSlidein = () => {
+    const targets = document.querySelectorAll('.js-slidein');
+    if (!targets.length) return;
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach((t) => t.classList.add('is-inview'));
       return;
     }
-
-    const observer = new IntersectionObserver(
+    const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-inview');
+            io.unobserve(e.target); // 一度だけ
           }
         });
       },
-      {
-        rootMargin: '0px 0px -10% 0px',
-        threshold: 0.15,
-      }
+      { rootMargin: '0px 0px -20% 0px', threshold: 0 }
     );
+    targets.forEach((t) => io.observe(t));
+  };
 
-    cards.forEach((card) => observer.observe(card));
+  /* ============================================================
+   * FAQ アコーディオン（開閉を0.3sで滑らかに）
+   * ============================================================ */
+  const initFaq = () => {
+    const list = document.querySelectorAll('.faq__item details');
+    list.forEach((details) => {
+      const summary = details.querySelector('summary');
+      const content = details.querySelector('.faq__a');
+      if (!summary || !content) return;
+
+      // 初期openの矢印状態を合わせる
+      if (details.open) details.classList.add('is-open');
+
+      summary.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (details.dataset.anim) return; // アニメ中は無視
+        details.dataset.anim = '1';
+
+        const onEnd = (cb) => {
+          const te = (ev) => {
+            if (ev.propertyName !== 'height') return;
+            content.removeEventListener('transitionend', te);
+            content.style.height = '';
+            delete details.dataset.anim;
+            cb && cb();
+          };
+          content.addEventListener('transitionend', te);
+        };
+
+        if (details.open) {
+          // 閉じる: 実寸 → 0
+          details.classList.remove('is-open'); // 矢印 → ＋
+          content.style.height = content.scrollHeight + 'px';
+          content.getBoundingClientRect(); // 強制リフロー
+          content.style.height = '0px';
+          onEnd(() => {
+            details.open = false;
+          });
+        } else {
+          // 開く: 0 → 実寸
+          details.open = true; // 中身を表示可能に
+          details.classList.add('is-open'); // 矢印 → −
+          const target = content.scrollHeight;
+          content.style.height = '0px';
+          content.getBoundingClientRect(); // 強制リフロー
+          content.style.height = target + 'px';
+          onEnd();
+        }
+      });
+    });
+  };
+
+  /* ============================================================
+   * SP用 下部固定CTA（FVを過ぎたらスライドイン）
+   * ============================================================ */
+  const initSpCta = () => {
+    const bar = document.querySelector('.js-sp-cta');
+    if (!bar) return;
+    const fv = document.querySelector('.fv');
+    const footer = document.querySelector('.footer');
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const threshold = fv ? fv.offsetHeight : window.innerHeight;
+      const passedFv = window.scrollY > threshold;
+      // フッターに重なる直前で非表示（フッター上端が画面下端に達したら隠す）
+      const footerReached = footer
+        ? footer.getBoundingClientRect().top <= window.innerHeight
+        : false;
+      bar.classList.toggle('is-visible', passedFv && !footerReached);
+    };
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      },
+      { passive: true }
+    );
+    update();
   };
 
   /* ============================================================
@@ -72,7 +241,17 @@
       loop: true,
       centeredSlides: true,
       slidesPerView: 'auto',
-      spaceBetween: 32,
+      spaceBetween: 10, // SP（既定）の余白
+      slidesPerView: 1.35,
+      centeredSlides: true,
+      // speed: 2000,
+      // autoplay: {
+      //   delay: 0,
+      //   disableOnInteraction: false,
+      // },
+      breakpoints: {
+        769: { spaceBetween: 32 }, // PCの余白
+      },
       navigation: {
         prevEl: '.js-voice-prev',
         nextEl: '.js-voice-next',
@@ -85,7 +264,10 @@
    * ============================================================ */
   const init = () => {
     initDailyTabs();
-    initSatisfactionScroll();
+    initSatisfactionStack();
+    initSlidein();
+    initSpCta();
+    initFaq();
     initVoiceSwiper();
   };
 

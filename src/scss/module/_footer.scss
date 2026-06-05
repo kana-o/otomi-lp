@@ -4,9 +4,15 @@
   position: relative;
   background-color: $blue;
   color: $white;
-  border-radius: rem(15) rem(15) 0 0;
-  padding-block: rem(70) rem(40);
+  border-radius: rem(30) rem(40) 0 0;
+  padding-block: rem(90) rem(83);
   overflow: hidden;
+  border-radius: 30px 40px 0 0;
+
+  @include mq("sp"){
+    padding-block: rem(50);
+    border-radius: 15px 15px 0 0;
+  }
 }
 
 .footer__bg {
@@ -16,15 +22,23 @@
   overflow: hidden;
 }
 
+.footer__bg picture {
+  display: contents;
+}
+
 .footer__bg img {
   position: absolute;
-  top: rem(-26);
-  left: rem(-190);
-  width: rem(882);
-  height: auto;
-  display: block;
-  transform: rotate(175.56deg) scaleY(-1);
-  opacity: 0.6;
+  top: 0;
+  left: 0;
+  aspect-ratio: 882 / 284;
+  width: auto;
+  height: 100%;
+
+  @include mq("sp"){
+    aspect-ratio: 390 / 427;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .footer__inner {
@@ -38,35 +52,49 @@
     "copy  copy";
   align-items: start;
   column-gap: rem(60);
-  row-gap: rem(32);
 
   @include mq("sp") {
     display: flex;
     flex-direction: column;
-    gap: rem(24);
+    gap: 0;
   }
 }
 
 .footer__top { grid-area: top; }
-.footer__logo { grid-area: logo; }
+.footer__logo {
+  grid-area: logo;
+
+  @include mq("sp") {
+    order: -1; // SPはロゴを会社情報より上に
+  }
+}
 .footer__copy { grid-area: copy; }
 
 .footer__top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
+  @include mq("sp"){
+    width: 100%;
+  }
 }
 
 .footer__company-name {
-  font-family: $base-font;
+  margin-top: rem(25);
+  font-family: $heading-font;
   font-size: rem(20);
   font-weight: $medium;
   line-height: 1.5;
+
+  @include mq("sp"){
+    margin-top: rem(18);
+  }
 }
 
 .footer__company-addr,
 .footer__company-tel {
-  font-family: $base-font;
+  font-family: $heading-font;
   font-size: rem(16);
   font-weight: $medium;
   line-height: 1.5;
@@ -74,25 +102,43 @@
 }
 
 .footer__company-addr {
-  margin-block-start: rem(20);
+  margin-top: rem(14);
+
+  @include mq("sp"){
+    margin-top: rem(12);
+  }
 }
 
 .footer__company-tel {
-  margin-block-start: rem(4);
+  margin-top: rem(4);
+}
+
+.footer__icon {
+  margin-top: rem(30);
+  display: block;
+  width: rem(22);
+  height: rem(22);
+
+  @include mq("sp"){
+    margin-top: rem(9);
+  }
 }
 
 .footer__social {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: rem(48);
-  height: rem(48);
+  width: rem(58);
+  height: rem(58);
   position: absolute;
-  top: 0;
-  right: 0;
+  top: rem(-10);
+  right: rem(19);
 
   @include mq("sp") {
     position: static;
+    width: rem(48);
+    height: rem(48);
+    margin-top: rem(-20);
   }
 }
 
@@ -102,29 +148,31 @@
   display: block;
 }
 
-.footer__logo {
-  display: inline-block;
-  margin-inline-start: rem(-10);
-}
-
 .footer__logo img {
+  aspect-ratio: 223 / 67;
   width: rem(223);
   height: auto;
   display: block;
+
+  @include mq("sp"){
+    aspect-ratio: 139 / 41;
+    width: rem(139);
+  }
 }
 
 .footer__ctas {
+  margin-top: rem(60);
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: rem(16);
+  gap: rem(25);
   grid-area: ctas;
   align-self: center;
-  margin: 0;
 
   @include mq("sp") {
     flex-direction: column;
-    gap: rem(12);
+    gap: rem(10);
+    margin-top: rem(30);
   }
 }
 
@@ -132,10 +180,8 @@
   display: inline-grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: rem(10);
-  width: rem(260);
-  height: rem(50);
-  padding: rem(10) rem(16) rem(10) rem(28);
+  gap: rem(23);
+  padding: rem(22) rem(12) rem(22) rem(66);
   border-radius: rem(100);
   font-family: $base-font;
   font-size: rem(18);
@@ -147,12 +193,22 @@
 .footer__cta--white {
   background-color: $white;
   color: $base-color;
+  gap: rem(17);
+  padding-left: rem(57);
+
+  @include mq("sp"){
+    padding: rem(10) rem(10) rem(10) rem(38);
+  }
 }
 
 .footer__cta--blue {
   background-color: $blue;
   color: $white;
   border: rem(1) solid $white;
+  
+  @include mq("sp"){
+    padding: rem(9) rem(10) rem(9) rem(38);
+  }
 }
 
 
@@ -176,5 +232,10 @@
   font-weight: $medium;
   text-align: center;
   margin: 0;
-  margin-block-start: rem(16);
+  margin-top: rem(30);
+
+  @include mq("sp"){
+    margin-top: rem(25);
+    margin-inline: auto;
+  }
 }

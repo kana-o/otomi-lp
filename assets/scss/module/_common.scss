@@ -23,6 +23,7 @@ img {
 
   @include mq("sp") {
     font-size: rem(28);
+    padding-top: rem(5);
   }
 }
 
