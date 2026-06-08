@@ -102,7 +102,6 @@
         stage.classList.add('is-stack');
         const vh = window.innerHeight;
         // カード高さは中間幅で不揃いになるため、各カードのずらし量は「前のカードの高さ」基準にする
-        // （前カード基準にしないと、前カードが低い場合にオフセットが150px未満になりタイトルが隠れる）
         cards.forEach((c) => (c.style.marginTop = ''));
         const heights = cards.map((c) => c.offsetHeight);
         cards.forEach((c, i) => {
@@ -147,7 +146,7 @@
   };
 
   /* ============================================================
-   * FAQ アコーディオン（開閉を0.3sで滑らかに）
+   * FAQ アコーディオン
    * ============================================================ */
   const initFaq = () => {
     const list = document.querySelectorAll('.faq__item details');
@@ -156,12 +155,11 @@
       const content = details.querySelector('.faq__a');
       if (!summary || !content) return;
 
-      // 初期openの矢印状態を合わせる
       if (details.open) details.classList.add('is-open');
 
       summary.addEventListener('click', (e) => {
         e.preventDefault();
-        if (details.dataset.anim) return; // アニメ中は無視
+        if (details.dataset.anim) return;
         details.dataset.anim = '1';
 
         const onEnd = (cb) => {
@@ -176,21 +174,20 @@
         };
 
         if (details.open) {
-          // 閉じる: 実寸 → 0
-          details.classList.remove('is-open'); // 矢印 → ＋
+          details.classList.remove('is-open');
           content.style.height = content.scrollHeight + 'px';
-          content.getBoundingClientRect(); // 強制リフロー
+          content.getBoundingClientRect();
           content.style.height = '0px';
           onEnd(() => {
             details.open = false;
           });
         } else {
-          // 開く: 0 → 実寸
+
           details.open = true; // 中身を表示可能に
-          details.classList.add('is-open'); // 矢印 → −
+          details.classList.add('is-open');
           const target = content.scrollHeight;
           content.style.height = '0px';
-          content.getBoundingClientRect(); // 強制リフロー
+          content.getBoundingClientRect();
           content.style.height = target + 'px';
           onEnd();
         }
@@ -211,7 +208,7 @@
       ticking = false;
       const threshold = fv ? fv.offsetHeight : window.innerHeight;
       const passedFv = window.scrollY > threshold;
-      // フッターに重なる直前で非表示（フッター上端が画面下端に達したら隠す）
+      // フッターに重なる直前で非表示
       const footerReached = footer
         ? footer.getBoundingClientRect().top <= window.innerHeight
         : false;
@@ -241,16 +238,19 @@
       loop: true,
       centeredSlides: true,
       slidesPerView: 'auto',
-      spaceBetween: 10, // SP（既定）の余白
+      spaceBetween: 10,
       slidesPerView: 1.35,
       centeredSlides: true,
-      // speed: 2000,
-      // autoplay: {
-      //   delay: 0,
-      //   disableOnInteraction: false,
-      // },
+      speed: 2000,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
       breakpoints: {
-        769: { spaceBetween: 32 }, // PCの余白
+        769: { 
+          speed: 3000,
+          spaceBetween: 32 
+        },
       },
       navigation: {
         prevEl: '.js-voice-prev',

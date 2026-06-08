@@ -72,7 +72,7 @@ FV
 .fv__title {
   font-family: $base-font;
   font-size: rem(100);
-  font-size: clamp( calc(100px * 0.7), calc(100 / 1440 * 100vw), 1000px);
+  font-size: clamp( calc(100px * 0.7), calc(100 / 1440 * 100vw), 140px);
   font-weight: $bold;
   line-height: 1.1;
   color: $white;
@@ -105,7 +105,7 @@ FV
 
   @include mq("sp") {
     flex-direction: column;
-    align-items: flex-start; // ボタンを左寄せ（全幅にしない）
+    align-items: flex-start;
     gap: rem(8);
     margin-top: rem(20);
   }
@@ -125,13 +125,16 @@ FV
   line-height: 1.2;
 
   @include mq("sp") {
-    // Figma: 222 × 50
     width: rem(222);
     min-width: auto;
     height: rem(50);
     padding: 0 rem(10) 0 rem(37);
     gap: rem(17);
     font-size: rem(18);
+  }
+
+  @media screen and (max-width: 375px) {
+    gap: rem(8);
   }
 }
 
@@ -225,10 +228,11 @@ Philosophy / 私たちが思い描く未来
 ========================================================= */
 .philosophy {
   padding-block: rem(36) rem(90);
-  // cqi の基準コンテナ。.inner の max-width(1320→中身1280)で頭打ちになり、1440px以上は列幅固定で広がらない
   container-type: inline-size;
 
   @include mq("sp"){
+    display: flex;
+    justify-content: center;
     padding-block: rem(67) rem(30);
   }
 }
@@ -412,7 +416,6 @@ Philosophy / 私たちが思い描く未来
   }
 }
 
-// 01 → 02 → 03 の順に出現
 .philosophy__container.is-inview .philosophy__item:nth-child(1) {
   transition-delay: 0.5s;
 
@@ -824,7 +827,6 @@ Voice / 働く人の声
   margin-top: rem(15);
   padding-inline: rem(22);
 
-  // SP: デザインでは非表示
   @include mq("sp") {
     display: none;
   }
@@ -912,7 +914,6 @@ Culture / 私たちが大切にする3つの文化
 
 .culture__container {
   position: relative;
-  // .culture__team の cqi 基準。.inner(max-width 1320→中身1280)で頭打ちになり1360px以上は固定
   container-type: inline-size;
 }
 
@@ -1002,7 +1003,6 @@ Culture / 私たちが大切にする3つの文化
 
 .culture__team {
   position: absolute;
-  // 中身1280基準でcqi化。どのPC幅でも比率維持（1360px以上はinner頭打ちで固定）
   left: calc(-30 / 1280 * 100cqi);
   top: calc(190 / 1280 * 100cqi);
   width: calc(637 / 1280 * 100cqi);
@@ -1106,7 +1106,6 @@ Day / 社員の一日
   transition: background-color 0.3s, color 0.3s;
 
   @include mq("sp") {
-    // 全幅・テキスト中央・アイコン右（左に同幅のダミー列を置いて中央寄せ）
     grid-template-columns: rem(24) 1fr rem(24);
     gap: 0;
     padding: rem(12);
@@ -2123,7 +2122,6 @@ Satisfaction / 仕事のやりがい
   will-change: transform;
 }
 
-// 重なり順: .satisfaction__card:nth-child(1) { z-index: 1; }
 .satisfaction__card:nth-child(2) { z-index: 2; }
 .satisfaction__card:nth-child(3) { z-index: 3; }
 .satisfaction__card:nth-child(4) { z-index: 4; }
@@ -2231,22 +2229,16 @@ Recruitment / 募集要項
   }
 }
 
-// 1種類: 1枚を中央
-.recruitment__cards--count-1 .recruitment__card { grid-column: 3 / span 2; }
+// 枚数非依存の中央寄せ: 最終行の余りカードを自動で中央配置（1段3枚＝span 2前提）
+// 最終行が1枚余り → 中央
+.recruitment__card:nth-child(3n + 1):nth-last-child(1) { grid-column: 3 / span 2; }
+// 最終行が2枚余り → 中央寄せ（左・右）
+.recruitment__card:nth-child(3n + 1):nth-last-child(2) { grid-column: 2 / span 2; }
+.recruitment__card:nth-child(3n + 2):nth-last-child(1) { grid-column: 4 / span 2; }
 
-// 2種類: 2枚を中央
-.recruitment__cards--count-2 .recruitment__card:nth-child(1) { grid-column: 2 / span 2; }
-.recruitment__cards--count-2 .recruitment__card:nth-child(2) { grid-column: 4 / span 2; }
-
-// 4種類: 2+2（上段2枚・下段2枚 中央）
-.recruitment__cards--count-4 .recruitment__card:nth-child(1) { grid-column: 2 / span 2; }
-.recruitment__cards--count-4 .recruitment__card:nth-child(2) { grid-column: 4 / span 2; }
-.recruitment__cards--count-4 .recruitment__card:nth-child(3) { grid-column: 2 / span 2; }
-.recruitment__cards--count-4 .recruitment__card:nth-child(4) { grid-column: 4 / span 2; }
-
-// 5種類: 1段目3枚（現状）・2段目2枚 中央
-.recruitment__cards--count-5 .recruitment__card:nth-child(4) { grid-column: 2 / span 2; }
-.recruitment__cards--count-5 .recruitment__card:nth-child(5) { grid-column: 4 / span 2; }
+// 特例: ちょうど4枚のときだけ 2+2（上下段とも中央2枚）。:has で詳細度を上げ汎用式を上書き
+.recruitment__cards:has(> .recruitment__card:nth-child(4):last-child) > .recruitment__card:nth-child(odd) { grid-column: 2 / span 2; }
+.recruitment__cards:has(> .recruitment__card:nth-child(4):last-child) > .recruitment__card:nth-child(even) { grid-column: 4 / span 2; }
 
 .recruitment__card {
   position: relative;
@@ -2623,7 +2615,6 @@ Entry エントリー
 
 .entry__title {
   font-family: $base-font;
-  // 幅に比例して可変（1440で80px。タイトル幅≒ビューポートの75%で常に収まる）
   font-size: calc(80 / 1440 * 100cqi);
   font-weight: $bold;
   line-height: 1.2;
@@ -2637,7 +2628,7 @@ Entry エントリー
 
 .entry__title-en {
   font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
-  font-size: calc(110 / 1440 * 100cqi); // 幅に比例（1440で110px）
+  font-size: calc(110 / 1440 * 100cqi);
   font-weight: $semi-bold;
 
   @include mq("sp") {
@@ -2855,6 +2846,49 @@ Entry エントリー
 }
 
 /* =========================================================
+Contact Form 7 互換（.entry__form 内のCF7ラッパー調整）
+========================================================= */
+.entry__form-note {
+  text-align: center;
+  font-family: $base-font;
+  font-size: rem(16);
+  line-height: 1.8;
+  color: $base-color;
+}
+
+/* CF7フォーム内ではPHPでテーマURLを出力できないため、送信ボタンの矢印は
+   CSS背景（CSSファイルからの相対パス）で表示する。環境のパスに依存しない。 */
+.entry__submit-arrow {
+  display: inline-block;
+  width: rem(30);
+  height: rem(30);
+  background: url("../img/lp/cta-arrow-blue.svg") no-repeat center / contain;
+}
+
+.entry__form .wpcf7-form-control-wrap {
+  display: block;
+  width: 100%;
+}
+
+.entry__form .wpcf7-not-valid-tip {
+  margin-top: rem(6);
+  font-family: $base-font;
+  font-size: rem(13);
+  font-weight: $regular;
+  color: $red;
+}
+
+.entry__form .wpcf7-response-output {
+  margin-block: rem(8) 0;
+  padding: rem(12) rem(16);
+  border: rem(1) solid $gray;
+  border-radius: rem(5);
+  font-family: $base-font;
+  font-size: rem(14);
+  line-height: 1.6;
+}
+
+/* =========================================================
 Placeholder
 ========================================================= */
 .placeholder {
@@ -2901,7 +2935,7 @@ Placeholder
   position: relative;
   isolation: isolate;
   z-index: -1;
-  container-type: inline-size; // cqi 基準（幅=コンテナ幅）
+  container-type: inline-size;
 }
 .ribbon__bg01::before {
   content: "";
@@ -3050,7 +3084,7 @@ Placeholder
   position: absolute;
   top: calc(-97 / 390 * 100cqi);
   width: 100cqi;
-  aspect-ratio: 390 / 375; // faq_bg-sp.svg の実寸。高さが足りないと no-repeat で下が切れる
+  aspect-ratio: 390 / 375;
   z-index: -1;
   background-image: url("../img/lp/faq_bg-sp.svg");
   background-repeat: no-repeat;

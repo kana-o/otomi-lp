@@ -7,6 +7,12 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// Contact Form 7 の自動整形（<p> / <br> の自動挿入）を無効化。
+// WPCF7_AUTOP 定数はCF7読み込み時に既定 true で定義済みのため、
+// レンダリング時に評価される wpcf7_autop_or_not フィルタで無効化する。
+// テンプレ側の明示マークアップ（.entry__form-row 等）をそのまま使うため。
+add_filter('wpcf7_autop_or_not', '__return_false');
+
 add_action('after_setup_theme', function () {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');

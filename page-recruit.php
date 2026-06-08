@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="main">
+<main id="top" class="main">
 
   <section class="fv">
     <div class="fv__bg" aria-hidden="true">
@@ -24,7 +24,7 @@
       <nav class="header__nav" aria-label="ヘッダーナビゲーション">
         <ul class="header__nav-list">
           <li class="header__nav-item">
-            <a href="https://otomiunyu.com/" class="header__nav-link">
+            <a href="https://otomiunyu.com/" class="header__nav-link"  target="_blank" rel="noopener noreferrer">
               <span>会社サイト</span>
               <span class="header__nav-icon" aria-hidden="true">
                 <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/arrow-circle.svg" alt="" width="17" height="17">
@@ -48,7 +48,7 @@
         <h1 class="fv__title">ただ運ぶだけじゃ、<br>終わらない。</h1>
         <p class="fv__lead">相手の"本当に求めていること"まで考える仕事</p>
         <div class="fv__cta">
-          <a href="#" class="fv__cta-btn fv__cta-btn--white">
+          <a href="#recruitment" class="fv__cta-btn fv__cta-btn--white">
             <span>採用情報を見る</span>
             <span class="fv__cta-icon" aria-hidden="true">
               <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/cta-arrow.svg" alt="" width="30" height="30">
@@ -75,7 +75,9 @@
         社会を支える仕事だからこそ、安全に、真面目に。<br>そして、一緒に働くなら楽しく<br>そんな仲間を募集しています。</p>
       <figure class="safety__photo">
         <picture>
+          <source media="(max-width: 768px)" type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/safety-photo-sp.webp">
           <source media="(max-width: 768px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/safety-photo-sp.jpg">
+          <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/safety-photo.webp">
           <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/safety-photo.jpg" alt="森を抜ける曲がりくねった一本道（俯瞰）" width="1280" height="380" loading="lazy">
         </picture>
       </figure>
@@ -89,12 +91,18 @@
         <h2 class="section-title">私たちが<br>思い描く未来</h2>
       </div>
       <div class="philosophy__img">
-        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-lead.png" alt="" width="176" height="279" loading="lazy">
+        <picture>
+          <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-lead.webp">
+          <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-lead.png" alt="ヘルメット姿の大富運輸の社員" width="176" height="279" loading="lazy">
+        </picture>
       </div>
       <ul class="philosophy__list">
         <li class="philosophy__item">
           <figure class="philosophy__item-img">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-01.jpg" alt="" width="350" height="233" loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-01.webp">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-01.jpg" alt="青空を背に走る白いタンクローリー" width="350" height="233" loading="lazy">
+            </picture>
           </figure>
           <div class="philosophy__texts">
             <p class="philosophy__item-no">01</p>
@@ -104,7 +112,10 @@
         </li>
         <li class="philosophy__item">
           <figure class="philosophy__item-img">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-02.jpg" alt="" width="350" height="233" loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-02.webp">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-02.jpg" alt="フレコンバッグを積み込む作業員" width="350" height="233" loading="lazy">
+            </picture>
           </figure>
           <div class="philosophy__texts">
             <p class="philosophy__item-no">02</p>
@@ -114,7 +125,10 @@
         </li>
         <li class="philosophy__item">
           <figure class="philosophy__item-img">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-03.jpg" alt="" width="350" height="233" loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-03.webp">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-03.jpg" alt="屋外で打ち合わせをする2人の社員" width="350" height="233" loading="lazy">
+            </picture>
           </figure>
           <div class="philosophy__texts">
             <p class="philosophy__item-no">03</p>
@@ -187,7 +201,10 @@
         <h2 class="section-title">社長メッセージ</h2>
       </div>
       <figure class="message__photo">
-        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/message-photo.jpg" alt="代表取締役 尾﨑俊介" width="350" height="233" loading="lazy">
+        <picture>
+          <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/message-photo.webp">
+          <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/message-photo.jpg" alt="代表取締役 尾﨑俊介" width="350" height="233" loading="lazy">
+        </picture>
       </figure>
       <h3 class="message__lead">事に仕え、社会を静かに支える</h3>
       <p class="message__body">
@@ -217,7 +234,10 @@
           <ul class="voice__list swiper-wrapper">
           <li class="voice__item swiper-slide">
             <figure class="voice__item-photo">
-              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="" width="227" height="184" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
+              </picture>
               <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             </figure>
             <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
@@ -228,7 +248,10 @@
           </li>
           <li class="voice__item swiper-slide">
             <figure class="voice__item-photo">
-              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="" width="227" height="184" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
+              </picture>
               <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             </figure>
             <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
@@ -239,7 +262,10 @@
           </li>
           <li class="voice__item swiper-slide">
             <figure class="voice__item-photo">
-              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="" width="227" height="184" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
+              </picture>
               <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             </figure>
             <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
@@ -250,7 +276,10 @@
           </li>
           <li class="voice__item swiper-slide">
             <figure class="voice__item-photo">
-              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="" width="227" height="184" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
+              </picture>
               <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             </figure>
             <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
@@ -261,7 +290,10 @@
           </li>
           <li class="voice__item swiper-slide">
             <figure class="voice__item-photo">
-              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="" width="227" height="184" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
+              </picture>
               <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             </figure>
             <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
@@ -272,7 +304,10 @@
           </li>
           <li class="voice__item swiper-slide">
             <figure class="voice__item-photo">
-              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="" width="227" height="184" loading="lazy">
+              <picture>
+                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
+              </picture>
               <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
             </figure>
             <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
@@ -337,7 +372,9 @@
       </ul>
       <figure class="culture__team">
         <picture>
+          <source media="(max-width: 768px)" type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-03.webp">
           <source media="(max-width: 768px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/philosophy-03.jpg">
+          <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/culture-team-photo.webp">
           <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/culture-team-photo.png" alt="大富運輸のチーム" width="350" height="234" loading="lazy">
         </picture>
       </figure>
@@ -352,21 +389,21 @@
         <h2 class="section-title">社員の一日</h2>
       </div>
       <div class="daily__tabs" role="tablist" aria-label="運行パターン">
-        <button type="button" class="daily__tab is-active" role="tab" data-tab="1" aria-selected="true" aria-controls="daily-panel-1">
+        <button type="button" class="daily__tab is-active" role="tab" id="daily-tab-1" data-tab="1" aria-selected="true" aria-controls="daily-panel-1">
           <span class="daily__tab-label">運行①</span>
           <span class="daily__tab-icon" aria-hidden="true">
             <img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-b.svg" alt="" width="24" height="24">
             <img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-w.svg" alt="" width="24" height="24">
           </span>
         </button>
-        <button type="button" class="daily__tab" role="tab" data-tab="2" aria-selected="false" aria-controls="daily-panel-2">
+        <button type="button" class="daily__tab" role="tab" id="daily-tab-2" data-tab="2" aria-selected="false" aria-controls="daily-panel-2">
           <span class="daily__tab-label">運行②</span>
           <span class="daily__tab-icon" aria-hidden="true">
             <img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-b.svg" alt="" width="24" height="24">
             <img class="daily__tab-icon--w" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-w.svg" alt="" width="24" height="24">
           </span>
         </button>
-        <button type="button" class="daily__tab" role="tab" data-tab="3" aria-selected="false" aria-controls="daily-panel-3">
+        <button type="button" class="daily__tab" role="tab" id="daily-tab-3" data-tab="3" aria-selected="false" aria-controls="daily-panel-3">
           <span class="daily__tab-label">運行③</span>
           <span class="daily__tab-icon" aria-hidden="true">
             <img class="daily__tab-icon--b" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/daily-tab-arrow-b.svg" alt="" width="24" height="24">
@@ -624,7 +661,6 @@
         <p class="section-title--en">Evaluation</p>
         <h2 class="section-title">評価制度</h2>
       </div>
-      <p class="section-badge career__badge">評価制度</p>
       <ul class="career__list">
         <li class="career__item">
           <div class="career__item-num" aria-hidden="true">
@@ -816,8 +852,8 @@
         </li>
       </ul>
       <div class="environment__photos">
-        <figure class="environment__photo"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/env01.jpg" alt="" width="173" height="311" loading="lazy"></figure>
-        <figure class="environment__photo"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/env02.jpg" alt="" width="173" height="311" loading="lazy"></figure>
+        <figure class="environment__photo"><picture><source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/env01.webp"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/env01.jpg" alt="タンクローリーが並ぶ車庫を俯瞰した様子" width="173" height="311" loading="lazy"></picture></figure>
+        <figure class="environment__photo"><picture><source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/env02.webp"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/env02.jpg" alt="ヘルメットを被った社員の横顔" width="173" height="311" loading="lazy"></picture></figure>
       </div>
     </div>
   </section>
@@ -829,7 +865,7 @@
   <section class="section benefits">
     <div class="inner">
       <div class="section-head-center benefits__head">
-        <p class="section-title--en">Environment</p>
+        <p class="section-title--en">Benefits</p>
         <h2 class="section-title">福利厚生</h2>
       </div>
       <ul class="benefits__list">
@@ -1159,22 +1195,22 @@
       <p class="section-badge system__badge">継続的な学び</p>
       <ul class="system__cards">
         <li class="system__card">
-          <figure class="system__card-img"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-1.jpg" alt="" width="169" height="104" loading="lazy"></figure>
+          <figure class="system__card-img"><picture><source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-1.webp"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-1.jpg" alt="モニターを囲んで行う社内勉強会" width="169" height="104" loading="lazy"></picture></figure>
           <h4 class="system__card-title">社内勉強会</h4>
           <p class="system__card-text">月1回、テーマ別の勉強会を開催</p>
         </li>
         <li class="system__card">
-          <figure class="system__card-img"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-2.jpg" alt="" width="169" height="104" loading="lazy"></figure>
+          <figure class="system__card-img"><picture><source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-2.webp"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-2.jpg" alt="1on1で対話する社員" width="169" height="104" loading="lazy"></picture></figure>
           <h4 class="system__card-title">1on1ミーティング</h4>
           <p class="system__card-text">上司との定期的な対話でキャリア支援</p>
         </li>
         <li class="system__card">
-          <figure class="system__card-img"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-3.jpg" alt="" width="169" height="104" loading="lazy"></figure>
+          <figure class="system__card-img"><picture><source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-3.webp"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-3.jpg" alt="資料を前に改善提案を説明する社員" width="169" height="104" loading="lazy"></picture></figure>
           <h4 class="system__card-title">改善提案制度</h4>
           <p class="system__card-text">良い提案は表彰・報酬あり</p>
         </li>
         <li class="system__card">
-          <figure class="system__card-img"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-4.jpg" alt="" width="169" height="104" loading="lazy"></figure>
+          <figure class="system__card-img"><picture><source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-4.webp"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-4.jpg" alt="表彰で拍手する社員たち" width="169" height="104" loading="lazy"></picture></figure>
           <h4 class="system__card-title">社内表彰制度</h4>
           <p class="system__card-text">優れた成果や貢献を全社で称賛</p>
         </li>
@@ -1199,7 +1235,10 @@
             <p class="satisfaction__card-text">自分の仕事が誰かの生活を支え、社会を動かしている実感を日々得られます。物流は社会のインフラ。<br><br>あなたの働きが、多くの人々の暮らしを支えています。</p>
           </div>
           <figure class="satisfaction__card-img">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/satisfaction-1.jpg" alt="" width="310" height="118" loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/satisfaction-1.webp">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/satisfaction-1.jpg" alt="トラックの前に立つドライバー" width="310" height="118" loading="lazy">
+            </picture>
           </figure>
         </li>
         <li class="satisfaction__card js-satisfaction-card satisfaction__card--lvl-2">
@@ -1209,7 +1248,10 @@
             <p class="satisfaction__card-text">指示待ちではなく、自分で考え、判断し、行動する。<br><br>その自由と責任が、仕事の面白さを何倍にも広げてくれます。</p>
           </div>
           <figure class="satisfaction__card-img">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/satisfaction-2.jpg" alt="" width="310" height="118" loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/satisfaction-2.webp">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/satisfaction-2.jpg" alt="デスクで業務にあたる社員" width="310" height="118" loading="lazy">
+            </picture>
           </figure>
         </li>
         <li class="satisfaction__card js-satisfaction-card satisfaction__card--lvl-3">
@@ -1219,7 +1261,10 @@
             <p class="satisfaction__card-text">挑戦と失敗を繰り返す中で、自分が確実に成長していることを実感できます。<br><br>半年前の自分と、今の自分が明らかに違う。それが当社の醍醐味です。</p>
           </div>
           <figure class="satisfaction__card-img">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/satisfaction-3.jpg" alt="" width="310" height="118" loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/satisfaction-3.webp">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/satisfaction-3.jpg" alt="フォークリフトで荷物を運ぶ社員" width="310" height="118" loading="lazy">
+            </picture>
           </figure>
         </li>
         <li class="satisfaction__card js-satisfaction-card satisfaction__card--lvl-4">
@@ -1229,7 +1274,10 @@
             <p class="satisfaction__card-text">一人では解決できない課題も、チームなら乗り越えられる。<br><br>仲間と共に成果を出す喜びは、何にも代えがたいものです。</p>
           </div>
           <figure class="satisfaction__card-img">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/satisfaction-4.jpg" alt="" width="310" height="118" loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/satisfaction-4.webp">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/satisfaction-4.jpg" alt="トラックの前で笑顔を見せる2人の社員" width="310" height="118" loading="lazy">
+            </picture>
           </figure>
         </li>
       </ul>
@@ -1266,16 +1314,15 @@
       ];
 
       if ($jobs_query->have_posts()) :
-        $job_count = (int) $jobs_query->post_count;
       ?>
-      <ul class="recruitment__cards recruitment__cards--count-<?php echo esc_attr($job_count); ?>">
+      <ul class="recruitment__cards">
         <?php while ($jobs_query->have_posts()) : $jobs_query->the_post(); ?>
         <li class="recruitment__card">
           <figure class="recruitment__card-photo">
             <?php
             $photo_id = function_exists('get_field') ? (int) get_field('job_photo') : 0;
             if ($photo_id) :
-              echo wp_get_attachment_image($photo_id, 'medium_large', false, ['alt' => '', 'loading' => 'lazy']);
+              echo wp_get_attachment_image($photo_id, 'medium_large', false, ['alt' => get_the_title(), 'loading' => 'lazy']);
             endif;
             ?>
           </figure>
@@ -1348,7 +1395,7 @@
       </div>
       <ul class="faq__list">
         <li class="faq__item">
-          <details open>
+          <details>
             <summary class="faq__q">
               <span class="faq__mark" aria-hidden="true">Q.</span>
               <span class="faq__q-text">未経験でも応募できますか？</span>
@@ -1455,54 +1502,32 @@
           <span class="entry__eyebrow-line entry__eyebrow-line--r" aria-hidden="true"></span>
         </p>
         <p class="entry__lead">あなたの意志と行動が、物流を動かす。<br class="sp-show">まず話を聞くだけでも構いません。</p>
-        <a href="https://lin.ee/qbFCWvz" class="entry__line-btn">
+        <a href="https://lin.ee/qbFCWvz" class="entry__line-btn" target="_blank" rel="noopener noreferrer">
           <span class="entry__line-icon" aria-hidden="true">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/line-icon.png" alt="" width="46" height="46">
+            <picture>
+              <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/line-icon.webp">
+              <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/line-icon.png" alt="" width="46" height="46" loading="lazy">
+            </picture>
           </span>
           <span>お友だち追加</span>
         </a>
     </div>
     <div class="entry__container inner">
 
-      <form class="entry__form" action="" method="post">
-        <div class="entry__form-row">
-          <label class="entry__form-label" for="entry-name">お名前 <span class="entry__form-required">※</span></label>
-          <input class="entry__form-input" type="text" id="entry-name" name="your-name" placeholder="山田　太郎" required>
-        </div>
-        <div class="entry__form-row">
-          <label class="entry__form-label" for="entry-kana">ふりがな</label>
-          <input class="entry__form-input" type="text" id="entry-kana" name="your-kana" placeholder="やまだ　たろう">
-        </div>
-        <div class="entry__form-row">
-          <label class="entry__form-label" for="entry-email">メールアドレス <span class="entry__form-required">※</span></label>
-          <input class="entry__form-input" type="email" id="entry-email" name="your-email" placeholder="info@abc.com" required>
-        </div>
-        <div class="entry__form-row">
-          <label class="entry__form-label" for="entry-tel">電話番号</label>
-          <input class="entry__form-input" type="tel" id="entry-tel" name="your-tel" placeholder="000-0000-0000">
-        </div>
-        <div class="entry__form-row">
-          <label class="entry__form-label" for="entry-job">希望職種</label>
-          <div class="entry__form-select">
-            <select class="entry__form-input" id="entry-job" name="your-job">
-              <option value="">選択してください</option>
-              <option value="driver">ドライバー</option>
-              <option value="manager">管理スタッフ</option>
-              <option value="office">事務スタッフ</option>
-            </select>
-          </div>
-        </div>
-        <div class="entry__form-row">
-          <label class="entry__form-label" for="entry-message">メッセージ <span class="entry__form-required">※</span></label>
-          <textarea class="entry__form-input entry__form-textarea" id="entry-message" name="your-message" rows="8" placeholder="志望動機や質問などがあればご記入ください" required></textarea>
-        </div>
-        <button type="submit" class="entry__form-submit">
-          <span>エントリーする</span>
-          <span class="fv__cta-icon" aria-hidden="true">
-            <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/cta-arrow-blue.svg" alt="" width="30" height="30">
-          </span>
-        </button>
-      </form>
+      <?php
+      $entry_forms = get_posts([
+        'post_type'      => 'wpcf7_contact_form',
+        'title'          => '採用エントリー',
+        'posts_per_page' => 1,
+        'post_status'    => 'publish',
+        'no_found_rows'  => true,
+      ]);
+      if (!empty($entry_forms)) :
+        echo do_shortcode('[contact-form-7 id="' . (int) $entry_forms[0]->ID . '" title="採用エントリー" html_class="entry__form"]');
+      else :
+      ?>
+      <p class="entry__form-note">エントリーフォームは現在準備中です。お手数ですが公式LINEまたはお電話よりお問い合わせください。</p>
+      <?php endif; ?>
     </div>
   </section>
 
@@ -1538,14 +1563,14 @@
       <div class="footer__company">
         <p class="footer__company-name">大富運輸株式会社</p>
         <p class="footer__company-addr">埼玉県入間市大字寺竹1166番地1</p>
-        <p class="footer__company-tel">04-2936-2882</p>
-        <a href="#" class="footer__icon">
+        <a href="tel:0429362882" class="footer__company-tel">04-2936-2882</a>
+        <a href="#" class="footer__icon" aria-label="Instagram">
             <span class="footer__icon-sns" aria-hidden="true">
               <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/icon-insta.svg" alt="" width="30" height="30">
             </span>
           </a>
       </div>
-      <a class="footer__social" href=""" aria-label="トップへ戻る">
+      <a class="footer__social" href="#top" aria-label="トップへ戻る">
         <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/footer-social.svg" alt="" width="48" height="48">
       </a>
     </div>
@@ -1553,7 +1578,7 @@
       <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/footer-logo.svg" alt="otomi">
     </a>
     <div class="footer__ctas">
-      <a href="https://otomiunyu.com/" class="footer__cta footer__cta--white">
+      <a href="#recruitment" class="footer__cta footer__cta--white">
         <span>採用情報を見る</span>
         <span class="footer__cta-arrow" aria-hidden="true">
           <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/arrow-circle.svg" alt="" width="30" height="30">

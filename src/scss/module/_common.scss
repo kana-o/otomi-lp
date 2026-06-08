@@ -1,5 +1,9 @@
 @use "global" as *;
 
+html {
+  scroll-behavior: smooth;
+}
+
 
 /* 共通パーツ */
 .inner {

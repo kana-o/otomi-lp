@@ -148,13 +148,6 @@ select::-ms-expand {
   display: none;
 }
 
-/* =========================================================
-SP: 390px幅を原寸として全体を幅に比例スケール（root font-size 方式）
-- rem() は root(16px)基準なので、html の font-size を変えると全 rem() が一律スケールする
-- 390px幅で 16px（＝デザイン原寸）、それ未満は幅に比例して縮小
-- 430px で頭打ち（それ以上は font-size 固定 ＝ rem ベースの寸法はそれ以上拡大しない）
-========================================================= */
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -172,6 +165,10 @@ SP: 390px幅を原寸として全体を幅に比例スケール（root font-size
   text-decoration: none;
   cursor: pointer;
   transition: opacity 0.3s;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* 共通パーツ */
@@ -367,7 +364,11 @@ img {
 }
 
 .footer__company-tel {
+  display: block;
   margin-top: 0.25rem;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
+  text-decoration: none;
 }
 
 .footer__icon {
@@ -513,7 +514,7 @@ FV
 .fv__title {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 6.25rem;
-  font-size: clamp(70px, 6.9444444444vw, 1000px);
+  font-size: clamp(70px, 6.9444444444vw, 140px);
   font-weight: 700;
   line-height: 1.1;
   color: #FFFFFF;
@@ -1990,39 +1991,23 @@ Recruitment / 募集要項
   align-items: start;
 }
 
-.recruitment__cards--count-1 .recruitment__card {
+.recruitment__card:nth-child(3n+1):nth-last-child(1) {
   grid-column: 3/span 2;
 }
 
-.recruitment__cards--count-2 .recruitment__card:nth-child(1) {
+.recruitment__card:nth-child(3n+1):nth-last-child(2) {
   grid-column: 2/span 2;
 }
 
-.recruitment__cards--count-2 .recruitment__card:nth-child(2) {
+.recruitment__card:nth-child(3n+2):nth-last-child(1) {
   grid-column: 4/span 2;
 }
 
-.recruitment__cards--count-4 .recruitment__card:nth-child(1) {
+.recruitment__cards:has(> .recruitment__card:nth-child(4):last-child) > .recruitment__card:nth-child(odd) {
   grid-column: 2/span 2;
 }
 
-.recruitment__cards--count-4 .recruitment__card:nth-child(2) {
-  grid-column: 4/span 2;
-}
-
-.recruitment__cards--count-4 .recruitment__card:nth-child(3) {
-  grid-column: 2/span 2;
-}
-
-.recruitment__cards--count-4 .recruitment__card:nth-child(4) {
-  grid-column: 4/span 2;
-}
-
-.recruitment__cards--count-5 .recruitment__card:nth-child(4) {
-  grid-column: 2/span 2;
-}
-
-.recruitment__cards--count-5 .recruitment__card:nth-child(5) {
+.recruitment__cards:has(> .recruitment__card:nth-child(4):last-child) > .recruitment__card:nth-child(even) {
   grid-column: 4/span 2;
 }
 
@@ -2542,6 +2527,51 @@ Entry エントリー
 }
 
 /* =========================================================
+Contact Form 7 互換（.entry__form 内のCF7ラッパー調整）
+========================================================= */
+
+.entry__form-note {
+  text-align: center;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #1B1B1B;
+}
+
+/* CF7フォーム内ではPHPでテーマURLを出力できないため、送信ボタンの矢印は
+   CSS背景（CSSファイルからの相対パス）で表示する。環境のパスに依存しない。 */
+
+.entry__submit-arrow {
+  display: inline-block;
+  width: 1.875rem;
+  height: 1.875rem;
+  background: url("../img/lp/cta-arrow-blue.svg") no-repeat center/contain;
+}
+
+.entry__form .wpcf7-form-control-wrap {
+  display: block;
+  width: 100%;
+}
+
+.entry__form .wpcf7-not-valid-tip {
+  margin-top: 0.375rem;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: #911111;
+}
+
+.entry__form .wpcf7-response-output {
+  margin-block: 0.5rem 0;
+  padding: 0.75rem 1rem;
+  border: 0.0625rem solid #BABABA;
+  border-radius: 0.3125rem;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* =========================================================
 Placeholder
 ========================================================= */
 
@@ -3035,6 +3065,8 @@ Placeholder
   }
 
   .philosophy {
+    display: flex;
+    justify-content: center;
     padding-block: 4.1875rem 1.875rem;
   }
 
@@ -3802,6 +3834,12 @@ Placeholder
     z-index: 100;
     transform: translateY(110%);
     transition: transform 0.3s ease;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .fv__cta-btn {
+    gap: 0.5rem;
   }
 }
 /*# sourceMappingURL=style.css.map */

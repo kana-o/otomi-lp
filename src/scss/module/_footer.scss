@@ -110,7 +110,11 @@
 }
 
 .footer__company-tel {
+  display: block;
   margin-top: rem(4);
+  color: #fff !important;
+  -webkit-text-fill-color: #fff; // Safariの電話番号自動リンク色を抑止
+  text-decoration: none;
 }
 
 .footer__icon {
