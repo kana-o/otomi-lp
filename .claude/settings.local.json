@@ -93,7 +93,13 @@
       "Bash(python -c \"from PIL import Image; im=Image.open\\('.page-info/designs/sp.jpg'\\); im.crop\\(\\(0,0,390,1000\\)\\).save\\('.page-info/designs/_fv_crop.png'\\); print\\('ok', im.size\\)\")",
       "Bash(py -c \"from PIL import Image; im=Image.open\\('.page-info/designs/sp.jpg'\\); im.crop\\(\\(0,0,390,1000\\)\\).save\\('.page-info/designs/_fv_crop.png'\\); print\\('ok', im.size\\)\")",
       "Bash(powershell -NoProfile -Command 'Add-Type -AssemblyName System.Drawing; $src=[System.Drawing.Image]::FromFile\\(\\(Resolve-Path '\\\\''.page-info/designs/sp.jpg'\\\\''\\)\\); $crop=New-Object System.Drawing.Bitmap\\(390,1000\\); $g=[System.Drawing.Graphics]::FromImage\\($crop\\); $g.DrawImage\\($src, \\(New-Object System.Drawing.Rectangle\\(0,0,390,1000\\)\\), \\(New-Object System.Drawing.Rectangle\\(0,0,390,1000\\)\\), [System.Drawing.GraphicsUnit]::Pixel\\); $crop.Save\\(\\(Join-Path \\(Get-Location\\) '\\\\''.page-info/designs/_fv_crop.png'\\\\''\\), [System.Drawing.Imaging.ImageFormat]::Png\\); $g.Dispose\\(\\); $crop.Dispose\\(\\); $src.Dispose\\(\\); Write-Output '\\\\''ok'\\\\''')",
-      "Bash(powershell -NoProfile -Command 'Add-Type -AssemblyName System.Drawing; foreach\\($f in '\\\\''fv_sp.jpg'\\\\'','\\\\''fv_pc.png'\\\\''\\){ $i=[System.Drawing.Image]::FromFile\\(\\(Resolve-Path \"assets/img/lp/$f\"\\)\\); Write-Output \"$f : $\\($i.Width\\)x$\\($i.Height\\)  ratio=$\\([math]::Round\\($i.Width/$i.Height,3\\)\\)\"; $i.Dispose\\(\\) }')"
+      "Bash(powershell -NoProfile -Command 'Add-Type -AssemblyName System.Drawing; foreach\\($f in '\\\\''fv_sp.jpg'\\\\'','\\\\''fv_pc.png'\\\\''\\){ $i=[System.Drawing.Image]::FromFile\\(\\(Resolve-Path \"assets/img/lp/$f\"\\)\\); Write-Output \"$f : $\\($i.Width\\)x$\\($i.Height\\)  ratio=$\\([math]::Round\\($i.Width/$i.Height,3\\)\\)\"; $i.Dispose\\(\\) }')",
+      "Bash(wp post *)",
+      "Read(//c/Users/ikana/Local Sites/260528-test-otomi/**)",
+      "Bash(find . -maxdepth 3 -iname \"my.cnf\")",
+      "Bash(ls -la app/conf)",
+      "Bash(ls -la app/conf/mysql)",
+      "Bash(netstat -ano)"
     ]
   }
 }
