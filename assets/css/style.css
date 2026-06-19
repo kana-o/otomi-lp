@@ -222,6 +222,10 @@ img {
   display: none;
 }
 
+.sp-show02 {
+  display: none;
+}
+
 .header {
   position: absolute;
   top: 0;
@@ -479,7 +483,6 @@ FV
 .fv__bg-photo {
   position: absolute;
   inset: 0;
-  padding-right: 0.5rem;
 }
 
 .fv__bg-photo img {
@@ -514,11 +517,13 @@ FV
 .fv__title {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 6.25rem;
-  font-size: clamp(70px, 6.9444444444vw, 140px);
+  font-size: clamp(61.6px, 6.1111111111vw, 130px);
   font-weight: 700;
   line-height: 1.1;
+  letter-spacing: -4.4px;
   color: #FFFFFF;
   text-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
 }
 
 .fv__lead {
@@ -533,7 +538,7 @@ FV
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
-  margin-top: 1.5625rem;
+  margin-top: 0.5rem;
 }
 
 .fv__cta-btn {
@@ -2792,6 +2797,12 @@ Placeholder
   }
 }
 
+@media screen and (min-width: 1820px) {
+  .fv__inner {
+    padding-bottom: 10.625rem;
+  }
+}
+
 @media screen and (max-width: 1280px) {
   .five__bg {
     inset: 0;
@@ -3016,19 +3027,12 @@ Placeholder
 
   .fv__title {
     font-size: 2.5rem;
-    white-space: nowrap;
+    letter-spacing: normal;
   }
 
   .fv__lead {
     font-size: 1rem;
     margin-top: 0.5rem;
-  }
-
-  .fv__cta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    margin-top: 1.25rem;
   }
 
   .fv__cta-btn {
@@ -3829,6 +3833,19 @@ Placeholder
     z-index: 100;
     transform: translateY(110%);
     transition: transform 0.3s ease;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .sp-show02 {
+    display: block;
+  }
+
+  .fv__cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 1rem;
   }
 }
 

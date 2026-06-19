@@ -237,19 +237,16 @@
     new Swiper(el, {
       loop: true,
       centeredSlides: true,
-      slidesPerView: 'auto',
-      spaceBetween: 10,
       slidesPerView: 1.35,
-      centeredSlides: true,
-      speed: 2000,
+      spaceBetween: 10,
+      speed: 1200,
       autoplay: {
-        delay: 0,
+        delay: 1700,
         disableOnInteraction: false,
       },
       breakpoints: {
-        769: { 
-          speed: 3000,
-          spaceBetween: 32 
+        769: {
+          spaceBetween: 32
         },
       },
       navigation: {

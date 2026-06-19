@@ -23,7 +23,6 @@ FV
 .fv__bg-photo {
   position: absolute;
   inset: 0;
-  padding-right: rem(8);
 
   @include mq("sp"){
     padding: rem(8);
@@ -56,6 +55,10 @@ FV
   padding-block: rem(39) rem(120);
   display: grid;
 
+  @media screen and (min-width: 1820px) {
+    padding-bottom: rem(170);
+  }
+
   @include mq("sp") {
     min-height: rem(610);
     padding: rem(19) rem(15) rem(40) rem(20);
@@ -69,15 +72,17 @@ FV
 .fv__title {
   font-family: $base-font;
   font-size: rem(100);
-  font-size: clamp( calc(100px * 0.7), calc(100 / 1440 * 100vw), 140px);
+  font-size: clamp( calc(88px * 0.7), calc(88/ 1440 * 100vw), 130px);
   font-weight: $bold;
   line-height: 1.1;
+  letter-spacing: -4.4px;
   color: $white;
   text-shadow: 0 0 rem(16) rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
 
   @include mq("sp") {
     font-size: rem(40);
-    white-space: nowrap;
+    letter-spacing: normal;
   }
 }
 
@@ -98,13 +103,13 @@ FV
   display: flex;
   gap: rem(24);
   flex-wrap: wrap;
-  margin-top: rem(25);
+  margin-top: rem(8);
 
-  @include mq("sp") {
+  @media screen and (max-width: 610px) {
     flex-direction: column;
     align-items: flex-start;
     gap: rem(8);
-    margin-top: rem(20);
+    margin-top: rem(16);
   }
 }
 

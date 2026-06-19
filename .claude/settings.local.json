@@ -99,7 +99,8 @@
       "Bash(find . -maxdepth 3 -iname \"my.cnf\")",
       "Bash(ls -la app/conf)",
       "Bash(ls -la app/conf/mysql)",
-      "Bash(netstat -ano)"
+      "Bash(netstat -ano)",
+      "Bash(git rev-list *)"
     ]
   }
 }

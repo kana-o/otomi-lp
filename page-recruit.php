@@ -45,8 +45,8 @@
 
     <div class="inner fv__inner">
       <div class="fv__copy">
-        <h1 class="fv__title">ただ運ぶだけじゃ、<br>終わらない。</h1>
-        <p class="fv__lead">相手の"本当に求めていること"まで考える仕事</p>
+        <h1 class="fv__title">力を合わせて、<br class="sp-show02">社会を支える</h1>
+        <!-- <p class="fv__lead">相手の"本当に求めていること"まで考える仕事</p> -->
         <div class="fv__cta">
           <a href="#recruitment" class="fv__cta-btn fv__cta-btn--white">
             <span>採用情報を見る</span>
@@ -1564,7 +1564,7 @@
         <p class="footer__company-name">大富運輸株式会社</p>
         <p class="footer__company-addr">埼玉県入間市大字寺竹1166番地1</p>
         <a href="tel:0429362882" class="footer__company-tel">04-2936-2882</a>
-        <a href="#" class="footer__icon" aria-label="Instagram">
+        <a href="https://www.instagram.com/otomiunyu/" class="footer__icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
             <span class="footer__icon-sns" aria-hidden="true">
               <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/icon-insta.svg" alt="" width="30" height="30">
             </span>
