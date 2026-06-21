@@ -121,11 +121,11 @@
   };
 
   /* ============================================================
-   * スクロール出現（スライドイン）
-   * .js-slidein が画面内に入ったら is-inview を付与（出現はCSS側で制御）
+   * スクロール出現（スライドイン / フェードアップ）
+   * .js-slidein・.js-fadeup が画面内に入ったら is-inview を付与（出現はCSS側で制御）
    * ============================================================ */
   const initSlidein = () => {
-    const targets = document.querySelectorAll('.js-slidein');
+    const targets = document.querySelectorAll('.js-slidein, .js-fadeup');
     if (!targets.length) return;
     if (!('IntersectionObserver' in window)) {
       targets.forEach((t) => t.classList.add('is-inview'));

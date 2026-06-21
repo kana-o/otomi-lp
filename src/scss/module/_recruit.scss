@@ -399,6 +399,31 @@ Philosophy / 私たちが思い描く未来
   }
 }
 
+/* スクロール出現（汎用フェードアップ）— 各セクションに .js-fadeup を付与して使う */
+.js-fadeup {
+  opacity: 0;
+  transform: translateY(rem(24));
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.js-fadeup.is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* sticky を内包するセクション（satisfaction等）は transform を使わず opacity のみ */
+.js-fadeup--lock {
+  transform: none;
+}
+.js-fadeup--lock.is-inview {
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js-fadeup {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 .philosophy__item {
   opacity: 0;
   transform: translateY(100%);
