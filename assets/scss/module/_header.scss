@@ -66,8 +66,9 @@
   line-height: 1.2;
 
   @include mq("sp") {
-    min-width: rem(108);
+    min-width: rem(124);
     font-size: rem(13);
+    padding-block: rem(8);
   }
 }
 
