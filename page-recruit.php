@@ -69,7 +69,7 @@
   <div class="ribbon__bg01"></div>
 
   <!-- 安全に、真面目に、でも楽しく。そんな仲間を募集しています。 -->
-    <section class="safety inner">
+    <section class="safety inner js-fadeup">
       <h2 class="safety__title">安全に、真面目に、でも楽しく。<br>そんな仲間を募集しています。</h2>
       <p class="safety__text">
         社会を支える仕事だからこそ、安全に、真面目に。<br>そして、一緒に働くなら楽しく<br>そんな仲間を募集しています。</p>
@@ -141,7 +141,7 @@
   </section>
 
   <!-- Behavioral guidelines / 行動指針5箇条 -->
-  <section class="section five">
+  <section class="section five js-fadeup">
     <div class="five__container inner">
       <div class="five__bg" aria-hidden="true">
         <picture>
@@ -194,7 +194,7 @@
   </section>
 
   <!-- Message / 社長メッセージ -->
-  <section class="section message">
+  <section class="section message js-fadeup">
     <div class="message__container inner">
       <div class="message__head">
         <p class="section-title--en">Message</p>
@@ -215,7 +215,7 @@
   </section>
 
   <!-- Voice / 働く人の声 -->
-  <section class="section voice">
+  <section class="section voice js-fadeup">
     <div class="inner">
       <div class="voice__container">
         <div class="voice__bg" aria-hidden="true">
@@ -332,7 +332,7 @@
   </section>
 
   <!-- Culture / 私たちが大切にする3つの文化 -->
-  <section class="section culture">
+  <section class="section culture js-fadeup">
     <div class="culture__container inner">
       <div class="section-head-center culture__head">
         <p class="section-title--en">Culture</p>
@@ -382,7 +382,7 @@
   </section>
 
   <!-- Day / 社員の一日 -->
-  <section class="section daily">
+  <section class="section daily js-fadeup">
     <div class="daily__container inner">
       <div class="daily__head">
         <p class="section-title--en">Day</p>
@@ -655,7 +655,7 @@
   <div class="ribbon__bg02"></div>
 
   <!-- Evaluation  / 評価制度 -->
-  <section class="section career">
+  <section class="section career js-fadeup">
     <div class="inner">
       <div class="section-head-center career__head">
         <p class="section-title--en">Evaluation</p>
@@ -715,7 +715,7 @@
   <div class="ribbon__bg02 --sp"></div>
 
     <!-- Numbers / 数字で見る大富運輸 -->
-  <section class="section stats">
+  <section class="section stats js-fadeup">
     <div class="inner">
     <div class="stats__container">
       <div class="section-head-center stats__head">
@@ -777,7 +777,7 @@
   </section>
 
   <!-- Environment / 働く環境・働き方 -->
-  <section class="section environment">
+  <section class="section environment js-fadeup">
     <div class="environment__container inner">
       <div class="environment__head">
         <p class="section-title--en">Environment</p>
@@ -862,7 +862,7 @@
     <div class="ribbon__bg03"></div>
 
     <!-- Environment / 福利厚生 -->
-  <section class="section benefits">
+  <section class="section benefits js-fadeup">
     <div class="inner">
       <div class="section-head-center benefits__head">
         <p class="section-title--en">Benefits</p>
@@ -1059,7 +1059,7 @@
   </section>
 
   <!-- Training / 研修制度・社内制度 -->
-  <section class="section system">
+  <section class="section system js-fadeup">
     <div class="system__bg" aria-hidden="true">
       <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-bg.svg" alt="">
     </div>
@@ -1219,7 +1219,7 @@
   </section>
 
   <!-- Satisfaction / 仕事のやりがい -->
-  <section class="section satisfaction">
+  <section class="section satisfaction js-fadeup js-fadeup--lock">
     <div class="inner">
       <div class="section-head-center satisfaction__head">
         <p class="section-title--en">Satisfaction</p>
@@ -1290,7 +1290,7 @@
   <div class="ribbon__bg04"></div>
 
   <!-- Recruitment / 募集要項 -->
-  <section class="section recruitment" id="recruitment">
+  <section class="section recruitment js-fadeup" id="recruitment">
     <div class="inner">
       <div class="section-head-center recruitment__head">
         <p class="section-title--en">Recruitment</p>
@@ -1386,7 +1386,7 @@
   <div class="ribbon__bg06"></div>
 
   <!-- FAQ / よくある質問 -->
-  <section class="section faq">
+  <section class="section faq js-fadeup">
     <div class="faq__container inner">
       <div class="faq__head">
         <p class="section-title--en">FAQ</p>
@@ -1493,7 +1493,7 @@
   <div class="ribbon__bg05"></div>
 
   <!-- Entry / コトに、向き合える“人”へ -->
-  <section class="section entry" id="entry">
+  <section class="section entry js-fadeup" id="entry">
     <div class="entry__head">
         <h2 class="entry__title"><span class="entry__title-jp">コトに、向き合える</span><span class="entry__title-en">"人"</span><span class="entry__title-jp">へ。</span></h2>
         <p class="entry__eyebrow-wrap">

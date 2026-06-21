@@ -745,6 +745,29 @@ Philosophy / 私たちが思い描く未来
   padding-inline: 0.875rem;
 }
 
+/* スクロール出現（汎用フェードアップ）— 各セクションに .js-fadeup を付与して使う */
+
+.js-fadeup {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.js-fadeup.is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* sticky を内包するセクション（satisfaction等）は transform を使わず opacity のみ */
+
+.js-fadeup--lock {
+  transform: none;
+}
+
+.js-fadeup--lock.is-inview {
+  transform: none;
+}
+
 .philosophy__item {
   opacity: 0;
   transform: translateY(100%);
@@ -3852,6 +3875,14 @@ Placeholder
 @media screen and (max-width: 375px) {
   .fv__cta-btn {
     gap: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-fadeup {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 /*# sourceMappingURL=style.css.map */
