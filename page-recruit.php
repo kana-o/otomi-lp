@@ -1195,7 +1195,7 @@
       <p class="section-badge system__badge">継続的な学び</p>
       <ul class="system__cards">
         <li class="system__card">
-          <figure class="system__card-img"><picture><source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-1.webp"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-1.jpg" alt="モニターを囲んで行う社内勉強会" width="169" height="104" loading="lazy"></picture></figure>
+          <figure class="system__card-img"><picture><source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-1.webp"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-photo-1.jpg" alt="研修で資料にペンで書き込む参加者" width="169" height="104" loading="lazy"></picture></figure>
           <h4 class="system__card-title">社内勉強会</h4>
           <p class="system__card-text">月1回、テーマ別の勉強会を開催</p>
         </li>
