@@ -9,6 +9,10 @@
     const panels = document.querySelectorAll('.daily__panel');
     if (!tabs.length || !panels.length) return;
 
+    // SPでは運行ボタンがタイムラインの下にあるため、切替時に一日の流れの先頭へ戻す
+    const spMq = window.matchMedia('(max-width: 768px)');
+    const scrollTarget = document.querySelector('.daily__head');
+
     tabs.forEach((tab) => {
       tab.addEventListener('click', () => {
         const target = tab.dataset.tab;
@@ -28,6 +32,10 @@
             panel.setAttribute('hidden', '');
           }
         });
+
+        if (spMq.matches && scrollTarget) {
+          scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       });
     });
   };

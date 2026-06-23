@@ -1,5 +1,14 @@
 @use "global" as *;
 
+/* 追従ヘッダー分のスクロール余白（アンカー/scrollIntoViewがヘッダー下に隠れないように） */
+html {
+  scroll-padding-top: rem(125);
+
+  @include mq("sp") {
+    scroll-padding-top: rem(110);
+  }
+}
+
 
 /* =========================================================
 FV
@@ -1114,6 +1123,8 @@ Day / 社員の一日
 
   @include mq("sp") {
     gap: rem(18);
+    order: 1; // SPのみ：運行ボタンを一日の流れ（タイムライン）の下へ
+    margin-top: rem(16);
   }
 }
 

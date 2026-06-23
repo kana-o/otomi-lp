@@ -1,19 +1,30 @@
 @use "global" as *;
 
 .header {
-  position: absolute;
-  top: 0;
-  inset-inline: 0;
-  z-index: 2;
+  position: fixed;
+  top: rem(16);
+  inset-inline: rem(35);
+  z-index: 100;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  padding-block: rem(41);
-  padding-inline: rem(80) rem(55);
+  min-height: rem(93);
+  padding-block: rem(8);
+  padding-inline: rem(40) rem(24);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: rem(100);
 
   @include mq("sp") {
+    top: 0;
+    inset-inline: 0;
+    align-items: flex-start;
+    min-height: 0;
     padding-block: rem(16);
     padding-inline: rem(20);
+    background: transparent;
+    border-radius: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 }
 
@@ -74,6 +85,8 @@
     display: flex;
     justify-content: center;
     gap: rem(5);
+    // box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    // border: 1px solid #008CD6;
   }
 }
 
