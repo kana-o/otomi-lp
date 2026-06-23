@@ -86,7 +86,7 @@
   <!-- Philosophy / 私たちが思い描く未来 -->
   <section class="philosophy inner">
     <div class="philosophy__container js-slidein">
-      <div class="philosophy__head">
+      <div class="philosophy__head js-fadeup">
         <p class="section-title--en">Philosophy</p>
         <h2 class="section-title">私たちが<br>思い描く未来</h2>
       </div>
@@ -1059,11 +1059,11 @@
   </section>
 
   <!-- Training / 研修制度・社内制度 -->
-  <section class="section system js-fadeup">
+  <section class="section system">
     <div class="system__bg" aria-hidden="true">
       <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/system-bg.svg" alt="">
     </div>
-    <div class="inner">
+    <div class="inner js-fadeup">
       <div class="system__head">
         <p class="section-title--en">Training</p>
         <h2 class="section-title">研修制度・社内制度</h2>

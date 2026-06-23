@@ -47,7 +47,8 @@
   @include mq("sp") {
     flex-direction: column;
     align-items: flex-end;
-    gap: rem(17);
+    gap: rem(12);
+    margin-top: rem(3);
   }
 }
 
@@ -68,14 +69,18 @@
   @include mq("sp") {
     min-width: rem(124);
     font-size: rem(13);
-    padding-block: rem(8);
+    padding-block: rem(9);
+    padding-right: rem(5);
+    display: flex;
+    justify-content: center;
+    gap: rem(5);
   }
 }
 
 .header__nav-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  // display: inline-flex;
+  // align-items: center;
+  // justify-content: center;
   width: rem(16);
   height: rem(16);
 }
