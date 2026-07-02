@@ -230,7 +230,7 @@
       </div>
       <div class="voice__slider">
         <div class="swiper js-voice-swiper">
-          <!-- 無限ループにするため 各スライド×2に複製 -->
+          <!-- 実データは3件。slidesPerView:1.35 + centeredSlides のloopではクローンが不足するため、実データ3件を複製して6枚にしている（表示は A B C A B C… の連続ループ） -->
           <ul class="voice__list swiper-wrapper">
           <li class="voice__item swiper-slide">
             <figure class="voice__item-photo">
@@ -238,12 +238,12 @@
                 <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
                 <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
               </picture>
-              <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+              <p class="voice__item-photo-text">憧れだったかっこいいトラックを運転できることに、やりがいを感じています。</p>
             </figure>
-            <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            <p class="voice__item-lead">子どもの頃から大きなトラックに憧れていたので、今こうして仕事として運転できていることを誇りに思っています。トラックの運転席は目線が高く、上から見える景色が本当に気持ちいいんです。配送先によって行く場所もさまざまなので、毎日違う景色に出会えるのもこの仕事の魅力だと思います。休憩時間には配送先の近くで美味しいご飯屋さんを探すこともひそかな楽しみです。安全に荷物を届ける責任は大きいですが、その分無事に仕事を終えた時の達成感も大きく、やりがいを感じています。</p>
             <div class="voice__item-texts">
               <p class="voice__item-text">山田 太郎</p>
-              <p class="voice__item-text">ドライバー｜入社3年目</p>
+              <p class="voice__item-text">ドライバー職｜入社〇年目</p>
             </div>
           </li>
           <li class="voice__item swiper-slide">
@@ -252,12 +252,15 @@
                 <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
                 <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
               </picture>
-              <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+              <p class="voice__item-photo-text">会社を支える仕事だからこそ、数字がぴったり合った時の達成感は格別です。</p>
             </figure>
-            <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            <p class="voice__item-lead">経理や給与計算、入退社の手続き、保険関係など、社員が安心して働ける環境を支える仕事を担当しています。制度改正への対応やシステム導入など、日々新しい知識が求められる場面も多く、調べながら進めることも少なくありません。
+それでも数字がぴったり合った時には、大きなやりがいを感じます。社内は気さくで話しやすい人が多く、様々なことにチャレンジできる環境だと思います。
+これからも知識を深めながら、一人で抱え込まず周りと協力し、社員みんなが働きやすい環境づくりに貢献していきたいと思っています。
+</p>
             <div class="voice__item-texts">
               <p class="voice__item-text">山田 太郎</p>
-              <p class="voice__item-text">ドライバー｜入社3年目</p>
+              <p class="voice__item-text">事務職｜入社17年目</p>
             </div>
           </li>
           <li class="voice__item swiper-slide">
@@ -266,12 +269,33 @@
                 <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
                 <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
               </picture>
-              <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+              <p class="voice__item-photo-text">毎日できることが増えていくことが、この仕事の楽しさです。</p>
             </figure>
-            <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            <p class="voice__item-lead">以前からトラックに関わる仕事がしたいと思っていたことと、社長の親切な人柄に惹かれて入社を決めました。
+現在は倉庫業務を主に担当しています。倉庫内の在庫管理やフォークリフトでの積み込み作業、入出庫管理など、さまざまな挑戦をさせていただいています。
+最初は分からないことも多く苦労しましたが、少しずつ仕事の流れを覚え、作業も以前より早くできるようになりました。
+毎日できることが増えていくことに、自分自身の成長を感じています。
+職場には優しい人が多く、これからもっとコミュニケーションを取りながら、貿易の知識や仕事の幅も広げていきたいと思っています。
+</p>
             <div class="voice__item-texts">
               <p class="voice__item-text">山田 太郎</p>
-              <p class="voice__item-text">ドライバー｜入社3年目</p>
+              <p class="voice__item-text">倉庫管理担当｜入社3ヵ月</p>
+            </div>
+          </li>
+
+          <!-- ↓ ここから下はループ成立用の複製（上の3件と同一）。実データを増減したら同じ内容をここにも反映する -->
+          <li class="voice__item swiper-slide">
+            <figure class="voice__item-photo">
+              <picture>
+                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
+              </picture>
+              <p class="voice__item-photo-text">憧れだったかっこいいトラックを運転できることに、やりがいを感じています。</p>
+            </figure>
+            <p class="voice__item-lead">子どもの頃から大きなトラックに憧れていたので、今こうして仕事として運転できていることを誇りに思っています。トラックの運転席は目線が高く、上から見える景色が本当に気持ちいいんです。配送先によって行く場所もさまざまなので、毎日違う景色に出会えるのもこの仕事の魅力だと思います。休憩時間には配送先の近くで美味しいご飯屋さんを探すこともひそかな楽しみです。安全に荷物を届ける責任は大きいですが、その分無事に仕事を終えた時の達成感も大きく、やりがいを感じています。</p>
+            <div class="voice__item-texts">
+              <p class="voice__item-text">山田 太郎</p>
+              <p class="voice__item-text">ドライバー職｜入社〇年目</p>
             </div>
           </li>
           <li class="voice__item swiper-slide">
@@ -280,12 +304,15 @@
                 <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
                 <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
               </picture>
-              <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+              <p class="voice__item-photo-text">会社を支える仕事だからこそ、数字がぴったり合った時の達成感は格別です。</p>
             </figure>
-            <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            <p class="voice__item-lead">経理や給与計算、入退社の手続き、保険関係など、社員が安心して働ける環境を支える仕事を担当しています。制度改正への対応やシステム導入など、日々新しい知識が求められる場面も多く、調べながら進めることも少なくありません。
+それでも数字がぴったり合った時には、大きなやりがいを感じます。社内は気さくで話しやすい人が多く、様々なことにチャレンジできる環境だと思います。
+これからも知識を深めながら、一人で抱え込まず周りと協力し、社員みんなが働きやすい環境づくりに貢献していきたいと思っています。
+</p>
             <div class="voice__item-texts">
               <p class="voice__item-text">山田 太郎</p>
-              <p class="voice__item-text">ドライバー｜入社3年目</p>
+              <p class="voice__item-text">事務職｜入社17年目</p>
             </div>
           </li>
           <li class="voice__item swiper-slide">
@@ -294,26 +321,17 @@
                 <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
                 <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
               </picture>
-              <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+              <p class="voice__item-photo-text">毎日できることが増えていくことが、この仕事の楽しさです。</p>
             </figure>
-            <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            <p class="voice__item-lead">以前からトラックに関わる仕事がしたいと思っていたことと、社長の親切な人柄に惹かれて入社を決めました。
+現在は倉庫業務を主に担当しています。倉庫内の在庫管理やフォークリフトでの積み込み作業、入出庫管理など、さまざまな挑戦をさせていただいています。
+最初は分からないことも多く苦労しましたが、少しずつ仕事の流れを覚え、作業も以前より早くできるようになりました。
+毎日できることが増えていくことに、自分自身の成長を感じています。
+職場には優しい人が多く、これからもっとコミュニケーションを取りながら、貿易の知識や仕事の幅も広げていきたいと思っています。
+</p>
             <div class="voice__item-texts">
               <p class="voice__item-text">山田 太郎</p>
-              <p class="voice__item-text">ドライバー｜入社3年目</p>
-            </div>
-          </li>
-          <li class="voice__item swiper-slide">
-            <figure class="voice__item-photo">
-              <picture>
-                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
-                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
-              </picture>
-              <p class="voice__item-photo-text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-            </figure>
-            <p class="voice__item-lead">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-            <div class="voice__item-texts">
-              <p class="voice__item-text">山田 太郎</p>
-              <p class="voice__item-text">ドライバー｜入社3年目</p>
+              <p class="voice__item-text">倉庫管理担当｜入社3ヵ月</p>
             </div>
           </li>
         </ul>
