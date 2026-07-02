@@ -2980,6 +2980,7 @@ Placeholder
     display: flex;
     justify-content: center;
     gap: 0.3125rem;
+    border: 1px solid #008CD6;
   }
 
   .footer {
