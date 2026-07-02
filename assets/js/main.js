@@ -254,6 +254,7 @@
       },
       breakpoints: {
         769: {
+          speed: 2000,
           spaceBetween: 32
         },
       },

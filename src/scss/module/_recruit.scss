@@ -814,6 +814,7 @@ Voice / 働く人の声
     border-radius: 0;
     display: flex;
     flex-direction: column;
+    flex: 1; // カード高さ揃え：キャプション領域で余白を吸収
   }
 }
 
@@ -853,6 +854,7 @@ Voice / 働く人の声
     padding-top: rem(3);
     padding-inline: rem(5);
     font-size: rem(16);
+    flex: 1; // 短いキャプションでも白box下端を揃える
   }
 }
 
