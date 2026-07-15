@@ -249,8 +249,8 @@
           <li class="voice__item swiper-slide">
             <figure class="voice__item-photo">
               <picture>
-                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
-                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
+                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice02.webp">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice02.jpg" alt="オフィスでノートパソコンに向かう女性事務スタッフ" width="227" height="184" loading="lazy">
               </picture>
               <p class="voice__item-photo-text">会社を支える仕事だからこそ、数字がぴったり合った時の達成感は格別です。</p>
             </figure>
@@ -266,8 +266,8 @@
           <li class="voice__item swiper-slide">
             <figure class="voice__item-photo">
               <picture>
-                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
-                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
+                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice03.webp">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice03.jpg" alt="倉庫でタブレットを手に立つ男性倉庫管理スタッフ" width="227" height="184" loading="lazy">
               </picture>
               <p class="voice__item-photo-text">毎日できることが増えていくことが、この仕事の楽しさです。</p>
             </figure>
@@ -301,8 +301,8 @@
           <li class="voice__item swiper-slide">
             <figure class="voice__item-photo">
               <picture>
-                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
-                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
+                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice02.webp">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice02.jpg" alt="オフィスでノートパソコンに向かう女性事務スタッフ" width="227" height="184" loading="lazy">
               </picture>
               <p class="voice__item-photo-text">会社を支える仕事だからこそ、数字がぴったり合った時の達成感は格別です。</p>
             </figure>
@@ -318,8 +318,8 @@
           <li class="voice__item swiper-slide">
             <figure class="voice__item-photo">
               <picture>
-                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.webp">
-                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice-photo.jpg" alt="トラックの前に立つ男性ドライバー" width="227" height="184" loading="lazy">
+                <source type="image/webp" srcset="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice03.webp">
+                <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/img/lp/voice03.jpg" alt="倉庫でタブレットを手に立つ男性倉庫管理スタッフ" width="227" height="184" loading="lazy">
               </picture>
               <p class="voice__item-photo-text">毎日できることが増えていくことが、この仕事の楽しさです。</p>
             </figure>
