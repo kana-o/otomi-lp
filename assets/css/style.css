@@ -2022,7 +2022,6 @@ Recruitment / 募集要項
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 2.5625rem;
-  align-items: start;
 }
 
 .recruitment__card:nth-child(3n+1):nth-last-child(1) {
@@ -2603,6 +2602,13 @@ Contact Form 7 互換（.entry__form 内のCF7ラッパー調整）
   font-family: "Noto Sans JP", sans-serif;
   font-size: 0.875rem;
   line-height: 1.6;
+}
+
+/* 送信成功後はCF7がformに .sent を付与する。二重送信防止のためボタンを非表示
+   （入力エラー時は .invalid のためボタンは残る＝再送信可能） */
+
+.entry__form.sent .entry__form-submit {
+  display: none;
 }
 
 /* =========================================================
